@@ -7,14 +7,18 @@
 
 [node name="CardBack" parent="." instance=ExtResource( 1 )]
 
-margin/left = 5.0
-margin/top = 390.0
-margin/right = 313.0
-margin/bottom = 798.0
+margin/left = 4.0
+margin/top = 591.0
+margin/right = 312.0
+margin/bottom = 999.0
 
 [node name="GameManager" type="Node" parent="."]
 
 script/script = ExtResource( 2 )
+
+[node name="Player1" type="Node" parent="."]
+
+[node name="Player2" type="Node" parent="."]
 
 
 [editable path="CardBack"]
