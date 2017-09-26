@@ -7,13 +7,16 @@ var power = 0
 var toughness = 1
 var keywords = []
 
-func SetParameters(nameRef, costRef, powerRef, toughnessRef, keywordsRef, imageRef):
-	name = nameRef
-	image = imageRef
-	cost = costRef
-	power = powerRef
-	toughness = toughnessRef
-	keywords = keywordsRef
+const WIDTH = 308
+const HEIGHT = 408
+
+func SetParameters(cardRef):
+	name = cardRef.name
+	image = cardRef.image
+	cost = cardRef.cost
+	power = cardRef.power
+	toughness = cardRef.toughness
+	keywords = cardRef.keywords
 
 func SetDisplay():
 	self.get_node("Container/Image").set_texture(image)

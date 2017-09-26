@@ -16,7 +16,12 @@ func Shuffle():
 		cards[k] = value
 
 func Draw():
-	return cards.pop_front()
+	if cards.size() > 0:
+		var card = cards[0]
+		cards.pop_front()
+		return card
+	
+	return null
 	
 func Return(card):
 	cards.push_back(card)

@@ -2,10 +2,11 @@ extends Node
 
 var deck
 var playerControlled
+var hand = []
 var lanes = []
-var cardNode = load("res://Card.tscn")
+var cardNode = load("res://scenes/Card.tscn")
 
-func _init(deckRef, playerControlledRef):
+func Begin(deckRef, playerControlledRef):
 	deck = deckRef
 	playerControlled = playerControlledRef
 
@@ -13,8 +14,21 @@ func Summon(cardRef, laneRef):
 	if lanes[laneRef] != null:
 		return false
 	
-	var card = cardNode.instance()
-	card.SetParameters(cardRef.name, cardRef.cost, cardRef.power, cardRef.toughness, cardRef.keywords, cardRef.image)
-	card.SetDisplay()
-	card.set_position(Vector2(laneRef * 310), 400)
-	self.add_child(card)
+	cardRef.set_position(Vector2(laneRef * 310), 500)
+	return true
+	#self.add_child(card)
+
+func Draw():
+	var card = deck.Draw()
+	if card == null:
+		return false
+	
+	var node = cardNode.instance()
+	node.SetParameters(card)
+	node.SetDisplay()
+	hand.append(node)
+	self.add_child(node)
+	node.set_scale(Vector2(0.5, 0.5))
+	node.set_pos(Vector2(hand.size() * node.WIDTH / 2, 800 - node.HEIGHT / 2))
+	
+	return true
