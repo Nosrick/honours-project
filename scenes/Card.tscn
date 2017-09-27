@@ -19,14 +19,18 @@ draw_bg = true
 
 [node name="Card" type="Panel"]
 
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 408.0
+margin/left = 1024.0
+margin/top = 800.0
+margin/right = 716.0
+margin/bottom = 392.0
 custom_styles/panel = SubResource( 1 )
 script/script = ExtResource( 1 )
 
@@ -121,5 +125,20 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="MouseDetection" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 308.0
+margin/bottom = 408.0
+
+[connection signal="mouse_enter" from="MouseDetection" to="." method="OnMouseEnter"]
+
+[connection signal="mouse_exit" from="MouseDetection" to="." method="OnMouseExit"]
 
 

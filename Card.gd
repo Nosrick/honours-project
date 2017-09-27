@@ -1,4 +1,4 @@
- extends Node
+extends Node
 
 var name = "Debug Cat"
 var image
@@ -32,3 +32,16 @@ func SetDisplay():
 
 func _ready():
 	pass
+
+func OnMouseEnter():
+	self.get_parent().move_child(self, self.get_parent().get_children().size())
+	self.set_scale(Vector2(1.0, 1.0))
+	var position = self.get_pos()
+	var size = self.get_size()
+	self.set_pos(Vector2(position.x, position.y - (size.y / 2)))
+
+func OnMouseExit():
+	var position = self.get_pos()
+	var size = self.get_size()
+	self.set_pos(Vector2(position.x, position.y + (size.y / 2)))
+	self.set_scale(Vector2(0.5, 0.5))
