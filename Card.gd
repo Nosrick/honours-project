@@ -10,6 +10,9 @@ var keywords = []
 const WIDTH = 308
 const HEIGHT = 408
 
+var dragging
+var player
+
 func SetParameters(cardRef):
 	name = cardRef.name
 	image = cardRef.image
@@ -31,7 +34,17 @@ func SetDisplay():
 	self.get_node("Container/Keywords").set_text(displayWords)
 
 func _ready():
-	pass
+	set_process_input(true)
+	set_process(true)
+	player = self.get_tree().get_root().get_node("Root/Player1")
+
+func _input(event):
+	if event.is_action_pressed("mouse_left") and player.draggingCard == null:
+		dragging = true
+		player.draggingCard = self
+	elif event.is_action_released("mouse_left") and player.draggingCard != null:
+		dragging = false
+		player.draggingCard = null
 
 func OnMouseEnter():
 	self.get_parent().move_child(self, self.get_parent().get_children().size())
