@@ -20,7 +20,7 @@ func _input(event):
 			return
 		
 		var mousePos = event.pos
-		if mousePos.x > self.get_global_pos().x and mousePos.x < self.get_global_pos().x + self.get_size().x and mousePos.y > self.get_global_pos().y and mousePos.y < self.get_global_pos().y + self.get_size().y:
+		if self.get_rect().has_point(mousePos):
 			player.draggingCard.set_global_pos(self.get_global_pos())
 			player.Summon(player.draggingCard, laneNumber)
 			player.draggingCard.dragging = false

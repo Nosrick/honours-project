@@ -42,19 +42,26 @@ func _input(event):
 	if event.is_action_pressed("mouse_left") and player.draggingCard == null:
 		dragging = true
 		player.draggingCard = self
+		ScaleDown()
 	elif event.is_action_released("mouse_left") and player.draggingCard != null:
 		dragging = false
 		player.draggingCard = null
 
-func OnMouseEnter():
+func ScaleUp():
 	self.get_parent().move_child(self, self.get_parent().get_children().size())
 	self.set_scale(Vector2(1.0, 1.0))
 	var position = self.get_pos()
 	var size = self.get_size()
 	self.set_pos(Vector2(position.x, position.y - (size.y / 2)))
 
-func OnMouseExit():
+func ScaleDown():
 	var position = self.get_pos()
 	var size = self.get_size()
 	self.set_pos(Vector2(position.x, position.y + (size.y / 2)))
 	self.set_scale(Vector2(0.5, 0.5))
+	
+func OnMouseEnter():
+	ScaleUp()
+
+func OnMouseExit():
+	ScaleDown()
