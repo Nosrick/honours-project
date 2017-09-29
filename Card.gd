@@ -11,6 +11,8 @@ const WIDTH = 308
 const HEIGHT = 408
 
 var dragging
+var zoomed
+
 var player
 
 func SetParameters(cardRef):
@@ -39,13 +41,19 @@ func _ready():
 	player = self.get_tree().get_root().get_node("Root/Player1")
 
 func _input(event):
-	if event.is_action_pressed("mouse_left") and player.draggingCard == null:
-		dragging = true
-		player.draggingCard = self
-		ScaleDown()
-	elif event.is_action_released("mouse_left") and player.draggingCard != null:
-		dragging = false
-		player.draggingCard = null
+	if event.type == InputEvent.MOUSE_BUTTON and self.get_rect().has_point(event.pos):
+		if event.is_action_pressed("mouse_left") and player.draggingCard == null:
+			dragging = true
+			player.draggingCard = self
+		elif event.is_action_released("mouse_left") and player.draggingCard != null:
+			dragging = false
+			player.draggingCard = null
+		elif event.is_action_released("mouse_right"):
+			zoomed = !zoomed
+			if zoomed:
+				ScaleUp()
+			else:
+				ScaleDown()
 
 func ScaleUp():
 	self.get_parent().move_child(self, self.get_parent().get_children().size())
@@ -61,7 +69,7 @@ func ScaleDown():
 	self.set_scale(Vector2(0.5, 0.5))
 	
 func OnMouseEnter():
-	ScaleUp()
+	pass
 
 func OnMouseExit():
-	ScaleDown()
+	pass

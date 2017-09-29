@@ -35,6 +35,7 @@ func Summon(cardRef, laneRef):
 	lanes[laneRef] = cardRef
 	hand.erase(cardRef)
 	RedrawHand()
+	print("Summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	return true
 	#self.add_child(card)
 

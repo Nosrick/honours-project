@@ -23,8 +23,9 @@ func _input(event):
 		if self.get_rect().has_point(mousePos):
 			player.draggingCard.set_global_pos(self.get_global_pos())
 			player.Summon(player.draggingCard, laneNumber)
-			player.draggingCard.dragging = false
 			myCard = player.draggingCard
+			player.draggingCard.dragging = false
+			player.draggingCard = null
 
 func _process(delta):
 	if myCard == null:
