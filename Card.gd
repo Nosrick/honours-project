@@ -41,7 +41,11 @@ func _ready():
 	player = self.get_tree().get_root().get_node("Root/Player1")
 
 func _input(event):
-	if event.type == InputEvent.MOUSE_BUTTON and self.get_rect().has_point(event.pos):
+	var rect = self.get_rect()
+	var scale = self.get_scale()
+	var scaledRect = Rect2(rect.pos.x, rect.pos.y, scale.x * rect.size.x, scale.y * rect.size.y)
+	
+	if event.type == InputEvent.MOUSE_BUTTON and scaledRect.has_point(event.pos):
 		if event.is_action_pressed("mouse_left") and player.draggingCard == null:
 			dragging = true
 			player.draggingCard = self
@@ -69,7 +73,7 @@ func ScaleDown():
 	self.set_scale(Vector2(0.5, 0.5))
 	
 func OnMouseEnter():
-	pass
+	self.get_parent().move_child(self, self.get_parent().get_children().size() - 1)
 
 func OnMouseExit():
 	pass

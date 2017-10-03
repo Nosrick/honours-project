@@ -1,0 +1,8 @@
+{
+	"name": "Code Mouse",
+	"cost": "1",
+	"power": "1",
+	"toughness": "1",
+	"keywords": [ ],
+	"image": "CodeMouse.png"
+}

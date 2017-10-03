@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://CardBack.png" type="Texture" id=1]
+[ext_resource path="res://CardBack.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -40,5 +41,17 @@ margin/right = 304.0
 margin/bottom = 404.0
 texture = ExtResource( 1 )
 stretch_mode = 0
+
+[node name="MouseDetection" type="Container" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 308.0
+margin/bottom = 408.0
+script/script = ExtResource( 2 )
 
 

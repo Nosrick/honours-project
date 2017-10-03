@@ -1,8 +1,8 @@
 {
 	"name": "Debug Cat",
-	"cost": "1",
-	"power": "1",
-	"toughness": "1",
-	"keywords": [ "Haste" ],
+	"cost": "2",
+	"power": "2",
+	"toughness": "3",
+	"keywords": [ ],
 	"image": "DebugCat.png"
 }
