@@ -26,6 +26,7 @@ func LoadCards():
 		var fileString = file.get_as_text()
 		dict.parse_json(fileString)
 		dict.image = load("res://cards/images/" + dict.image)
+		dict.cost = int(dict.cost)
 		cards.append(dict)
 	
 	return cards

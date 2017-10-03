@@ -14,17 +14,16 @@ func Begin(deckRef, lifeRef, manaRef):
 	life = lifeRef
 	mana = manaRef
 	deck = deckRef
-	for i in range(4):
-		lanes.append(null)
 	
 	#Initialise the lanes to AILanes
 	for i in range(1, 5):
 		var node = self.get_node("LaneContainer/Lane" + str(i))
 		node.set_script(load("AILane.gd"))
 		node.player = self
+		lanes.append(node)
 
 func Summon(cardRef, laneRef):
-	if lanes[laneRef] != null:
+	if lanes[laneRef].myCard != null:
 		return false
 	
 	if mana < int(cardRef.cost):
@@ -33,13 +32,15 @@ func Summon(cardRef, laneRef):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	lanes[laneRef] = cardRef
+	lanes[laneRef].myCard = cardRef
 	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= int(cardRef.cost)
 	
 	var lane = self.get_node("LaneContainer/Lane" + str(laneRef + 1))
 	lane.myCard = cardRef
+	cardRef.ScaleDown()
+	self.add_child(cardRef)
 	
 	return true
 
