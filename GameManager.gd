@@ -28,9 +28,10 @@ func _ready():
 	cards = cardLoader.LoadCards()
 	
 	var deckCards = []
-	for i in range(15):
+	for i in range(10):
 		deckCards.append(cards[0])
 		deckCards.append(cards[1])
+		deckCards.append(cards[2])
 	
 	var deck = load("Deck.gd").new(deckCards)
 	deck.Shuffle()
@@ -75,4 +76,14 @@ func EndTurn():
 	StartTurn()
 
 func _process(delta):
+	var phaseString = ""
+	
+	if phase == DRAW_PHASE:
+		phaseString = "DRAW"
+	elif phase == PLAY_PHASE:
+		phaseString = "PLAY"
+	elif phase == ATTACK_PHASE:
+		phaseString = "ATTACK"
+	
+	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
 	get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")

@@ -1,0 +1,9 @@
+{
+	"name": "Bless",
+	"cost": "2",
+	"power": "1",
+	"toughness": "1",
+	"keywords": [ "Enhancement" ],
+	"image": "Bless.png",
+	"type": "2"
+}

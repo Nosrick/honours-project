@@ -4,5 +4,6 @@
 	"power": "1",
 	"toughness": "1",
 	"keywords": [ ],
-	"image": "CodeMouse.png"
+	"image": "CodeMouse.png",
+	"type": "1"
 }

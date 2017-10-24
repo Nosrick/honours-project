@@ -6,6 +6,10 @@ var cost = 1
 var power = 0
 var toughness = 1
 var keywords = []
+var type
+
+const CREATURE = 1
+const SPELL = 2
 
 const WIDTH = 308
 const HEIGHT = 408
@@ -15,6 +19,8 @@ var zoomed
 
 var player
 
+var enhancements = []
+
 func SetParameters(cardRef):
 	name = cardRef.name
 	image = cardRef.image
@@ -22,6 +28,7 @@ func SetParameters(cardRef):
 	power = cardRef.power
 	toughness = cardRef.toughness
 	keywords = cardRef.keywords
+	type = cardRef.type
 
 func SetDisplay():
 	self.get_node("Container/Image").set_texture(image)
@@ -58,6 +65,20 @@ func _input(event):
 				ScaleUp()
 			else:
 				ScaleDown()
+	
+	if event.type == InputEvent.MOUSE_MOTION and scaledRect.has_point(event.pos):
+		if player.draggingCard == null:
+			return
+		
+		if player.Enhance(player.draggingCard, self):
+			enhancements.push_back(player.draggingCard)
+			player.draggingCard.dragging = false
+			player.draggingCard = null
+
+func _process(delta):
+	var position = self.get_pos()
+	for i in range(enhancements.size()):
+		enhancements[i].set_pos(Vector2(position.x, position.y + ((i + 1) * 30)))
 
 func ScaleUp():
 	self.get_parent().move_child(self, self.get_parent().get_children().size())

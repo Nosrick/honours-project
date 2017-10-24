@@ -42,10 +42,13 @@ func Begin(deckRef, lifeRef, manaRef):
 		lanes.append(node)
 
 func Summon(cardRef, laneRef):
+	if cardRef.type != cardRef.CREATURE:
+		return false
+	
 	if lanes[laneRef].myCard != null:
 		return false
 	
-	if mana < int(cardRef.cost):
+	if mana < cardRef.cost:
 		return false
 	
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
@@ -54,10 +57,38 @@ func Summon(cardRef, laneRef):
 	lanes[laneRef].myCard = cardRef
 	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
-	mana -= int(cardRef.cost)
+	mana -= cardRef.cost
 	RedrawHand()
 	return true
-	#self.add_child(card)
+
+func Enhance(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	var onField = false
+	
+	for lane in lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	receiver.enhancements.push_back(spellRef)
+	hand.erase(spellRef)
+	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	RedrawHand()
+	return true
 
 func RedrawHand():
 	for i in range(hand.size()):

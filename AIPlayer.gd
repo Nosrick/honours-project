@@ -23,10 +23,13 @@ func Begin(deckRef, lifeRef, manaRef):
 		lanes.append(node)
 
 func Summon(cardRef, laneRef):
+	if cardRef.type != cardRef.CREATURE:
+		return false
+	
 	if lanes[laneRef].myCard != null:
 		return false
 	
-	if mana < int(cardRef.cost):
+	if mana < cardRef.cost:
 		return false
 	
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):

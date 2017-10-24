@@ -4,5 +4,6 @@
 	"power": "2",
 	"toughness": "3",
 	"keywords": [ ],
-	"image": "DebugCat.png"
+	"image": "DebugCat.png",
+	"type": "1"
 }
