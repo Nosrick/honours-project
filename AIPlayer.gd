@@ -47,6 +47,35 @@ func Summon(cardRef, laneRef):
 	
 	return true
 
+func Enhance(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	var onField = false
+	
+	for lane in lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	receiver.enhancements.push_back(spellRef)
+	hand.erase(spellRef)
+	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	spellRef.ScaleDown()
+	self.add_child(spellRef)
+
 func Draw():
 	if manager.phase != manager.DRAW_PHASE:
 		return

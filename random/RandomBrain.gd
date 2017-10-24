@@ -24,12 +24,39 @@ func _process(delta):
 		attempts = 0
 	
 	var handChoice = tools.Roll(0, player.hand.size())
-	var laneChoice = tools.Roll(0, 4)
 	
 	attempts += 1
 	
 	if player.hand[handChoice].cost > player.mana:
 		return
 	
-	player.Summon(player.hand[handChoice], laneChoice)
+	var actionChoice = tools.Roll(0, 2)
+	
+	if actionChoice == 0:
+		var validLanes = []
+		for lane in player.lanes:
+			if lane.myCard == null:
+				validLanes.push_back(lane.laneNumber)
+		
+		if validLanes.size() == 0:
+			return
+		
+		var choice = tools.Roll(0, validLanes.size())
+		var laneChoice = validLanes[choice]
+		
+		player.Summon(player.hand[handChoice], laneChoice)
+	elif actionChoice == 1:
+		var validLanes = []
+		for lane in player.lanes:
+			if lane.myCard != null:
+				validLanes.push_back(lane.laneNumber)
+		
+		if validLanes.size() == 0:
+			return
+		
+		var choice = tools.Roll(0, validLanes.size())
+		var laneChoice = validLanes[choice]
+		
+		player.Enhance(player.hand[handChoice], player.lanes[laneChoice].myCard)
+	
 	manager.EndTurn()
