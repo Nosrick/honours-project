@@ -11,11 +11,13 @@ var manager
 
 var draggingCard
 
+var otherPlayer
+
 func _ready():
 	set_process_input(true)
 	
 func _input(event):
-	if event.is_action_pressed("ui_accept") and manager.IsMyTurn(self):
+	if event.is_action_released("ui_accept") and manager.IsMyTurn(self):
 		manager.EndTurn()
 	
 	if event.type != InputEvent.MOUSE_MOTION:
@@ -28,8 +30,9 @@ func _input(event):
 	position += event.relative_pos
 	draggingCard.set_global_pos(position)
 
-func Begin(deckRef, lifeRef, manaRef):
+func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	otherPlayer = otherPlayerRef
 	life = lifeRef
 	mana = manaRef
 	deck = deckRef
@@ -58,6 +61,7 @@ func Summon(cardRef, laneRef):
 	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= cardRef.cost
+	cardRef.inPlay = true
 	RedrawHand()
 	return true
 
@@ -85,7 +89,38 @@ func Enhance(spellRef, receiver):
 	
 	receiver.enhancements.push_back(spellRef)
 	hand.erase(spellRef)
+	spellRef.inPlay = true
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	RedrawHand()
+	return true
+
+func Hinder(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	var onField = false
+	
+	for lane in otherPlayer.lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	receiver.hinderances.push_back(spellRef)
+	hand.erase(spellRef)
+	spellRef.inPlay = true
+	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
 	RedrawHand()
 	return true

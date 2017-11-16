@@ -8,8 +8,11 @@ var lanes = []
 var cardNode = load("res://scenes/Card.tscn")
 var manager
 
-func Begin(deckRef, lifeRef, manaRef):
+var otherPlayer
+
+func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	manager = get_tree().get_root().get_node("Root/GameManager")
+	otherPlayer = otherPlayerRef
 	
 	life = lifeRef
 	mana = manaRef
@@ -75,6 +78,37 @@ func Enhance(spellRef, receiver):
 	mana -= spellRef.cost
 	spellRef.ScaleDown()
 	self.add_child(spellRef)
+	return true
+
+func Hinder(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	var onField = false
+	
+	for lane in otherPlayer.lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	receiver.hinderances.push_back(spellRef)
+	hand.erase(spellRef)
+	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	spellRef.ScaleDown()
+	self.add_child(spellRef)
+	return true
 
 func Draw():
 	if manager.phase != manager.DRAW_PHASE:

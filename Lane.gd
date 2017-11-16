@@ -12,7 +12,8 @@ func _ready():
 	set_process(true)
 
 func _input(event):
-	if event.type == InputEvent.MOUSE_MOTION:
+	if event.type == InputEvent.MOUSE_BUTTON:
+		
 		if player.draggingCard == null:
 			return
 		
@@ -34,3 +35,18 @@ func _process(delta):
 		return
 	
 	myCard.set_global_pos(self.get_global_pos())
+	#myCard.get_parent().move_child(myCard, myCard.get_parent().get_children().size())
+	var modifiers = []
+	
+	for enhancement in myCard.enhancements:
+		modifiers.append(enhancement)
+	
+	for hinderance in myCard.hinderances:
+		modifiers.append(hinderance)
+	
+	for i in range(modifiers.size()):
+		var position = myCard.get_pos()
+		modifiers[i].set_pos(Vector2(position.x, position.y + ((i + 1) * 30)))
+		modifiers[i].get_parent().move_child(modifiers[i], modifiers[i].get_parent().get_children().size() - (i + 1))
+	
+	myCard.raise()

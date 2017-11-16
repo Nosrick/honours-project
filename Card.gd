@@ -7,6 +7,7 @@ var power = 0
 var toughness = 1
 var keywords = []
 var type
+var script
 
 const CREATURE = 1
 const SPELL = 2
@@ -20,6 +21,9 @@ var zoomed
 var player
 
 var enhancements = []
+var hinderances = []
+
+var inPlay
 
 func SetParameters(cardRef):
 	name = cardRef.name
@@ -29,6 +33,12 @@ func SetParameters(cardRef):
 	toughness = cardRef.toughness
 	keywords = cardRef.keywords
 	type = cardRef.type
+	if cardRef.script != "none":
+		script = "res://cards/scripts/" + cardRef.script
+	
+	inPlay = false
+	#dragging = false
+	zoomed = false
 
 func SetDisplay():
 	self.get_node("Container/Image").set_texture(image)
@@ -53,35 +63,60 @@ func _input(event):
 	var scaledRect = Rect2(rect.pos.x, rect.pos.y, scale.x * rect.size.x, scale.y * rect.size.y)
 	
 	if event.type == InputEvent.MOUSE_BUTTON and scaledRect.has_point(event.pos):
-		if event.is_action_pressed("mouse_left") and player.draggingCard == null:
+		if event.is_action_pressed("mouse_left"):
+			if inPlay == true:
+				return
+			
 			dragging = true
 			player.draggingCard = self
+			
 		elif event.is_action_released("mouse_left") and player.draggingCard != null:
+			if inPlay == true:
+				return
+			
+			for lane in player.lanes:
+				if lane.myCard == null:
+					continue
+				
+				var laneRect = lane.myCard.get_rect()
+				var laneScale = lane.myCard.get_scale()
+				var scaledLane = Rect2(laneRect.pos.x, laneRect.pos.y, laneScale.x * laneRect.size.x, laneScale.y * laneRect.size.y)
+				
+				if not scaledLane.intersects(scaledRect):
+					continue
+				
+				if player.Enhance(self, lane.myCard):
+					break
+			
+			for lane in player.otherPlayer.lanes:
+				if lane.myCard == null:
+					continue
+				
+				var laneRect = lane.myCard.get_rect()
+				var laneScale = lane.myCard.get_scale()
+				var scaledLane = Rect2(laneRect.pos.x, laneRect.pos.y, laneScale.x * laneRect.size.x, laneScale.y * laneRect.size.y)
+				
+				if not scaledLane.intersects(scaledRect):
+					continue
+				
+				if player.Hinder(self, lane.myCard):
+					break
+			
 			dragging = false
 			player.draggingCard = null
+			
 		elif event.is_action_released("mouse_right"):
 			zoomed = !zoomed
 			if zoomed:
 				ScaleUp()
 			else:
 				ScaleDown()
-	
-	if event.type == InputEvent.MOUSE_MOTION and scaledRect.has_point(event.pos):
-		if player.draggingCard == null:
-			return
-		
-		if player.Enhance(player.draggingCard, self):
-			enhancements.push_back(player.draggingCard)
-			player.draggingCard.dragging = false
-			player.draggingCard = null
 
 func _process(delta):
-	var position = self.get_pos()
-	for i in range(enhancements.size()):
-		enhancements[i].set_pos(Vector2(position.x, position.y + ((i + 1) * 30)))
+	pass
 
 func ScaleUp():
-	self.get_parent().move_child(self, self.get_parent().get_children().size())
+	#self.get_parent().move_child(self, self.get_parent().get_children().size())
 	self.set_scale(Vector2(1.0, 1.0))
 	var position = self.get_pos()
 	var size = self.get_size()
@@ -94,7 +129,8 @@ func ScaleDown():
 	self.set_scale(Vector2(0.5, 0.5))
 	
 func OnMouseEnter():
-	self.get_parent().move_child(self, self.get_parent().get_children().size() - 1)
+	pass
+	#self.get_parent().move_child(self, self.get_parent().get_children().size() - 1)
 
 func OnMouseExit():
 	pass

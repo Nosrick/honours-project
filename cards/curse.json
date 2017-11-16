@@ -1,0 +1,10 @@
+{
+	"name": "Curse",
+	"cost": "2",
+	"power": "-1",
+	"toughness": "-1",
+	"keywords": [ "Hinderance" ],
+	"image": "Curse.png",
+	"type": "2",
+	"script": "none"
+}

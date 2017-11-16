@@ -27,24 +27,29 @@ func _ready():
 	var cardLoader = load("CardLoader.gd").new()
 	cards = cardLoader.LoadCards()
 	
-	var deckCards = []
-	for i in range(10):
-		deckCards.append(cards[0])
-		deckCards.append(cards[1])
-		deckCards.append(cards[2])
+	var deckCards1 = []
+	for i in range(4):
+		for card in cards:
+			deckCards1.append(card)
 	
-	var deck = load("Deck.gd").new(deckCards)
-	deck.Shuffle()
+	var deckCards2 = []
+	for i in range(4):
+		for card in cards:
+			deckCards2.append(card)
 	
 	player1 = get_tree().get_root().get_node("Root/Player1")
+	player2 = get_tree().get_root().get_node("Root/Player2")
+	
+	var deck1 = load("Deck.gd").new(deckCards1)
+	deck1.Shuffle()
 	player1.set_script(load("Player.gd"))
 	#Deck, life, mana
-	player1.Begin(deck, 20, 1)
+	player1.Begin(deck1, 20, 1, player2)
 	
-	player2 = get_tree().get_root().get_node("Root/Player2")
 	player2.set_script(load("AIPlayer.gd"))
-	deck.Shuffle()
-	player2.Begin(deck, 20, 1)
+	var deck2 = load("Deck.gd").new(deckCards2)
+	deck2.Shuffle()
+	player2.Begin(deck2, 20, 1, player1)
 	
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
 	AIBrain.set_script(load("res://random/RandomBrain.gd"))
