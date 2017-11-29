@@ -13,6 +13,9 @@ var draggingCard
 
 var otherPlayer
 
+var replacementsThisTurn
+var replacementsDone
+
 func _ready():
 	set_process_input(true)
 	set_process(true)
@@ -40,6 +43,9 @@ func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	life = lifeRef
 	mana = manaRef
 	deck = deckRef
+	
+	replacementsDone = 0
+	replacementsThisTurn = 1
 	
 	#Initialise the lanes to be player lanes
 	for i in range(1, 5):
@@ -157,7 +163,12 @@ func FreeDraw():
 	return true
 
 func Replace(card):
+	if replacementsDone == replacementsThisTurn:
+		return false
+	
+	replacementsDone += 1
+	
 	deck.Return(card)
-	hand.erase(card)
 	self.remove_child(card)
+	hand.erase(card)
 	return FreeDraw()

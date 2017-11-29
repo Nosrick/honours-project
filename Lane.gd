@@ -50,3 +50,7 @@ func _process(delta):
 		modifiers[i].get_parent().move_child(modifiers[i], modifiers[i].get_parent().get_children().size() - (i + 1))
 	
 	myCard.raise()
+	
+	if myCard.currentHP <= 0:
+		player.remove_child(myCard)
+		myCard = null

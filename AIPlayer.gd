@@ -10,6 +10,9 @@ var manager
 
 var otherPlayer
 
+var replacementsThisTurn
+var replacementsDone
+
 func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	manager = get_tree().get_root().get_node("Root/GameManager")
 	otherPlayer = otherPlayerRef
@@ -129,6 +132,16 @@ func FreeDraw():
 	hand.append(node)
 	
 	return true
+
+func Replace(card):
+	if replacementsDone == replacementsThisTurn:
+		return false
+	
+	replacementsDone += 1
+	
+	deck.Return(card)
+	hand.erase(card)
+	return FreeDraw()
 
 func _ready():
 	set_process(true)

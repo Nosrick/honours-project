@@ -15,3 +15,7 @@ func _process(delta):
 		return
 	
 	myCard.set_global_pos(self.get_global_pos())
+	
+	if myCard.currentHP <= 0:
+		player.remove_child(myCard)
+		myCard = null

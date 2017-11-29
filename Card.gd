@@ -25,6 +25,7 @@ var hinderances = []
 
 var inPlay
 var currentHP
+var exhausted
 
 func SetParameters(cardRef):
 	name = cardRef.name
@@ -41,6 +42,7 @@ func SetParameters(cardRef):
 	inPlay = false
 	#dragging = false
 	zoomed = false
+	exhausted = true
 
 func SetDisplay():
 	self.get_node("Container/Image").set_texture(image)

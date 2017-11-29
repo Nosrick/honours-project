@@ -70,6 +70,11 @@ func StartTurn():
 	phase = DRAW_PHASE
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn")
 	turnPlayer.mana = min(MAX_MANA, turn)
+	turnPlayer.replacementsDone = 0
+	
+	for lane in turnPlayer.lanes:
+		if lane.myCard != null:
+			lane.myCard.exhausted = false
 
 func EndTurn():
 	if turnPlayer == player1:
@@ -101,7 +106,10 @@ func RunAttacks():
 		var player2Card = player2.lanes[i].myCard
 		
 		if player1Card != null and player2Card != null:
-			player1Card.DoCombat(player2Card)
+			if turnPlayer == player1 and player1Card.exhausted == false:
+				player1Card.DoCombat(player2Card)
+			elif turnPlayer == player2 and player2Card.exhausted == false:
+				player2Card.DoCombat(player1Card)
 		
 		else:
 			if turnPlayer == player1 and player1Card != null:
