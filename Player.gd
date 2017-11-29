@@ -15,7 +15,11 @@ var otherPlayer
 
 func _ready():
 	set_process_input(true)
-	
+	set_process(true)
+
+func _process(delta):
+	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(life))
+
 func _input(event):
 	if event.is_action_released("ui_accept") and manager.IsMyTurn(self):
 		manager.EndTurn()
@@ -151,3 +155,9 @@ func FreeDraw():
 	node.set_pos(Vector2(hand.size() * node.WIDTH / 2 + (10 * hand.size()), 800 - node.HEIGHT / 2))
 	
 	return true
+
+func Replace(card):
+	deck.Return(card)
+	hand.erase(card)
+	self.remove_child(card)
+	return FreeDraw()

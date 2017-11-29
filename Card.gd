@@ -24,13 +24,15 @@ var enhancements = []
 var hinderances = []
 
 var inPlay
+var currentHP
 
 func SetParameters(cardRef):
 	name = cardRef.name
 	image = cardRef.image
-	cost = cardRef.cost
-	power = cardRef.power
-	toughness = cardRef.toughness
+	cost = int(cardRef.cost)
+	power = int(cardRef.power)
+	toughness = int(cardRef.toughness)
+	currentHP = toughness
 	keywords = cardRef.keywords
 	type = cardRef.type
 	if cardRef.script != "none":
@@ -57,12 +59,15 @@ func _ready():
 	set_process(true)
 	player = self.get_tree().get_root().get_node("Root/Player1")
 
-func _input(event):
+func _input(event):	
 	var rect = self.get_rect()
 	var scale = self.get_scale()
 	var scaledRect = Rect2(rect.pos.x, rect.pos.y, scale.x * rect.size.x, scale.y * rect.size.y)
 	
 	if event.type == InputEvent.MOUSE_BUTTON and scaledRect.has_point(event.pos):
+		if player.manager.phase != player.manager.PLAY_PHASE:
+			return
+		
 		if event.is_action_pressed("mouse_left"):
 			if inPlay == true:
 				return
@@ -134,3 +139,7 @@ func OnMouseEnter():
 
 func OnMouseExit():
 	pass
+
+func DoCombat(other):
+	self.currentHP -= other.power
+	other.currentHP -= self.power

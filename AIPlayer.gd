@@ -131,4 +131,7 @@ func FreeDraw():
 	return true
 
 func _ready():
-	pass
+	set_process(true)
+
+func _process(delta):
+	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(life))

@@ -78,6 +78,8 @@ func EndTurn():
 		turnPlayer = player1
 		turn += 1
 	
+	RunAttacks()
+	
 	StartTurn()
 
 func _process(delta):
@@ -92,3 +94,17 @@ func _process(delta):
 	
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
 	get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")
+
+func RunAttacks():
+	for i in range(player1.lanes.size()):
+		var player1Card = player1.lanes[i].myCard
+		var player2Card = player2.lanes[i].myCard
+		
+		if player1Card != null and player2Card != null:
+			player1Card.DoCombat(player2Card)
+		
+		else:
+			if turnPlayer == player1 and player1Card != null:
+				player2.life -= player1Card.power
+			elif turnPlayer == player2 and player2Card != null:
+				player1.life -= player2Card.power
