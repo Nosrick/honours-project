@@ -46,7 +46,7 @@ func SetParameters(cardRef):
 
 func SetDisplay():
 	self.get_node("Container/Image").set_texture(image)
-	self.get_node("Container/PowerToughness").set_text(str(power) + "/" + str(toughness))
+	self.get_node("Container/PowerToughness").set_text(str(power) + "/" + str(currentHP))
 	self.get_node("Container/Name").set_text(name)
 	self.get_node("Container/Cost").set_text(str(cost))
 	var displayWords = ""
@@ -122,6 +122,25 @@ func _input(event):
 func _process(delta):
 	pass
 
+func AddEnhancement(card):
+	enhancements.push_back(card)
+	ModifyMe(card)
+
+func AddHinderance(card):
+	hinderances.push_back(card)
+	ModifyMe(card)
+
+func ModifyMe(card):
+	power += card.power
+	toughness += card.toughness
+	currentHP += card.toughness
+	
+	#for keyword in card.keywords:
+	#	keywords.push_back(keyword)
+	
+	SetDisplay()
+	
+
 func ScaleUp():
 	#self.get_parent().move_child(self, self.get_parent().get_children().size())
 	self.set_scale(Vector2(1.0, 1.0))
@@ -145,3 +164,4 @@ func OnMouseExit():
 func DoCombat(other):
 	self.currentHP -= other.power
 	other.currentHP -= self.power
+	SetDisplay()

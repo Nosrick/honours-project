@@ -54,6 +54,7 @@ func _ready():
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
 	AIBrain.set_script(load("res://random/RandomBrain.gd"))
 	AIBrain.player = player2
+	AIBrain.otherPlayer = player1
 	
 	turnPlayer = player1
 	

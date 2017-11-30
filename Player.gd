@@ -97,7 +97,10 @@ func Enhance(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.enhancements.push_back(spellRef)
+	receiver.AddEnhancement(spellRef)
+	self.remove_child(spellRef)
+	receiver.add_child(spellRef)
+	spellRef.ScaleUp()
 	hand.erase(spellRef)
 	spellRef.inPlay = true
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
@@ -127,7 +130,10 @@ func Hinder(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.hinderances.push_back(spellRef)
+	receiver.AddHinderance(spellRef)
+	self.remove_child(spellRef)
+	receiver.add_child(spellRef)
+	spellRef.ScaleUp()
 	hand.erase(spellRef)
 	spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
