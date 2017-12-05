@@ -68,6 +68,8 @@ func IsMyTurn(player):
 	return turnPlayer == player
 
 func StartTurn():
+	player1.SetDisplay()
+	player2.SetDisplay()
 	phase = DRAW_PHASE
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn")
 	turnPlayer.mana = min(MAX_MANA, turn)
@@ -113,7 +115,7 @@ func RunAttacks():
 				player2Card.DoCombat(player1Card)
 		
 		else:
-			if turnPlayer == player1 and player1Card != null:
-				player2.life -= player1Card.power
-			elif turnPlayer == player2 and player2Card != null:
-				player1.life -= player2Card.power
+			if turnPlayer == player1 and player1Card != null and player1Card.exhausted == false:
+				player1Card.DoCombat(player2)
+			elif turnPlayer == player2 and player2Card != null and player2Card.exhausted == false:
+				player2Card.DoCombat(player1)

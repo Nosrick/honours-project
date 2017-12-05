@@ -28,6 +28,10 @@ func LoadCards():
 		dict.image = load("res://cards/images/" + dict.image)
 		dict.cost = int(dict.cost)
 		dict.type = int(dict.type)
+		if dict.script != "none":
+			dict.script = load("res://cards/scripts/" + dict.script + ".gd")
+		else:
+			dict.script = null
 		cards.append(dict)
 	
 	return cards

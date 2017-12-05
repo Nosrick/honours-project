@@ -1,6 +1,6 @@
 extends Node
 
-var life
+var currentHP
 var mana
 var deck
 var hand = []
@@ -13,11 +13,17 @@ var otherPlayer
 var replacementsThisTurn
 var replacementsDone
 
+#Used for combat calculations
+var power = 0
+
+func SetDisplay():
+	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
+
 func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	manager = get_tree().get_root().get_node("Root/GameManager")
 	otherPlayer = otherPlayerRef
 	
-	life = lifeRef
+	currentHP = lifeRef
 	mana = manaRef
 	deck = deckRef
 	
@@ -147,4 +153,4 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(life))
+	pass

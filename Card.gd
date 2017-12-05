@@ -7,7 +7,7 @@ var power = 0
 var toughness = 1
 var keywords = []
 var type
-var script
+var associatedScript
 
 const CREATURE = 1
 const SPELL = 2
@@ -36,8 +36,10 @@ func SetParameters(cardRef):
 	currentHP = toughness
 	keywords = cardRef.keywords
 	type = cardRef.type
-	if cardRef.script != "none":
-		script = "res://cards/scripts/" + cardRef.script
+	if cardRef.script != null:
+		associatedScript = cardRef.script
+	else:
+		associatedScript = null
 	
 	inPlay = false
 	#dragging = false
@@ -162,6 +164,10 @@ func OnMouseExit():
 	pass
 
 func DoCombat(other):
+	if keywords.has("Pacifist"):
+		return
+	
 	self.currentHP -= other.power
 	other.currentHP -= self.power
 	SetDisplay()
+	other.SetDisplay()

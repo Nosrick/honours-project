@@ -1,0 +1,10 @@
+{
+	"name": "Wand of Go Away",
+	"cost": "6",
+	"power": "0",
+	"toughness": "0",
+	"keywords": [ "Hinderance" ],
+	"image": "WandOfDestruction.png",
+	"type": "2",
+	"script": "destroy"
+}

@@ -1,6 +1,6 @@
 extends Node
 
-var life
+var currentHP
 var mana
 var deck
 var hand = []
@@ -16,15 +16,24 @@ var otherPlayer
 var replacementsThisTurn
 var replacementsDone
 
+#Used for combat calculations
+var power = 0
+
+func SetDisplay():
+	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
+
 func _ready():
 	set_process_input(true)
 	set_process(true)
 
 func _process(delta):
-	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(life))
+	pass
 
 func _input(event):
-	if event.is_action_released("ui_accept") and manager.IsMyTurn(self):
+	if event.is_action_released("ui_cancel"):
+		draggingCard = null
+	
+	if event.is_action_released("ui_accept") and manager.IsMyTurn(self) and manager.phase == manager.PLAY_PHASE:
 		manager.EndTurn()
 	
 	if event.type != InputEvent.MOUSE_MOTION:
@@ -40,7 +49,7 @@ func _input(event):
 func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	otherPlayer = otherPlayerRef
-	life = lifeRef
+	currentHP = lifeRef
 	mana = manaRef
 	deck = deckRef
 	
@@ -105,6 +114,8 @@ func Enhance(spellRef, receiver):
 	spellRef.inPlay = true
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
 	RedrawHand()
 	return true
 
@@ -138,6 +149,8 @@ func Hinder(spellRef, receiver):
 	spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
 	RedrawHand()
 	return true
 
@@ -168,6 +181,26 @@ func FreeDraw():
 	
 	return true
 
+func ReplaceDraw(cardToReplace):
+	var card = deck.Draw()
+	var attempts = 0
+	var MAX_ATTEMPTS = 4
+	while card.name == cardToReplace.name and attempts < MAX_ATTEMPTS:
+		deck.Return(card)
+		deck.Shuffle()
+		card = deck.Draw()
+		attempts += 1
+	
+	var node = cardNode.instance()
+	node.SetParameters(card)
+	node.SetDisplay()
+	hand.append(node)
+	self.add_child(node)
+	node.set_scale(Vector2(0.5, 0.5))
+	node.set_pos(Vector2(hand.size() * node.WIDTH / 2 + (10 * hand.size()), 800 - node.HEIGHT / 2))
+	
+	return true
+
 func Replace(card):
 	if replacementsDone == replacementsThisTurn:
 		return false
@@ -175,6 +208,6 @@ func Replace(card):
 	replacementsDone += 1
 	
 	deck.Return(card)
-	self.remove_child(card)
 	hand.erase(card)
-	return FreeDraw()
+	self.remove_child(card)
+	return ReplaceDraw(card)
