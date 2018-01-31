@@ -7,7 +7,7 @@ var manager
 var attempts = 0
 const MAX_ATTEMPTS = 20
 
-var tools = load("tools.gd").new()
+var tools = load("Tools.gd").new()
 
 func _ready():
 	manager = self.get_tree().get_root().get_node("Root/GameManager")

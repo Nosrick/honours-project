@@ -11,6 +11,7 @@ var associatedScript
 
 const CREATURE = 1
 const SPELL = 2
+const INSTANT = 3
 
 const WIDTH = 308
 const HEIGHT = 408
@@ -162,6 +163,10 @@ func OnMouseEnter():
 
 func OnMouseExit():
 	pass
+	
+func DamageMe(value):
+	self.currentHP -= value
+	SetDisplay()
 
 func DoCombat(other):
 	if keywords.has("Pacifist"):

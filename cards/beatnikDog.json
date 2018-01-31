@@ -2,8 +2,8 @@
 	"name": "Beatnik Dog",
 	"cost": "3",
 	"power": "3",
-	"toughness": "6",
-	"keywords": [ "Pacifist" ],
+	"toughness": "4",
+	"keywords": [ ],
 	"image": "BeatnikDog.png",
 	"type": "1",
 	"script": "none"

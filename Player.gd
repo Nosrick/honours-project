@@ -85,7 +85,7 @@ func Summon(cardRef, laneRef):
 	return true
 
 func Enhance(spellRef, receiver):
-	if spellRef.type != spellRef.SPELL:
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
 		return false
 	
 	if receiver.type != receiver.CREATURE:
@@ -106,10 +106,12 @@ func Enhance(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.AddEnhancement(spellRef)
 	self.remove_child(spellRef)
-	receiver.add_child(spellRef)
-	spellRef.ScaleUp()
+	if spellRef.type == spellRef.SPELL:
+		receiver.add_child(spellRef)
+		spellRef.ScaleUp()
+		receiver.AddEnhancement(spellRef)
+	
 	hand.erase(spellRef)
 	spellRef.inPlay = true
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
@@ -120,7 +122,7 @@ func Enhance(spellRef, receiver):
 	return true
 
 func Hinder(spellRef, receiver):
-	if spellRef.type != spellRef.SPELL:
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
 		return false
 	
 	if receiver.type != receiver.CREATURE:
@@ -141,10 +143,12 @@ func Hinder(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.AddHinderance(spellRef)
 	self.remove_child(spellRef)
-	receiver.add_child(spellRef)
-	spellRef.ScaleUp()
+	if spellRef.type == spellRef.SPELL:
+		receiver.add_child(spellRef)
+		spellRef.ScaleUp()
+		receiver.AddHinderance(spellRef)
+	
 	hand.erase(spellRef)
 	spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
@@ -183,6 +187,7 @@ func FreeDraw():
 
 func ReplaceDraw(cardToReplace):
 	var card = deck.Draw()
+	deck.Return(cardToReplace.get_script())
 	var attempts = 0
 	var MAX_ATTEMPTS = 4
 	while card.name == cardToReplace.name and attempts < MAX_ATTEMPTS:

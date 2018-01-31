@@ -60,7 +60,7 @@ func Summon(cardRef, laneRef):
 	return true
 
 func Enhance(spellRef, receiver):
-	if spellRef.type != spellRef.SPELL:
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
 		return false
 	
 	if receiver.type != receiver.CREATURE:
@@ -81,16 +81,20 @@ func Enhance(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.AddEnhancement(spellRef)
 	hand.erase(spellRef)
-	receiver.add_child(spellRef)
+	if spellRef.type == spellRef.SPELL:
+		receiver.add_child(spellRef)
+		receiver.AddEnhancement(spellRef)
+	
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
 	#spellRef.ScaleDown()
 	return true
 
 func Hinder(spellRef, receiver):
-	if spellRef.type != spellRef.SPELL:
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
 		return false
 	
 	if receiver.type != receiver.CREATURE:
@@ -111,11 +115,15 @@ func Hinder(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	receiver.AddHinderance(spellRef)
 	hand.erase(spellRef)
-	receiver.add_child(spellRef)
+	if spellRef.type != spellRef.SPELL:
+		receiver.add_child(spellRef)
+		receiver.AddHinderance(spellRef)
+	
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
 	#spellRef.ScaleDown()
 	return true
 

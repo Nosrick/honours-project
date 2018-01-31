@@ -13,7 +13,6 @@ func _ready():
 
 func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON:
-		
 		if player.draggingCard == null:
 			return
 		
