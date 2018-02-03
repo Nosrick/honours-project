@@ -71,4 +71,3 @@ func _process(delta):
 			var laneChoice = validLanes[choice]
 			
 			player.Hinder(card, otherPlayer.lanes[laneChoice].myCard)
-	manager.EndTurn()
