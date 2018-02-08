@@ -72,3 +72,39 @@ func GetBestMatch(input):
 				winner = node
 			
 	return winner
+
+func Serialise():
+	var brain = File.new()
+	brain.open("user://myBrain.json", File.WRITE)
+	
+	brain.store_line(width)
+	brain.store_line(height)
+	
+	for node in nodes:
+		var nodeData = node.save()
+		brain.store_line(nodeData.to_json())
+	
+	brain.close()
+	
+func Deserialise():
+	var brain = File.new()
+	brain.open("user://myBrain.json", File.READ)
+	
+	width = brain.get_line()
+	height = brain.get_line()
+	
+	var currentLine = {}
+	while(!brain.eof_reached()):
+		currentLine.parse_json(brain.get_line())
+		var newNode = node.new(currentLine.vector)
+		newNode.castingCardID = currentLine.castingCardID
+		newNode.castingCardType = currentLine.castingCardType
+		newNode.targetMana = currentLine.targetMana
+		newNode.weight = currentLine.weight
+		
+		nodes.append(newNode)
+	
+	brain.close()
+	
+	
+	
