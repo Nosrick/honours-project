@@ -70,3 +70,6 @@ func CalculateMana(card):
 func _ready():
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
+
+func EndGame():
+	pass

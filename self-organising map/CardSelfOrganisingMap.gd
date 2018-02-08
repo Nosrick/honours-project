@@ -66,11 +66,23 @@ func GetBestMatch(input):
 	
 	for node in nodes:
 		if input.castingCardID == node.castingCardID:
-			var distance = node.GetDistance(input.weight)
+			var distance = node.GetDistanceMana(input.targetMana)
 			if distance < lowestDistance:
 				lowestDistance = distance
 				winner = node
 			
+	return winner
+
+func GetBestQScore(input):
+	var highestQScore = 0
+	var winner = null
+	
+	for node in nodes:
+		if input.castingCardID == node.castingCardID:
+			if node.qScore > highestQScore:
+				highestQScore = node.qScore
+				winner = node
+	
 	return winner
 
 func Serialise():
@@ -88,8 +100,12 @@ func Serialise():
 	
 func Deserialise():
 	var brain = File.new()
+	if not brain.file_exists("user://myBrain.json"):
+		return
+	
 	brain.open("user://myBrain.json", File.READ)
 	
+	nodes = []
 	width = brain.get_line()
 	height = brain.get_line()
 	
@@ -101,10 +117,8 @@ func Deserialise():
 		newNode.castingCardType = currentLine.castingCardType
 		newNode.targetMana = currentLine.targetMana
 		newNode.weight = currentLine.weight
+		newNode.qWeight = currentLine.qWeight
 		
 		nodes.append(newNode)
 	
 	brain.close()
-	
-	
-	

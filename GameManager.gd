@@ -107,6 +107,12 @@ func _process(delta):
 	
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
 	get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")
+	
+	#End game state
+	if player1.currentHP <= 0:
+		pass
+	elif player2.currentHP <= 0:
+		AIBrain.EndGame()
 
 func RunAttacks():
 	for i in range(player1.lanes.size()):
