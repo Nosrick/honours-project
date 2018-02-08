@@ -52,8 +52,12 @@ func _ready():
 	player2.Begin(deck2, 20, 1, player1)
 	
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
-	#AIBrain.set_script(load("res://random/RandomBrain.gd"))
-	AIBrain.set_script(load("res://rules/RulesBrain.gd"))
+	
+	if GlobalVariables.brainType == 0:
+		AIBrain.set_script(load("res://random/RandomBrain.gd"))
+	elif GlobalVariables.brainType == 1:
+		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
+	
 	AIBrain.player = player2
 	AIBrain.otherPlayer = player1
 	

@@ -1,7 +1,7 @@
 extends Node
 
-var node = preload("NeuralNode.gd")
-var tools = preload("Tools.gd").new()
+var node = preload("NeuralNodeOLD.gd")
+var tools = preload("../Tools.gd").new()
 
 var nodes = []
 var lastWinner

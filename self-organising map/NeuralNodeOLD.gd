@@ -25,19 +25,8 @@ func GetDistance(inputList):
 
 func AdjustWeights(target, learningRate, influence):
 	for i in range(target.size()):
-		var weight = learningRate * influence * (target[i] - weights[i])
-		print("Calculated weight: " + str(weight) + " at " + str(vector))
-		weights[i] += weight
-		
-		if (weights[i] > 1.0):
-			weights[i] = 1.0
-		elif (weights[i] < 0.0):
-			weights[i] = 0.0
-		
-		#REVIEW LATER
 		#OJA-STYLE LEARNING
-		#FLAWED, BUT ALMOST THERE
-		#weights[i] += (target[i] * weights[i]) - ((weights[i] * weights[i]) * weights[i])
+		weights[i] += influence * (learningRate * ((target[i] * (weights[i] * target[i])) - ((weights[i] * target[i]) * (weights[i] * target[i]) * weights[i])))
 		print("Current weight: " + str(weights[i]) + " at " + str(vector))
 
 func _ready():
