@@ -62,7 +62,6 @@ func SetDisplay():
 func _ready():
 	set_process_input(true)
 	set_process(true)
-	player = self.get_tree().get_root().get_node("Root/Player1")
 
 func _input(event):	
 	var rect = self.get_rect()

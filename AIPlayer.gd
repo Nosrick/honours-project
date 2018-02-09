@@ -48,6 +48,7 @@ func Summon(cardRef, laneRef):
 		return false
 	
 	lanes[laneRef].myCard = cardRef
+	cardRef.player = self
 	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= int(cardRef.cost)
@@ -143,6 +144,7 @@ func FreeDraw():
 	var node = cardNode.instance()
 	node.SetParameters(card)
 	node.SetDisplay()
+	node.player = self
 	hand.append(node)
 	
 	return true

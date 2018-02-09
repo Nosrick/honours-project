@@ -13,13 +13,13 @@ var lastBoardState = Vector2()
 var lastActions = []
 
 var tools = load("res://Tools.gd").new()
-var cardNode = load("CardNeuralNode.gd")
+var cardNode = load("res://self-organising map/CardNeuralNode.gd")
 
 func _ready():
-	brain = load("CardSelfOrganisingMap.gd").new(widthRef, heightRef)
+	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(100, 100)
 	brain.Deserialise()
 	
-	manager = self.get_tree().get_root().get_node("/Root/GameManager")
+	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
 
 func _process(delta):
@@ -28,14 +28,18 @@ func _process(delta):
 	
 	if manager.phase == manager.DRAW_PHASE:
 		player.Draw()
-		
 		#Once per turn, tweak last turn's q-scores
-		CalculateBoardState()
-		
+		boardState = CalculateBoardState()
 		#Calculate difference between last turn's board state and now
 		var difference = CalculateManaDifference(lastBoardState, boardState)
 		for action in lastActions:
-			action.qScore += difference.x - difference.y
+			print("Assigning reward.")
+			action.qWeight += difference.x - difference.y
+			print(str(action.ToString()))
+		#Clear the action list
+		lastActions.clear()
+	
+	var actionsSinceLastTry = lastActions.size()
 	
 	#Find approximate Q-score for each card
 	var highestQScore = 0
@@ -45,9 +49,15 @@ func _process(delta):
 	for card in player.hand:
 		var node = cardNode.new(Vector2(0 , 0))
 		node.castingCardID = card.name
-		var qScoreNode = brain.GetHighestQScore(node)
-		if qScoreNode.qScore > highestQScore:
-			highestQScore = qScore
+		var qScoreNode = brain.GetBestQScore(node)
+		
+		if qScoreNode == null:
+			continue
+		
+		if qScoreNode.qWeight > highestQScore:
+			print("Found qNode!")
+			print(str(qScoreNode.ToString()))
+			highestQScore = qScoreNode.qWeight
 			highestCard = card
 			activeNode = qScoreNode
 	
@@ -62,12 +72,11 @@ func _process(delta):
 				if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
 					playedCreature = player.Summon(highestCard, i)
 				elif player.lanes[i].myCard == null:
-					playerCreature = player.Summon(highestCard, i)
+					playedCreature = player.Summon(highestCard, i)
 					
 				if playedCreature == true:
 					lastActions.push_back(activeNode)
 			
-		
 		#Or is it a spell/instant?
 		if highestCard.type == highestCard.SPELL or highestCard.type == highestCard.INSTANT:
 			#Is it an enhancement or a hinderance?
@@ -93,7 +102,7 @@ func _process(delta):
 							var difference = CalculateManaDifference(boardState, rightNow)
 							
 							#Activate rewards
-							activeNode.qScore += difference.x - difference.y
+							activeNode.qWeight += difference.x - difference.y
 							
 						lastActions.push_back(activeNode)
 				
@@ -119,11 +128,108 @@ func _process(delta):
 							var difference = CalculateManaDifference(boardState, rightNow)
 							
 							#Activate rewards
-							activeNode.qScore += difference.x - difference.y
+							activeNode.qWeight += difference.x - difference.y
 							
 						lastActions.push_back(activeNode)
 	
-	lastBoardState = boardState
+	#If our search found nothing, fall back on some basic rules
+	else:
+		var lanesEmpty = []
+		for i in range(player.lanes.size()):
+			if player.lanes[i].myCard == null:
+				lanesEmpty.push_back(i)
+				break
+		
+		#Try to fill the lanes
+		if not lanesEmpty.empty():
+			for lane in lanesEmpty:
+				for card in player.hand:
+					if card.type == card.CREATURE:
+						if player.Summon(card, lane):
+							var node = brain.RandomUnassignedNode()
+							node.castingCardID = card.name
+							node.castingCardType = card.type
+							node.targetMana = card.cost
+							lastActions.push_back(node)
+		
+		#Lanes are full, or no actions possible, so do some other actions
+		for card in player.hand:
+			if card.type == card.SPELL or card.type == card.INSTANT:
+				if card.keywords.has("Enhancement"):
+					var lowestMana = 999
+					var lowestLane = null
+					for lane in player.lanes:
+						if lane.myCard != null:
+							var mana = CalculateMana(lane.myCard)
+							if mana < lowestMana:
+								lowestMana = mana
+								lowestLane = lane
+					
+					if lowestLane != null: 
+						if player.Enhance(card, lowestLane.myCard):
+							#Create a semi-complete node for the best match algorithm
+							var targetMana = lowestLane.myCard.cost
+							var castingCardID = card.name
+							var castingCardType = card.type
+							
+							#There is no closest match, so get a random unassigned node
+							var node = brain.RandomUnassignedNode()
+							node.targetMana = targetMana
+							node.castingCardID = castingCardID
+							node.castingCardType = castingCardType
+							
+							#Calculate board state
+							var rightNow = CalculateBoardState()
+							
+							#Get the difference
+							var difference = CalculateManaDifference(boardState, rightNow)
+							
+							if card.type == card.INSTANT:
+								#Assign reward
+								node.qWeight += difference.x - difference.y
+							lastActions.push_back(node)
+						
+				elif card.keywords.has("Hinderance"):
+					var highestMana = 0
+					var highestLane = null
+					for lane in otherPlayer.lanes:
+						if lane.myCard != null:
+							var mana = CalculateMana(lane.myCard)
+							if mana > highestMana:
+								highestMana = mana
+								highestLane = lane
+					
+					if highestLane != null:
+						if player.Hinder(card, highestLane.myCard):
+							#Create a semi-complete node for the best match algorithm
+							var targetMana = highestLane.myCard.cost
+							var castingCardID = card.name
+							var castingCardType = card.type
+							
+							#There is no closest match, so get a random unassigned node
+							var node = brain.RandomUnassignedNode()
+							node.targetMana = targetMana
+							node.castingCardID = castingCardID
+							node.castingCardType = castingCardType
+							
+							#Calculate board state
+							var rightNow = CalculateBoardState()
+							
+							#Get the difference
+							var difference = CalculateManaDifference(boardState, rightNow)
+							
+							#Assign reward
+							if card.type == card.INSTANT:
+								node.qWeight += difference.x - difference.y
+							lastActions.push_back(node)
+	
+	var actionsThisTry = lastActions.size()
+	
+	#If we haven't been able to take any actions
+	if actionsSinceLastTry == actionsThisTry:
+		#That's the end of our turn
+		lastBoardState = boardState
+		manager.EndTurn()
 
 func IsWithinOne(number, target):
 	if number - 1.0 < target and number + 1.0 > target:
@@ -143,7 +249,7 @@ func CalculateBoardState():
 		if lane.myCard != null:
 			theirSide += CalculateMana(lane.myCard)
 	
-	boardState = Vector2(ourSide, theirSide)
+	return Vector2(ourSide, theirSide)
 
 func CalculateMana(card):
 	var manaValue = 0

@@ -21,6 +21,8 @@ var phase
 const MAX_MANA = 6
 var turn = 1
 
+var gameOver = false
+
 func _ready():
 	randomize()
 	set_process(true)
@@ -57,6 +59,8 @@ func _ready():
 		AIBrain.set_script(load("res://random/RandomBrain.gd"))
 	elif GlobalVariables.brainType == 1:
 		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
+	elif GlobalVariables.brainType == 2:
+		AIBrain.set_script(load("res://self-organising map/QLearnerBrain.gd"))
 	
 	AIBrain.player = player2
 	AIBrain.otherPlayer = player1
@@ -96,6 +100,16 @@ func EndTurn():
 	StartTurn()
 
 func _process(delta):
+	if gameOver == true:
+		if player1.currentHP <= 0 and player2.currentHP <= 0:
+			GlobalVariables.message = "YOU DREW!"
+		elif player1.currentHP <= 0:
+			GlobalVariables.message = "YOU LOSE!"
+		elif player2.currentHP <= 0:
+			GlobalVariables.message = "YOU WIN!"
+		
+		get_tree().change_scene("res://scenes/EndGame.tscn")
+	
 	var phaseString = ""
 	
 	if phase == DRAW_PHASE:
@@ -110,9 +124,11 @@ func _process(delta):
 	
 	#End game state
 	if player1.currentHP <= 0:
-		pass
+		AIBrain.EndGame()
+		gameOver = true
 	elif player2.currentHP <= 0:
 		AIBrain.EndGame()
+		gameOver = true
 
 func RunAttacks():
 	for i in range(player1.lanes.size()):

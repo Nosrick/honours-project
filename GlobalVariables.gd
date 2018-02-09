@@ -8,3 +8,5 @@ extends Node
 #4 is Genetic Algorithm (NYI)
 
 var brainType = 0
+
+var message = "YOU WIN!"

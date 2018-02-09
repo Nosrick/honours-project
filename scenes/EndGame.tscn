@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Fonts/DefaultFont.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://EndGameLabelManager.gd" type="Script" id=2]
+
+[node name="Root" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 263.0
+margin/top = 280.0
+margin/right = 776.0
+margin/bottom = 364.0
+custom_fonts/font = ExtResource( 1 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 2 )
+
+

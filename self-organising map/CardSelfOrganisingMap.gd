@@ -34,7 +34,7 @@ func Epoch(newNode):
 			var distanceSquared = (winner.vector.x - node.vector.x) * ( winner.vector.x - node.vector.x) + (winner.vector.y - node.vector.y) * (winner.vector.y - node.vector.y)
 			
 			if distanceSquared < hoodSquared:
-				var influence = exp((-distanceSquared) / (2 * widthSquared))
+				var influence = exp((-distanceSquared) / (2 * hoodSquared))
 				
 				node.AdjustWeight(newNode.targetMana, learningRate, influence)
 	else:
@@ -56,7 +56,7 @@ func Epoch(newNode):
 			var distanceSquared = (lastNode.vector.x - node.vector.x) * (lastNode.vector.x - node.vector.x) + (lastNode.vector.y - node.vector.y) * (lastNode.vector.y - node.vector.y)
 			
 			if distanceSquared < hoodSquared:
-				var influence = exp((-distanceSquared) / (2 * widthSquared))
+				var influence = exp((-distanceSquared) / (2 * hoodSquared))
 				
 				node.AdjustWeight(lastNode.targetMana, learningRate, influence)
 
@@ -79,21 +79,30 @@ func GetBestQScore(input):
 	
 	for node in nodes:
 		if input.castingCardID == node.castingCardID:
-			if node.qScore > highestQScore:
-				highestQScore = node.qScore
+			if node.qWeight > highestQScore:
+				highestQScore = node.qWeight
 				winner = node
 	
 	return winner
+
+func RandomUnassignedNode():
+	var emptyNodes = []
+	for node in nodes:
+		if node.castingCardID == "None":
+			emptyNodes.push_back(node)
+	
+	var result = tools.Roll(0, emptyNodes.size())
+	return emptyNodes[result]
 
 func Serialise():
 	var brain = File.new()
 	brain.open("user://myBrain.json", File.WRITE)
 	
-	brain.store_line(width)
-	brain.store_line(height)
+	brain.store_line(str(width))
+	brain.store_line(str(height))
 	
 	for node in nodes:
-		var nodeData = node.save()
+		var nodeData = node.Save()
 		brain.store_line(nodeData.to_json())
 	
 	brain.close()
@@ -106,8 +115,8 @@ func Deserialise():
 	brain.open("user://myBrain.json", File.READ)
 	
 	nodes = []
-	width = brain.get_line()
-	height = brain.get_line()
+	width = int(brain.get_line())
+	height = int(brain.get_line())
 	
 	var currentLine = {}
 	while(!brain.eof_reached()):
@@ -116,7 +125,7 @@ func Deserialise():
 		newNode.castingCardID = currentLine.castingCardID
 		newNode.castingCardType = currentLine.castingCardType
 		newNode.targetMana = currentLine.targetMana
-		newNode.weight = currentLine.weight
+		#newNode.weight = currentLine.weight
 		newNode.qWeight = currentLine.qWeight
 		
 		nodes.append(newNode)

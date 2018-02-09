@@ -26,8 +26,9 @@ func _process(delta):
 	
 	for i in range(modifiers.size()):
 		var position = myCard.get_pos()
-		modifiers[i].set_pos(Vector2(position.x, position.y + ((i + 1) * 30)))
+		modifiers[i].set_global_pos(Vector2(position.x, position.y + ((i + 1) * 30)))
 		modifiers[i].get_parent().move_child(modifiers[i], modifiers[i].get_parent().get_children().size() - (i + 1))
+		modifiers[i].set_draw_behind_parent(true)
 	
 	myCard.raise()
 	

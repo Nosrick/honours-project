@@ -35,11 +35,24 @@ func GetDistanceMana(targetManaRef):
 
 func AdjustWeight(targetManaRef, learningRate, influence):
 	#OJA-STYLE LEARNING
-	normalisedMana = Tools.NormaliseOneToTen(targetMana)
-	normalisedTarget = Tools.NormaliseOneToTen(targetManaRef)
+	var normalisedMana = tools.NormaliseOneToTen(targetMana)
+	var normalisedTarget = tools.NormaliseOneToTen(targetManaRef)
 	
 	targetMana = targetManaRef
 	weight += influence * (learningRate * ((normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)))
 
 func AdjustQWeight(newWeight):
 	qWeight = newWeight
+
+func ToString():
+	return "[" + castingCardID + " : " + str(castingCardType) + " : " + str(targetMana) + " : " + str(qWeight) + "]"
+
+func Save():
+	var data = {}
+	data.castingCardID = castingCardID
+	data.castingCardType = castingCardType
+	data.targetMana = targetMana
+	data.qWeight = qWeight
+	data.vector = vector
+	
+	return data
