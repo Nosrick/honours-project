@@ -16,6 +16,8 @@ var replacementsDone
 #Used for combat calculations
 var power = 0
 
+var draggingCard = null
+
 func SetDisplay():
 	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
 
