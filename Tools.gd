@@ -9,9 +9,13 @@ func Roll(minimum, maximum):
 
 #Normalise on any scale
 func Normalise(number, left, right):
-	var y = (number - left) / (right - left)
+	var y = float(number - left) / float(right - left)
 	return y
 
 func NormaliseOneToTen(number):
-	var y = (number - 1) / (10 - 1)
+	var y = float(number - 1) / float(10 - 1)
+	return y
+
+func RecombobulateOneToTen(number):
+	var y = float(float(number) * (10 - 1))
 	return y

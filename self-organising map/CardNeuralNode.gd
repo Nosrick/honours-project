@@ -14,7 +14,8 @@ func _init(positionRef):
 	
 	weight = randf()
 	castingCardID = "None"
-	qWeight = 0
+	qWeight = randf()
+	targetMana = 1
 
 func SetParameters(node):
 	castingCardID = node.castingCardID
@@ -41,8 +42,22 @@ func AdjustWeight(targetManaRef, learningRate, influence):
 	targetMana = targetManaRef
 	weight += influence * (learningRate * ((normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)))
 
-func AdjustQWeight(newWeight):
-	qWeight = newWeight
+func AdjustMana(targetManaRef, learningRate, influence):
+	#OJA-STYLE LEARNING
+	var normalisedMana = tools.NormaliseOneToTen(targetMana)
+	var normalisedTarget = tools.NormaliseOneToTen(targetManaRef)
+	
+	var mana = (normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)
+	if mana == 0:
+		mana = normalisedMana
+	
+	targetMana += float(float(influence) * float(learningRate) * float(tools.RecombobulateOneToTen(mana)))
+	
+	#targetMana = float(influence) * float(learningRate) * (float(targetManaRef - targetMana) * float(targetManaRef - targetMana))
+
+func AdjustQWeight(qWeightRef, learningRate, influence):
+	#OJA-STYLE LEARNING
+	qWeight += float(influence * float(learningRate * float((qWeightRef * (qWeight * qWeightRef)) - ((qWeight * qWeightRef) * (qWeight * qWeightRef) * qWeight))))
 
 func ToString():
 	return "[" + castingCardID + " : " + str(castingCardType) + " : " + str(targetMana) + " : " + str(qWeight) + "]"

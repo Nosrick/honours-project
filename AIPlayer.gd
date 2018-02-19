@@ -49,8 +49,12 @@ func Summon(cardRef, laneRef):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
+	if cardRef.inPlay == true:
+		return false
+	
 	lanes[laneRef].myCard = cardRef
 	cardRef.player = self
+	cardRef.inPlay = true
 	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= int(cardRef.cost)

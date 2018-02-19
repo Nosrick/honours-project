@@ -30,6 +30,17 @@ func _process(delta):
 	
 	if manager.phase == manager.DRAW_PHASE:
 		player.Draw()
+		#Once per turn, tweak last turn's q-scores
+		boardState = CalculateBoardState()
+		#Calculate difference between last turn's board state and now
+		var difference = CalculateManaDifference(lastBoardState, boardState)
+		for action in lastActions:
+			print("Assigning reward.")
+			action.qWeight += difference.x - difference.y
+			print(str(action.ToString()))
+		#Clear the action list
+		lastActions.clear()
+		actionsToProcess.clear()
 	
 	var actionsSinceLastTry = lastActions.size()
 	
@@ -57,108 +68,87 @@ func _process(delta):
 			var pair = {}
 			pair.highestCard = card
 			pair.activeNode = qScoreNode
-			pair.tried = false
 			actionsToProcess.push_back(pair)
 	
 	var attempts = 0
 	if actionsToProcess.size() != 0:
-		while actionsToProcess.size() > 0 && attempts < 10:
-			#pop the front of the queue
-			var pair = actionsToProcess[0]
-			actionsToProcess.pop_front()
-			var highestCard = pair.highestCard
-			var activeNode = pair.activeNode
-			var tried = pair.tried
+		while actionsToProcess.size() > 0
+		#pop the front of the queue
+		var pair = actionsToProcess.pop_front()
+	
+	if highestCard != null:
+		#Is it a creature?
+		if highestCard.type == highestCard.CREATURE:
+			var playedCreature = false
 			
-			if highestCard != null:
-				#Is it a creature?
-				if highestCard.type == highestCard.CREATURE:
-					var playedCreature = false
+			#look at enemy lanes
+			for i in range(otherPlayer.lanes.size()):
+				#if theirs are full, and ours are empty, play the creature
+				if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
+					playedCreature = player.Summon(highestCard, i)
+				elif player.lanes[i].myCard == null:
+					playedCreature = player.Summon(highestCard, i)
 					
-					#look at enemy lanes
-					for i in range(otherPlayer.lanes.size()):
-						#if theirs are full, and ours are empty, play the creature
-						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
-							playedCreature = player.Summon(highestCard, i)
-						elif player.lanes[i].myCard == null:
-							playedCreature = player.Summon(highestCard, i)
-							
-						if playedCreature == true:
-							lastActions.push_back(activeNode)
+				if playedCreature == true:
+					lastActions.push_back(activeNode)
+			
+		#Or is it a spell/instant?
+		if highestCard.type == highestCard.SPELL or highestCard.type == highestCard.INSTANT:
+			#Is it an enhancement or a hinderance?
+			if highestCard.keywords.has("Enhancement"):
+				var playedSpell = false
+				
+				#Look to see if we have something that matches the target mana cost
+				for i in range(player.lanes.size()):
+					if player.lanes[i].myCard == null:
+						continue
 					
-				#Or is it a spell/instant?
-				if highestCard.type == highestCard.SPELL or highestCard.type == highestCard.INSTANT:
-					#Is it an enhancement or a hinderance?
-					if highestCard.keywords.has("Enhancement"):
-						var playedSpell = false
-						
-						#Look to see if we have something that matches the target mana cost
-						for i in range(player.lanes.size()):
-							if player.lanes[i].myCard == null:
-								continue
+					#If it's within one mana of the target value, let's use it
+					if IsWithinOne(player.lanes[i].myCard.cost, activeNode.targetMana):
+						playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
+					
+					if playedSpell == true:
+						#If it's an instant, give instant reward
+						if highestCard.type == highestCard.INSTANT:
+							#Get current board state
+							var rightNow = CalculateBoardState()
 							
-							#If it's within one mana of the target value, let's use it
-							if IsWithinOne(player.lanes[i].myCard.cost, activeNode.targetMana):
-								playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
+							#Calculate difference between before this play and now
+							var difference = CalculateManaDifference(boardState, rightNow)
 							
-							if playedSpell == true:
-								#If it's an instant, give instant reward
-								if highestCard.type == highestCard.INSTANT:
-									#Get current board state
-									var rightNow = CalculateBoardState()
-									
-									#Calculate difference between before this play and now
-									var difference = CalculateManaDifference(boardState, rightNow)
-									
-									#Activate rewards
-									#activeNode.qWeight += difference.x - difference.y
-									
-								lastActions.push_back(activeNode)
-							else:
-								#If the actions fails, push it back onto the stack to try again later in the turn
-								var pair = {}
-								
-								#If this action has been attempted before, remove it
-								if tried == true:
-									attempts += 1
-								#Otherwise, push it to the back
-								else:
-									pair.highestCard = highestCard
-									pair.activeNode = activeNode
-									pair.tried = true
-									actionsToProcess.push_back(pair)
-									attempts += 1
-						
-					elif highestCard.keywords.has("Hinderance"):
-						var playedSpell = false
-						
-						#Look to see if we have something that matches the target mana cost
-						for i in range(otherPlayer.lanes.size()):
-							if otherPlayer.lanes[i].myCard == null:
-								continue
-								
-							#If it's within one mana of the target value, let's use it
-							if IsWithinOne(otherPlayer.lanes[i].myCard.cost, activeNode.targetMana):
-								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
+							#Activate rewards
+							activeNode.qWeight += difference.x - difference.y
 							
-							if playedSpell == true:
-								#If it's an instant, give instant reward
-								if highestCard.type == highestCard.INSTANT:
-									#Get current board state
-									var rightNow = CalculateBoardState()
-									
-									#Calculate difference between before this play and now
-									var difference = CalculateManaDifference(boardState, rightNow)
-									
-									#Activate rewards
-									#activeNode.qWeight += difference.x - difference.y
-									
-								lastActions.push_back(activeNode)
+						lastActions.push_back(activeNode)
+				
+			elif highestCard.keywords.has("Hinderance"):
+				var playedSpell = false
+				
+				#Look to see if we have something that matches the target mana cost
+				for i in range(otherPlayer.lanes.size()):
+					if otherPlayer.lanes[i].myCard == null:
+						continue
+						
+					#If it's within one mana of the target value, let's use it
+					if IsWithinOne(otherPlayer.lanes[i].myCard.cost, activeNode.targetMana):
+						playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
+					
+					if playedSpell == true:
+						#If it's an instant, give instant reward
+						if highestCard.type == highestCard.INSTANT:
+							#Get current board state
+							var rightNow = CalculateBoardState()
+							
+							#Calculate difference between before this play and now
+							var difference = CalculateManaDifference(boardState, rightNow)
+							
+							#Activate rewards
+							activeNode.qWeight += difference.x - difference.y
+							
+						lastActions.push_back(activeNode)
 	
-	var actionsThisTry = lastActions.size()
-	
-	#If our search found nothing or we couldn't play a card, fall back on some basic rules
-	if actionsToProcess.size() == 0 or lastActions.size() == 0:
+	#If our search found nothing, fall back on some basic rules
+	else:
 		var lanesEmpty = []
 		for i in range(player.lanes.size()):
 			if player.lanes[i].myCard == null:
@@ -209,9 +199,9 @@ func _process(delta):
 							#Get the difference
 							var difference = CalculateManaDifference(boardState, rightNow)
 							
-							#if card.type == card.INSTANT:
+							if card.type == card.INSTANT:
 								#Assign reward
-								#node.qWeight += difference.x - difference.y
+								node.qWeight += difference.x - difference.y
 							lastActions.push_back(node)
 						
 				elif card.keywords.has("Hinderance"):
@@ -244,31 +234,16 @@ func _process(delta):
 							var difference = CalculateManaDifference(boardState, rightNow)
 							
 							#Assign reward
-							#if card.type == card.INSTANT:
-							#	node.qWeight += difference.x - difference.y
+							if card.type == card.INSTANT:
+								node.qWeight += difference.x - difference.y
 							lastActions.push_back(node)
+	
+	var actionsThisTry = lastActions.size()
 	
 	#If we haven't been able to take any actions
 	if actionsSinceLastTry == actionsThisTry:
 		#That's the end of our turn
 		lastBoardState = boardState
-		
-		#Once per turn, tweak this turn's q-scores
-		boardState = CalculateBoardState()
-		#Calculate difference between last turn's board state and now
-		var difference = CalculateManaDifference(lastBoardState, boardState)
-		for action in lastActions:
-			print("Assigning reward.")
-			#action.qWeight += difference.x - difference.y
-			brain.Epoch(action)
-			print(str(action.ToString()))
-		#Clear the action list
-		lastActions.clear()
-		actionsToProcess.clear()
-		
-		#Reduce clusterMod by 5%
-		brain.clusterMod *= 0.95
-		
 		manager.EndTurn()
 
 func IsWithinOne(number, target):
