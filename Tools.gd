@@ -17,5 +17,5 @@ func NormaliseOneToTen(number):
 	return y
 
 func RecombobulateOneToTen(number):
-	var y = float(float(number) * (10 - 1))
+	var y = float(float(number) * float(10 - 1))
 	return y

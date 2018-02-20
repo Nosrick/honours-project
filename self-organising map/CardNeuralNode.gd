@@ -49,9 +49,11 @@ func AdjustMana(targetManaRef, learningRate, influence):
 	
 	var mana = (normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)
 	if mana == 0:
-		mana = normalisedMana
+		mana = normalisedTarget
 	
-	targetMana += float(float(influence) * float(learningRate) * float(tools.RecombobulateOneToTen(mana)))
+	var recombobulated = float(tools.RecombobulateOneToTen(mana))
+	
+	targetMana += float(float(influence) * float(learningRate) * recombobulated)
 	
 	#targetMana = float(influence) * float(learningRate) * (float(targetManaRef - targetMana) * float(targetManaRef - targetMana))
 
