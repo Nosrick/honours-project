@@ -1,0 +1,10 @@
+{
+	"name": "Compiler Bunny",
+	"cost": "2",
+	"power": "2",
+	"toughness": "2",
+	"keywords": [ "Haste" ],
+	"image": "CompilerBunny.png",
+	"type": "1",
+	"script": "none"
+}

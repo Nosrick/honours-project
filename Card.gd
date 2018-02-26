@@ -28,6 +28,8 @@ var inPlay
 var currentHP
 var exhausted
 
+var safeForRemoval = false
+
 func SetParameters(cardRef):
 	name = cardRef.name
 	image = cardRef.image
@@ -168,9 +170,6 @@ func DamageMe(value):
 	SetDisplay()
 
 func DoCombat(other):
-	if keywords.has("Pacifist"):
-		return
-	
 	self.currentHP -= other.power
 	other.currentHP -= self.power
 	SetDisplay()

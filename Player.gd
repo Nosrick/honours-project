@@ -76,6 +76,9 @@ func Summon(cardRef, laneRef):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
+	if cardRef.keywords.has("Haste"):
+		cardRef.exhausted = false
+	
 	lanes[laneRef].myCard = cardRef
 	cardRef.player = self
 	hand.erase(cardRef)

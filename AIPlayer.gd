@@ -52,6 +52,9 @@ func Summon(cardRef, laneRef):
 	if cardRef.inPlay == true:
 		return false
 	
+	if cardRef.keywords.has("Haste"):
+		cardRef.exhausted = false
+	
 	lanes[laneRef].myCard = cardRef
 	cardRef.player = self
 	cardRef.inPlay = true
@@ -73,6 +76,9 @@ func Enhance(spellRef, receiver):
 	if receiver.type != receiver.CREATURE:
 		return false
 	
+	if spellRef.inPlay == true:
+		return false
+	
 	var onField = false
 	
 	for lane in lanes:
@@ -92,6 +98,7 @@ func Enhance(spellRef, receiver):
 	if spellRef.type == spellRef.SPELL:
 		receiver.add_child(spellRef)
 		receiver.AddEnhancement(spellRef)
+		spellRef.inPlay = true
 	
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
@@ -105,6 +112,9 @@ func Hinder(spellRef, receiver):
 		return false
 	
 	if receiver.type != receiver.CREATURE:
+		return false
+	
+	if spellRef.inPlay == true:
 		return false
 	
 	var onField = false
@@ -122,11 +132,13 @@ func Hinder(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	hand.erase(spellRef)
-	if spellRef.type != spellRef.SPELL:
+	if spellRef.type == spellRef.SPELL:
 		receiver.add_child(spellRef)
 		receiver.AddHinderance(spellRef)
+		spellRef.inPlay = true
 	
+	hand.erase(spellRef)
+	spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
 	if spellRef.associatedScript != null:
