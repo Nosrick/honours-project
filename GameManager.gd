@@ -83,6 +83,7 @@ func StartTurn():
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn")
 	turnPlayer.mana = min(MAX_MANA, turn)
 	turnPlayer.replacementsDone = 0
+	turnPlayer.Draw()
 	
 	for lane in turnPlayer.lanes:
 		if lane.myCard != null:
