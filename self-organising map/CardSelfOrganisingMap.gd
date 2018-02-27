@@ -127,7 +127,6 @@ func Deserialise():
 	nodes = []
 	width = int(brain.get_line())
 	height = int(brain.get_line())
-	return true
 	
 	var currentLine = {}
 	while(!brain.eof_reached()):
@@ -142,6 +141,7 @@ func Deserialise():
 		nodes.append(newNode)
 	
 	brain.close()
+	return true
 
 func ExtractVector(string):
 	var xIndex = string.find(",")

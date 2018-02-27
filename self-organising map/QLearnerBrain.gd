@@ -31,6 +31,15 @@ func InitialTraining(deck):
 	for node in nodes:
 		brain.Epoch(node)
 
+func ManufactureNode(card):
+	var node = brain.RandomUnassignedNode()
+	
+	node.castingCardID = card.name
+	node.castingCardType = card.type
+	node.targetMana = card.cost
+	
+	brain.Epoch(node)
+
 func _ready():
 	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(100, 100)
 	
@@ -60,7 +69,8 @@ func _process(delta):
 		var qScoreNode = brain.GetBestQScore(node)
 		
 		if qScoreNode == null:
-			continue
+			ManufactureNode(card)
+			qScoreNode = brain.GetBestQScore(node)
 		
 		if qScoreNode.targetMana > player.mana:
 			continue
@@ -116,6 +126,10 @@ func _process(delta):
 							#If it's within one mana of the target value, let's use it
 							if IsWithinOne(player.lanes[i].myCard.cost, activeNode.targetMana):
 								playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
+							#If it's not, adjust the mana towards the new value
+							else:
+								activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, 1.0)
+								playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
 							
 							if playedSpell == true:
 								#If it's an instant, give instant reward
@@ -155,6 +169,10 @@ func _process(delta):
 								
 							#If it's within one mana of the target value, let's use it
 							if IsWithinOne(otherPlayer.lanes[i].myCard.cost, activeNode.targetMana):
+								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
+							#If it's not, adjust the mana towards the new value
+							else:
+								activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, 1.0)
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
 							
 							if playedSpell == true:
