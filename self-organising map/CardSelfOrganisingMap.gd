@@ -50,24 +50,25 @@ func Epoch(newNode):
 		var neighbourhood = sqrt(width * height) / clusterMod
 		var hoodSquared = neighbourhood * neighbourhood
 		
-		var lastNode = null
+		var lastNode = RandomUnassignedNode()
+		lastNode.SetParameters(newNode)
 		
 		for node in nodes:
-			if node.castingCardID == "None":
-				node.SetParameters(newNode)
-				lastNode = node
-				break
-		
-		for node in nodes:
-			if node.castingCardID != lastNode.castingCardID:
-				continue
-				
 			var distanceSquared = (lastNode.vector.x - node.vector.x) * (lastNode.vector.x - node.vector.x) + (lastNode.vector.y - node.vector.y) * (lastNode.vector.y - node.vector.y)
 			
 			if distanceSquared < hoodSquared:
 				var influence = exp((-distanceSquared) / (2 * hoodSquared))
 				
-				node.AdjustQWeight(lastNode.targetMana, learningRate, influence)
+				#Begin to cluster unassigned nodes
+				if node.castingCardID == "None":
+					node.castingCardID = newNode.castingCardID
+					node.castingCardType = newNode.castingCardType
+				
+				if node.castingCardID != newNode.castingCardID:
+					continue
+				
+				node.AdjustMana(newNode.targetMana, learningRate, influence)
+				node.AdjustQWeight(newNode.qWeight, learningRate, influence)
 
 func GetBestMatch(input):
 	var lowestDistance = 9999999
@@ -119,13 +120,14 @@ func Serialise():
 func Deserialise():
 	var brain = File.new()
 	if not brain.file_exists(filePath):
-		return
+		return false
 	
 	brain.open(filePath, File.READ)
 	
 	nodes = []
 	width = int(brain.get_line())
 	height = int(brain.get_line())
+	return true
 	
 	var currentLine = {}
 	while(!brain.eof_reached()):

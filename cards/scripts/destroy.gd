@@ -1,6 +1,6 @@
 extends Node
 
-func Do(card):
+static func Do(card):
 	card.currentHP = 0
 
 func _ready():

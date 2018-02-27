@@ -17,9 +17,25 @@ var actionsToProcess = []
 var tools = load("res://Tools.gd").new()
 var cardNode = load("res://self-organising map/CardNeuralNode.gd")
 
+var trainingCards
+
+func InitialTraining(deck):
+	var nodes = []
+	for card in deck:
+		var node = brain.RandomUnassignedNode()
+		node.castingCardID = card.name
+		node.castingCardType = card.type
+		node.targetMana = card.cost
+		nodes.push_back(node)
+	
+	for node in nodes:
+		brain.Epoch(node)
+
 func _ready():
 	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(100, 100)
-	brain.Deserialise()
+	
+	if brain.Deserialise() == false:
+		InitialTraining(trainingCards)
 	
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
@@ -156,9 +172,10 @@ func _process(delta):
 								lastActions.push_back(activeNode)
 	
 	var actionsThisTry = lastActions.size()
-	
+	"""
 	#If our search found nothing or we couldn't play a card, fall back on some basic rules
 	if actionsToProcess.size() == 0 or lastActions.size() == 0:
+		print("Resorting to Rules-Based.")
 		var lanesEmpty = []
 		for i in range(player.lanes.size()):
 			if player.lanes[i].myCard == null:
@@ -247,7 +264,7 @@ func _process(delta):
 							#if card.type == card.INSTANT:
 							#	node.qWeight += difference.x - difference.y
 							lastActions.push_back(node)
-	
+	"""
 	#If we haven't been able to take any actions
 	if actionsSinceLastTry == actionsThisTry:
 		#That's the end of our turn

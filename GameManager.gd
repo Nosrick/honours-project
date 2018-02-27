@@ -61,6 +61,7 @@ func _ready():
 		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
 	elif GlobalVariables.brainType == 2:
 		AIBrain.set_script(load("res://self-organising map/QLearnerBrain.gd"))
+		AIBrain.trainingCards = cards
 	
 	AIBrain.player = player2
 	AIBrain.otherPlayer = player1

@@ -1,6 +1,6 @@
 extends Node
 
-func Do(card):
+static func Do(card):
 	var player = card.player
 	for i in range(player.lanes.size()):
 		if player.lanes[i].myCard == card:
