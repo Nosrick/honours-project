@@ -16,6 +16,7 @@ margin/top = 280.0
 margin/right = 776.0
 margin/bottom = 364.0
 custom_fonts/font = ExtResource( 1 )
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

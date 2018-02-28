@@ -86,14 +86,20 @@ func _input(event):
 				return
 			
 			for lane in player.lanes:
-				if lane.myCard == null:
+				var laneRect = Rect2(lane.get_global_pos(), lane.get_size())
+				
+				var pos = event.global_pos
+				
+				if not laneRect.has_point(pos): 
 					continue
 				
-				var laneRect = lane.myCard.get_rect()
-				var laneScale = lane.myCard.get_scale()
-				var scaledLane = Rect2(laneRect.pos.x, laneRect.pos.y, laneScale.x * laneRect.size.x, laneScale.y * laneRect.size.y)
+				if player.Summon(self, lane.laneNumber):
+					break
 				
-				if not scaledLane.intersects(scaledRect):
+				if self.keywords.has("Hinderance"):
+					continue
+				
+				if lane.myCard == null:
 					continue
 				
 				if player.Enhance(self, lane.myCard):
@@ -103,11 +109,14 @@ func _input(event):
 				if lane.myCard == null:
 					continue
 				
-				var laneRect = lane.myCard.get_rect()
-				var laneScale = lane.myCard.get_scale()
-				var scaledLane = Rect2(laneRect.pos.x, laneRect.pos.y, laneScale.x * laneRect.size.x, laneScale.y * laneRect.size.y)
+				var laneRect = Rect2(lane.get_global_pos(), lane.get_size())
 				
-				if not scaledLane.intersects(scaledRect):
+				var pos = event.global_pos
+				
+				if not laneRect.has_point(pos):
+					continue
+				
+				if self.keywords.has("Enhancement"):
 					continue
 				
 				if player.Hinder(self, lane.myCard):

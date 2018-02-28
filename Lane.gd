@@ -12,7 +12,13 @@ func _ready():
 	set_process(true)
 
 func _input(event):
+	"""
 	if event.type == InputEvent.MOUSE_BUTTON:
+		if not event.is_action_released("mouse_left"):
+			return
+		
+		print("MOUSE RELEASED")
+		
 		if player.draggingCard == null:
 			return
 		
@@ -28,6 +34,9 @@ func _input(event):
 			myCard = player.draggingCard
 			player.draggingCard.dragging = false
 			player.draggingCard = null
+			
+	"""
+	pass
 
 func _process(delta):
 	if myCard == null:
