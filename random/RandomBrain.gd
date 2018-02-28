@@ -5,7 +5,7 @@ var otherPlayer
 var manager
 
 var attempts = 0
-const MAX_ATTEMPTS = 20
+const MAX_ATTEMPTS = 50
 
 var tools = load("Tools.gd").new()
 
@@ -17,12 +17,12 @@ func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
 	
-	if attempts >= MAX_ATTEMPTS:
-		manager.EndTurn()
-	
 	if manager.phase == manager.DRAW_PHASE:
 		player.Draw()
 		attempts = 0
+	
+	if attempts >= MAX_ATTEMPTS:
+		manager.EndTurn()
 	
 	var handChoice = tools.Roll(0, player.hand.size())
 	

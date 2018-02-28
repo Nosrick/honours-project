@@ -80,11 +80,13 @@ func _process(delta):
 			print(str(qScoreNode.ToString()))
 			highestQScore = qScoreNode.qWeight
 			highestCard = card
-			var pair = {}
-			pair.highestCard = card
-			pair.activeNode = qScoreNode
-			pair.tried = false
-			actionsToProcess.push_back(pair)
+			activeNode = qScoreNode
+	
+	var pair = {}
+	pair.highestCard = highestCard
+	pair.activeNode = activeNode
+	pair.tried = false
+	actionsToProcess.push_back(pair)
 	
 	var attempts = 0
 	if actionsToProcess.size() != 0:
