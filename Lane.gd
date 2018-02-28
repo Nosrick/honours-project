@@ -62,11 +62,5 @@ func _process(delta):
 	
 	if myCard.currentHP <= 0:
 		player.remove_child(myCard)
+		player.discardPile.push_back(myCard)
 		myCard = null
-		"""
-		for i in range(myCard.hinderances.size()):
-			self.remove_child(myCard.hinderances[i])
-		
-		for i in range(myCard.enhancements.size()):
-			self.remove_child(myCard.enhancements[i])
-		"""

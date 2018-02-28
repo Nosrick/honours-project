@@ -3,6 +3,7 @@ extends Node
 var currentHP
 var mana
 var deck
+var discardPile = []
 var hand = []
 var lanes = []
 var cardNode = load("res://scenes/Card.tscn")
@@ -177,7 +178,9 @@ func Draw():
 func FreeDraw():
 	var card = deck.Draw()
 	if card == null:
-		return false
+		for discard in discardPile:
+			deck.Return(discard)
+		deck.Shuffle()
 	
 	var node = cardNode.instance()
 	node.SetParameters(card)

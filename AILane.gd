@@ -34,4 +34,5 @@ func _process(delta):
 	
 	if myCard.currentHP <= 0:
 		player.remove_child(myCard)
+		player.discardPile.push_back(myCard)
 		myCard = null
