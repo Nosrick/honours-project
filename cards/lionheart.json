@@ -1,0 +1,10 @@
+{
+	"name": "Lionheart",
+	"cost": "4",
+	"power": "3",
+	"toughness": "3",
+	"keywords": [ "Enhancement" ],
+	"image": "Lionheart.png",
+	"type": "2",
+	"script": "none"
+}
