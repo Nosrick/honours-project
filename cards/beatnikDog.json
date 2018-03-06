@@ -3,8 +3,8 @@
 	"cost": "3",
 	"power": "3",
 	"toughness": "4",
-	"keywords": [ ],
+	"keywords": [ "Draw One" ],
 	"image": "BeatnikDog.png",
 	"type": "1",
-	"script": "none"
+	"script": "drawOne"
 }

@@ -68,6 +68,9 @@ func Summon(cardRef, laneRef):
 	cardRef.ScaleDown()
 	self.add_child(cardRef)
 	
+	if cardRef.associatedScript != null:
+		cardRef.associatedScript.Do(cardRef)
+	
 	return true
 
 func Enhance(spellRef, receiver):

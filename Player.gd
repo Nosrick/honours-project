@@ -86,6 +86,10 @@ func Summon(cardRef, laneRef):
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= cardRef.cost
 	cardRef.inPlay = true
+	
+	if cardRef.associatedScript != null:
+		cardRef.associatedScript.Do(cardRef)
+	
 	RedrawHand()
 	return true
 

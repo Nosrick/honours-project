@@ -19,6 +19,8 @@ var cardNode = load("res://self-organising map/CardNeuralNode.gd")
 
 var trainingCards
 
+var stuck = false
+
 func InitialTraining(deck):
 	var nodes = []
 	for card in deck:
@@ -194,6 +196,23 @@ func _process(delta):
 	
 	#If we haven't been able to take any actions
 	if actionsSinceLastTry == actionsThisTry:
+		if stuck == false:
+			stuck = true
+			var lowestQScore = 999
+			var lowestCard = null
+			for card in player.hand:
+				var node = cardNode.new(Vector2(0 , 0))
+				node.castingCardID = card.name
+				var qScoreNode = brain.GetBestQScore(node)
+				
+				if qScoreNode.qWeight < lowestQScore:
+					lowestQScore = qScoreNode.qWeight
+					lowestCard = card
+			
+			player.Replace(lowestCard)
+			
+			return
+		
 		#That's the end of our turn
 		
 		#Once per turn, tweak this turn's q-scores

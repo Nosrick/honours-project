@@ -22,53 +22,26 @@ func _init(widthRef, heightRef):
 		for y in range(height):
 			nodes.append(node.new(Vector2(x, y)))
 
-func Epoch(newNode):
-	var winner = newNode
-	#var winner = GetBestMatch(newNode)
+func Epoch(newNode):	
+	var neighbourhood = sqrt(width * height) * clusterMod
+	var hoodSquared = neighbourhood * neighbourhood
 	
-	if winner != null:
-		var neighbourhood = sqrt(width * height) * clusterMod
-		var hoodSquared = neighbourhood * neighbourhood
+	for node in nodes:
+		var distanceSquared = (newNode.vector.x - node.vector.x) * ( newNode.vector.x - node.vector.x) + (newNode.vector.y - node.vector.y) * (newNode.vector.y - node.vector.y)
 		
-		for node in nodes:
-			var distanceSquared = (winner.vector.x - node.vector.x) * ( winner.vector.x - node.vector.x) + (winner.vector.y - node.vector.y) * (winner.vector.y - node.vector.y)
+		if distanceSquared < hoodSquared:
+			var influence = exp((-distanceSquared) / (2 * hoodSquared))
 			
-			if distanceSquared < hoodSquared:
-				var influence = exp((-distanceSquared) / (2 * hoodSquared))
-				
-				#Begin to cluster unassigned nodes
-				if node.castingCardID == "None":
-					node.castingCardID = newNode.castingCardID
-					node.castingCardType = newNode.castingCardType
-				
-				if node.castingCardID != newNode.castingCardID:
-					continue
-				
-				node.AdjustMana(newNode.targetMana, learningRate, influence)
-				node.AdjustQWeight(newNode.qWeight, learningRate, influence)
-	else:
-		var neighbourhood = sqrt(width * height) / clusterMod
-		var hoodSquared = neighbourhood * neighbourhood
-		
-		var lastNode = RandomUnassignedNode()
-		lastNode.SetParameters(newNode)
-		
-		for node in nodes:
-			var distanceSquared = (lastNode.vector.x - node.vector.x) * (lastNode.vector.x - node.vector.x) + (lastNode.vector.y - node.vector.y) * (lastNode.vector.y - node.vector.y)
+			#Begin to cluster unassigned nodes
+			if node.castingCardID == "None":
+				node.castingCardID = newNode.castingCardID
+				node.castingCardType = newNode.castingCardType
 			
-			if distanceSquared < hoodSquared:
-				var influence = exp((-distanceSquared) / (2 * hoodSquared))
-				
-				#Begin to cluster unassigned nodes
-				if node.castingCardID == "None":
-					node.castingCardID = newNode.castingCardID
-					node.castingCardType = newNode.castingCardType
-				
-				if node.castingCardID != newNode.castingCardID:
-					continue
-				
-				node.AdjustMana(newNode.targetMana, learningRate, influence)
-				node.AdjustQWeight(newNode.qWeight, learningRate, influence)
+			if node.castingCardID != newNode.castingCardID:
+				continue
+			
+			node.AdjustMana(newNode.targetMana, learningRate, influence)
+			node.AdjustQWeight(newNode.qWeight, learningRate, influence)
 
 func GetBestMatch(input):
 	var lowestDistance = 9999999
