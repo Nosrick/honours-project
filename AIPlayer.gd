@@ -159,6 +159,9 @@ func Draw():
 	return FreeDraw()
 
 func FreeDraw():
+	if hand.size() == 6:
+		return false
+	
 	var card = deck.Draw()
 	if card == null:
 		for discard in discardPile:

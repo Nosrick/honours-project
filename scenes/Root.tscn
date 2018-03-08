@@ -244,20 +244,15 @@ __meta__ = {
 
 [node name="CardBack" type="Panel" parent="."]
 
-editor/display_folded = true
-rect/scale = Vector2( 0.5, 0.5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 6.0
-margin/top = 588.0
-margin/right = 314.0
-margin/bottom = 996.0
+margin/left = 5.64525
+margin/top = 590.53
+margin/right = 159.0
+margin/bottom = 794.0
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Image" type="TextureFrame" parent="CardBack"]
 
@@ -265,15 +260,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 4.0
-margin/top = 4.0
-margin/right = 304.0
-margin/bottom = 404.0
+margin/left = 2.0
+margin/top = 2.0
+margin/right = 152.0
+margin/bottom = 202.0
 texture = ExtResource( 4 )
-stretch_mode = 0
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="MouseDetection" type="Container" parent="CardBack"]
 
@@ -283,11 +274,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 308.0
-margin/bottom = 408.0
+margin/right = 154.0
+margin/bottom = 204.0
 script/script = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 

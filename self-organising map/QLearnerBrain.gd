@@ -15,7 +15,7 @@ var lastActions = []
 var actionsToProcess = []
 
 var tools = load("res://Tools.gd").new()
-var cardNode = load("res://self-organising map/CardNeuralNode.gd")
+var cardNode = load("res://self-organising map/CardSOMNeuralNode.gd")
 
 var trainingCards
 

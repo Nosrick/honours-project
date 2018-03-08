@@ -1,6 +1,6 @@
 extends Node
 
-var node = preload("CardNeuralNode.gd")
+var node = preload("CardSOMNeuralNode.gd")
 var tools = load("res://Tools.gd").new()
 
 var filePath = "res://myBrain.json"
