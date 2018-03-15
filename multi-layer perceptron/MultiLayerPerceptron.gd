@@ -1,62 +1,49 @@
 extends Node
 
-#8 input nodes, 1 for each lane
-#0-3 are friendly lanes
-#4-7 are enemy lanes
-#0 for an empty lane, otherwise filled with the mana value
-var laneInput = []
-const laneNumber = 8
-const laneLayer = 0
+const filePath = "res://myBrainMLP.json"
 
-#Variable input nodes, depending upon hand size
-var handInput = []
-const handNumber = 6
-const handLayer = 1
+var cardNodeTemplate = load("res://multi-layer perceptron/CardMLPNeuralNode.gd")
+var outputNodeTemplate = load("res://multi-layer perceptron/OutputMLPNeuralNode.gd")
+
+var tools = load("res://Tools.gd").new()
+
+#1 input node, to represent the chosen card
+var inputNode
+const inputNumber = 1
+const inputLayer = 0
 
 #1 node per card
 var cardHidden = []
 var cardNumber
-const cardLayer = 2
+const cardLayer = 1
 
-#10 nodes, 1 for each level of mana
-var manaHidden = []
-const manaNumber = 10
-const manaLayer = 3
-
-#1 output, for the action to take
-var output
-const outputNumber = 1
-const outputLayer = 4
+#10 output, for the action to take
+var outputNodes = []
+const outputNumber = 10
+const outputLayer = 2
 
 #Weights for the connections between layers
 var weights = []
 var weightsNumber
 
-var trainingCards
+var previousBoardState = Vector2()
+
+const learningRate = 0.3
 
 func _init():
 	randomize()
-	laneInput = []
-	for i in range(0, 8):
-		laneInput.push_back(0)
 	
-	handInput = []
-	for i in range(0, 6):
-		handInput.push_back(0)
+	inputNode = load("res://multi-layer perceptron/CardMLPNeuralNode.gd").new()
 	
-	output = null
 	cardHidden = []
+	outputNodes = []
 	
-	manaHidden = []
-	var manaNodeTemplate = load("res://multi-layer perceptron/ManaMLPNeuralNode.gd")
 	for i in range(1, 11):
-		var manaNode = manaNodeTemplate.new(i)
-		manaHidden.push_back(manaNode)
+		outputNodes.push_back(outputNodeTemplate.new(i))
 	
 	weights = []
 
 func Training(cards):
-	var cardNodeTemplate = load("res://multi-layer perceptron/CardMLPNeuralNode.gd")
 	for card in cards:
 		var cardNode = cardNodeTemplate.new()
 		cardNode.SetParametersCard(card)
@@ -64,50 +51,51 @@ func Training(cards):
 	
 	cardNumber = cardHidden.size()
 	
-	#Lane input -> Card hidden weights
-	for i in range(0, laneNumber * cardNumber):
+	#Input -> Card hidden weights
+	for i in range(0, inputNumber * cardNumber):
 		weights.push_back(randf() / 2 - randf())
 	
-	#Hand input -> Card hidden weights
-	for i in range(0, handNumber * cardNumber):
-		weights.push_back(randf() / 2 - randf())
-	
-	#Card hidden -> Mana hidden weights
-	for i in range(0, cardNumber * manaNumber):
-		weights.push_back(randf() / 2 - randf())
-	
-	#Mana hidden -> Output weights
-	for i in range(0, manaNumber * outputNumber):
+	#Card Hidden weights -> Output
+	for i in range(0, cardNumber * outputNumber):
 		weights.push_back(randf() / 2 - randf())
 	
 	weightsNumber = weights.size()
 
 func CalculateNetwork():
-	#Lane -> Card
-	for i in range(0, cardHidden.size()):
+	#Input -> Card
+	for i in range(0, cardNumber):
 		cardHidden[i].weight = 0
 		
-		for j in range(0, laneInput.size()):
-			cardHidden[i].weight += laneInput[j] * weights[laneNumber * i + j]
+		for j in range(0, inputNumber):
+			cardHidden[i].weight += inputNode.weight * weights[inputNumber * i + j]
 		
-		cardHidden[i].weight = Sigmoid(cardHidden[i])
+		cardHidden[i].weight = Sigmoid(cardHidden[i].weight)
 	
-	#Hand -> Card
-	for i in range(0, cardHidden.size()):
+	#Card -> Output
+	for i in range(0, outputNumber):
+		outputNodes[i].weight = 0
 		
-		for j in range(0, handInput.size()):
-			cardHidden[i].weight += handInput[j] * weights[handNumber * i + j]
+		for j in range(cardNumber):
+			outputNodes[i].weight += cardHidden[j].weight * weights[inputNumber * cardNumber * i + j]
 		
-		cardHidden[i].weight = Sigmoid(cardHidden[i])
+		outputNodes[i].weight = Sigmoid(outputNodes[i].weight)
+
+func Reason(input):
+	inputNode.SetParametersCard(input)
+	inputNode.weight = GetCardNode(input).weight
 	
-	#Card -> Mana
-	for i in range(0, manaHidden.size()):
-		manaHidden[i] = 0
-		
-		for j in range(0, cardHidden.size()):
-			manaHidden[i].weight += cardHidden[j] * weights[cardNumber * i + j]
-		
-		manaHidden[i].weight = Sigmoid(manaHidden[i])
+	CalculateNetwork()
+	
+	var highestWeight = 0
+	var highestNode = null
+	
+	#Find the best fitting target
+	for output in outputNodes:
+		if output.weight > highestWeight:
+			highestWeight = output.weight
+			highestNode = output
+			
+	return highestNode
 
 func Epoch(currentBoardState, teachingStep, momentum):
 	var difference = previousBoardState - currentBoardState
@@ -119,62 +107,123 @@ func Epoch(currentBoardState, teachingStep, momentum):
 	
 	CalculateNetwork()
 	
-	#Card -> Mana deltas
-	var cardDeltas = []
-	
-	#Mana -> Output deltas
-	var manaDeltas = []
-	
 	#This is the output delta
 	var normalisedManaState = tools.NormaliseOneToTen(overallManaState)
 	
-	#Going backwards, backpropagation
-	#Output -> Mana
-	for i in range(0, manaNumber):
-		var index = (laneNumber * cardNumber) + (handNumber * cardNumber) + (cardNumber * manaNumber) + (manaNumber * i)
-		var manaDelta = normalisedManaState * weights[index]
-		manaDelta *= DerSigmoid(manaHidden[i])
-		manaDeltas.push_back(manaDelta)
+	var outputToCardDeltas = []
+	var cardToInputDeltas = []
 	
-	#Mana -> Card
+	#Going backwards, backpropagation
+	#Output -> Card
 	for i in range(0, cardNumber):
-		for j in range(0, manaNumber):
-			var index = (laneNumber * cardNumber) + (handNumber * cardNumber) + (i * j)
-			var cardDelta = manaHidden[i].weight * weights[index]
-			cardDelta *= DerSigmoid(cardHidden[j])
-			cardDeltas.push_back(cardDelta)
+		for j in range(0, outputNumber):
+			var index = (inputNumber * cardNumber) + (cardNumber * i)
+			var cardDelta = normalisedManaState * weights[index]
+			cardDelta *= DerSigmoid(cardHidden[i].weight)
+			outputToCardDeltas.push_back(cardDelta)
+	
+	#Card -> Input
+	for i in range(0, inputNumber):
+		for j in range(0, cardNumber):
+			var index = (inputNumber * cardNumber) + j
+			var inputDelta = cardHidden[i].weight * weights[index]
+			inputDelta *= DerSigmoid(inputNode.weight)
+			cardToInputDeltas.push_back(inputDelta)
 	
 	#Modify the weights
-	#Card -> Lane
-	for i in range(0, laneNumber):
+	#Card -> Input
+	for i in range(0, inputNumber):
 		for j in range(0, cardNumber):
-			var index = (laneNumber * j) + i
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * (cardDeltas[j] * laneInput[i])))
+			var index = (inputNumber * j) + i
+			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * (cardToInputDeltas[j] * inputNode.weight)))
 			weights[index] += weight
 	
-	#Card -> Hand
-	for i in range(0, handNumber):
-		for j in range(0, cardNumber):
-			var index = (laneNumber * cardNumber) + (handNumber * j) + i
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * (cardDeltas[j] * handInput[i])))
-			weights[index] += weight
-	
-	#Mana -> Card
+	#Output -> Card
 	for i in range(0, cardNumber):
-		for j in range(0, manaNumber):
-			var index = (laneNumber * cardNumber) + (handNumber * cardNumber) + (cardNumber * j) + i
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * manaDeltas[j] * cardHidden[i].weight))
-			weights[index] += weight
-	
-	#Output -> Mana
-	for i in range(0, manaNumber):
 		for j in range(0, outputNumber):
-			var index = (laneNumber * cardNumber) + (handNumber * cardNumber) + (cardNumber * manaNumber) + j
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * normalisedManaState * manaHidden[i].weight))
+			var index = (inputNumber * cardNumber) + (j * i)
+			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * normalisedManaState * cardHidden[i].weight))
 			weights[index] += weight
 	
+	previousBoardState = currentBoardState
+
+func GetCardNode(card):
+	for node in cardHidden:
+		if node.castingCardID == card.name:
+			return node
+	
+	return null
+
 func Sigmoid(value):
 	return float(1 / (1 + exp(-value)))
 
 func DerSigmoid(value):
 	return float(value * (1 - value))
+
+func Serialise():
+	var brain = File.new()
+	brain.open(filePath, File.WRITE)
+	
+	brain.store_line("CARD")
+	for card in cardHidden:
+		var nodeData = card.Save()
+		brain.store_line(nodeData.to_json())
+	
+	brain.store_line("WEIGHTS")
+	for weight in weights:
+		brain.store_line(str(weight))
+	
+	brain.store_line("OUTPUT")
+	for output in outputNodes:
+		var nodeData = output.Save()
+		brain.store_line(nodeData.to_json())
+	
+	brain.close()
+
+func Deserialise():
+	var brain = File.new()
+	
+	if not brain.file_exists(filePath):
+		return false
+	
+	brain.open(filePath, File.READ)
+	
+	var mode = "NONE"
+	
+	while(!brain.eof_reached()):
+		var currentLine = brain.get_line()
+		if currentLine == "":
+			continue
+		
+		if currentLine == "CARD":
+			mode = currentLine
+			continue
+		elif currentLine == "WEIGHTS":
+			mode = currentLine
+			continue
+		elif currentLine == "OUTPUT":
+			mode = currentLine
+			continue
+		
+		if mode == "CARD":
+			var node = {}
+			node.parse_json(currentLine)
+			var cardNode = cardNodeTemplate.new()
+			cardNode.SetParameters(node)
+			cardNode.weight = float(node.weight)
+			cardNode.tWeight = float(node.tWeight)
+			cardHidden.push_back(cardNode)
+		elif mode == "WEIGHTS":
+			weights.push_back(float(currentLine))
+		elif mode == "OUTPUT":
+			var node = {}
+			node.parse_json(currentLine)
+			var outputNode = outputNodeTemplate.new(node.mana)
+			outputNode.weight = float(node.weight)
+			outputNodes.push_back(outputNode)
+			
+	brain.close()
+	
+	cardNumber = cardHidden.size()
+	
+	weightsNumber = weights.size()

@@ -1,0 +1,195 @@
+extends Node
+
+var currentHP
+var mana
+var deck = []
+var discardPile = []
+var hand = []
+var lanes = []
+var cardNode = load("res://scenes/Card.tscn")
+var manager
+
+var otherPlayer
+
+var replacementsThisTurn
+var replacementsDone
+
+#Used for combat calculations
+var power = 0
+
+func CloneCard(cardRef):
+	var newCard = cardNode.instance()
+	newCard.SetParametersFromCard(cardRef)
+	newCard.SetDisplay()
+	newCard.hinderances = cardRef.hinderances
+	newCard.enhancements = cardRef.enhancements
+	return newCard
+
+func _init(handRef, deckRef, manaRef, currentHPRef):
+	for card in handRef:
+		hand.push_back(CloneCard(card))
+	
+	for card in deckRef.cards:
+		deck.push_back(card)
+	
+	mana = manaRef
+	currentHP = currentHPRef
+	
+	#Initialise the lanes to AILanes
+	for i in range(1, 5):
+		var placeHolder = {}
+		placeHolder.myCard = null
+		lanes.append(placeHolder)
+
+func FillLanes(lanesRef):
+	for i in range(0, lanesRef.size()):
+		if lanesRef[i].myCard != null:
+			lanes[i].myCard = lanesRef[i].myCard
+
+func Summon(cardRef, laneRef):
+	if cardRef.type != cardRef.CREATURE:
+		return false
+	
+	if lanes[laneRef].myCard != null:
+		return false
+	
+	if mana < cardRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	if cardRef.inPlay == true:
+		return false
+	
+	if cardRef.keywords.has("Haste"):
+		cardRef.exhausted = false
+	
+	lanes[laneRef].myCard = cardRef
+	cardRef.player = self
+	cardRef.inPlay = true
+	#hand.erase(cardRef)
+	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
+	mana -= int(cardRef.cost)
+	
+	if cardRef.associatedScript != null:
+		cardRef.associatedScript.Do(cardRef)
+	
+	return true
+
+func Enhance(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	if spellRef.inPlay == true:
+		return false
+	
+	var onField = false
+	
+	for lane in lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	#hand.erase(spellRef)
+	if spellRef.type == spellRef.SPELL:
+		receiver.AddEnhancement(spellRef)
+		spellRef.inPlay = true
+	
+	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
+	#spellRef.ScaleDown()
+	return true
+
+func Hinder(spellRef, receiver):
+	if spellRef.type != spellRef.SPELL and spellRef.type != spellRef.INSTANT:
+		return false
+	
+	if receiver.type != receiver.CREATURE:
+		return false
+	
+	if spellRef.inPlay == true:
+		return false
+	
+	var onField = false
+	
+	for lane in otherPlayer.lanes:
+		if lane.myCard == receiver:
+			onField = true
+	
+	if not onField:
+		return false
+	
+	if mana < spellRef.cost:
+		return false
+	
+	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
+		return false
+	
+	if spellRef.type == spellRef.SPELL:
+		receiver.AddHinderance(spellRef)
+		spellRef.inPlay = true
+	
+	#hand.erase(spellRef)
+	spellRef.inPlay = true
+	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
+	mana -= spellRef.cost
+	if spellRef.associatedScript != null:
+		spellRef.associatedScript.Do(receiver)
+	#spellRef.ScaleDown()
+	return true
+
+func Draw():
+	if manager.phase != manager.DRAW_PHASE:
+		return
+	
+	manager.phase = manager.PLAY_PHASE
+	
+	return FreeDraw()
+
+func FreeDraw():
+	if hand.size() == 6:
+		return false
+	
+	var card = deck.Draw()
+	if card == null:
+		for discard in discardPile:
+			deck.Return(discard)
+		deck.Shuffle()
+	
+	var node = cardNode.instance()
+	node.SetParameters(card)
+	node.SetDisplay()
+	node.player = self
+	hand.append(node)
+	
+	return true
+
+func Replace(card):
+	if replacementsDone == replacementsThisTurn:
+		return false
+	
+	replacementsDone += 1
+	
+	deck.Return(card)
+	hand.erase(card)
+	return FreeDraw()
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	pass

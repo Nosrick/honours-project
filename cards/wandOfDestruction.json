@@ -3,7 +3,7 @@
 	"cost": "5",
 	"power": "0",
 	"toughness": "0",
-	"keywords": [ "Hinderance" ],
+	"keywords": [ "Hinderance", "Destroy" ],
 	"image": "WandOfDestruction.png",
 	"type": "3",
 	"script": "destroy"

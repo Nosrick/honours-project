@@ -3,7 +3,6 @@ extends Node
 var castingCardID
 var castingCardType
 var targetMana
-var weight
 var qWeight
 var vector = Vector2()
 
@@ -12,7 +11,6 @@ var tools = load("res://Tools.gd").new()
 func _init(positionRef):
 	vector = positionRef
 	
-	weight = randf()
 	castingCardID = "None"
 	qWeight = randf()
 	targetMana = 1
@@ -22,25 +20,11 @@ func SetParameters(node):
 	castingCardType = node.castingCardType
 	targetMana = node.targetMana
 
-func GetDistanceWeight(weightRef):
-	var distance = (weightRef - weight) * (weightRef - weight)
-	
-	distance = sqrt(distance)
-	return distance
-
 func GetDistanceMana(targetManaRef):
 	var distance = (targetManaRef - targetMana) * (targetManaRef - targetMana)
 	
 	distance = sqrt(distance)
 	return distance
-
-func AdjustWeight(targetManaRef, learningRate, influence):
-	#OJA-STYLE LEARNING
-	var normalisedMana = tools.NormaliseOneToTen(targetMana)
-	var normalisedTarget = tools.NormaliseOneToTen(targetManaRef)
-	
-	targetMana = targetManaRef
-	weight += influence * (learningRate * ((normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)))
 
 func AdjustMana(targetManaRef, learningRate, influence):
 	#OJA-STYLE LEARNING
@@ -59,7 +43,9 @@ func AdjustMana(targetManaRef, learningRate, influence):
 
 func AdjustQWeight(qWeightRef, learningRate, influence):
 	#OJA-STYLE LEARNING
-	qWeight += float(influence * float(learningRate * float((qWeightRef * (qWeight * qWeightRef)) - ((qWeight * qWeightRef) * (qWeight * qWeightRef) * qWeight))))
+	var newWeight = float(influence * float(learningRate * float((qWeightRef * (qWeight * qWeightRef)) - ((qWeight * qWeightRef) * (qWeight * qWeightRef) * qWeight))))
+	
+	qWeight += newWeight
 
 func ToString():
 	return "[" + castingCardID + " : " + str(castingCardType) + " : " + str(targetMana) + " : " + str(qWeight) + "]"

@@ -1,0 +1,10 @@
+{
+	"name": "Cursed Gull",
+	"cost": "3",
+	"power": "2",
+	"toughness": "2",
+	"keywords": [ "Curse Opposing" ],
+	"image": "CursedGull.png",
+	"type": "1",
+	"script": "curseEnemy"
+}

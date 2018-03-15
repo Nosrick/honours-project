@@ -3,13 +3,13 @@ extends Node
 var node = preload("CardSOMNeuralNode.gd")
 var tools = load("res://Tools.gd").new()
 
-var filePath = "res://myBrain.json"
+var filePath = "res://myBrainSOM.json"
 
 var nodes = []
 var width
 var height
 
-var learningRate = 0.8
+var learningRate = 0.3
 var clusterMod = 0.1
 
 func _init(widthRef, heightRef):

@@ -63,6 +63,7 @@ func _process(delta):
 	
 	if manager.phase == manager.DRAW_PHASE:
 		player.Draw()
+		stuck = false
 	
 	var actionsSinceLastTry = lastActions.size()
 	
@@ -81,7 +82,7 @@ func _process(delta):
 			ManufactureNode(card)
 			qScoreNode = brain.GetBestQScore(node)
 		
-		if qScoreNode.targetMana > player.mana:
+		if card.cost > player.mana:
 			continue
 		
 		#If it's possible to play it, add it to the queue
@@ -109,7 +110,7 @@ func _process(delta):
 	
 	var attempts = 0
 	if actionsToProcess.size() != 0:
-		while actionsToProcess.size() > 0 && attempts < 10:
+		while actionsToProcess.size() > 0 and attempts < 10:
 			#pop the front of the queue
 			var pair = actionsToProcess[0]
 			actionsToProcess.pop_front()

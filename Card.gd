@@ -30,6 +30,24 @@ var exhausted
 
 var safeForRemoval = false
 
+func SetParametersFromCard(cardRef):
+	name = cardRef.name
+	image = cardRef.image
+	cost = cardRef.cost
+	power = cardRef.power
+	toughness = cardRef.toughness
+	currentHP = cardRef.toughness
+	keywords = cardRef.keywords
+	type = cardRef.type
+	if cardRef.associatedScript != null:
+		associatedScript = cardRef.associatedScript
+	else:
+		associatedScript = null
+	
+	inPlay = cardRef.inPlay
+	zoomed = cardRef.zoomed
+	exhausted = cardRef.exhausted
+
 func SetParameters(cardRef):
 	name = cardRef.name
 	image = cardRef.image

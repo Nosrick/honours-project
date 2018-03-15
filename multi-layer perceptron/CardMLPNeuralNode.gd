@@ -28,5 +28,8 @@ func Save():
 	var data = {}
 	data.castingCardID = castingCardID
 	data.castingCardType = castingCardType
+	data.targetMana = []
+	
+	data.weight = weight
 	data.tWeight = tWeight
 	return data

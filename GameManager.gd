@@ -63,7 +63,7 @@ func _ready():
 		AIBrain.set_script(load("res://self-organising map/QLearnerBrain.gd"))
 		AIBrain.trainingCards = cards
 	elif GlobalVariables.brainType == 3:
-		AIBrain.set_script(load("res://multi-layer perceptron/MultiLayerPerceptron.gd"))
+		AIBrain.set_script(load("res://multi-layer perceptron/TDLBrain.gd"))
 		AIBrain.trainingCards = cards
 	
 	AIBrain.player = player2
@@ -151,3 +151,13 @@ func RunAttacks():
 				player1Card.DoCombat(player2)
 			elif turnPlayer == player2 and player2Card != null and player2Card.exhausted == false:
 				player2Card.DoCombat(player1)
+
+func GetCard(name):
+	for card in cards:
+		if card.name == name:
+			var newCard = CardNode.instance()
+			newCard.SetParameters(card)
+			newCard.SetDisplay()
+			return newCard
+	
+	return null
