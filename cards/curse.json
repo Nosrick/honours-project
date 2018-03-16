@@ -3,8 +3,8 @@
 	"cost": "1",
 	"power": "-1",
 	"toughness": "-1",
-	"keywords": [ "Hinderance" ],
+	"keywords": [ "Hinderance", "Draw One" ],
 	"image": "Curse.png",
 	"type": "2",
-	"script": "none"
+	"script": "drawOne"
 }

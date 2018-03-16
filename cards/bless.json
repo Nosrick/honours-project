@@ -3,8 +3,8 @@
 	"cost": "1",
 	"power": "1",
 	"toughness": "1",
-	"keywords": [ "Enhancement" ],
+	"keywords": [ "Enhancement", "Draw One" ],
 	"image": "Bless.png",
 	"type": "2",
-	"script": "none"
+	"script": "drawOne"
 }

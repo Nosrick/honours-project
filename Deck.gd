@@ -11,9 +11,10 @@ func Shuffle():
 	while n > 1:
 		n -= 1
 		var k = randi() % (n + 1)
-		var value = cards[k]
-		cards[n] = cards[k]
-		cards[k] = value
+		var kValue = cards[k]
+		var nValue = cards[n]
+		cards[n] = kValue
+		cards[k] = nValue
 
 func Draw():
 	if cards.size() > 0:

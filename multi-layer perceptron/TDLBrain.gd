@@ -48,25 +48,6 @@ func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
 	
-	simMe = load("res://multi-layer perceptron/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP)
-	simMe.FillLanes(player.lanes)
-	
-	simThem = load("res://multi-layer perceptron/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP)
-	simThem.FillLanes(otherPlayer.lanes)
-	
-	simMe.otherPlayer = simThem
-	simThem.otherPlayer = simMe
-	
-	simulation = load("res://multi-layer perceptron/SimulationManager.gd").new()
-	simulation.phase = simulation.PLAY_PHASE
-	simulation.player1 = simThem
-	simulation.player2 = simMe
-	simulation.turnPlayer = simMe
-	simulation.cards = manager.cards
-	
-	simMe.manager = simulation
-	simThem.manager = simulation
-	
 	if manager.phase == manager.DRAW_PHASE:
 		player.Draw()
 		stuck = false
@@ -92,6 +73,8 @@ func _process(delta):
 	var attempts = 0
 	if actions.size() != 0:
 		while actions.size() > 0 and attempts < 10:
+			SetUpSimulation()
+			
 			#pop the front of the queue
 			var action = actions[0]
 			actions.pop_front()
@@ -126,6 +109,7 @@ func _process(delta):
 						#If ours are empty, play the creature
 						if player.lanes[i].myCard == null:
 							playedCreature = player.Summon(card, i)
+							break
 				
 				if card.type == card.SPELL or card.type == card.INSTANT:
 					var playedSpell = false
@@ -204,6 +188,26 @@ func _process(delta):
 		brain.Epoch(boardState, 0.3, 0.3)
 		
 		manager.EndTurn()
+
+func SetUpSimulation():
+	simMe = load("res://multi-layer perceptron/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP)
+	simMe.FillLanes(player.lanes)
+	
+	simThem = load("res://multi-layer perceptron/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP)
+	simThem.FillLanes(otherPlayer.lanes)
+	
+	simMe.otherPlayer = simThem
+	simThem.otherPlayer = simMe
+	
+	simulation = load("res://multi-layer perceptron/SimulationManager.gd").new()
+	simulation.phase = simulation.PLAY_PHASE
+	simulation.player1 = simThem
+	simulation.player2 = simMe
+	simulation.turnPlayer = simMe
+	simulation.cards = manager.cards
+	
+	simMe.manager = simulation
+	simThem.manager = simulation
 
 func CalculateBoardState(player1, player2):
 	#Do our side first

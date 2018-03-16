@@ -43,14 +43,16 @@ func _ready():
 	player2 = get_tree().get_root().get_node("Root/Player2")
 	
 	var deck1 = load("Deck.gd").new(deckCards1)
-	deck1.Shuffle()
+	for i in range(0, 10):
+		deck1.Shuffle()
 	player1.set_script(load("Player.gd"))
 	#Deck, life, mana
 	player1.Begin(deck1, 20, 1, player2)
 	
 	player2.set_script(load("AIPlayer.gd"))
 	var deck2 = load("Deck.gd").new(deckCards2)
-	deck2.Shuffle()
+	for i in range(0, 10):
+		deck2.Shuffle()
 	player2.Begin(deck2, 20, 1, player1)
 	
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
