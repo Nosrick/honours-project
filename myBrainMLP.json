@@ -1,90 +1,90 @@
 CARD
-{"tWeight":0.347365, "targetMana":[], "castingCardType":1, "weight":0.906855, "castingCardID":"Beatnik Dog"}
-{"tWeight":0.640062, "targetMana":[], "castingCardType":2, "weight":0.560951, "castingCardID":"Bless"}
-{"tWeight":0.066468, "targetMana":[], "castingCardType":1, "weight":0.554202, "castingCardID":"Code Mouse"}
-{"tWeight":0.176695, "targetMana":[], "castingCardType":1, "weight":0.551349, "castingCardID":"Compiler Bunny"}
-{"tWeight":0.309593, "targetMana":[], "castingCardType":2, "weight":0.627199, "castingCardID":"Curse"}
-{"tWeight":0.07599, "targetMana":[], "castingCardType":1, "weight":0.630791, "castingCardID":"Cursed Gull"}
-{"tWeight":0.876708, "targetMana":[], "castingCardType":1, "weight":0.565441, "castingCardID":"Debug Cat"}
-{"tWeight":0.429669, "targetMana":[], "castingCardType":3, "weight":0.556374, "castingCardID":"Fireball"}
-{"tWeight":0.304573, "targetMana":[], "castingCardType":2, "weight":0.610431, "castingCardID":"Lionheart"}
-{"tWeight":0.173522, "targetMana":[], "castingCardType":3, "weight":0.644448, "castingCardID":"Wand of Rage"}
+{"tWeight":0.347365, "targetMana":[], "castingCardType":1, "weight":0.999602, "castingCardID":"Beatnik Dog"}
+{"tWeight":0.640062, "targetMana":[], "castingCardType":2, "weight":0.596157, "castingCardID":"Bless"}
+{"tWeight":0.066468, "targetMana":[], "castingCardType":1, "weight":0.699934, "castingCardID":"Code Mouse"}
+{"tWeight":0.176695, "targetMana":[], "castingCardType":1, "weight":0.67059, "castingCardID":"Compiler Bunny"}
+{"tWeight":0.309593, "targetMana":[], "castingCardType":2, "weight":0.79927, "castingCardID":"Curse"}
+{"tWeight":0.07599, "targetMana":[], "castingCardType":1, "weight":0.735532, "castingCardID":"Cursed Gull"}
+{"tWeight":0.876708, "targetMana":[], "castingCardType":1, "weight":0.738127, "castingCardID":"Debug Cat"}
+{"tWeight":0.429669, "targetMana":[], "castingCardType":3, "weight":0.677456, "castingCardID":"Fireball"}
+{"tWeight":0.304573, "targetMana":[], "castingCardType":2, "weight":0.789319, "castingCardID":"Lionheart"}
+{"tWeight":0.173522, "targetMana":[], "castingCardType":3, "weight":0.808628, "castingCardID":"Wand of Rage"}
 WEIGHTS
--6.459359
--0.686579
--0.620193
--0.585272
--1.469084
--1.504508
--0.74943
--0.642271
--1.270106
--1.676729
--8.621618
--0.309825
--0.992649
--0.798123
--1.451783
--0.932444
--1.150189
--0.824459
--1.378371
--1.467603
--1.023106
+-33.314864
+-1.656768
+-3.604577
+-3.025603
+-5.878929
+-4.350812
+-4.412524
+-3.158409
+-5.62181
+-6.131051
+-14.534072
+-0.625852
+-1.631931
+-1.435089
+-2.425128
+-1.583963
+-2.43588
+-1.462779
+-2.683685
+-2.440171
+-1.681849
 -0.285753
--2.080402
+-3.384127
 -0.449559
--1.317329
--0.954791
--1.93185
+-1.962874
+-1.611219
+-2.921136
 -0.665395
--1.861852
+-3.167117
 -0.177946
--1.223492
--1.171972
+-1.893046
+-1.815201
 -0.161327
 -0.899521
--2.213503
--0.787424
+-3.525945
+-1.122914
 -0.244103
--0.422653
--1.05851
+-1.079194
+-1.714866
 -0.262849
--0.862103
+-1.523066
 -0.472868
--1.262631
+-1.928665
 -0.538973
 -0.663095
--0.845483
--1.530662
+-1.503268
+-2.525803
 -0.321184
 -0.267468
 -0.766076
--0.954595
+-1.622055
 -0.421312
--0.534337
+-1.182102
 -0.344276
 -0.258471
--1.035659
+-1.706754
 -0.652376
 -0.548346
--1.652635
--0.720799
+-2.310076
+-1.043092
 -0.281587
 -0.129516
 0.145011
 -0.644369
--0.721416
+-1.382493
 -0.597269
--0.930446
+-1.584708
 -0.683075
 -0.008743
 -0.898454
 0.26717
 -0.552829
 -0.34043
--0.756757
--0.966041
+-1.414654
+-1.298011
 -0.611566
 -0.267232
 -0.547365
@@ -92,7 +92,7 @@ WEIGHTS
 -0.464416
 0.099198
 -0.160125
--1.129866
+-1.797439
 -0.33505
 -0.18466
 0.210722
@@ -101,7 +101,7 @@ WEIGHTS
 -0.245851
 -0.327719
 0.304778
--0.776679
+-1.112283
 -0.740806
 -0.465464
 -0.469389
@@ -121,6 +121,66 @@ WEIGHTS
 -0.820005
 -0.078068
 OUTPUT
+{"mana":1, "weight":0}
+{"mana":2, "weight":0}
+{"mana":3, "weight":0.000005}
+{"mana":4, "weight":0.000074}
+{"mana":5, "weight":0.00039}
+{"mana":6, "weight":0.000454}
+{"mana":7, "weight":0.010914}
+{"mana":8, "weight":0.017832}
+{"mana":9, "weight":0.064672}
+{"mana":10, "weight":0.107006}
+{"mana":1, "weight":0.000001}
+{"mana":2, "weight":0.003844}
+{"mana":3, "weight":0.007658}
+{"mana":4, "weight":0.025322}
+{"mana":5, "weight":0.041486}
+{"mana":6, "weight":0.052763}
+{"mana":7, "weight":0.121082}
+{"mana":8, "weight":0.10392}
+{"mana":9, "weight":0.192485}
+{"mana":10, "weight":0.197067}
+{"mana":1, "weight":0.000069}
+{"mana":2, "weight":0.034659}
+{"mana":3, "weight":0.039164}
+{"mana":4, "weight":0.080101}
+{"mana":5, "weight":0.103621}
+{"mana":6, "weight":0.128049}
+{"mana":7, "weight":0.207651}
+{"mana":8, "weight":0.176692}
+{"mana":9, "weight":0.260935}
+{"mana":10, "weight":0.249943}
+{"mana":1, "weight":0}
+{"mana":2, "weight":0}
+{"mana":3, "weight":0.000002}
+{"mana":4, "weight":0.000047}
+{"mana":5, "weight":0.000184}
+{"mana":6, "weight":0.000261}
+{"mana":7, "weight":0.005658}
+{"mana":8, "weight":0.007626}
+{"mana":9, "weight":0.036105}
+{"mana":10, "weight":0.05966}
+{"mana":1, "weight":0}
+{"mana":2, "weight":0}
+{"mana":3, "weight":0.000049}
+{"mana":4, "weight":0.000406}
+{"mana":5, "weight":0.00103}
+{"mana":6, "weight":0.001334}
+{"mana":7, "weight":0.013173}
+{"mana":8, "weight":0.015721}
+{"mana":9, "weight":0.060786}
+{"mana":10, "weight":0.084918}
+{"mana":1, "weight":0.000142}
+{"mana":2, "weight":0.000037}
+{"mana":3, "weight":0.003388}
+{"mana":4, "weight":0.010695}
+{"mana":5, "weight":0.018024}
+{"mana":6, "weight":0.021663}
+{"mana":7, "weight":0.07551}
+{"mana":8, "weight":0.080251}
+{"mana":9, "weight":0.164661}
+{"mana":10, "weight":0.184801}
 {"mana":1, "weight":0.000013}
 {"mana":2, "weight":0.000002}
 {"mana":3, "weight":0.001317}

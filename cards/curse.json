@@ -6,5 +6,5 @@
 	"keywords": [ "Hinderance", "Draw One" ],
 	"image": "Curse.png",
 	"type": "2",
-	"script": "drawOne"
+	"script": "curseDraw"
 }

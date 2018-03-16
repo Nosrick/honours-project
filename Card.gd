@@ -47,7 +47,6 @@ func SetParametersFromCard(cardRef):
 	inPlay = cardRef.inPlay
 	zoomed = cardRef.zoomed
 	exhausted = cardRef.exhausted
-	player = cardRef.player
 
 func SetParameters(cardRef):
 	name = cardRef.name

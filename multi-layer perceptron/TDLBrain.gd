@@ -92,6 +92,9 @@ func _process(delta):
 						#if theirs are full, and ours are empty, play the creature
 						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
 							var simSummon = simMe.Summon(card, i)
+							if simSummon == false:
+								continue
+							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
@@ -119,6 +122,9 @@ func _process(delta):
 								continue
 							
 							var simEnhance = simMe.Enhance(card, simMe.lanes[i].myCard)
+							if simEnhance == false:
+								continue
+							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
@@ -150,6 +156,9 @@ func _process(delta):
 								continue
 							
 							var simHinder = simMe.Hinder(card, simThem.lanes[i].myCard)
+							if simHinder == false:
+								continue
+							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState

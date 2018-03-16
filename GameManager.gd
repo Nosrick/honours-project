@@ -158,7 +158,7 @@ func GetCard(name):
 	for card in cards:
 		if card.name == name:
 			var newCard = CardNode.instance()
-			newCard.SetParameters(card)
+			newCard.SetParametersFromCard(card)
 			newCard.SetDisplay()
 			return newCard
 	

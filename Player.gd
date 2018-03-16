@@ -20,12 +20,15 @@ var replacementsDone
 #Used for combat calculations
 var power = 0
 
+var name
+
 func SetDisplay():
 	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
 
 func _ready():
 	set_process_input(true)
 	set_process(true)
+	name = self.get_name()
 
 func _process(delta):
 	pass
@@ -160,6 +163,7 @@ func Hinder(spellRef, receiver):
 	
 	hand.erase(spellRef)
 	spellRef.inPlay = true
+	spellRef.player = self
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
 	if spellRef.associatedScript != null:
@@ -190,7 +194,7 @@ func FreeDraw():
 		deck.Shuffle()
 	
 	var node = cardNode.instance()
-	node.SetParameters(card)
+	node.SetParametersFromCard(card)
 	node.SetDisplay()
 	node.player = self
 	hand.append(node)
@@ -212,7 +216,7 @@ func ReplaceDraw(cardToReplace):
 		attempts += 1
 	
 	var node = cardNode.instance()
-	node.SetParameters(card)
+	node.SetParametersFromCard(card)
 	node.SetDisplay()
 	node.player = self
 	hand.append(node)

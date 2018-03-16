@@ -17,6 +17,8 @@ var replacementsDone
 #Used for combat calculations
 var power = 0
 
+var name
+
 var draggingCard = null
 
 func SetDisplay():
@@ -29,6 +31,8 @@ func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 	currentHP = lifeRef
 	mana = manaRef
 	deck = deckRef
+	
+	name = self.get_name()
 	
 	#Initialise the lanes to AILanes
 	for i in range(1, 5):
@@ -169,7 +173,7 @@ func FreeDraw():
 		deck.Shuffle()
 	
 	var node = cardNode.instance()
-	node.SetParameters(card)
+	node.SetParametersFromCard(card)
 	node.SetDisplay()
 	node.player = self
 	hand.append(node)

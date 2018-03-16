@@ -21,6 +21,7 @@ func CloneCard(cardRef):
 	var newCard = cardNode.instance()
 	newCard.SetParametersFromCard(cardRef)
 	newCard.SetDisplay()
+	newCard.player = self
 	newCard.hinderances = []
 	for hinderance in cardRef.hinderances:
 		newCard.hinderances.push_back(hinderance)
@@ -51,6 +52,12 @@ func FillLanes(lanesRef):
 	for i in range(0, lanesRef.size()):
 		if lanesRef[i].myCard != null:
 			lanes[i].myCard = CloneCard(lanesRef[i].myCard)
+
+func CleanUpLanes():
+	for lane in lanes:
+		if lane.myCard != null:
+			if lane.myCard.currentHP <= 0:
+				lane.myCard = null
 
 func Summon(cardRef, laneRef):
 	if cardRef.type != cardRef.CREATURE:
@@ -156,6 +163,10 @@ func Hinder(spellRef, receiver):
 	if spellRef.associatedScript != null:
 		spellRef.associatedScript.Do(receiver)
 	#spellRef.ScaleDown()
+	
+	otherPlayer.CleanUpLanes()
+	CleanUpLanes()
+	
 	return true
 
 func Draw():
@@ -177,7 +188,7 @@ func FreeDraw():
 		deck.Shuffle()
 	
 	var node = cardNode.instance()
-	node.SetParameters(card)
+	node.SetParametersFromCard(card)
 	node.SetDisplay()
 	node.player = self
 	hand.append(node)

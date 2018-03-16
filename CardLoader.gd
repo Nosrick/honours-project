@@ -1,6 +1,7 @@
 extends Node
 
 var directory = "res://cards"
+var cardNode = load("res://Card.gd")
 
 func LoadCards():
 	var cards = []
@@ -32,6 +33,9 @@ func LoadCards():
 			dict.script = load("res://cards/scripts/" + dict.script + ".gd")
 		else:
 			dict.script = null
-		cards.append(dict)
+		
+		var card = cardNode.new()
+		card.SetParameters(dict)
+		cards.append(card)
 	
 	return cards
