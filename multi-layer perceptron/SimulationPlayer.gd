@@ -2,7 +2,7 @@ extends Node
 
 var currentHP
 var mana
-var deck = []
+var deck
 var discardPile = []
 var hand = []
 var lanes = []
@@ -21,16 +21,22 @@ func CloneCard(cardRef):
 	var newCard = cardNode.instance()
 	newCard.SetParametersFromCard(cardRef)
 	newCard.SetDisplay()
-	newCard.hinderances = cardRef.hinderances
-	newCard.enhancements = cardRef.enhancements
+	newCard.hinderances = []
+	for hinderance in cardRef.hinderances:
+		newCard.hinderances.push_back(hinderance)
+	
+	newCard.enhancements = []
+	for enhancement in cardRef.enhancements:
+		newCard.enhancements.push_back(enhancement)
+	
 	return newCard
 
 func _init(handRef, deckRef, manaRef, currentHPRef):
+	
 	for card in handRef:
 		hand.push_back(CloneCard(card))
 	
-	for card in deckRef.cards:
-		deck.push_back(card)
+	deck = deckRef
 	
 	mana = manaRef
 	currentHP = currentHPRef
@@ -44,7 +50,7 @@ func _init(handRef, deckRef, manaRef, currentHPRef):
 func FillLanes(lanesRef):
 	for i in range(0, lanesRef.size()):
 		if lanesRef[i].myCard != null:
-			lanes[i].myCard = lanesRef[i].myCard
+			lanes[i].myCard = CloneCard(lanesRef[i].myCard)
 
 func Summon(cardRef, laneRef):
 	if cardRef.type != cardRef.CREATURE:
@@ -67,7 +73,7 @@ func Summon(cardRef, laneRef):
 	
 	lanes[laneRef].myCard = cardRef
 	cardRef.player = self
-	cardRef.inPlay = true
+	#cardRef.inPlay = true
 	#hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= int(cardRef.cost)
@@ -105,7 +111,7 @@ func Enhance(spellRef, receiver):
 	#hand.erase(spellRef)
 	if spellRef.type == spellRef.SPELL:
 		receiver.AddEnhancement(spellRef)
-		spellRef.inPlay = true
+		#spellRef.inPlay = true
 	
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
@@ -141,10 +147,10 @@ func Hinder(spellRef, receiver):
 	
 	if spellRef.type == spellRef.SPELL:
 		receiver.AddHinderance(spellRef)
-		spellRef.inPlay = true
+		#spellRef.inPlay = true
 	
 	#hand.erase(spellRef)
-	spellRef.inPlay = true
+	#spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
 	if spellRef.associatedScript != null:

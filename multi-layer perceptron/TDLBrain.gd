@@ -112,10 +112,10 @@ func _process(delta):
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
-							var difference = differenceVector.x - differenceVector.y
+							var difference = differenceVector.x
 							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
 							
-							if difference >= 0:
+							if difference > 0:
 								playedCreature = player.Summon(card, i)
 							
 						if playedCreature == true:
@@ -134,13 +134,16 @@ func _process(delta):
 							if player.lanes[i].myCard == null:
 								continue
 							
-							if IsWithinOne(player.lanes[i].myCard.cost, brain.Reason(card).mana):
+							var simEnhance = simMe.Enhance(card, simMe.lanes[i].myCard)
+							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							var currentBoardState = CalculateBoardState(player, otherPlayer)
+							var differenceVector = predictedBoardState - currentBoardState
+							var difference = differenceVector.x - differenceVector.y
+							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
+							
+							if difference > 0:
 								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-							"""
-							else:
-								brain.AdjustManaWeight(node, node.GetBestMana())
-								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-							"""
+							
 							if playedSpell == false:
 								var newAction = {}
 								
@@ -155,12 +158,21 @@ func _process(delta):
 								
 							else:
 								lastActions.push_back(node)
+								break
+							
 					elif card.keywords.has("Hinderance"):
 						for i in range(otherPlayer.lanes.size()):
 							if otherPlayer.lanes[i].myCard == null:
 								continue
 							
-							if IsWithinOne(otherPlayer.lanes[i].myCard.cost, brain.Reason(card).mana):
+							var simHinder = simMe.Hinder(card, simThem.lanes[i].myCard)
+							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							var currentBoardState = CalculateBoardState(player, otherPlayer)
+							var differenceVector = predictedBoardState - currentBoardState
+							var difference = differenceVector.x - differenceVector.y
+							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
+							
+							if difference > 0:
 								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
 							"""
 							else:
@@ -169,6 +181,7 @@ func _process(delta):
 							"""
 							if playedSpell == true:
 								lastActions.push_back(node)
+								break
 
 	var actionsThisTry = lastActions.size()
 	
