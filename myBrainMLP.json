@@ -1,283 +1,153 @@
 CARD
-{"tWeight":0.347365, "targetMana":[], "castingCardType":1, "weight":0.999602, "castingCardID":"Beatnik Dog"}
-{"tWeight":0.640062, "targetMana":[], "castingCardType":2, "weight":0.596157, "castingCardID":"Bless"}
-{"tWeight":0.066468, "targetMana":[], "castingCardType":1, "weight":0.699934, "castingCardID":"Code Mouse"}
-{"tWeight":0.176695, "targetMana":[], "castingCardType":1, "weight":0.67059, "castingCardID":"Compiler Bunny"}
-{"tWeight":0.309593, "targetMana":[], "castingCardType":2, "weight":0.79927, "castingCardID":"Curse"}
-{"tWeight":0.07599, "targetMana":[], "castingCardType":1, "weight":0.735532, "castingCardID":"Cursed Gull"}
-{"tWeight":0.876708, "targetMana":[], "castingCardType":1, "weight":0.738127, "castingCardID":"Debug Cat"}
-{"tWeight":0.429669, "targetMana":[], "castingCardType":3, "weight":0.677456, "castingCardID":"Fireball"}
-{"tWeight":0.304573, "targetMana":[], "castingCardType":2, "weight":0.789319, "castingCardID":"Lionheart"}
-{"tWeight":0.173522, "targetMana":[], "castingCardType":3, "weight":0.808628, "castingCardID":"Wand of Rage"}
+{"tWeight":0.751246, "targetMana":[], "castingCardType":1, "weight":0.843469, "castingCardID":"Beatnik Dog"}
+{"tWeight":0.744065, "targetMana":[], "castingCardType":2, "weight":0.62499, "castingCardID":"Bless"}
+{"tWeight":0.227549, "targetMana":[], "castingCardType":1, "weight":0.523814, "castingCardID":"Code Mouse"}
+{"tWeight":0.122853, "targetMana":[], "castingCardType":1, "weight":0.482617, "castingCardID":"Compiler Bunny"}
+{"tWeight":0.403958, "targetMana":[], "castingCardType":2, "weight":0.655774, "castingCardID":"Curse"}
+{"tWeight":0.435148, "targetMana":[], "castingCardType":1, "weight":0.584334, "castingCardID":"Cursed Gull"}
+{"tWeight":0.682495, "targetMana":[], "castingCardType":1, "weight":0.557322, "castingCardID":"Debug Cat"}
+{"tWeight":0.434918, "targetMana":[], "castingCardType":3, "weight":0.6395, "castingCardID":"Fireball"}
+{"tWeight":0.117433, "targetMana":[], "castingCardType":2, "weight":0.7841, "castingCardID":"Lionheart"}
+{"tWeight":0.085751, "targetMana":[], "castingCardType":3, "weight":0.561419, "castingCardID":"Wand of Rage"}
 WEIGHTS
--33.314864
--1.656768
--3.604577
--3.025603
--5.878929
--4.350812
--4.412524
--3.158409
--5.62181
--6.131051
--14.534072
--0.625852
--1.631931
--1.435089
--2.425128
--1.583963
--2.43588
--1.462779
--2.683685
--2.440171
--1.681849
--0.285753
--3.384127
--0.449559
--1.962874
--1.611219
--2.921136
--0.665395
--3.167117
--0.177946
--1.893046
--1.815201
--0.161327
--0.899521
--3.525945
--1.122914
--0.244103
--1.079194
--1.714866
--0.262849
--1.523066
--0.472868
--1.928665
--0.538973
--0.663095
--1.503268
--2.525803
--0.321184
--0.267468
--0.766076
--1.622055
--0.421312
--1.182102
--0.344276
--0.258471
--1.706754
--0.652376
--0.548346
--2.310076
--1.043092
--0.281587
--0.129516
-0.145011
--0.644369
--1.382493
--0.597269
--1.584708
--0.683075
--0.008743
--0.898454
-0.26717
--0.552829
--0.34043
--1.414654
--1.298011
--0.611566
--0.267232
--0.547365
--0.498563
--0.464416
-0.099198
--0.160125
--1.797439
--0.33505
--0.18466
-0.210722
--0.680181
--0.418508
--0.245851
--0.327719
-0.304778
--1.112283
--0.740806
--0.465464
--0.469389
-0.444674
--0.674872
--0.464788
--0.010555
--0.101962
--0.617276
-0.330153
--0.042801
-0.173104
--0.730349
--0.022814
--0.310626
--0.68213
--0.820005
--0.078068
+-2.920459
+-0.859875
+-0.157786
+0.112337
+-1.083586
+-0.578974
+-0.39665
+-0.984769
+-2.201325
+-0.411473
+-3.014528
+-0.217045
+-0.009916
+-0.115134
+-0.271792
+-0.296775
+-0.359721
+-0.71373
+-1.267606
+-0.049732
+-0.864074
+-0.876272
+-0.205497
+-0.436467
+-0.431775
+-0.901326
+-1.121157
+-0.538338
+-1.300143
+-0.24808
+-0.36473
+-0.75613
+-0.769263
+0.07097
+-0.492184
+-0.208736
+0.25983
+-0.663281
+-0.677526
+-0.220857
+-0.977522
+0.150864
+-0.565079
+0.04674
+-0.161511
+0.095259
+-0.788103
+-0.086267
+-0.159305
+-0.284396
+-0.21034
+-0.61422
+-0.177858
+0.315593
+-0.447119
+-0.465428
+-0.492986
+-0.40024
+-1.092958
+-0.222153
+0.071493
+-0.38186
+-0.236024
+-0.666019
+-0.598296
+-0.798498
+-0.659321
+-0.030125
+-0.013575
+-0.432704
+-0.720695
+0.053888
+0.068841
+-1.092418
+-0.178924
+0.031824
+-0.038839
+-0.312345
+-0.225234
+-0.584257
+0.371055
+-0.362953
+-0.481756
+0.275751
+-0.42932
+-0.445449
+0.059008
+0.409163
+-0.447765
+-0.316946
+-0.384166
+-0.254481
+-0.138718
+-0.086487
+-0.401308
+-0.399093
+0.232696
+-0.457095
+-0.61151
+-0.484876
+0.081049
+-0.090548
+-0.008433
+-0.409386
+0.473308
+-0.637128
+0.274446
+-0.104052
+-0.00959
+-0.75394
 OUTPUT
-{"mana":1, "weight":0}
-{"mana":2, "weight":0}
-{"mana":3, "weight":0.000005}
-{"mana":4, "weight":0.000074}
-{"mana":5, "weight":0.00039}
-{"mana":6, "weight":0.000454}
-{"mana":7, "weight":0.010914}
-{"mana":8, "weight":0.017832}
-{"mana":9, "weight":0.064672}
-{"mana":10, "weight":0.107006}
-{"mana":1, "weight":0.000001}
-{"mana":2, "weight":0.003844}
-{"mana":3, "weight":0.007658}
-{"mana":4, "weight":0.025322}
-{"mana":5, "weight":0.041486}
-{"mana":6, "weight":0.052763}
-{"mana":7, "weight":0.121082}
-{"mana":8, "weight":0.10392}
-{"mana":9, "weight":0.192485}
-{"mana":10, "weight":0.197067}
-{"mana":1, "weight":0.000069}
-{"mana":2, "weight":0.034659}
-{"mana":3, "weight":0.039164}
-{"mana":4, "weight":0.080101}
-{"mana":5, "weight":0.103621}
-{"mana":6, "weight":0.128049}
-{"mana":7, "weight":0.207651}
-{"mana":8, "weight":0.176692}
-{"mana":9, "weight":0.260935}
-{"mana":10, "weight":0.249943}
-{"mana":1, "weight":0}
-{"mana":2, "weight":0}
-{"mana":3, "weight":0.000002}
-{"mana":4, "weight":0.000047}
-{"mana":5, "weight":0.000184}
-{"mana":6, "weight":0.000261}
-{"mana":7, "weight":0.005658}
-{"mana":8, "weight":0.007626}
-{"mana":9, "weight":0.036105}
-{"mana":10, "weight":0.05966}
-{"mana":1, "weight":0}
-{"mana":2, "weight":0}
-{"mana":3, "weight":0.000049}
-{"mana":4, "weight":0.000406}
-{"mana":5, "weight":0.00103}
-{"mana":6, "weight":0.001334}
-{"mana":7, "weight":0.013173}
-{"mana":8, "weight":0.015721}
-{"mana":9, "weight":0.060786}
-{"mana":10, "weight":0.084918}
-{"mana":1, "weight":0.000142}
-{"mana":2, "weight":0.000037}
-{"mana":3, "weight":0.003388}
-{"mana":4, "weight":0.010695}
-{"mana":5, "weight":0.018024}
-{"mana":6, "weight":0.021663}
-{"mana":7, "weight":0.07551}
-{"mana":8, "weight":0.080251}
-{"mana":9, "weight":0.164661}
-{"mana":10, "weight":0.184801}
-{"mana":1, "weight":0.000013}
-{"mana":2, "weight":0.000002}
-{"mana":3, "weight":0.001317}
-{"mana":4, "weight":0.004381}
-{"mana":5, "weight":0.009064}
-{"mana":6, "weight":0.01045}
-{"mana":7, "weight":0.051046}
-{"mana":8, "weight":0.061533}
-{"mana":9, "weight":0.145246}
-{"mana":10, "weight":0.174692}
-{"mana":1, "weight":0.000264}
-{"mana":2, "weight":0.000022}
-{"mana":3, "weight":0.002995}
-{"mana":4, "weight":0.009247}
-{"mana":5, "weight":0.016107}
-{"mana":6, "weight":0.019072}
-{"mana":7, "weight":0.070116}
-{"mana":8, "weight":0.076977}
-{"mana":9, "weight":0.162507}
-{"mana":10, "weight":0.18474}
-{"mana":1, "weight":0.000071}
-{"mana":2, "weight":0.000025}
-{"mana":3, "weight":0.002828}
-{"mana":4, "weight":0.00776}
-{"mana":5, "weight":0.013396}
-{"mana":6, "weight":0.015396}
-{"mana":7, "weight":0.056298}
-{"mana":8, "weight":0.064427}
-{"mana":9, "weight":0.153778}
-{"mana":10, "weight":0.178453}
-{"mana":1, "weight":0.00389}
-{"mana":2, "weight":0.002173}
-{"mana":3, "weight":0.012683}
-{"mana":4, "weight":0.027409}
-{"mana":5, "weight":0.034425}
-{"mana":6, "weight":0.039988}
-{"mana":7, "weight":0.089226}
-{"mana":8, "weight":0.0915}
-{"mana":9, "weight":0.186908}
-{"mana":10, "weight":0.199852}
-{"mana":1, "weight":0.014009}
-{"mana":2, "weight":0.013158}
-{"mana":3, "weight":0.021576}
-{"mana":4, "weight":0.039885}
-{"mana":5, "weight":0.044653}
-{"mana":6, "weight":0.050857}
-{"mana":7, "weight":0.093749}
-{"mana":8, "weight":0.093151}
-{"mana":9, "weight":0.196199}
-{"mana":10, "weight":0.207426}
-{"mana":1, "weight":0.219977}
-{"mana":2, "weight":0.032456}
-{"mana":3, "weight":0.034511}
-{"mana":4, "weight":0.069225}
-{"mana":5, "weight":0.06788}
-{"mana":6, "weight":0.081722}
-{"mana":7, "weight":0.134875}
-{"mana":8, "weight":0.122413}
-{"mana":9, "weight":0.209187}
-{"mana":10, "weight":0.20542}
-{"mana":1, "weight":0.196401}
-{"mana":2, "weight":0.160899}
-{"mana":3, "weight":0.064886}
-{"mana":4, "weight":0.103254}
-{"mana":5, "weight":0.08957}
-{"mana":6, "weight":0.103589}
-{"mana":7, "weight":0.142231}
-{"mana":8, "weight":0.124696}
-{"mana":9, "weight":0.222988}
-{"mana":10, "weight":0.217206}
-{"mana":1, "weight":0.259387}
-{"mana":2, "weight":0.173655}
-{"mana":3, "weight":0.072936}
-{"mana":4, "weight":0.125409}
-{"mana":5, "weight":0.103226}
-{"mana":6, "weight":0.127056}
-{"mana":7, "weight":0.169044}
-{"mana":8, "weight":0.148731}
-{"mana":9, "weight":0.22499}
-{"mana":10, "weight":0.208217}
-{"mana":1, "weight":0.258334}
-{"mana":2, "weight":0.541099}
-{"mana":3, "weight":0.142928}
-{"mana":4, "weight":0.196871}
-{"mana":5, "weight":0.142721}
-{"mana":6, "weight":0.173179}
-{"mana":7, "weight":0.193706}
-{"mana":8, "weight":0.16542}
-{"mana":9, "weight":0.241704}
-{"mana":10, "weight":0.21491}
-{"mana":1, "weight":0.258351}
-{"mana":2, "weight":0.475995}
-{"mana":3, "weight":0.129202}
-{"mana":4, "weight":0.184168}
-{"mana":5, "weight":0.13596}
-{"mana":6, "weight":0.165867}
-{"mana":7, "weight":0.189553}
-{"mana":8, "weight":0.162616}
-{"mana":9, "weight":0.239449}
-{"mana":10, "weight":0.214019}
+{"mana":1, "weight":0.001225}
+{"mana":2, "weight":0.015267}
+{"mana":3, "weight":0.012804}
+{"mana":4, "weight":0.085779}
+{"mana":5, "weight":0.150556}
+{"mana":6, "weight":0.078428}
+{"mana":7, "weight":0.111369}
+{"mana":8, "weight":0.135018}
+{"mana":9, "weight":0.312533}
+{"mana":10, "weight":0.119449}
+{"mana":1, "weight":0.005651}
+{"mana":2, "weight":0.047243}
+{"mana":3, "weight":0.021641}
+{"mana":4, "weight":0.118422}
+{"mana":5, "weight":0.187221}
+{"mana":6, "weight":0.10538}
+{"mana":7, "weight":0.123853}
+{"mana":8, "weight":0.154734}
+{"mana":9, "weight":0.322548}
+{"mana":10, "weight":0.137076}
+{"mana":1, "weight":0.006956}
+{"mana":2, "weight":0.045714}
+{"mana":3, "weight":0.018726}
+{"mana":4, "weight":0.110817}
+{"mana":5, "weight":0.180033}
+{"mana":6, "weight":0.09541}
+{"mana":7, "weight":0.117173}
+{"mana":8, "weight":0.147355}
+{"mana":9, "weight":0.310774}
+{"mana":10, "weight":0.124534}

@@ -199,10 +199,10 @@ func _process(delta):
 		manager.EndTurn()
 
 func SetUpSimulation():
-	simMe = load("res://multi-layer perceptron/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP)
+	simMe = load("res://multi-layer perceptron/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP, player.discardPile)
 	simMe.FillLanes(player.lanes)
 	
-	simThem = load("res://multi-layer perceptron/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP)
+	simThem = load("res://multi-layer perceptron/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP, player.discardPile)
 	simThem.FillLanes(otherPlayer.lanes)
 	
 	simMe.otherPlayer = simThem

@@ -192,6 +192,7 @@ func FreeDraw():
 		for discard in discardPile:
 			deck.Return(discard)
 		deck.Shuffle()
+		card = deck.Draw()
 	
 	var node = cardNode.instance()
 	node.SetParametersFromCard(card)
@@ -206,7 +207,7 @@ func FreeDraw():
 
 func ReplaceDraw(cardToReplace):
 	var card = deck.Draw()
-	deck.Return(cardToReplace.get_script())
+	deck.Return(cardToReplace)
 	var attempts = 0
 	var MAX_ATTEMPTS = 4
 	while card.name == cardToReplace.name and attempts < MAX_ATTEMPTS:

@@ -171,6 +171,7 @@ func FreeDraw():
 		for discard in discardPile:
 			deck.Return(discard)
 		deck.Shuffle()
+		card = deck.Draw()
 	
 	var node = cardNode.instance()
 	node.SetParametersFromCard(card)

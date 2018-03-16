@@ -32,12 +32,19 @@ func CloneCard(cardRef):
 	
 	return newCard
 
-func _init(handRef, deckRef, manaRef, currentHPRef):
+func _init(handRef, deckRef, manaRef, currentHPRef, discardRef):
 	
 	for card in handRef:
 		hand.push_back(CloneCard(card))
 	
-	deck = deckRef
+	var cards = []
+	deck = load("res://Deck.gd").new(cards)
+	
+	for i in range(0, deckRef.cards.size()):
+		deck.Return(CloneCard(deckRef.cards[i]))
+	
+	for card in discardRef:
+		discardPile.push_back(CloneCard(card))
 	
 	mana = manaRef
 	currentHP = currentHPRef
