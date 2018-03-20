@@ -38,12 +38,12 @@ func _init():
 	cardHidden = []
 	outputNodes = []
 	
-	for i in range(1, 11):
-		outputNodes.push_back(outputNodeTemplate.new(i))
-	
 	weights = []
 
 func Training(cards):
+	for i in range(1, 11):
+		outputNodes.push_back(outputNodeTemplate.new(i))
+	
 	for card in cards:
 		var cardNode = cardNodeTemplate.new()
 		cardNode.SetParametersCard(card)
@@ -97,22 +97,63 @@ func Reason(input):
 			
 	return highestNode
 
-func Epoch(currentBoardState, teachingStep, momentum):
-	var difference = previousBoardState - currentBoardState
+func Epoch(predictedBoardState, teachingStep, momentum):
+	var difference = previousBoardState - predictedBoardState
 	var overallManaState = difference.x - difference.y
+	
+	#This is the output delta
+	var normalisedManaState = tools.NormaliseOneToTen(overallManaState)
 	
 	var previousWeights = weights
 	
 	var tempWeights = weights
 	
+	#Pt = Current prediction = previousBoardState
+	#yt + 1 = Prediction target = predictedBoardState
+	#Ot = TD error = normalisedManaState
+	#a = Learning rate
+	#vit = Weights of the linear prediction function of step t
+		#My linear prediction function is normalisedManaState?
+	#xit' = Input weight at time step t'
+	
+	#vit + a (Ot + 1 * xit)
+	
 	CalculateNetwork()
 	
-	#This is the output delta
-	var normalisedManaState = tools.NormaliseOneToTen(overallManaState)
+	var cardToOutputDeltas = []
+	var inputToCardDeltas = []
 	
-	var outputToCardDeltas = []
-	var cardToInputDeltas = []
+	#Going forward
+	#Input -> Card
+	for i in range(0, inputNumber):
+		for j in range(0, cardNumber):
+			var index = (inputNumber * cardNumber) + j
+			var inputDelta = normalisedManaState + learningRate * (normalisedManaState * inputNode.weight)
+			inputToCardDeltas.push_back(inputDelta)
 	
+	#Card -> Output
+	for i in range(0, cardNumber):
+		for j in range(0, outputNumber):
+			var index = (inputNumber * cardNumber) * (cardNumber * i)
+			var cardDelta = normalisedManaState + learningRate * (normalisedManaState * cardHidden[i].weight)
+			cardToOutputDeltas.push_back(cardDelta)
+	
+	#Changing the weights
+	#Input -> Card
+	for i in range(0, inputNumber):
+		for j in range(0, cardNumber):
+			var index = (inputNumber * j) + i
+			var weight = normalisedManaState + learningRate * (inputNode.weight * inputToCardDeltas[j])
+			weights[index] += weight
+	
+	#Card -> Output
+	for i in range(0, cardNumber):
+		for j in range(0, outputNumber):
+			var index = (inputNumber * cardNumber) + (j * i)
+			var weight = normalisedManaState + learningRate * (cardHidden[i].weight * cardToOutputDeltas[j])
+			weights[index] += weight
+	
+	"""
 	#Going backwards, backpropagation
 	#Output -> Card
 	for i in range(0, cardNumber):
@@ -137,15 +178,28 @@ func Epoch(currentBoardState, teachingStep, momentum):
 			var index = (inputNumber * j) + i
 			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * (cardToInputDeltas[j] * inputNode.weight)))
 			weights[index] += weight
+			
+			if weights[index] > 0.5:
+				weights[index] = 0.5
+			
+			if weights[index] < -0.5:
+				weights[index] = -0.5
 	
 	#Output -> Card
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
 			var index = (inputNumber * cardNumber) + (j * i)
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * normalisedManaState * cardHidden[i].weight))
+			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * outputToCardDeltas[j] * cardHidden[i].weight))
 			weights[index] += weight
+			
+			if weights[index] > 0.5:
+				weights[index] = 0.5
+			
+			if weights[index] < -0.5:
+				weights[index] = -0.5
+	"""
 	
-	previousBoardState = currentBoardState
+	previousBoardState = predictedBoardState
 
 func GetCardNode(card):
 	for node in cardHidden:
@@ -211,7 +265,7 @@ func Deserialise():
 			var cardNode = cardNodeTemplate.new()
 			cardNode.SetParameters(node)
 			cardNode.weight = float(node.weight)
-			cardNode.tWeight = float(node.tWeight)
+			#cardNode.tWeight = float(node.tWeight)
 			cardHidden.push_back(cardNode)
 		elif mode == "WEIGHTS":
 			weights.push_back(float(currentLine))

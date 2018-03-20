@@ -103,6 +103,7 @@ func _process(delta):
 							
 							if difference > 0:
 								playedCreature = player.Summon(card, i)
+								brain.Epoch(predictedBoardState, 0.3, 0.3)
 							
 						if playedCreature == true:
 							lastActions.push_back(node)
@@ -112,7 +113,8 @@ func _process(delta):
 						#If ours are empty, play the creature
 						if player.lanes[i].myCard == null:
 							playedCreature = player.Summon(card, i)
-							break
+							if playedCreature == true:
+								break
 				
 				if card.type == card.SPELL or card.type == card.INSTANT:
 					var playedSpell = false
@@ -133,6 +135,7 @@ func _process(delta):
 							
 							if difference > 0:
 								playedSpell = player.Enhance(card, player.lanes[i].myCard)
+								brain.Epoch(predictedBoardState, 0.3, 0.3)
 							
 							if playedSpell == false:
 								var newAction = {}
@@ -167,6 +170,7 @@ func _process(delta):
 							
 							if difference > 0:
 								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
+								brain.Epoch(predictedBoardState, 0.3, 0.3)
 							"""
 							else:
 								brain.AdjustManaWeight(node, node.GetBestMana())
@@ -194,8 +198,8 @@ func _process(delta):
 			return
 			
 		var boardState = CalculateBoardState(player, otherPlayer)
-		brain.Epoch(boardState, 0.3, 0.3)
-		
+	
+	if stuck == true:
 		manager.EndTurn()
 
 func SetUpSimulation():

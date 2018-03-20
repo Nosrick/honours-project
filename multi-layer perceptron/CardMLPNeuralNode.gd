@@ -22,14 +22,12 @@ func SetParametersCard(card):
 	castingCardType = card.type
 
 func ToString():
-	return "[" + castingCardID + " : " + castingCardType + " : " + tWeight + "]"
+	return "[" + castingCardID + " : " + castingCardType + " : " + weight + "]"
 
 func Save():
 	var data = {}
 	data.castingCardID = castingCardID
 	data.castingCardType = castingCardType
-	data.targetMana = []
 	
 	data.weight = weight
-	data.tWeight = tWeight
 	return data
