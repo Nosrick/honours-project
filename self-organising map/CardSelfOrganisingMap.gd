@@ -22,7 +22,8 @@ func _init(widthRef, heightRef):
 		for y in range(height):
 			nodes.append(node.new(Vector2(x, y)))
 
-func Epoch(newNode):	
+func Epoch(newNode):
+	"""
 	var neighbourhood = sqrt(width * height) * clusterMod
 	var hoodSquared = neighbourhood * neighbourhood
 	
@@ -40,8 +41,11 @@ func Epoch(newNode):
 			if node.castingCardID != newNode.castingCardID:
 				continue
 			
-			node.AdjustMana(newNode.targetMana, learningRate, influence)
-			node.AdjustQWeight(newNode.qWeight, learningRate, influence)
+			"""
+	var node = GetBestMatch(newNode)
+	var influence = 1.0
+	node.AdjustMana(newNode.targetMana, learningRate, influence)
+	node.AdjustQWeight(newNode.qWeight, learningRate, influence)
 
 func GetBestMatch(input):
 	var lowestDistance = 9999999
