@@ -27,7 +27,7 @@ func _ready():
 	brain = load("res://multi-layer perceptron/MultiLayerPerceptron.gd").new()
 	
 	if brain.Deserialise() == false:
-		brain.Training(trainingCards)
+		brain.Initialisation(trainingCards)
 	
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
@@ -56,30 +56,47 @@ func _process(delta):
 	
 	var actions = []
 	
+	var inputList = []
+	
 	for card in player.hand:
-		if card.cost > player.mana:
-			continue
-		
-		var node = brain.GetCardNode(card)
-		
+		inputList.push_back(card)
+	
+	if inputList.size() != 6:
+		for i in range(0, 6 - inputList.size()):
+			inputList.push_back(null)
+	
+	for lane in player.lanes:
+		inputList.push_back(lane.myCard)
+	
+	for lane in otherPlayer.lanes:
+		inputList.push_back(lane.myCard)
+	
+	inputList.push_back(player.mana)
+	
+	var nodes = brain.Reason(inputList)
+	
+	for node in nodes:
 		var action = {}
-		action.card = card
 		action.node = node
 		action.tried = false
+		
 		actions.push_back(action)
-	
-	actions.sort_custom(self, "SortByWeight")
 	
 	var attempts = 0
 	if actions.size() != 0:
-		while actions.size() > 0 and attempts < 10:
+		while actions.size() > 0 and attempts < 20:
 			SetUpSimulation()
 			
 			#pop the front of the queue
 			var action = actions[0]
 			actions.pop_front()
-			var card = action.card
 			var node = action.node
+			var card = null
+			for cardInHand in player.hand:
+				if cardInHand.name == node.castingCardID:
+					card = cardInHand
+					break
+			
 			var tried = action.tried
 			
 			if card != null:
@@ -103,7 +120,7 @@ func _process(delta):
 							
 							if difference > 0:
 								playedCreature = player.Summon(card, i)
-								brain.Epoch(predictedBoardState, 0.3, 0.3)
+								brain.Epoch(predictedBoardState, 0.3)
 							
 						if playedCreature == true:
 							lastActions.push_back(node)
@@ -135,23 +152,23 @@ func _process(delta):
 							
 							if difference > 0:
 								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-								brain.Epoch(predictedBoardState, 0.3, 0.3)
+								brain.Epoch(predictedBoardState, 0.3)
 							
-							if playedSpell == false:
-								var newAction = {}
-								
-								if tried == true:
-									attempts += 1
-								else:
-									newAction.card = card
-									newAction.node = node
-									newAction.tried = true
-									actions.push_back(newAction)
-									attempts += 1
-								
+						if playedSpell == false:
+							var newAction = {}
+							
+							if tried == true:
+								attempts += 1
 							else:
-								lastActions.push_back(node)
-								break
+								newAction.card = card
+								newAction.node = node
+								newAction.tried = true
+								actions.push_back(newAction)
+								attempts += 1
+							
+						else:
+							lastActions.push_back(node)
+							break
 							
 					elif card.keywords.has("Hinderance"):
 						for i in range(otherPlayer.lanes.size()):
@@ -170,7 +187,7 @@ func _process(delta):
 							
 							if difference > 0:
 								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
-								brain.Epoch(predictedBoardState, 0.3, 0.3)
+								brain.Epoch(predictedBoardState, 0.3)
 							"""
 							else:
 								brain.AdjustManaWeight(node, node.GetBestMana())

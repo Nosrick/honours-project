@@ -2,25 +2,37 @@ extends Node
 
 const filePath = "res://myBrainMLP.json"
 
+var inputNodeTemplate = load("res://multi-layer perceptron/InputMLPNeuralNode.gd")
 var cardNodeTemplate = load("res://multi-layer perceptron/CardMLPNeuralNode.gd")
 var outputNodeTemplate = load("res://multi-layer perceptron/OutputMLPNeuralNode.gd")
 
 var tools = load("res://Tools.gd").new()
 
-#1 input node, to represent the chosen card
-var inputNode
-const inputNumber = 1
-const inputLayer = 0
+var epochs = 0
+
+#6 cards, to represent the hand. Some can be null
+var handInputs = []
+const handNumber = 6
+
+#Friendly lanes
+var myLaneInputs = []
+const myLaneNumber = 4
+
+#Enemy lanes
+var theirLaneInputs = []
+const theirLaneNumber = 4
+
+#1 mana input to represent the mana available to the player
+var manaInput
+const manaNumber = 1
 
 #1 node per card
 var cardHidden = []
 var cardNumber
-const cardLayer = 1
 
-#10 output, for the action to take
+#1 output per card, for the action to take
 var outputNodes = []
-const outputNumber = 10
-const outputLayer = 2
+var outputNumber
 
 #Weights for the connections between layers
 var weights = []
@@ -33,17 +45,24 @@ const learningRate = 0.3
 func _init():
 	randomize()
 	
-	inputNode = load("res://multi-layer perceptron/CardMLPNeuralNode.gd").new()
+	handInputs = []
+	for i in range(0, handNumber):
+		handInputs.push_back(inputNodeTemplate.new())
+	
+	myLaneInputs = []
+	for i in range(0, myLaneNumber):
+		myLaneInputs.push_back(inputNodeTemplate.new())
+	
+	theirLaneInputs = []
+	for i in range(0, theirLaneNumber):
+		theirLaneInputs.push_back(inputNodeTemplate.new())
 	
 	cardHidden = []
 	outputNodes = []
 	
 	weights = []
 
-func Training(cards):
-	for i in range(1, 11):
-		outputNodes.push_back(outputNodeTemplate.new(i))
-	
+func Initialisation(cards):	
 	for card in cards:
 		var cardNode = cardNodeTemplate.new()
 		cardNode.SetParametersCard(card)
@@ -51,8 +70,24 @@ func Training(cards):
 	
 	cardNumber = cardHidden.size()
 	
-	#Input -> Card hidden weights
-	for i in range(0, inputNumber * cardNumber):
+	for card in cards:
+		var outputNode = outputNodeTemplate.new()
+		outputNode.SetParametersCard(card)
+		outputNode.targetMana = 1
+		outputNodes.push_back(outputNode)
+	
+	outputNumber = outputNodes.size()
+	
+	#Hand -> Card hidden weights
+	for i in range(0, handNumber * cardNumber):
+		weights.push_back(randf() / 2 - randf())
+	
+	#My lane -> Card hidden weights
+	for i in range(0, myLaneNumber * cardNumber):
+		weights.push_back(randf() / 2 - randf())
+	
+	#Their lane -> Card hidden weights
+	for i in range(0, theirLaneNumber * cardNumber):
 		weights.push_back(randf() / 2 - randf())
 	
 	#Card Hidden weights -> Output
@@ -61,13 +96,53 @@ func Training(cards):
 	
 	weightsNumber = weights.size()
 
+func PopulateInput(inputList):
+	#0-5 is the hand input, comes in card form
+	for i in range(0, handNumber):
+		if inputList[i] == null:
+			handInputs[i].SetParametersToNone()
+		else:
+			handInputs[i].SetParametersCard(inputList[i])
+	
+	#6-9 is our lanes
+	for i in range(0, myLaneNumber):
+		var index = i + handNumber
+		
+		if inputList[index] == null:
+			myLaneInputs[i].SetParametersToNone()
+		else:
+			myLaneInputs[i].SetParametersCard(inputList[index])
+	
+	#10-13 is their lanes
+	for i in range(0, theirLaneNumber):
+		var index = i + handNumber + myLaneNumber
+		
+		if inputList[index] == null:
+			theirLaneInputs[i].SetParametersToNone()
+		else:
+			theirLaneInputs[i].SetParametersCard(inputList[index])
+	
+	#14 is the available mana
+	var index = handNumber + myLaneNumber + theirLaneNumber
+	manaInput = inputList[index]
+
 func CalculateNetwork():
-	#Input -> Card
+	#Hand -> Card
 	for i in range(0, cardNumber):
 		cardHidden[i].weight = 0
 		
-		for j in range(0, inputNumber):
-			cardHidden[i].weight += inputNode.weight * weights[inputNumber * i + j]
+		for j in range(0, handNumber):
+			cardHidden[i].weight += handInputs[j].weight * weights[i * j]
+	
+	#My lanes -> Card
+	for i in range(0, cardNumber):
+		for j in range(0, myLaneNumber):
+			cardHidden[i].weight += myLaneInputs[j].weight * weights[(handNumber) + (i * j)]
+	
+	#Their lanes -> Card
+	for i in range(0, cardNumber):
+		for j in range(theirLaneNumber):
+			cardHidden[i].weight += theirLaneInputs[j].weight * weights[(handNumber * myLaneNumber) + (i * j)]
 		
 		cardHidden[i].weight = Sigmoid(cardHidden[i].weight)
 	
@@ -76,32 +151,40 @@ func CalculateNetwork():
 		outputNodes[i].weight = 0
 		
 		for j in range(cardNumber):
-			outputNodes[i].weight += cardHidden[j].weight * weights[inputNumber * cardNumber * i + j]
+			outputNodes[i].weight += cardHidden[j].weight * weights[(handNumber * myLaneNumber * theirLaneNumber) + (i * j)]
 		
 		outputNodes[i].weight = Sigmoid(outputNodes[i].weight)
 
-func Reason(input):
-	inputNode.SetParametersCard(input)
-	inputNode.weight = GetCardNode(input).weight
+func Reason(inputList):
+	PopulateInput(inputList)
 	
 	CalculateNetwork()
 	
-	var highestWeight = 0
-	var highestNode = null
-	
-	#Find the best fitting target
+	var outputNodesCopy = []
 	for output in outputNodes:
-		if output.weight > highestWeight:
-			highestWeight = output.weight
-			highestNode = output
-			
-	return highestNode
-
-func Epoch(predictedBoardState, teachingStep, momentum):
-	var difference = previousBoardState - predictedBoardState
-	var overallManaState = difference.x - difference.y
+		outputNodesCopy.push_back(output)
 	
-	#This is the output delta
+	outputNodesCopy.sort_custom(self, "SortOutput")
+	return outputNodesCopy
+	
+func SortOutput(left, right):
+	if left.weight < right.weight:
+		return true
+	
+	return false
+
+func LinearPrediction(sampleNumber, input, output, newWeight, newWeightIndex, oldWeight, oldWeightIndex):
+	var generalDifference = (oldWeight * (input * (sampleNumber - oldWeightIndex))) - (newWeight * (output * (sampleNumber - newWeightIndex)))
+	var linearPredictionEstimate = -(newWeight * (output * (sampleNumber - newWeightIndex)))
+	var prediction = generalDifference - linearPredictionEstimate
+	return prediction
+
+func Epoch(predictedBoardState, teachingStep):
+	#var difference = previousBoardState - predictedBoardState
+	#var overallManaState = difference.x - difference.y
+	var overallManaState = predictedBoardState.x - predictedBoardState.y
+	
+	#This is the TD error
 	var normalisedManaState = tools.NormaliseOneToTen(overallManaState)
 	
 	var previousWeights = weights
@@ -110,96 +193,94 @@ func Epoch(predictedBoardState, teachingStep, momentum):
 	
 	#Pt = Current prediction = previousBoardState
 	#yt + 1 = Prediction target = predictedBoardState
-	#Ot = TD error = normalisedManaState
+	#Ot + 1 = TD error = normalisedManaState
 	#a = Learning rate
 	#vit = Weights of the linear prediction function of step t
-		#My linear prediction function is normalisedManaState?
 	#xit' = Input weight at time step t'
 	
 	#vit + a (Ot + 1 * xit)
 	
 	CalculateNetwork()
 	
+	var handToCardDeltas = []
+	var myLaneToCardDeltas = []
+	var theirLaneToCardDeltas = []
 	var cardToOutputDeltas = []
-	var inputToCardDeltas = []
 	
 	#Going forward
-	#Input -> Card
-	for i in range(0, inputNumber):
+	#Hand -> Card
+	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
-			var index = (inputNumber * cardNumber) + j
-			var inputDelta = normalisedManaState + learningRate * (normalisedManaState * inputNode.weight)
-			inputToCardDeltas.push_back(inputDelta)
+			var index = i * j
+			#THIS IS FIXED POTENTIALLY
+			#IT NOW HAS A LINEAR PREDICTOR?
+			var prediction = LinearPrediction(epochs, handInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var handDelta = prediction + (learningRate * (normalisedManaState * handInputs[i].weight))
+			handToCardDeltas.push_back(handDelta)
+	
+	#My lane -> Card
+	for i in range(0, myLaneNumber):
+		for j in range(0, cardNumber):
+			var index = (handNumber + (i * j))
+			var prediction = LinearPrediction(epochs, myLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var myLaneDelta = prediction + (learningRate * (normalisedManaState * myLaneInputs[i].weight))
+			myLaneToCardDeltas.push_back(myLaneDelta)
+	
+	#Their lane -> Card
+	for i in range(0, theirLaneNumber):
+		for j in range(0, cardNumber):
+			var index = (handNumber * myLaneNumber) + (i * j)
+			var prediction = LinearPrediction(epochs, theirLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var theirLaneDelta = prediction + (learningRate * (normalisedManaState * theirLaneInputs[i].weight))
+			theirLaneToCardDeltas.push_back(theirLaneDelta)
 	
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
-			var index = (inputNumber * cardNumber) * (cardNumber * i)
-			var cardDelta = normalisedManaState + learningRate * (normalisedManaState * cardHidden[i].weight)
+			var index = (handNumber * myLaneNumber * theirLaneNumber) + (i * j)
+			var prediction = LinearPrediction(epochs, cardHidden[i].weight, outputNodes[j].weight, weights[index], index, previousWeights[index], index)
+			var cardDelta = prediction + (learningRate * (normalisedManaState * cardHidden[i].weight))
 			cardToOutputDeltas.push_back(cardDelta)
 	
 	#Changing the weights
-	#Input -> Card
-	for i in range(0, inputNumber):
+	#Hand -> Card
+	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
-			var index = (inputNumber * j) + i
-			var weight = normalisedManaState + learningRate * (inputNode.weight * inputToCardDeltas[j])
+			var index = (i * j)
+			var prediction = LinearPrediction(epochs, handInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var weight = prediction + (learningRate * (normalisedManaState * handInputs[i].weight * handToCardDeltas[i]))
 			weights[index] += weight
+			weights[index] = Sigmoid(weights[index])
+	
+	#My lanes -> Card
+	for i in range(0, myLaneNumber):
+		for j in range(0, cardNumber):
+			var index = (handNumber) + (i * j)
+			var prediction = LinearPrediction(epochs, myLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var weight = prediction + (learningRate * (normalisedManaState * myLaneInputs[i].weight * myLaneToCardDeltas[i]))
+			weights[index] += weight
+			weights[index] = Sigmoid(weights[index])
+	
+	#Their lanes -> Card
+	for i in range(0, theirLaneNumber):
+		for j in range(0, cardNumber):
+			var index = (handNumber * myLaneNumber) + (i * j)
+			var prediction = LinearPrediction(epochs, theirLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
+			var weight = prediction + (learningRate * (normalisedManaState * theirLaneInputs[i].weight * theirLaneToCardDeltas[i]))
+			weights[index] += weight
+			weights[index] = Sigmoid(weights[index])
 	
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
-			var index = (inputNumber * cardNumber) + (j * i)
-			var weight = normalisedManaState + learningRate * (cardHidden[i].weight * cardToOutputDeltas[j])
+			var index = (handNumber * myLaneNumber * theirLaneNumber) + (i * j)
+			var prediction = LinearPrediction(epochs, cardHidden[i].weight, outputNodes[j].weight, weights[index], index, previousWeights[index], index)
+			var weight = prediction + learningRate * (normalisedManaState * cardHidden[i].weight * cardToOutputDeltas[j])
 			weights[index] += weight
-	
-	"""
-	#Going backwards, backpropagation
-	#Output -> Card
-	for i in range(0, cardNumber):
-		for j in range(0, outputNumber):
-			var index = (inputNumber * cardNumber) + (cardNumber * i)
-			var cardDelta = normalisedManaState * weights[index]
-			cardDelta *= DerSigmoid(cardHidden[i].weight)
-			outputToCardDeltas.push_back(cardDelta)
-	
-	#Card -> Input
-	for i in range(0, inputNumber):
-		for j in range(0, cardNumber):
-			var index = (inputNumber * cardNumber) + j
-			var inputDelta = cardHidden[i].weight * weights[index]
-			inputDelta *= DerSigmoid(inputNode.weight)
-			cardToInputDeltas.push_back(inputDelta)
-	
-	#Modify the weights
-	#Card -> Input
-	for i in range(0, inputNumber):
-		for j in range(0, cardNumber):
-			var index = (inputNumber * j) + i
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * (cardToInputDeltas[j] * inputNode.weight)))
-			weights[index] += weight
-			
-			if weights[index] > 0.5:
-				weights[index] = 0.5
-			
-			if weights[index] < -0.5:
-				weights[index] = -0.5
-	
-	#Output -> Card
-	for i in range(0, cardNumber):
-		for j in range(0, outputNumber):
-			var index = (inputNumber * cardNumber) + (j * i)
-			var weight = momentum * ((weights[index] - previousWeights[index]) + (teachingStep * outputToCardDeltas[j] * cardHidden[i].weight))
-			weights[index] += weight
-			
-			if weights[index] > 0.5:
-				weights[index] = 0.5
-			
-			if weights[index] < -0.5:
-				weights[index] = -0.5
-	"""
+			weights[index] = Sigmoid(weights[index])
 	
 	previousBoardState = predictedBoardState
+	epochs += 1
 
 func GetCardNode(card):
 	for node in cardHidden:
@@ -265,19 +346,22 @@ func Deserialise():
 			var cardNode = cardNodeTemplate.new()
 			cardNode.SetParameters(node)
 			cardNode.weight = float(node.weight)
-			#cardNode.tWeight = float(node.tWeight)
 			cardHidden.push_back(cardNode)
 		elif mode == "WEIGHTS":
 			weights.push_back(float(currentLine))
 		elif mode == "OUTPUT":
 			var node = {}
 			node.parse_json(currentLine)
-			var outputNode = outputNodeTemplate.new(node.mana)
+			var outputNode = outputNodeTemplate.new()
+			outputNode.castingCardID = node.castingCardID
+			outputNode.castingCardType = node.castingCardType
 			outputNode.weight = float(node.weight)
+			outputNode.targetMana = int(node.targetMana)
+			outputNode.cost = int(node.cost)
 			outputNodes.push_back(outputNode)
 			
 	brain.close()
 	
 	cardNumber = cardHidden.size()
-	
+	outputNumber = outputNodes.size()
 	weightsNumber = weights.size()
