@@ -1,5 +1,7 @@
 extends Node
 
+const name = "QLearnerBrain"
+
 var score
 var brain
 
@@ -15,9 +17,9 @@ var lastActions = []
 var actionsToProcess = []
 
 var tools = load("res://Tools.gd").new()
-var cardNode = load("res://self-organising map/CardSOMNeuralNode.gd")
+var cardNode = load("res://q-learner/CardQLearnerNeuralNode.gd")
 
-var trainingCards
+var trainingCards = []
 
 var stuck = false
 
@@ -49,7 +51,10 @@ func SortHand(left, right):
 	return false
 
 func _ready():
-	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(100, 100)
+	Begin()
+
+func Begin():
+	brain = load("res://q-learner/CardQLearner.gd").new(trainingCards.size() * 2)
 	
 	if brain.Deserialise() == false:
 		InitialTraining(trainingCards)
@@ -74,7 +79,7 @@ func _process(delta):
 	
 	var cardsInHand = []
 	for card in player.hand:
-		var node = cardNode.new(Vector2(0 , 0))
+		var node = cardNode.new()
 		node.castingCardID = card.name
 		var qScoreNode = brain.GetBestQScore(node)
 		
@@ -97,16 +102,6 @@ func _process(delta):
 	
 	for card in cardsInHand:
 		actionsToProcess.push_back(card)
-	
-		"""
-		if qScoreNode.qWeight > highestQScore:
-			print("Found qNode!")
-			print(str(qScoreNode.ToString()))
-			highestQScore = qScoreNode.qWeight
-			highestCard = card
-			activeNode = qScoreNode
-		"""
-		
 	
 	var attempts = 0
 	if actionsToProcess.size() != 0:
@@ -202,7 +197,7 @@ func _process(delta):
 			var lowestQScore = 999
 			var lowestCard = null
 			for card in player.hand:
-				var node = cardNode.new(Vector2(0 , 0))
+				var node = cardNode.new()
 				node.castingCardID = card.name
 				var qScoreNode = brain.GetBestQScore(node)
 				
@@ -227,7 +222,8 @@ func _process(delta):
 		
 		#Reduce clusterMod by 5%
 		brain.clusterMod *= 0.95
-		
+	
+	if stuck == true:
 		manager.EndTurn()
 
 func IsWithinOne(number, target):
@@ -266,4 +262,5 @@ func CalculateManaDifference(then, now):
 	return difference
 
 func EndGame():
+	set_process(false)
 	brain.Serialise()

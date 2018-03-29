@@ -19,3 +19,13 @@ func NormaliseOneToTen(number):
 func RecombobulateOneToTen(number):
 	var y = float(float(number) * float(10 - 1))
 	return y
+
+func RecursiveDictionarySearch(dictionary, searchTerm):
+	for item in dictionary:
+		if item == typeof(dictionary):
+			if item.has(searchTerm):
+				return item.searchTerm
+			elif item == searchTerm:
+				return item
+			elif item == typeof(dictionary):
+				return RecursiveSearch(item, searchTerm)

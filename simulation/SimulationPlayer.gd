@@ -64,6 +64,14 @@ func CleanUpLanes():
 	for lane in lanes:
 		if lane.myCard != null:
 			if lane.myCard.currentHP <= 0:
+				for enhancement in lane.myCard.enhancements:
+					discardPile.push_back(enhancement)
+				
+				for hinderance in lane.myCard.hinderances:
+					discardPile.push_back(hinderance)
+				
+				lane.myCard.inPlay = false
+				discardPile.push_back(lane.myCard)
 				lane.myCard = null
 
 func Summon(cardRef, laneRef):
@@ -87,8 +95,8 @@ func Summon(cardRef, laneRef):
 	
 	lanes[laneRef].myCard = cardRef
 	cardRef.player = self
-	#cardRef.inPlay = true
-	#hand.erase(cardRef)
+	cardRef.inPlay = true
+	hand.erase(cardRef)
 	print(self.get_name() + " summoned " + cardRef.name + " to lane " + str((laneRef + 1)))
 	mana -= int(cardRef.cost)
 	
@@ -122,10 +130,10 @@ func Enhance(spellRef, receiver):
 	if manager.phase != manager.PLAY_PHASE or not manager.IsMyTurn(self):
 		return false
 	
-	#hand.erase(spellRef)
+	hand.erase(spellRef)
 	if spellRef.type == spellRef.SPELL:
 		receiver.AddEnhancement(spellRef)
-		#spellRef.inPlay = true
+		spellRef.inPlay = true
 	
 	print(self.get_name() + " enhanced " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
@@ -163,8 +171,8 @@ func Hinder(spellRef, receiver):
 		receiver.AddHinderance(spellRef)
 		#spellRef.inPlay = true
 	
-	#hand.erase(spellRef)
-	#spellRef.inPlay = true
+	hand.erase(spellRef)
+	spellRef.inPlay = true
 	print(self.get_name() + " hindered " + receiver.name + " with " + spellRef.name)
 	mana -= spellRef.cost
 	if spellRef.associatedScript != null:
@@ -193,6 +201,7 @@ func FreeDraw():
 		for discard in discardPile:
 			deck.Return(discard)
 		deck.Shuffle()
+		card = deck.Draw()
 	
 	var node = cardNode.instance()
 	node.SetParametersFromCard(card)
@@ -216,4 +225,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	pass
+
+func SetDisplay():
 	pass

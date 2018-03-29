@@ -62,7 +62,7 @@ func _ready():
 	elif GlobalVariables.brainType == 1:
 		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
 	elif GlobalVariables.brainType == 2:
-		AIBrain.set_script(load("res://self-organising map/QLearnerBrain.gd"))
+		AIBrain.set_script(load("res://q-learner/QLearnerBrain.gd"))
 		AIBrain.trainingCards = cards
 	elif GlobalVariables.brainType == 3:
 		AIBrain.set_script(load("res://multi-layer perceptron/TDLBrain.gd"))

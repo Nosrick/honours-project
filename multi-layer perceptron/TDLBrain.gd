@@ -1,5 +1,7 @@
 extends Node
 
+const name = "TDLBrain"
+
 var score
 var brain
 
@@ -24,6 +26,9 @@ var simMe
 var simThem
 
 func _ready():
+	Begin()
+
+func Begin():
 	brain = load("res://multi-layer perceptron/MultiLayerPerceptron.gd").new()
 	
 	if brain.Deserialise() == false:
@@ -133,7 +138,7 @@ func _process(delta):
 							if playedCreature == true:
 								break
 				
-				if card.type == card.SPELL or card.type == card.INSTANT:
+				elif card.type == card.SPELL or card.type == card.INSTANT:
 					var playedSpell = false
 					if card.keywords.has("Enhancement"):
 						for i in range(player.lanes.size()):
@@ -220,16 +225,16 @@ func _process(delta):
 		manager.EndTurn()
 
 func SetUpSimulation():
-	simMe = load("res://multi-layer perceptron/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP, player.discardPile)
+	simMe = load("res://simulation/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP, player.discardPile)
 	simMe.FillLanes(player.lanes)
 	
-	simThem = load("res://multi-layer perceptron/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP, player.discardPile)
+	simThem = load("res://simulation/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP, player.discardPile)
 	simThem.FillLanes(otherPlayer.lanes)
 	
 	simMe.otherPlayer = simThem
 	simThem.otherPlayer = simMe
 	
-	simulation = load("res://multi-layer perceptron/SimulationManager.gd").new()
+	simulation = load("res://simulation/SimulationManager.gd").new()
 	simulation.phase = simulation.PLAY_PHASE
 	simulation.player1 = simThem
 	simulation.player2 = simMe
@@ -238,6 +243,20 @@ func SetUpSimulation():
 	
 	simMe.manager = simulation
 	simThem.manager = simulation
+
+func ValidateSimulation():
+	for i in range(0, player.lanes.size()):
+		if player.lanes[i].myCard == null:
+			continue
+		
+		if simMe.lanes[i].myCard == null:
+			return false
+		
+		if otherPlayer.lanes[i].myCard == null:
+			continue
+		
+		if simThem.lanes[i].myCard == null:
+			return false
 
 func CalculateBoardState(player1, player2):
 	#Do our side first
@@ -265,4 +284,5 @@ func CalculateMana(card):
 	return manaValue
 
 func EndGame():
+	set_process(false)
 	brain.Serialise()

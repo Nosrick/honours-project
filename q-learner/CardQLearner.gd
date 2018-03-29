@@ -1,9 +1,9 @@
 extends Node
 
-var node = preload("CardSOMNeuralNode.gd")
+var node = preload("CardQLearnerNeuralNode.gd")
 var tools = load("res://Tools.gd").new()
 
-var filePath = "res://myBrainSOM.json"
+var filePath = "res://myBrainQL.json"
 
 var nodes = []
 var width
@@ -12,36 +12,19 @@ var height
 var learningRate = 0.3
 var clusterMod = 0.1
 
-func _init(widthRef, heightRef):
+func _init(widthRef):
 	randomize()
 	nodes = []
 	width = widthRef
-	height = heightRef
 	
 	for x in range(width):
-		for y in range(height):
-			nodes.append(node.new(Vector2(x, y)))
+		nodes.append(node.new())
 
 func Epoch(newNode):
-	var neighbourhood = sqrt(width * height) * clusterMod
-	var hoodSquared = neighbourhood * neighbourhood
-	
-	for node in nodes:
-		var distanceSquared = (newNode.vector.x - node.vector.x) * ( newNode.vector.x - node.vector.x) + (newNode.vector.y - node.vector.y) * (newNode.vector.y - node.vector.y)
-		
-		if distanceSquared < hoodSquared:
-			var influence = exp((-distanceSquared) / (2 * hoodSquared))
-			
-			#Begin to cluster unassigned nodes
-			if node.castingCardID == "None":
-				node.castingCardID = newNode.castingCardID
-				node.castingCardType = newNode.castingCardType
-			
-			if node.castingCardID != newNode.castingCardID:
-				continue
-			
-			node.AdjustMana(newNode.targetMana, learningRate, influence)
-			node.AdjustQWeight(newNode.qWeight, learningRate, influence)
+	var node = GetBestMatch(newNode)
+	var influence = 1.0
+	node.AdjustMana(newNode.targetMana, learningRate, influence)
+	node.AdjustQWeight(newNode.qWeight, learningRate, influence)
 
 func GetBestMatch(input):
 	var lowestDistance = 9999999
@@ -104,7 +87,7 @@ func Deserialise():
 	var currentLine = {}
 	while(!brain.eof_reached()):
 		currentLine.parse_json(brain.get_line())
-		var newNode = node.new(ExtractVector(currentLine.vector))
+		var newNode = node.new()
 		newNode.castingCardID = currentLine.castingCardID
 		newNode.castingCardType = currentLine.castingCardType
 		newNode.targetMana = currentLine.targetMana
