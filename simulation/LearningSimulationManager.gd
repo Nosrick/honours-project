@@ -20,6 +20,9 @@ var GUID = randi()
 const filePath = "res://SimulationStats.json"
 
 func AttachBrains():
+	var buttonManager = get_tree().get_root().get_node("Root/ButtonManager")
+	brain1 = buttonManager.players[0].new()
+	brain2 = buttonManager.players[1].new()
 	
 	var cardLoader = load("res://CardLoader.gd").new()
 	cards = cardLoader.LoadCards()
@@ -40,11 +43,8 @@ func AttachBrains():
 	for i in range(0, 10):
 		deck1.Shuffle()
 	
-	var brain1Node = get_tree().get_root().get_node("Root/Brain1")
-	brain1Node.set_script(brain1.get_script())
-	brain1Node.player = load("res://simulation/SimulationPlayer.gd").new(hand1, deck1, 1, 20, discard1)
-	
-	brain1Node.trainingCards = cards
+	brain1.player = load("res://simulation/SimulationPlayer.gd").new(hand1, deck1, 1, 20, discard1)
+	brain1.trainingCards = cards
 	
 	var hand2 = []
 	var discard2 = []
@@ -52,36 +52,51 @@ func AttachBrains():
 	for i in range(0, 10):
 		deck2.Shuffle()
 	
-	var brain2Node = get_tree().get_root().get_node("Root/Brain2")
-	brain2Node.set_script(brain2.get_script())
-	brain2Node.player = load("res://simulation/SimulationPlayer.gd").new(hand2, deck2, 1, 20, discard2)
-	
-	brain2Node.trainingCards = cards
+	brain2.player = load("res://simulation/SimulationPlayer.gd").new(hand2, deck2, 1, 20, discard2)
+	brain2.trainingCards = cards
 
-	brain1Node.otherPlayer = brain2Node.player
-	brain2Node.otherPlayer = brain1Node.player
+	brain1.otherPlayer = brain2.player
+	brain2.otherPlayer = brain1.player
 	
-	simulationManager.player1 = brain1Node.player
-	simulationManager.player2 = brain2Node.player
+	brain1.player.set_name(brain1.name)
+	brain2.player.set_name(brain2.name)
 	
-	simulationManager.player1.otherPlayer = brain2Node.player
-	simulationManager.player2.otherPlayer = brain1Node.player
+	simulationManager.player1 = brain1.player
+	simulationManager.player2 = brain2.player
+	
+	simulationManager.player1.otherPlayer = brain2.player
+	simulationManager.player2.otherPlayer = brain1.player
 	
 	simulationManager.player1.manager = simulationManager
 	simulationManager.player2.manager = simulationManager
 	
 	simulationManager.turnPlayer = simulationManager.player1
 	
-	brain1Node.Begin()
-	brain1Node.manager = simulationManager
+	brain1.Begin()
+	brain1.manager = simulationManager
 	
+	brain2.Begin()
+	brain2.manager = simulationManager
+	
+	var brain1Node = get_tree().get_root().get_node("Root/Brain1")
+	brain1Node.set_script(brain1.get_script())
+	brain1Node.trainingCards = brain1.trainingCards
+	brain1Node.Begin()
+	brain1Node.player = brain1.player
+	brain1Node.otherPlayer = brain1.player
+	brain1Node.brain = brain1.brain
+	brain1Node.manager = brain1.manager
+	
+	var brain2Node = get_tree().get_root().get_node("Root/Brain2")
+	brain2Node.set_script(brain2.get_script())
+	brain2Node.trainingCards = brain2.trainingCards
 	brain2Node.Begin()
-	brain2Node.manager = simulationManager
+	brain2Node.player = brain2.player
+	brain2Node.otherPlayer = brain2.player
+	brain2Node.brain = brain2.brain
+	brain2Node.manager = brain2.manager
 	
 	simulationManager.cards = cards
-	
-	brain1 = brain1Node
-	brain2 = brain2Node
 	
 	player1Name = brain1.name
 	player2Name = brain2.name
@@ -96,33 +111,42 @@ func _process(delta):
 	simulationManager.Run()
 	
 	if simulationManager.gameOver == true:
-		gamesTotal = 1
-		
-		if simulationManager.player1.currentHP <= 0 and simulationManager.player2.currentHP >= 0:
-			player2Wins = 1
-		elif simulationManager.player2.currentHP <= 0 and simulationManager.player1.currentHP >= 0:
-			player1Wins = 1
-		elif simulationManager.player1.currentHP <= 0 and simulationManager.player2.currentHP <= 0:
-			draws = 1
-		else:
-			errors = 1
-		
-		brain1.EndGame()
-		brain2.EndGame()
-		Serialise()
-		GUID = randi()
-		gamesTotal = 0
-		player2Wins = 0
-		player1Wins = 0
-		draws = 0
-		errors = 0
-		
-		simulationManager = load("res://simulation/SimulationManager.gd").new()
-		AttachBrains()
-		get_tree().get_root().get_node("Root/Label").set_text("Simulating")
-		
+		GameOver()
+
+func GameOver():
+	gamesTotal = 1
+	
+	if simulationManager.player1.currentHP <= 0 and simulationManager.player2.currentHP >= 0:
+		player2Wins = 1
+	elif simulationManager.player2.currentHP <= 0 and simulationManager.player1.currentHP >= 0:
+		player1Wins = 1
+	elif simulationManager.player1.currentHP <= 0 and simulationManager.player2.currentHP <= 0:
+		draws = 1
+	else:
+		errors = 1
+	
+	brain1.EndGame()
+	brain2.EndGame()
+	
+	brain1.free()
+	brain2.free()
+	
+	Serialise()
+	
+	GUID = randi()
+	gamesTotal = 0
+	player2Wins = 0
+	player1Wins = 0
+	draws = 0
+	errors = 0
+	
+	simulationManager.free()
+	simulationManager = load("res://simulation/SimulationManager.gd").new()
+	AttachBrains()
+	get_tree().get_root().get_node("Root/Label").set_text("Simulating")
 
 func Serialise():
+	print("SERIALISING")
 	get_tree().get_root().get_node("Root/Label").set_text("Serialising...")
 	var file = File.new()
 	if file.file_exists(filePath):
@@ -155,8 +179,10 @@ func Serialise():
 	
 	file.store_line(string)
 	file.close()
+	print("DONE SERIALISING")
 
 func GetWinRatio():
+	print("GETTING WIN RATIO")
 	var file = File.new()
 	if file.file_exists(filePath):
 		file.open(filePath, File.READ)
@@ -181,6 +207,7 @@ func GetWinRatio():
 			winRatio.y += data["simulation"][GUID]["player1"]["player1Wins"]
 			winRatio.z += data["simulation"][GUID]["gamesTotal"]
 	
+	print("GOT WIN RATIO")
 	return winRatio
 
 func JoinDictionaries(left, right):

@@ -23,6 +23,8 @@ var trainingCards = []
 
 var stuck = false
 
+const INFLUENCE = 0.5
+
 func InitialTraining(deck):
 	var nodes = []
 	for card in deck:
@@ -59,7 +61,9 @@ func Begin():
 	if brain.Deserialise() == false:
 		InitialTraining(trainingCards)
 	
-	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	if self.get_tree() != null:
+		manager = self.get_tree().get_root().get_node("Root/GameManager")
+	
 	set_process(true)
 
 func _process(delta):
@@ -148,7 +152,7 @@ func _process(delta):
 								playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
 							#If it's not, adjust the mana towards the new value
 							else:
-								activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, 1.0)
+								activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
 								playedSpell = player.Enhance(highestCard, player.lanes[i].myCard)
 								
 							if playedSpell == false:
@@ -182,7 +186,7 @@ func _process(delta):
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
 							#If it's not, adjust the mana towards the new value
 							else:
-								activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, 1.0)
+								activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
 							
 							if playedSpell == true:
@@ -219,9 +223,6 @@ func _process(delta):
 		#Clear the action list
 		lastActions.clear()
 		actionsToProcess.clear()
-		
-		#Reduce clusterMod by 5%
-		brain.clusterMod *= 0.95
 	
 	if stuck == true:
 		manager.EndTurn()

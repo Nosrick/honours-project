@@ -21,14 +21,13 @@ func CloneCard(cardRef):
 	var newCard = cardNode.instance()
 	newCard.SetParametersFromCard(cardRef)
 	newCard.SetDisplay()
-	newCard.player = self
 	newCard.hinderances = []
 	for hinderance in cardRef.hinderances:
-		newCard.hinderances.push_back(hinderance)
+		newCard.hinderances.push_back(CloneCard(hinderance))
 	
 	newCard.enhancements = []
 	for enhancement in cardRef.enhancements:
-		newCard.enhancements.push_back(enhancement)
+		newCard.enhancements.push_back(CloneCard(enhancement))
 	
 	return newCard
 
@@ -49,7 +48,7 @@ func _init(handRef, deckRef, manaRef, currentHPRef, discardRef):
 	mana = manaRef
 	currentHP = currentHPRef
 	
-	#Initialise the lanes to AILanes
+	#Initialise the lanes to null
 	for i in range(1, 5):
 		var placeHolder = {}
 		placeHolder.myCard = null

@@ -132,17 +132,23 @@ func CalculateNetwork():
 		cardHidden[i].weight = 0
 		
 		for j in range(0, handNumber):
-			cardHidden[i].weight += handInputs[j].weight * weights[i * j]
+			var index = i + j
+			var weight = handInputs[j].weight * weights[i * j]
+			cardHidden[i].weight += weight
 	
 	#My lanes -> Card
 	for i in range(0, cardNumber):
 		for j in range(0, myLaneNumber):
-			cardHidden[i].weight += myLaneInputs[j].weight * weights[(handNumber) + (i * j)]
+			var index = (handNumber) * (i + j)
+			var weight = myLaneInputs[j].weight * weights[index]
+			cardHidden[i].weight += weight
 	
 	#Their lanes -> Card
 	for i in range(0, cardNumber):
 		for j in range(theirLaneNumber):
-			cardHidden[i].weight += theirLaneInputs[j].weight * weights[(handNumber * myLaneNumber) + (i * j)]
+			var index = (handNumber + myLaneNumber) * (i + j)
+			var weight = theirLaneInputs[j].weight * weights[index]
+			cardHidden[i].weight += weight
 		
 		cardHidden[i].weight = Sigmoid(cardHidden[i].weight)
 	
@@ -151,7 +157,9 @@ func CalculateNetwork():
 		outputNodes[i].weight = 0
 		
 		for j in range(cardNumber):
-			outputNodes[i].weight += cardHidden[j].weight * weights[(handNumber * myLaneNumber * theirLaneNumber) + (i * j)]
+			var index = (handNumber + myLaneNumber + theirLaneNumber) + i + (outputNumber * j)
+			var weight = cardHidden[j].weight * weights[index]
+			outputNodes[i].weight += weight
 		
 		outputNodes[i].weight = Sigmoid(outputNodes[i].weight)
 
@@ -211,9 +219,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Hand -> Card
 	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
-			var index = i * j
-			#THIS IS FIXED POTENTIALLY
-			#IT NOW HAS A LINEAR PREDICTOR?
+			var index = i + j
 			var prediction = LinearPrediction(epochs, handInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var handDelta = prediction + (learningRate * (normalisedManaState * handInputs[i].weight))
 			handToCardDeltas.push_back(handDelta)
@@ -221,7 +227,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#My lane -> Card
 	for i in range(0, myLaneNumber):
 		for j in range(0, cardNumber):
-			var index = (handNumber + (i * j))
+			var index = (handNumber + (i + j))
 			var prediction = LinearPrediction(epochs, myLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var myLaneDelta = prediction + (learningRate * (normalisedManaState * myLaneInputs[i].weight))
 			myLaneToCardDeltas.push_back(myLaneDelta)
@@ -229,7 +235,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Their lane -> Card
 	for i in range(0, theirLaneNumber):
 		for j in range(0, cardNumber):
-			var index = (handNumber * myLaneNumber) + (i * j)
+			var index = (handNumber * myLaneNumber) + (i + j)
 			var prediction = LinearPrediction(epochs, theirLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var theirLaneDelta = prediction + (learningRate * (normalisedManaState * theirLaneInputs[i].weight))
 			theirLaneToCardDeltas.push_back(theirLaneDelta)
@@ -237,7 +243,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
-			var index = (handNumber * myLaneNumber * theirLaneNumber) + (i * j)
+			var index = (handNumber * myLaneNumber * theirLaneNumber) + i + (outputNumber * j)
 			var prediction = LinearPrediction(epochs, cardHidden[i].weight, outputNodes[j].weight, weights[index], index, previousWeights[index], index)
 			var cardDelta = prediction + (learningRate * (normalisedManaState * cardHidden[i].weight))
 			cardToOutputDeltas.push_back(cardDelta)
@@ -246,7 +252,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Hand -> Card
 	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
-			var index = (i * j)
+			var index = (i + j)
 			var prediction = LinearPrediction(epochs, handInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var weight = prediction + (learningRate * (normalisedManaState * handInputs[i].weight * handToCardDeltas[i]))
 			weights[index] += weight
@@ -255,7 +261,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#My lanes -> Card
 	for i in range(0, myLaneNumber):
 		for j in range(0, cardNumber):
-			var index = (handNumber) + (i * j)
+			var index = (handNumber) + (i + j)
 			var prediction = LinearPrediction(epochs, myLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var weight = prediction + (learningRate * (normalisedManaState * myLaneInputs[i].weight * myLaneToCardDeltas[i]))
 			weights[index] += weight
@@ -264,7 +270,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Their lanes -> Card
 	for i in range(0, theirLaneNumber):
 		for j in range(0, cardNumber):
-			var index = (handNumber * myLaneNumber) + (i * j)
+			var index = (handNumber * myLaneNumber) + (i + j)
 			var prediction = LinearPrediction(epochs, theirLaneInputs[i].weight, cardHidden[j].weight, weights[index], index, previousWeights[index], index)
 			var weight = prediction + (learningRate * (normalisedManaState * theirLaneInputs[i].weight * theirLaneToCardDeltas[i]))
 			weights[index] += weight
@@ -273,7 +279,7 @@ func Epoch(predictedBoardState, teachingStep):
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
-			var index = (handNumber * myLaneNumber * theirLaneNumber) + (i * j)
+			var index = (handNumber * myLaneNumber * theirLaneNumber) + i + (outputNumber * j)
 			var prediction = LinearPrediction(epochs, cardHidden[i].weight, outputNodes[j].weight, weights[index], index, previousWeights[index], index)
 			var weight = prediction + learningRate * (normalisedManaState * cardHidden[i].weight * cardToOutputDeltas[j])
 			weights[index] += weight
@@ -296,6 +302,7 @@ func DerSigmoid(value):
 	return float(value * (1 - value))
 
 func Serialise():
+	print("SERIALISING")
 	var brain = File.new()
 	brain.open(filePath, File.WRITE)
 	
@@ -314,6 +321,7 @@ func Serialise():
 		brain.store_line(nodeData.to_json())
 	
 	brain.close()
+	print("DONE SERIALISING")
 
 func Deserialise():
 	var brain = File.new()

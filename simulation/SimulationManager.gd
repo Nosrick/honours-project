@@ -55,14 +55,6 @@ func Run():
 	if player1 == null or player2 == null:
 		return
 	
-	if gameOver == true:
-		if player1.currentHP <= 0 and player2.currentHP <= 0:
-			GlobalVariables.message = "YOU DREW!"
-		elif player1.currentHP <= 0:
-			GlobalVariables.message = "YOU LOSE!"
-		elif player2.currentHP <= 0:
-			GlobalVariables.message = "YOU WIN!"
-	
 	#End game state
 	if player1.currentHP <= 0:
 		gameOver = true

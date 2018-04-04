@@ -12,8 +12,6 @@ func _process(delta):
 	
 	if players.size() == 2 and simulating == false:
 		var learningManager = get_tree().get_root().get_node("Root")
-		learningManager.brain1 = players[0]
-		learningManager.brain2 = players[1]
 		learningManager.AttachBrains()
 		get_tree().get_root().get_node("Root/Label").set_text("Simulating")
 		simulating = true

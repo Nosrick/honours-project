@@ -6,5 +6,5 @@ extends Node
 
 func Pressed():
 	var buttonManager = get_tree().get_root().get_node("Root/ButtonManager")
-	var brain = load("res://multi-layer perceptron/TDLBrain.gd").new()
+	var brain = load("res://multi-layer perceptron/TDLBrain.gd")
 	buttonManager.players.push_back(brain)

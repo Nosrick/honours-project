@@ -139,10 +139,4 @@ margin/right = 308.0
 margin/bottom = 408.0
 script/script = ExtResource( 4 )
 
-[connection signal="mouse_enter" from="MouseDetection" to="MouseDetection" method="OnMouseEnter"]
-
-[connection signal="mouse_enter" from="MouseDetection" to="." method="OnMouseEnter"]
-
-[connection signal="mouse_exit" from="MouseDetection" to="." method="OnMouseExit"]
-
 

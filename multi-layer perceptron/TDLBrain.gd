@@ -34,7 +34,8 @@ func Begin():
 	if brain.Deserialise() == false:
 		brain.Initialisation(trainingCards)
 	
-	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	if self.get_tree() != null:
+		manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
 
 func SortByWeight(left, right):
@@ -63,8 +64,11 @@ func _process(delta):
 	
 	var inputList = []
 	
+	print("BEGIN HAND")
 	for card in player.hand:
+		print(card.ToString())
 		inputList.push_back(card)
+	print("END HAND")
 	
 	if inputList.size() != 6:
 		for i in range(0, 6 - inputList.size()):
@@ -84,14 +88,11 @@ func _process(delta):
 		var action = {}
 		action.node = node
 		action.tried = false
-		
 		actions.push_back(action)
 	
 	var attempts = 0
 	if actions.size() != 0:
 		while actions.size() > 0 and attempts < 20:
-			SetUpSimulation()
-			
 			#pop the front of the queue
 			var action = actions[0]
 			actions.pop_front()
@@ -111,6 +112,7 @@ func _process(delta):
 					
 					#look at enemy lanes
 					for i in range(otherPlayer.lanes.size()):
+						SetUpSimulation()
 						#if theirs are full, and ours are empty, play the creature
 						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
 							var simSummon = simMe.Summon(card, i)
@@ -118,12 +120,15 @@ func _process(delta):
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							DestroySimulation()
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
 							var difference = differenceVector.x
 							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
 							
 							if difference > 0:
+								#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING CREATURES
+								card.inPlay = false
 								playedCreature = player.Summon(card, i)
 								brain.Epoch(predictedBoardState, 0.3)
 							
@@ -141,7 +146,11 @@ func _process(delta):
 				elif card.type == card.SPELL or card.type == card.INSTANT:
 					var playedSpell = false
 					if card.keywords.has("Enhancement"):
+						var laneIndex = -1
+						var highestScore = -1
+						
 						for i in range(player.lanes.size()):
+							SetUpSimulation()
 							if player.lanes[i].myCard == null:
 								continue
 							
@@ -150,15 +159,24 @@ func _process(delta):
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							DestroySimulation()
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
 							var difference = differenceVector.x - differenceVector.y
 							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
 							
 							if difference > 0:
-								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-								brain.Epoch(predictedBoardState, 0.3)
-							
+								#playedSpell = player.Enhance(card, player.lanes[i].myCard)
+								if highestScore < difference:
+									highestScore = difference
+									laneIndex = i
+									brain.Epoch(predictedBoardState, 0.3)
+						
+						if laneIndex != -1:
+							#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING SPELLS
+							card.inPlay = false
+							playedSpell = player.Enhance(card, player.lanes[laneIndex].myCard)
+						
 						if playedSpell == false:
 							var newAction = {}
 							
@@ -177,27 +195,40 @@ func _process(delta):
 							
 					elif card.keywords.has("Hinderance"):
 						for i in range(otherPlayer.lanes.size()):
+							SetUpSimulation()
+							var laneIndex = -1
+							var highestScore = -1
+						
 							if otherPlayer.lanes[i].myCard == null:
 								continue
+							
+							if ValidateSimulation() == false:
+								print("INVALID SIMULATION")
+								print(card.ToString())
+								var previousCard = simThem.lanes[i].myCard
 							
 							var simHinder = simMe.Hinder(card, simThem.lanes[i].myCard)
 							if simHinder == false:
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							DestroySimulation()
 							var currentBoardState = CalculateBoardState(player, otherPlayer)
 							var differenceVector = predictedBoardState - currentBoardState
 							var difference = differenceVector.x - differenceVector.y
 							print("Predicted: " + str(predictedBoardState) + " : Current: " + str(currentBoardState))
 							
 							if difference > 0:
-								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
-								brain.Epoch(predictedBoardState, 0.3)
-							"""
-							else:
-								brain.AdjustManaWeight(node, node.GetBestMana())
-								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
-							"""
+								if difference > highestScore:
+									highestScore = difference
+									laneIndex = i
+									brain.Epoch(predictedBoardState, 0.3)
+							
+							if laneIndex != -1:
+								#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING CREATURES
+								card.inPlay = false
+								playedSpell = player.Hinder(card, otherPlayer.lanes[laneIndex].myCard)
+							
 							if playedSpell == true:
 								lastActions.push_back(node)
 								break
@@ -244,19 +275,30 @@ func SetUpSimulation():
 	simMe.manager = simulation
 	simThem.manager = simulation
 
+func DestroySimulation():
+	simMe.free()
+	simThem.free()
+	simulation.free()
+
 func ValidateSimulation():
 	for i in range(0, player.lanes.size()):
-		if player.lanes[i].myCard == null:
-			continue
-		
-		if simMe.lanes[i].myCard == null:
+		if player.lanes[i].myCard != null and simMe.lanes[i].myCard == null:
 			return false
 		
-		if otherPlayer.lanes[i].myCard == null:
-			continue
-		
-		if simThem.lanes[i].myCard == null:
+		if otherPlayer.lanes[i].myCard != null and simThem.lanes[i].myCard == null:
 			return false
+		
+	if simMe.hand.size() != player.hand.size():
+		return false
+	
+	if simThem.hand.size() != otherPlayer.hand.size():
+		return false
+		
+		return true
+
+func InvalidateSimulation():
+	get_tree().get_root().get_node("Root").GameOver()
+	get_tree().get_root().get_node("Root/Label").set_text("INVALID SIMULATION")
 
 func CalculateBoardState(player1, player2):
 	#Do our side first
@@ -273,15 +315,15 @@ func CalculateBoardState(player1, player2):
 	return Vector2(ourSide, theirSide)
 
 func CalculateMana(card):
-	var manaValue = 0
-	manaValue += card.cost
+	var currentValue = 0
+	currentValue += card.cost + card.currentHP
 	for enhancement in card.enhancements:
-		manaValue += enhancement.cost
+		currentValue += enhancement.cost
 	
 	for hinderance in card.hinderances:
-		manaValue -= hinderance.cost
+		currentValue -= hinderance.cost
 	
-	return manaValue
+	return currentValue
 
 func EndGame():
 	set_process(false)

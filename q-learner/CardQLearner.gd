@@ -7,10 +7,8 @@ var filePath = "res://myBrainQL.json"
 
 var nodes = []
 var width
-var height
 
 var learningRate = 0.3
-var clusterMod = 0.1
 
 func _init(widthRef):
 	randomize()
@@ -22,7 +20,7 @@ func _init(widthRef):
 
 func Epoch(newNode):
 	var node = GetBestMatch(newNode)
-	var influence = 1.0
+	var influence = 0.5
 	node.AdjustMana(newNode.targetMana, learningRate, influence)
 	node.AdjustQWeight(newNode.qWeight, learningRate, influence)
 
@@ -61,17 +59,16 @@ func RandomUnassignedNode():
 	return emptyNodes[result]
 
 func Serialise():
+	print("SERIALISING")
 	var brain = File.new()
 	brain.open(filePath, File.WRITE)
-	
-	brain.store_line(str(width))
-	brain.store_line(str(height))
 	
 	for node in nodes:
 		var nodeData = node.Save()
 		brain.store_line(nodeData.to_json())
 	
 	brain.close()
+	print("DONE SERIALISING")
 	
 func Deserialise():
 	var brain = File.new()
@@ -81,8 +78,6 @@ func Deserialise():
 	brain.open(filePath, File.READ)
 	
 	nodes = []
-	width = int(brain.get_line())
-	height = int(brain.get_line())
 	
 	var currentLine = {}
 	while(!brain.eof_reached()):
@@ -97,6 +92,7 @@ func Deserialise():
 		nodes.append(newNode)
 	
 	brain.close()
+	width = nodes.size()
 	return true
 
 func ExtractVector(string):

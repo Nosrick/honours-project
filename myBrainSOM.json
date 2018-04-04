@@ -1,628 +1,632 @@
 20
 20
-{"vector":"(0, 0)", "targetMana":2.039608, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(0, 1)", "targetMana":1.04165, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(0, 2)", "targetMana":1.008747, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.972415}
-{"vector":"(0, 3)", "targetMana":1.00001, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 4)", "targetMana":1.000043, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 5)", "targetMana":1.000197, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 6)", "targetMana":1.000237, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 7)", "targetMana":1.00108, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 8)", "targetMana":1.001302, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(0, 9)", "targetMana":1.000312, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 10)", "targetMana":1.001342, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 11)", "targetMana":1.005304, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 12)", "targetMana":1.006583, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 13)", "targetMana":1.029151, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 14)", "targetMana":1.122534, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 15)", "targetMana":1.501221, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 16)", "targetMana":1.56969, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(0, 17)", "targetMana":9.999984, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
-{"vector":"(0, 18)", "targetMana":10.000001, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
-{"vector":"(0, 19)", "targetMana":1.972891, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
-{"vector":"(1, 0)", "targetMana":1.344943, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(1, 1)", "targetMana":1.052353, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(1, 2)", "targetMana":1.000002, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 3)", "targetMana":1.000008, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 4)", "targetMana":1.000043, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 5)", "targetMana":1.000049, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 6)", "targetMana":1.000213, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 7)", "targetMana":1.00128, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 8)", "targetMana":1.005057, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 9)", "targetMana":1.006327, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(1, 10)", "targetMana":1.001132, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 11)", "targetMana":1.001453, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 12)", "targetMana":1.006811, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 13)", "targetMana":1.023122, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 14)", "targetMana":1.369052, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 15)", "targetMana":1.551669, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 16)", "targetMana":3.107984, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"vector":"(1, 17)", "targetMana":1.54509, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.993308}
-{"vector":"(1, 18)", "targetMana":1.369044, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.037578}
-{"vector":"(1, 19)", "targetMana":1.05494, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.999999}
-{"vector":"(2, 0)", "targetMana":1.352521, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(2, 1)", "targetMana":1.457682, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(2, 2)", "targetMana":1.041865, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.8149}
-{"vector":"(2, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.062084}
-{"vector":"(2, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.439959}
-{"vector":"(2, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.397418}
-{"vector":"(2, 6)", "targetMana":1.000043, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.669185}
-{"vector":"(2, 7)", "targetMana":1.00108, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.968881}
-{"vector":"(2, 8)", "targetMana":1.006105, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(2, 9)", "targetMana":1.024571, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(2, 10)", "targetMana":1.029633, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(2, 11)", "targetMana":1.030464, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(2, 12)", "targetMana":1.029598, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.999997}
-{"vector":"(2, 13)", "targetMana":1.005304, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.95827}
-{"vector":"(2, 14)", "targetMana":1.00003, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(2, 15)", "targetMana":1.473861, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.20997}
-{"vector":"(2, 16)", "targetMana":1.536955, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.355721}
-{"vector":"(2, 17)", "targetMana":1.473861, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.277968}
-{"vector":"(2, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.249871}
-{"vector":"(2, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.587146}
-{"vector":"(3, 0)", "targetMana":2.13125, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(3, 1)", "targetMana":1.907585, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(3, 2)", "targetMana":1.556888, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.979358}
-{"vector":"(3, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.743297}
-{"vector":"(3, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.588802}
-{"vector":"(3, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.996847}
-{"vector":"(3, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.010902}
-{"vector":"(3, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.224665}
-{"vector":"(3, 8)", "targetMana":1.005057, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.998135}
-{"vector":"(3, 9)", "targetMana":1.024371, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(3, 10)", "targetMana":1.115213, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(3, 11)", "targetMana":1.144121, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(3, 12)", "targetMana":1.376006, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(3, 13)", "targetMana":1.000105, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(3, 14)", "targetMana":1.000127, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(3, 15)", "targetMana":1.000435, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(3, 16)", "targetMana":1.369044, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.593436}
-{"vector":"(3, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.302522}
-{"vector":"(3, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.492092}
-{"vector":"(3, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.587044}
-{"vector":"(4, 0)", "targetMana":5.560006, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(4, 1)", "targetMana":6.159173, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(4, 2)", "targetMana":2.804607, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.999587}
-{"vector":"(4, 3)", "targetMana":1.437867, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.915116}
-{"vector":"(4, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.746234}
-{"vector":"(4, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.94929}
-{"vector":"(4, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.723626}
-{"vector":"(4, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.975283}
-{"vector":"(4, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.576523}
-{"vector":"(4, 9)", "targetMana":1.024572, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.996993}
-{"vector":"(4, 10)", "targetMana":1.143934, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(4, 11)", "targetMana":1.600804, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(4, 12)", "targetMana":1.81135, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(4, 13)", "targetMana":1.573123, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.997615}
-{"vector":"(4, 14)", "targetMana":1.00051, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(4, 15)", "targetMana":1.000605, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(4, 16)", "targetMana":1.00051, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999787}
-{"vector":"(4, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.385476}
-{"vector":"(4, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.697892}
-{"vector":"(4, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.475459}
-{"vector":"(5, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
-{"vector":"(5, 1)", "targetMana":9.994824, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(5, 2)", "targetMana":6.00419, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(5, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.509975}
-{"vector":"(5, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.143064}
-{"vector":"(5, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.476065}
-{"vector":"(5, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.226737}
-{"vector":"(5, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.770413}
-{"vector":"(5, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.330415}
-{"vector":"(5, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.283995}
-{"vector":"(5, 10)", "targetMana":1.3694, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.975047}
-{"vector":"(5, 11)", "targetMana":1.782787, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(5, 12)", "targetMana":4.349596, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(5, 13)", "targetMana":1.782957, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.999997}
-{"vector":"(5, 14)", "targetMana":1.369044, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.990508}
-{"vector":"(5, 15)", "targetMana":1.00239, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(5, 16)", "targetMana":1.000605, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(5, 17)", "targetMana":1.000435, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.750444}
-{"vector":"(5, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.985951}
-{"vector":"(5, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.870644}
-{"vector":"(6, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
-{"vector":"(6, 1)", "targetMana":9.999392, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(6, 2)", "targetMana":7.321327, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"vector":"(6, 3)", "targetMana":1.403474, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.950674}
-{"vector":"(6, 4)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.313839}
-{"vector":"(6, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.072371}
-{"vector":"(6, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.342825}
-{"vector":"(6, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.856689}
-{"vector":"(6, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.375341}
-{"vector":"(6, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.354062}
-{"vector":"(6, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.716003}
-{"vector":"(6, 11)", "targetMana":1.589898, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(6, 12)", "targetMana":1.809506, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(6, 13)", "targetMana":1.589929, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(6, 14)", "targetMana":1.003069, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(6, 15)", "targetMana":1.003478, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(6, 16)", "targetMana":1.003069, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(6, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.000271}
-{"vector":"(6, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.557115}
-{"vector":"(6, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.428667}
-{"vector":"(7, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
-{"vector":"(7, 1)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.999945}
-{"vector":"(7, 2)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.116747}
-{"vector":"(7, 3)", "targetMana":1.000002, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(7, 4)", "targetMana":1.000002, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999984}
-{"vector":"(7, 5)", "targetMana":1.000001, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.898992}
-{"vector":"(7, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.936377}
-{"vector":"(7, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.68658}
-{"vector":"(7, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.356475}
-{"vector":"(7, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.272413}
-{"vector":"(7, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.446757}
-{"vector":"(7, 11)", "targetMana":1.109649, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.986111}
-{"vector":"(7, 12)", "targetMana":1.377575, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"vector":"(7, 13)", "targetMana":1.109649, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.981932}
-{"vector":"(7, 14)", "targetMana":1.037602, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(7, 15)", "targetMana":1.013137, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(7, 16)", "targetMana":1.015556, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(7, 17)", "targetMana":1.013107, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.975743}
-{"vector":"(7, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.549894}
-{"vector":"(7, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.061558}
-{"vector":"(8, 0)", "targetMana":10.035385, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
-{"vector":"(8, 1)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.123885}
-{"vector":"(8, 2)", "targetMana":4.976391, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":0.994382}
-{"vector":"(8, 3)", "targetMana":1.000027, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(8, 4)", "targetMana":1.000003, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(8, 5)", "targetMana":1.000002, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(8, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.231055}
-{"vector":"(8, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.333715}
-{"vector":"(8, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.743088}
-{"vector":"(8, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.080288}
-{"vector":"(8, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.395649}
-{"vector":"(8, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.678578}
-{"vector":"(8, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.859349}
-{"vector":"(8, 13)", "targetMana":1.008299, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.471825}
-{"vector":"(8, 14)", "targetMana":1.045441, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(8, 15)", "targetMana":1.183068, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(8, 16)", "targetMana":1.061533, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(8, 17)", "targetMana":1.03337, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(8, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.15612}
-{"vector":"(8, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.90517}
-{"vector":"(9, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.200148}
-{"vector":"(9, 1)", "targetMana":10.005666, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
-{"vector":"(9, 2)", "targetMana":1.000349, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(9, 3)", "targetMana":1.000004, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(9, 4)", "targetMana":1.000015, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(9, 5)", "targetMana":1.000018, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(9, 6)", "targetMana":1.000078, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.988991}
-{"vector":"(9, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.769369}
-{"vector":"(9, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.786489}
-{"vector":"(9, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.521969}
-{"vector":"(9, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.729291}
-{"vector":"(9, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.193521}
-{"vector":"(9, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.50377}
-{"vector":"(9, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.858556}
-{"vector":"(9, 14)", "targetMana":1.233933, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999859}
-{"vector":"(9, 15)", "targetMana":1.266446, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(9, 16)", "targetMana":1.235636, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(9, 17)", "targetMana":1.047297, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(9, 18)", "targetMana":1.040378, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999989}
-{"vector":"(9, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.796113}
-{"vector":"(10, 0)", "targetMana":4.976391, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":0.957319}
-{"vector":"(10, 1)", "targetMana":1.002843, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(10, 2)", "targetMana":1.000196, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(10, 3)", "targetMana":1.000005, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(10, 4)", "targetMana":1.000029, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(10, 5)", "targetMana":1.000097, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(10, 6)", "targetMana":1.000086, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(10, 7)", "targetMana":1.000065, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.991672}
-{"vector":"(10, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.863099}
-{"vector":"(10, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.110808}
-{"vector":"(10, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.34738}
-{"vector":"(10, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.410954}
-{"vector":"(10, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.904624}
-{"vector":"(10, 13)", "targetMana":1.181959, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.018913}
-{"vector":"(10, 14)", "targetMana":1.264749, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.151564}
-{"vector":"(10, 15)", "targetMana":2.006643, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999999}
-{"vector":"(10, 16)", "targetMana":1.267429, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(10, 17)", "targetMana":1.183741, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(10, 18)", "targetMana":1.047106, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"vector":"(10, 19)", "targetMana":1.033275, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.705469}
-{"vector":"(11, 0)", "targetMana":1.000494, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(11, 1)", "targetMana":1.001362, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(11, 2)", "targetMana":1.000132, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(11, 3)", "targetMana":1.000018, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.980401}
-{"vector":"(11, 4)", "targetMana":1.000078, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(11, 5)", "targetMana":1.000111, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(11, 6)", "targetMana":1.000467, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(11, 7)", "targetMana":1.00032, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(11, 8)", "targetMana":1.000324, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.750937}
-{"vector":"(11, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.89334}
-{"vector":"(11, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.364666}
-{"vector":"(11, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.943969}
-{"vector":"(11, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.294318}
-{"vector":"(11, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.603792}
-{"vector":"(11, 14)", "targetMana":1.234495, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.950691}
-{"vector":"(11, 15)", "targetMana":1.265718, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.812954}
-{"vector":"(11, 16)", "targetMana":1.234916, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999998}
-{"vector":"(11, 17)", "targetMana":1.047106, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999999}
-{"vector":"(11, 18)", "targetMana":1.040381, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999995}
-{"vector":"(11, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.703805}
-{"vector":"(12, 0)", "targetMana":1.001215, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(12, 1)", "targetMana":1.000933, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(12, 2)", "targetMana":1.00412, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(12, 3)", "targetMana":1.003376, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999955}
-{"vector":"(12, 4)", "targetMana":1.000019, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.881765}
-{"vector":"(12, 5)", "targetMana":1.000371, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(12, 6)", "targetMana":1.000619, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(12, 7)", "targetMana":1.00199, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(12, 8)", "targetMana":1.000429, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999999}
-{"vector":"(12, 9)", "targetMana":1.008533, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.957464}
-{"vector":"(12, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.562715}
-{"vector":"(12, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.553248}
-{"vector":"(12, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.436923}
-{"vector":"(12, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.368355}
-{"vector":"(12, 14)", "targetMana":1.000023, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.991097}
-{"vector":"(12, 15)", "targetMana":1.182625, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.2499}
-{"vector":"(12, 16)", "targetMana":1.00118, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(12, 17)", "targetMana":1.033275, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.980943}
-{"vector":"(12, 18)", "targetMana":1.000582, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.997892}
-{"vector":"(12, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.612619}
-{"vector":"(13, 0)", "targetMana":1.000974, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(13, 1)", "targetMana":1.004958, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(13, 2)", "targetMana":1.00653, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(13, 3)", "targetMana":1.002658, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(13, 4)", "targetMana":1.00337, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.938578}
-{"vector":"(13, 5)", "targetMana":1.000457, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999974}
-{"vector":"(13, 6)", "targetMana":1.00211, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(13, 7)", "targetMana":1.003749, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(13, 8)", "targetMana":1.010957, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(13, 9)", "targetMana":1.00984, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999996}
-{"vector":"(13, 10)", "targetMana":1.010957, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.17127}
-{"vector":"(13, 11)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.105105}
-{"vector":"(13, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.508057}
-{"vector":"(13, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.907916}
-{"vector":"(13, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.344252}
-{"vector":"(13, 15)", "targetMana":1.000135, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(13, 16)", "targetMana":1.000613, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(13, 17)", "targetMana":1.000752, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(13, 18)", "targetMana":1.002273, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(13, 19)", "targetMana":1.00057, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.995515}
-{"vector":"(14, 0)", "targetMana":1.00412, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999136}
-{"vector":"(14, 1)", "targetMana":1.003376, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(14, 2)", "targetMana":1.024013, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(14, 3)", "targetMana":1.020869, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(14, 4)", "targetMana":1.014564, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999999}
-{"vector":"(14, 5)", "targetMana":1.003376, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.755149}
-{"vector":"(14, 6)", "targetMana":1.002126, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(14, 7)", "targetMana":1.010161, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(14, 8)", "targetMana":1.013572, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(14, 9)", "targetMana":1.058478, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(14, 10)", "targetMana":1.009821, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999999}
-{"vector":"(14, 11)", "targetMana":1.008533, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.413605}
-{"vector":"(14, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.872164}
-{"vector":"(14, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.460853}
-{"vector":"(14, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.552746}
-{"vector":"(14, 15)", "targetMana":1.000593, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.012416}
-{"vector":"(14, 16)", "targetMana":1.000582, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(14, 17)", "targetMana":1.003615, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(14, 18)", "targetMana":1.004049, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(14, 19)", "targetMana":1.002258, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(15, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.945335}
-{"vector":"(15, 1)", "targetMana":1.00292, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.708151}
-{"vector":"(15, 2)", "targetMana":1.014238, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(15, 3)", "targetMana":1.188511, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(15, 4)", "targetMana":1.07728, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(15, 5)", "targetMana":1.066213, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.090221}
-{"vector":"(15, 6)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.712721}
-{"vector":"(15, 7)", "targetMana":1.009693, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999999}
-{"vector":"(15, 8)", "targetMana":1.041377, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(15, 9)", "targetMana":1.060404, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(15, 10)", "targetMana":1.06024, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(15, 11)", "targetMana":1.047612, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.91897}
-{"vector":"(15, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.963551}
-{"vector":"(15, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.408657}
-{"vector":"(15, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.303108}
-{"vector":"(15, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.340028}
-{"vector":"(15, 16)", "targetMana":1.002273, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.997299}
-{"vector":"(15, 17)", "targetMana":1.00309, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(15, 18)", "targetMana":1.014471, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(15, 19)", "targetMana":1.014014, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(16, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.557987}
-{"vector":"(16, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.080906}
-{"vector":"(16, 2)", "targetMana":1.014565, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999567}
-{"vector":"(16, 3)", "targetMana":1.07728, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"vector":"(16, 4)", "targetMana":1.300235, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999912}
-{"vector":"(16, 5)", "targetMana":1.077221, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.009416}
-{"vector":"(16, 6)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.285153}
-{"vector":"(16, 7)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.500574}
-{"vector":"(16, 8)", "targetMana":1.047429, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.99999}
-{"vector":"(16, 9)", "targetMana":1.243215, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(16, 10)", "targetMana":1.341039, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(16, 11)", "targetMana":1.746576, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(16, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.122218}
-{"vector":"(16, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.120075}
-{"vector":"(16, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.10663}
-{"vector":"(16, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.134524}
-{"vector":"(16, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.952967}
-{"vector":"(16, 17)", "targetMana":1.003894, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(16, 18)", "targetMana":1.021634, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(16, 19)", "targetMana":1.069312, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(17, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.044669}
-{"vector":"(17, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.749034}
-{"vector":"(17, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.014164}
-{"vector":"(17, 3)", "targetMana":1.066235, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.059349}
-{"vector":"(17, 4)", "targetMana":1.077221, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.361189}
-{"vector":"(17, 5)", "targetMana":1.066235, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.898847}
-{"vector":"(17, 6)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.601733}
-{"vector":"(17, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.237386}
-{"vector":"(17, 8)", "targetMana":1.03844, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.986845}
-{"vector":"(17, 9)", "targetMana":1.248994, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(17, 10)", "targetMana":2.112949, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
-{"vector":"(17, 11)", "targetMana":2.13475, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999999}
-{"vector":"(17, 12)", "targetMana":1.934561, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.319914}
-{"vector":"(17, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.278625}
-{"vector":"(17, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.857887}
-{"vector":"(17, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.509779}
-{"vector":"(17, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.860888}
-{"vector":"(17, 17)", "targetMana":1.00309, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999981}
-{"vector":"(17, 18)", "targetMana":1.064299, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(17, 19)", "targetMana":1.113656, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(18, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.602992}
-{"vector":"(18, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.494188}
-{"vector":"(18, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.821672}
-{"vector":"(18, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.839424}
-{"vector":"(18, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.201243}
-{"vector":"(18, 5)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.287335}
-{"vector":"(18, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.189431}
-{"vector":"(18, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.76145}
-{"vector":"(18, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.693273}
-{"vector":"(18, 9)", "targetMana":1.743235, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.997094}
-{"vector":"(18, 10)", "targetMana":2.132717, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.999997}
-{"vector":"(18, 11)", "targetMana":5.259289, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.911296}
-{"vector":"(18, 12)", "targetMana":2.109356, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.330163}
-{"vector":"(18, 13)", "targetMana":1.762448, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.437299}
-{"vector":"(18, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.149218}
-{"vector":"(18, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.914589}
-{"vector":"(18, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.50208}
-{"vector":"(18, 17)", "targetMana":1.056363, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.602435}
-{"vector":"(18, 18)", "targetMana":1.063998, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(18, 19)", "targetMana":1.402576, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"vector":"(19, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.981816}
-{"vector":"(19, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.387982}
-{"vector":"(19, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.806193}
-{"vector":"(19, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.683921}
-{"vector":"(19, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.660119}
-{"vector":"(19, 5)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.622016}
-{"vector":"(19, 6)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.229727}
-{"vector":"(19, 7)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.028727}
-{"vector":"(19, 8)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.809174}
-{"vector":"(19, 9)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.779744}
-{"vector":"(19, 10)", "targetMana":1.979003, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.156738}
-{"vector":"(19, 11)", "targetMana":2.109356, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.249459}
-{"vector":"(19, 12)", "targetMana":1.979003, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.787755}
-{"vector":"(19, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.904213}
-{"vector":"(19, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.102859}
-{"vector":"(19, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.75776}
-{"vector":"(19, 16)", "targetMana":1, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.686134}
-{"vector":"(19, 17)", "targetMana":1, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.965809}
-{"vector":"(19, 18)", "targetMana":1.064275, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.967911}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
-{"vector":"(19, 19)", "targetMana":1.063999, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999708}
+{"vector":"(0, 0)", "targetMana":10.000064, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 1)", "targetMana":10.000195, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 2)", "targetMana":10.000018, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 3)", "targetMana":9.999885, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 4)", "targetMana":2.964229, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 5)", "targetMana":1.204173, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(0, 6)", "targetMana":1.003112, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(0, 7)", "targetMana":1.012783, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(0, 8)", "targetMana":1.183627, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(0, 9)", "targetMana":1.268174, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(0, 10)", "targetMana":2.007998, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.999983}
+{"vector":"(0, 11)", "targetMana":1.265718, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.731879}
+{"vector":"(0, 12)", "targetMana":1.182625, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.538231}
+{"vector":"(0, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.830472}
+{"vector":"(0, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.740671}
+{"vector":"(0, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.46093}
+{"vector":"(0, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.856768}
+{"vector":"(0, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.697645}
+{"vector":"(0, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.321057}
+{"vector":"(0, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.013215}
+{"vector":"(1, 0)", "targetMana":10.000001, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(1, 1)", "targetMana":10.000001, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(1, 2)", "targetMana":9.999996, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(1, 3)", "targetMana":9.024596, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(1, 4)", "targetMana":1.219543, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":1}
+{"vector":"(1, 5)", "targetMana":1.154479, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.983185}
+{"vector":"(1, 6)", "targetMana":1.002526, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(1, 7)", "targetMana":1.014661, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(1, 8)", "targetMana":1.056271, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(1, 9)", "targetMana":1.237323, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(1, 10)", "targetMana":1.267215, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(1, 11)", "targetMana":1.234495, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.852186}
+{"vector":"(1, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.627298}
+{"vector":"(1, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.00335}
+{"vector":"(1, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.295865}
+{"vector":"(1, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.59543}
+{"vector":"(1, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.398686}
+{"vector":"(1, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.722589}
+{"vector":"(1, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.548197}
+{"vector":"(1, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.542136}
+{"vector":"(2, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(2, 1)", "targetMana":2.637633, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.540627}
+{"vector":"(2, 2)", "targetMana":2.062344, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.79331}
+{"vector":"(2, 3)", "targetMana":1.223084, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.532425}
+{"vector":"(2, 4)", "targetMana":10.001147, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(2, 5)", "targetMana":10.076916, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(2, 6)", "targetMana":10.06162, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(2, 7)", "targetMana":1.01275, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.935188}
+{"vector":"(2, 8)", "targetMana":1.04438, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.999997}
+{"vector":"(2, 9)", "targetMana":1.056077, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
+{"vector":"(2, 10)", "targetMana":1.182963, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":0.988529}
+{"vector":"(2, 11)", "targetMana":1.000002, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.111609}
+{"vector":"(2, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.012071}
+{"vector":"(2, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.882837}
+{"vector":"(2, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.845893}
+{"vector":"(2, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.921971}
+{"vector":"(2, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.572799}
+{"vector":"(2, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.038393}
+{"vector":"(2, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.264877}
+{"vector":"(2, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.78637}
+{"vector":"(3, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(3, 1)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(3, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.051695}
+{"vector":"(3, 3)", "targetMana":11.779832, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(3, 4)", "targetMana":10.076916, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(3, 5)", "targetMana":10.000225, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(3, 6)", "targetMana":10, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(3, 7)", "targetMana":9.608225, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(3, 8)", "targetMana":1.122851, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.32536}
+{"vector":"(3, 9)", "targetMana":1.000007, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(3, 10)", "targetMana":1.000008, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(3, 11)", "targetMana":1.000007, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(3, 12)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.186876}
+{"vector":"(3, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.818608}
+{"vector":"(3, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.347385}
+{"vector":"(3, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.500175}
+{"vector":"(3, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.435409}
+{"vector":"(3, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.917817}
+{"vector":"(3, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.743577}
+{"vector":"(3, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.299705}
+{"vector":"(4, 0)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(4, 1)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(4, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.859547}
+{"vector":"(4, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.413329}
+{"vector":"(4, 4)", "targetMana":4.650548, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.999712}
+{"vector":"(4, 5)", "targetMana":9.999999, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(4, 6)", "targetMana":10.024168, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(4, 7)", "targetMana":9.883324, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(4, 8)", "targetMana":1.377165, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.99996}
+{"vector":"(4, 9)", "targetMana":1.105737, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.88539}
+{"vector":"(4, 10)", "targetMana":1.000035, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(4, 11)", "targetMana":1.000031, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(4, 12)", "targetMana":1.000035, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.697467}
+{"vector":"(4, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.831759}
+{"vector":"(4, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.366174}
+{"vector":"(4, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.284078}
+{"vector":"(4, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.503239}
+{"vector":"(4, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.937521}
+{"vector":"(4, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.908018}
+{"vector":"(4, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.05955}
+{"vector":"(5, 0)", "targetMana":1.000001, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(5, 1)", "targetMana":1, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(5, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.449699}
+{"vector":"(5, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.096473}
+{"vector":"(5, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.422776}
+{"vector":"(5, 5)", "targetMana":2.665218, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.999134}
+{"vector":"(5, 6)", "targetMana":5.892104, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(5, 7)", "targetMana":3.428655, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(5, 8)", "targetMana":1.128414, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
+{"vector":"(5, 9)", "targetMana":1.111363, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.925282}
+{"vector":"(5, 10)", "targetMana":1.000125, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(5, 11)", "targetMana":1.000157, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(5, 12)", "targetMana":1.000194, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.999993}
+{"vector":"(5, 13)", "targetMana":1.000157, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.99005}
+{"vector":"(5, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.423561}
+{"vector":"(5, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.796544}
+{"vector":"(5, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.510186}
+{"vector":"(5, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.696924}
+{"vector":"(5, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.207207}
+{"vector":"(5, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.536282}
+{"vector":"(6, 0)", "targetMana":1.000002, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(6, 1)", "targetMana":1.000011, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(6, 2)", "targetMana":1.000002, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.158514}
+{"vector":"(6, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.50624}
+{"vector":"(6, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.372749}
+{"vector":"(6, 5)", "targetMana":1.022638, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.997657}
+{"vector":"(6, 6)", "targetMana":1.373771, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.180474}
+{"vector":"(6, 7)", "targetMana":10.000024, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(6, 8)", "targetMana":1.107518, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.970943}
+{"vector":"(6, 9)", "targetMana":1.177599, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(6, 10)", "targetMana":1.035597, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.871149}
+{"vector":"(6, 11)", "targetMana":1.000632, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(6, 12)", "targetMana":1.000796, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(6, 13)", "targetMana":1.000632, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(6, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.500455}
+{"vector":"(6, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.150358}
+{"vector":"(6, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.069057}
+{"vector":"(6, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.636302}
+{"vector":"(6, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.319782}
+{"vector":"(6, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.568626}
+{"vector":"(7, 0)", "targetMana":1.000012, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(7, 1)", "targetMana":1.000012, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(7, 2)", "targetMana":1.000012, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.999999}
+{"vector":"(7, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.869318}
+{"vector":"(7, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.620058}
+{"vector":"(7, 5)", "targetMana":1.01265, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.358182}
+{"vector":"(7, 6)", "targetMana":1.964621, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(7, 7)", "targetMana":9.999984, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(7, 8)", "targetMana":9.97983, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(7, 9)", "targetMana":1.474472, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(7, 10)", "targetMana":1.134545, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999918}
+{"vector":"(7, 11)", "targetMana":1.032267, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.409585}
+{"vector":"(7, 12)", "targetMana":1.003345, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(7, 13)", "targetMana":1.00071, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(7, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.989018}
+{"vector":"(7, 15)", "targetMana":1.000015, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.486903}
+{"vector":"(7, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.300521}
+{"vector":"(7, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.863858}
+{"vector":"(7, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.86048}
+{"vector":"(7, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.085759}
+{"vector":"(8, 0)", "targetMana":1.000042, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(8, 1)", "targetMana":1.000059, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(8, 2)", "targetMana":1.000069, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(8, 3)", "targetMana":1.000059, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.911571}
+{"vector":"(8, 4)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.537957}
+{"vector":"(8, 5)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.440262}
+{"vector":"(8, 6)", "targetMana":1.006934, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.99052}
+{"vector":"(8, 7)", "targetMana":1.176451, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(8, 8)", "targetMana":1.162582, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(8, 9)", "targetMana":2.042345, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(8, 10)", "targetMana":1.33878, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
+{"vector":"(8, 11)", "targetMana":1.039077, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.999999}
+{"vector":"(8, 12)", "targetMana":1.003595, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(8, 13)", "targetMana":1.003925, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(8, 14)", "targetMana":1.000017, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.208202}
+{"vector":"(8, 15)", "targetMana":1.000016, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999995}
+{"vector":"(8, 16)", "targetMana":1.000017, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.998226}
+{"vector":"(8, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.807646}
+{"vector":"(8, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.099806}
+{"vector":"(8, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.4401}
+{"vector":"(9, 0)", "targetMana":1.000049, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(9, 1)", "targetMana":1.000189, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(9, 2)", "targetMana":1.000269, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(9, 3)", "targetMana":1.000314, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(9, 4)", "targetMana":1.000269, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.999866}
+{"vector":"(9, 5)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.880643}
+{"vector":"(9, 6)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.843708}
+{"vector":"(9, 7)", "targetMana":1.01265, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.604928}
+{"vector":"(9, 8)", "targetMana":9.999999, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(9, 9)", "targetMana":10, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(9, 10)", "targetMana":1.361115, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(9, 11)", "targetMana":1.032269, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.61268}
+{"vector":"(9, 12)", "targetMana":1.018385, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(9, 13)", "targetMana":1.087503, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(9, 14)", "targetMana":1.018299, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.997079}
+{"vector":"(9, 15)", "targetMana":1.00009, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(9, 16)", "targetMana":1.000084, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(9, 17)", "targetMana":1.00007, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.998671}
+{"vector":"(9, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.556544}
+{"vector":"(9, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.827277}
+{"vector":"(10, 0)", "targetMana":1.000042, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.229527}
+{"vector":"(10, 1)", "targetMana":1.000239, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(10, 2)", "targetMana":1.001002, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(10, 3)", "targetMana":1.001221, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(10, 4)", "targetMana":1.001448, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(10, 5)", "targetMana":1.001221, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.985624}
+{"vector":"(10, 6)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(10, 7)", "targetMana":1, "castingCardType":2, "castingCardID":"Bless", "qWeight":0.347413}
+{"vector":"(10, 8)", "targetMana":10, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(10, 9)", "targetMana":10.000001, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(10, 10)", "targetMana":1.05168, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.997803}
+{"vector":"(10, 11)", "targetMana":1.042972, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.351984}
+{"vector":"(10, 12)", "targetMana":1.370277, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(10, 13)", "targetMana":1.097393, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(10, 14)", "targetMana":1.104089, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(10, 15)", "targetMana":1.001791, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(10, 16)", "targetMana":1.000482, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(10, 17)", "targetMana":1.000291, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999999}
+{"vector":"(10, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.423762}
+{"vector":"(10, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.16117}
+{"vector":"(11, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.789149}
+{"vector":"(11, 1)", "targetMana":1.000189, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.824659}
+{"vector":"(11, 2)", "targetMana":1.016106, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(11, 3)", "targetMana":1.004539, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(11, 4)", "targetMana":1.00572, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(11, 5)", "targetMana":1.021937, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.99803}
+{"vector":"(11, 6)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(11, 7)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(11, 8)", "targetMana":1.360014, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.99976}
+{"vector":"(11, 9)", "targetMana":1.051595, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
+{"vector":"(11, 10)", "targetMana":1.044436, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.999893}
+{"vector":"(11, 11)", "targetMana":1.468739, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.662339}
+{"vector":"(11, 12)", "targetMana":1.541199, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(11, 13)", "targetMana":1.482269, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(11, 14)", "targetMana":1.096945, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
+{"vector":"(11, 15)", "targetMana":1.087277, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.565615}
+{"vector":"(11, 16)", "targetMana":1.001717, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(11, 17)", "targetMana":1.000339, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(11, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.579945}
+{"vector":"(11, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.128151}
+{"vector":"(12, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.839055}
+{"vector":"(12, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.995855}
+{"vector":"(12, 2)", "targetMana":1.018777, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.999991}
+{"vector":"(12, 3)", "targetMana":1.072977, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(12, 4)", "targetMana":1.024029, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(12, 5)", "targetMana":1.029422, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(12, 6)", "targetMana":1.023817, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.518305}
+{"vector":"(12, 7)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(12, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(12, 9)", "targetMana":1.042972, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":0.883612}
+{"vector":"(12, 10)", "targetMana":1.363918, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.65662}
+{"vector":"(12, 11)", "targetMana":1.529498, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.14462}
+{"vector":"(12, 12)", "targetMana":3.038436, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.998407}
+{"vector":"(12, 13)", "targetMana":1.546168, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.999944}
+{"vector":"(12, 14)", "targetMana":1.37101, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.987339}
+{"vector":"(12, 15)", "targetMana":1.014212, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(12, 16)", "targetMana":1.001199, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(12, 17)", "targetMana":1.001457, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999625}
+{"vector":"(12, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.71391}
+{"vector":"(12, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.679301}
+{"vector":"(13, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.015273}
+{"vector":"(13, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.696569}
+{"vector":"(13, 2)", "targetMana":1.016106, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.771977}
+{"vector":"(13, 3)", "targetMana":1.022132, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(13, 4)", "targetMana":1.376976, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(13, 5)", "targetMana":1.121643, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(13, 6)", "targetMana":1.10087, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(13, 7)", "targetMana":1.021937, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.476403}
+{"vector":"(13, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(13, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(13, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.853872}
+{"vector":"(13, 11)", "targetMana":1.473861, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.377368}
+{"vector":"(13, 12)", "targetMana":1.536955, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.358437}
+{"vector":"(13, 13)", "targetMana":1.474349, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.743821}
+{"vector":"(13, 14)", "targetMana":1.107186, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(13, 15)", "targetMana":1.00725, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(13, 16)", "targetMana":1.001317, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(13, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.35249}
+{"vector":"(13, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.301459}
+{"vector":"(13, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.623677}
+{"vector":"(14, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.136784}
+{"vector":"(14, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.922167}
+{"vector":"(14, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.865713}
+{"vector":"(14, 3)", "targetMana":1.46838, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.129546}
+{"vector":"(14, 4)", "targetMana":1.544547, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(14, 5)", "targetMana":1.482876, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(14, 6)", "targetMana":1.120593, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(14, 7)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(14, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(14, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(14, 10)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.028609}
+{"vector":"(14, 11)", "targetMana":1.006938, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.995743}
+{"vector":"(14, 12)", "targetMana":1.369044, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":0.223372}
+{"vector":"(14, 13)", "targetMana":1.096172, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(14, 14)", "targetMana":1.030661, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(14, 15)", "targetMana":1.030007, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(14, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.719381}
+{"vector":"(14, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.633998}
+{"vector":"(14, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.605629}
+{"vector":"(14, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.799664}
+{"vector":"(15, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.948778}
+{"vector":"(15, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.104242}
+{"vector":"(15, 2)", "targetMana":1.363918, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.98959}
+{"vector":"(15, 3)", "targetMana":1.529498, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.797026}
+{"vector":"(15, 4)", "targetMana":3.049366, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.999548}
+{"vector":"(15, 5)", "targetMana":1.547323, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
+{"vector":"(15, 6)", "targetMana":1.373104, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.999885}
+{"vector":"(15, 7)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(15, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(15, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(15, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.999376}
+{"vector":"(15, 11)", "targetMana":1.025658, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.996981}
+{"vector":"(15, 12)", "targetMana":1.034836, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(15, 13)", "targetMana":1.181578, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(15, 14)", "targetMana":1.163867, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(15, 15)", "targetMana":1.125188, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.99981}
+{"vector":"(15, 16)", "targetMana":1.028899, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.743682}
+{"vector":"(15, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.535271}
+{"vector":"(15, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.297347}
+{"vector":"(15, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.518081}
+{"vector":"(16, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.381988}
+{"vector":"(16, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.068431}
+{"vector":"(16, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.1262}
+{"vector":"(16, 3)", "targetMana":1.473861, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.041195}
+{"vector":"(16, 4)", "targetMana":1.536955, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.389736}
+{"vector":"(16, 5)", "targetMana":1.473861, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.522644}
+{"vector":"(16, 6)", "targetMana":10.000071, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(16, 7)", "targetMana":9.997645, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(16, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(16, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(16, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(16, 11)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.998344}
+{"vector":"(16, 12)", "targetMana":1.030164, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(16, 13)", "targetMana":1.163853, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(16, 14)", "targetMana":1.897936, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(16, 15)", "targetMana":1.154394, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
+{"vector":"(16, 16)", "targetMana":1, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.972699}
+{"vector":"(16, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.400921}
+{"vector":"(16, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.276255}
+{"vector":"(16, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.025471}
+{"vector":"(17, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.095496}
+{"vector":"(17, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.995102}
+{"vector":"(17, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.680174}
+{"vector":"(17, 3)", "targetMana":1.057478, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":0.86247}
+{"vector":"(17, 4)", "targetMana":1.369044, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":0.986257}
+{"vector":"(17, 5)", "targetMana":9.29606, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(17, 6)", "targetMana":9.99971, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(17, 7)", "targetMana":6.503191, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(17, 8)", "targetMana":1.700921, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":0.177146}
+{"vector":"(17, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(17, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(17, 11)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(17, 12)", "targetMana":1.030471, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.988726}
+{"vector":"(17, 13)", "targetMana":1.125372, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999874}
+{"vector":"(17, 14)", "targetMana":1.154412, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.999998}
+{"vector":"(17, 15)", "targetMana":1.125303, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.873718}
+{"vector":"(17, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.394101}
+{"vector":"(17, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.65788}
+{"vector":"(17, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.992833}
+{"vector":"(17, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.544351}
+{"vector":"(18, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.902689}
+{"vector":"(18, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.486096}
+{"vector":"(18, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.819566}
+{"vector":"(18, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.448989}
+{"vector":"(18, 4)", "targetMana":1.249028, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(18, 5)", "targetMana":2.56873, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(18, 6)", "targetMana":2.48533, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(18, 7)", "targetMana":4.634126, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(18, 8)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(18, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(18, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(18, 11)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(18, 12)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.962723}
+{"vector":"(18, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.97503}
+{"vector":"(18, 14)", "targetMana":1, "castingCardType":2, "castingCardID":"Curse", "qWeight":0.375613}
+{"vector":"(18, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.829667}
+{"vector":"(18, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.216024}
+{"vector":"(18, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.719231}
+{"vector":"(18, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.122352}
+{"vector":"(18, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.36712}
+{"vector":"(19, 0)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.18406}
+{"vector":"(19, 1)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.489791}
+{"vector":"(19, 2)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.909644}
+{"vector":"(19, 3)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.388183}
+{"vector":"(19, 4)", "targetMana":1.14399, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":0.72765}
+{"vector":"(19, 5)", "targetMana":1.240468, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(19, 6)", "targetMana":2.248418, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(19, 7)", "targetMana":2.250467, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(19, 8)", "targetMana":1.790722, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
+{"vector":"(19, 9)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(19, 10)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(19, 11)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
+{"vector":"(19, 12)", "targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":0.999979}
+{"vector":"(19, 13)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.714347}
+{"vector":"(19, 14)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.025632}
+{"vector":"(19, 15)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.801643}
+{"vector":"(19, 16)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.210722}
+{"vector":"(19, 17)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.599245}
+{"vector":"(19, 18)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.518862}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}
+{"vector":"(19, 19)", "targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.511724}

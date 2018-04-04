@@ -6,5 +6,5 @@ extends Node
 
 func Pressed():
 	var buttonManager = get_tree().get_root().get_node("Root/ButtonManager")
-	var brain = load("res://self-organising map/SOMBrain.gd").new()
+	var brain = load("res://self-organising map/SOMBrain.gd")
 	buttonManager.players.push_back(brain)

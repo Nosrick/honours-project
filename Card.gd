@@ -44,7 +44,7 @@ func SetParametersFromCard(cardRef):
 	else:
 		associatedScript = null
 	
-	inPlay = cardRef.inPlay
+	inPlay = bool(cardRef.inPlay)
 	zoomed = cardRef.zoomed
 	exhausted = cardRef.exhausted
 	player = cardRef.player
@@ -186,12 +186,8 @@ func ScaleDown():
 	self.set_pos(Vector2(position.x, position.y + (size.y / 2)))
 	self.set_scale(Vector2(0.5, 0.5))
 	
-func OnMouseEnter():
-	pass
-	#self.get_parent().move_child(self, self.get_parent().get_children().size() - 1)
-
-func OnMouseExit():
-	pass
+func ToString():
+	return "[ " + name + " : " + player.get_name() + " ]"
 	
 func DamageMe(value):
 	self.currentHP -= value

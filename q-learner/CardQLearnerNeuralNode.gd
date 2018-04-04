@@ -29,7 +29,7 @@ func AdjustMana(targetManaRef, learningRate, influence):
 	var normalisedMana = tools.NormaliseOneToTen(targetMana)
 	var normalisedTarget = tools.NormaliseOneToTen(targetManaRef)
 	
-	var mana = (normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)
+	var mana = float(normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)
 	if mana == 0:
 		mana = normalisedTarget
 	
