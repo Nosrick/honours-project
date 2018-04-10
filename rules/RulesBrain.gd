@@ -8,6 +8,8 @@ var tools = load("Tools.gd").new()
 
 var trainingCards
 
+var brain
+
 const name = "RulesBrain"
 
 func Begin():

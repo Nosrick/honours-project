@@ -5,67 +5,131 @@ var tools = load("res://Tools.gd").new()
 
 var filePath = "res://myBrainQL.json"
 
-var nodes = []
+var qMatrix = []
+var rewards = []
+
 var width
+var height
 
-var learningRate = 0.3
+const discountFactor = 0.8
 
-func _init(widthRef):
+func _init(cardsRef):
 	randomize()
-	nodes = []
-	width = widthRef
+	qMatrix = []
+	rewards = []
+	width = cardsRef + 1
+	height = cardsRef + 1
 	
 	for x in range(width):
-		nodes.append(node.new())
+		for y in range(height):
+			qMatrix.append(0)
+			rewards.append(node.new())
 
-func Epoch(newNode):
-	var node = GetBestMatch(newNode)
-	var influence = 0.5
-	node.AdjustMana(newNode.targetMana, learningRate, influence)
-	node.AdjustQWeight(newNode.qWeight, learningRate, influence)
+func GetQWeightByIndex(x, y):
+	if x * height + y < width * height:
+		return qMatrix[x * height + y]
+	else:
+		return null
 
-func GetBestMatch(input):
-	var lowestDistance = 9999999
-	var winner = null
-	
-	for node in nodes:
-		if input.castingCardID == node.castingCardID:
-			var distance = node.GetDistanceMana(input.targetMana)
-			if distance < lowestDistance:
-				lowestDistance = distance
-				winner = node
-			
-	return winner
+func GetRewardByIndex(x, y):
+	if x * height + y < width * height:
+		return rewards[x * height + y]
+	else:
+		return null
 
-func GetBestQScore(input):
-	var highestQScore = 0
-	var winner = null
+func GetRewardByNames(leftName, rightName):
+	for node in rewards:
+		if node.castingCardID == leftName and node.nextCardID == rightName:
+			return node
 	
-	for node in nodes:
-		if input.castingCardID == node.castingCardID:
-			if node.qWeight > highestQScore:
-				highestQScore = node.qWeight
-				winner = node
-	
-	return winner
+	return null
 
-func RandomUnassignedNode():
-	var emptyNodes = []
-	for node in nodes:
-		if node.castingCardID == "None":
-			emptyNodes.push_back(node)
+func GetRewardIndexByNames(leftName, rightName):
+	var index = 0
+	for node in rewards:
+		if node.castingCardID == leftName and node.nextCardID == rightName:
+			return index
+		
+		index += 1
 	
-	var result = tools.Roll(0, emptyNodes.size())
-	return emptyNodes[result]
+	return -1
+
+func GetQWeightByNames(leftName, rightName):
+	var index = 0
+	for node in rewards:
+		if node.castingCardID == leftName and node.nextCardID == rightName:
+			return qMatrix[index]
+	
+		index += 1
+		
+	return null
+
+func GetQWeightIndexByNames(leftName, rightName):
+	var index = 0
+	for node in rewards:
+		if node.castingCardID == leftName and node.nextCardID == rightName:
+			return index
+		
+		index += 1
+	
+	return -1
+
+func AdjustQWeight(leftName, rightName, hand):
+	var index = GetQWeightIndexByNames(leftName, rightName)
+	
+	var handWeights = []
+	for card in hand:
+		var qWeight = GetRewardByNames(card.name, rightName)
+		if qWeight != null:
+			handWeights.push_back(qWeight.qWeight)
+	
+	var maximum = MultiMax(handWeights)
+	var weight = rewards[index].qWeight + (discountFactor * maximum)
+	qMatrix[index] = weight
+
+func AdjustReward(leftName, rightName, newReward):
+	var index = GetRewardIndexByNames(leftName, rightName)
+	
+	rewards[index].qWeight += newReward
+	
+	if rewards[index].qWeight < -100:
+		rewards[index].qWeight = -100
+	elif rewards[index].qWeight > 100:
+		rewards[index].qWeight = 100
+
+func AdjustTargetMana(leftName, rightName, newMana):
+	var index = GetRewardIndexByNames(leftName, rightName)
+	
+	rewards[index].targetMana += newMana
+
+func AdjustRelatedMana(leftName, newMana):
+	#Get each related node
+	#Adjust the current mana towards the new mana using the discount factor
+	for node in rewards:
+		if node.castingCardID == leftName:
+			node.targetMana = float(discountFactor * sqrt((node.targetMana * node.targetMana) + (newMana * newMana)))
+
+func MultiMax(list):
+	var currentMax = 0
+	var previousItem = -999
+	for item in list:
+		currentMax = max(item, previousItem)
+	
+	return currentMax
 
 func Serialise():
 	print("SERIALISING")
 	var brain = File.new()
 	brain.open(filePath, File.WRITE)
 	
-	for node in nodes:
+	brain.store_line("REWARDS")
+	for node in rewards:
 		var nodeData = node.Save()
 		brain.store_line(nodeData.to_json())
+	
+	brain.store_line("QWEIGHTS")
+	for node in qMatrix:
+		brain.store_line(str(node))
 	
 	brain.close()
 	print("DONE SERIALISING")
@@ -77,22 +141,42 @@ func Deserialise():
 	
 	brain.open(filePath, File.READ)
 	
-	nodes = []
+	rewards = []
+	qMatrix = []
 	
-	var currentLine = {}
+	var mode = "NONE"
+	
+	var currentLine = ""
+	var dict = {}
 	while(!brain.eof_reached()):
-		currentLine.parse_json(brain.get_line())
-		var newNode = node.new()
-		newNode.castingCardID = currentLine.castingCardID
-		newNode.castingCardType = currentLine.castingCardType
-		newNode.targetMana = currentLine.targetMana
-		#newNode.weight = currentLine.weight
-		newNode.qWeight = currentLine.qWeight
+		currentLine = brain.get_line()
+		if currentLine == "QWEIGHTS":
+			mode = "QWEIGHTS"
+			continue
+		elif currentLine == "REWARDS":
+			mode = "REWARDS"
+			continue
 		
-		nodes.append(newNode)
+		if mode == "QWEIGHTS":
+			qMatrix.append(float(currentLine))
+		
+		elif mode == "REWARDS":
+			dict.parse_json(currentLine)
+			var newNode = node.new()
+			newNode.castingCardID = dict.castingCardID
+			newNode.castingCardType = dict.castingCardType
+			
+			newNode.nextCardID = dict.nextCardID
+			newNode.nextCardType = dict.nextCardType
+			
+			newNode.targetMana = dict.targetMana
+			newNode.qWeight = dict.qWeight
+			
+			rewards.append(newNode)
 	
 	brain.close()
-	width = nodes.size()
+	width = sqrt(rewards.size())
+	height = width
 	return true
 
 func ExtractVector(string):

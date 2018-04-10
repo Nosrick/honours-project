@@ -1,579 +1,719 @@
-{"targetMana":10.028096, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":1}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.534047}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.722597}
-{"targetMana":10.002036, "castingCardType":2, "castingCardID":"Bless", "qWeight":1}
-{"targetMana":10.000001, "castingCardType":2, "castingCardID":"Curse", "qWeight":1}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.277968}
-{"targetMana":10.0583, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":1}
-{"targetMana":10.000001, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":0.016956}
-{"targetMana":10.080163, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":1}
-{"targetMana":10.01309, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":1}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.687692}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.038034}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.235786}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.862047}
-{"targetMana":10.000002, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":1}
-{"targetMana":10.00001, "castingCardType":3, "castingCardID":"Fireball", "qWeight":1}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.613751}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.312291}
-{"targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":1}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
-{"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.033032}
+REWARDS
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Beatnik Dog", "qWeight":14}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Beatnik Dog", "qWeight":96}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Beatnik Dog", "qWeight":53}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Beatnik Dog", "qWeight":18}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Beatnik Dog", "qWeight":31}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Beatnik Dog", "qWeight":1}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Beatnik Dog", "qWeight":35}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Beatnik Dog", "qWeight":18}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Beatnik Dog", "qWeight":26}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Beatnik Dog", "qWeight":1}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Beatnik Dog", "qWeight":69}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Bless", "qWeight":99}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Bless", "qWeight":37}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Bless", "qWeight":1}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Bless", "qWeight":74}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Bless", "qWeight":18}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Bless", "qWeight":72}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Bless", "qWeight":49}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Bless", "qWeight":10}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Bless", "qWeight":18}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Bless", "qWeight":30}
+{"nextCardType":0, "targetMana":2.816015, "castingCardType":2, "nextCardID":"None", "castingCardID":"Bless", "qWeight":70}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Code Mouse", "qWeight":77}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Code Mouse", "qWeight":14}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Code Mouse", "qWeight":12}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Code Mouse", "qWeight":4}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Code Mouse", "qWeight":40}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Code Mouse", "qWeight":38}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Code Mouse", "qWeight":22}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Code Mouse", "qWeight":72}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Code Mouse", "qWeight":5}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Code Mouse", "qWeight":85}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Code Mouse", "qWeight":17}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Compiler Bunny", "qWeight":99}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Compiler Bunny", "qWeight":91}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Compiler Bunny", "qWeight":73}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Compiler Bunny", "qWeight":23}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Compiler Bunny", "qWeight":73}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Compiler Bunny", "qWeight":76}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Compiler Bunny", "qWeight":85}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Compiler Bunny", "qWeight":33}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Compiler Bunny", "qWeight":16}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Compiler Bunny", "qWeight":53}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Compiler Bunny", "qWeight":16}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Curse", "qWeight":70}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Curse", "qWeight":53}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Curse", "qWeight":63}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Curse", "qWeight":21}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Curse", "qWeight":42}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Curse", "qWeight":50}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Curse", "qWeight":91}
+{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Curse", "qWeight":36}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Curse", "qWeight":28}
+{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Curse", "qWeight":8}
+{"nextCardType":0, "targetMana":2.07309, "castingCardType":2, "nextCardID":"None", "castingCardID":"Curse", "qWeight":48}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Cursed Gull", "qWeight":39}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Cursed Gull", "qWeight":51}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Cursed Gull", "qWeight":53}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Cursed Gull", "qWeight":86}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Cursed Gull", "qWeight":81}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Cursed Gull", "qWeight":81}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Cursed Gull", "qWeight":16}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Cursed Gull", "qWeight":3}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Cursed Gull", "qWeight":46}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Cursed Gull", "qWeight":91}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Cursed Gull", "qWeight":53}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Debug Cat", "qWeight":11}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Debug Cat", "qWeight":63}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Debug Cat", "qWeight":75}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Debug Cat", "qWeight":10}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Debug Cat", "qWeight":9}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Debug Cat", "qWeight":32}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Debug Cat", "qWeight":22}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Debug Cat", "qWeight":95}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Debug Cat", "qWeight":33}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Debug Cat", "qWeight":81}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Debug Cat", "qWeight":48}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Fireball", "qWeight":39}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Fireball", "qWeight":64}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Fireball", "qWeight":70}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Fireball", "qWeight":69}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Fireball", "qWeight":90}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Fireball", "qWeight":39}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Fireball", "qWeight":0}
+{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Fireball", "qWeight":44}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Fireball", "qWeight":43}
+{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Fireball", "qWeight":8}
+{"nextCardType":0, "targetMana":1.841339, "castingCardType":3, "nextCardID":"None", "castingCardID":"Fireball", "qWeight":57}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Lionheart", "qWeight":17}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Lionheart", "qWeight":74}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Lionheart", "qWeight":59}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Lionheart", "qWeight":6}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Lionheart", "qWeight":64}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Lionheart", "qWeight":7}
+{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Lionheart", "qWeight":88}
+{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Lionheart", "qWeight":30}
+{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Lionheart", "qWeight":26}
+{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Lionheart", "qWeight":29}
+{"nextCardType":0, "targetMana":2.07309, "castingCardType":2, "nextCardID":"None", "castingCardID":"Lionheart", "qWeight":50}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Wand of Rage", "qWeight":11}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Wand of Rage", "qWeight":19}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Wand of Rage", "qWeight":27}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Wand of Rage", "qWeight":98}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Wand of Rage", "qWeight":37}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Wand of Rage", "qWeight":91}
+{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Wand of Rage", "qWeight":19}
+{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Wand of Rage", "qWeight":71}
+{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Wand of Rage", "qWeight":17}
+{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Wand of Rage", "qWeight":94}
+{"nextCardType":0, "targetMana":1.841339, "castingCardType":3, "nextCardID":"None", "castingCardID":"Wand of Rage", "qWeight":16}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":55}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":28}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":65}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":97}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":54}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":60}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":10}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":67}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":87}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":47}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":37}
+QWEIGHTS
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+111.400001
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+110.000001
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+66.400001
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+98.400001
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+95.400001
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+60.8
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+69.8
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+100.400002
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0

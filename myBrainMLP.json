@@ -1,52 +1,52 @@
 CARD
-{"castingCardType":1, "weight":0.995932, "castingCardID":"Beatnik Dog", "cost":3}
-{"castingCardType":2, "weight":0.996439, "castingCardID":"Bless", "cost":1}
-{"castingCardType":1, "weight":0.981927, "castingCardID":"Code Mouse", "cost":1}
-{"castingCardType":1, "weight":0.995595, "castingCardID":"Compiler Bunny", "cost":2}
-{"castingCardType":2, "weight":0.981804, "castingCardID":"Curse", "cost":1}
-{"castingCardType":1, "weight":0.975763, "castingCardID":"Cursed Gull", "cost":3}
-{"castingCardType":1, "weight":0.940042, "castingCardID":"Debug Cat", "cost":2}
-{"castingCardType":3, "weight":0.956076, "castingCardID":"Fireball", "cost":3}
-{"castingCardType":2, "weight":0.975788, "castingCardID":"Lionheart", "cost":4}
-{"castingCardType":3, "weight":0.960781, "castingCardID":"Wand of Rage", "cost":5}
+{"castingCardType":1, "weight":0.999282, "castingCardID":"Beatnik Dog", "cost":3}
+{"castingCardType":2, "weight":0.996853, "castingCardID":"Bless", "cost":1}
+{"castingCardType":1, "weight":0.99663, "castingCardID":"Code Mouse", "cost":1}
+{"castingCardType":1, "weight":0.997224, "castingCardID":"Compiler Bunny", "cost":2}
+{"castingCardType":2, "weight":0.996021, "castingCardID":"Curse", "cost":1}
+{"castingCardType":1, "weight":0.988145, "castingCardID":"Cursed Gull", "cost":3}
+{"castingCardType":1, "weight":0.960817, "castingCardID":"Debug Cat", "cost":2}
+{"castingCardType":3, "weight":0.906006, "castingCardID":"Fireball", "cost":3}
+{"castingCardType":2, "weight":0.937399, "castingCardID":"Lionheart", "cost":4}
+{"castingCardType":3, "weight":0.924806, "castingCardID":"Wand of Rage", "cost":5}
 WEIGHTS
-1
-1
-1
-1
-1
-0.731058
-0.675037
-0.66263
-0.659851
-0.998639
-0.997371
-0.994927
-0.990233
-0.981277
-0.964378
-0.933745
-0.880407
-0.788244
-0.622459
+0.838369
+0.6752
+0.478083
+0.593151
+0.639554
+0.653603
+0.068142
+0.320585
+0.583062
+0.642344
+0.64274
+0.642944
+0.643097
+0.643173
+0.643216
+0.643238
+0.622463
+0.659046
+0.659045
 -0.830308
 0.399571
 -0.284477
 -0.16488
 -0.010888
+0.509954
+0.086255
+0.521555
+0.627511
+0.627511
+0.627511
+0.627511
+0.627511
+0.627511
+0.627511
+0.622459
 0.659046
-0.659046
-0.659046
-0.005451
-0.002851
-0.001489
-0.000778
-0.000406
-0.000212
-0.00011
-0.000088
-0.000335
-0.000205
+0.659045
 -0.4455
 -0.510553
 0.275511
@@ -251,13 +251,13 @@ WEIGHTS
 -0.551986
 -0.283949
 OUTPUT
-{"targetMana":1, "castingCardType":1, "weight":0.573393, "castingCardID":"Beatnik Dog", "cost":3}
-{"targetMana":1, "castingCardType":2, "weight":0.656589, "castingCardID":"Bless", "cost":1}
-{"targetMana":1, "castingCardType":1, "weight":0.874592, "castingCardID":"Code Mouse", "cost":1}
-{"targetMana":1, "castingCardType":1, "weight":0.440117, "castingCardID":"Compiler Bunny", "cost":2}
-{"targetMana":1, "castingCardType":2, "weight":0.570236, "castingCardID":"Curse", "cost":1}
-{"targetMana":1, "castingCardType":1, "weight":0.280052, "castingCardID":"Cursed Gull", "cost":3}
-{"targetMana":1, "castingCardType":1, "weight":0.573603, "castingCardID":"Debug Cat", "cost":2}
-{"targetMana":1, "castingCardType":3, "weight":0.360114, "castingCardID":"Fireball", "cost":3}
-{"targetMana":1, "castingCardType":2, "weight":0.307981, "castingCardID":"Lionheart", "cost":4}
-{"targetMana":1, "castingCardType":3, "weight":0.576129, "castingCardID":"Wand of Rage", "cost":5}
+{"targetMana":1, "castingCardType":1, "weight":0.503119, "castingCardID":"Beatnik Dog", "cost":3}
+{"targetMana":1, "castingCardType":2, "weight":0.514204, "castingCardID":"Bless", "cost":1}
+{"targetMana":1, "castingCardType":1, "weight":0.695764, "castingCardID":"Code Mouse", "cost":1}
+{"targetMana":1, "castingCardType":1, "weight":0.359582, "castingCardID":"Compiler Bunny", "cost":2}
+{"targetMana":1, "castingCardType":2, "weight":0.521009, "castingCardID":"Curse", "cost":1}
+{"targetMana":1, "castingCardType":1, "weight":0.216753, "castingCardID":"Cursed Gull", "cost":3}
+{"targetMana":1, "castingCardType":1, "weight":0.491781, "castingCardID":"Debug Cat", "cost":2}
+{"targetMana":1, "castingCardType":3, "weight":0.281659, "castingCardID":"Fireball", "cost":3}
+{"targetMana":1, "castingCardType":2, "weight":0.245549, "castingCardID":"Lionheart", "cost":4}
+{"targetMana":1, "castingCardType":3, "weight":0.489972, "castingCardID":"Wand of Rage", "cost":5}
