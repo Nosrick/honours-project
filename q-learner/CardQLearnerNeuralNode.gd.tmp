@@ -38,7 +38,7 @@ func SetParametersByCards(castingCard, nextCard):
 	nextCardType = nextCard.type
 	
 	if castingCard.cost + nextCard.cost > 6:
-		qWeight = 0
+		qWeight = -100
 
 func SetParametersByCard(castingCard):
 	castingCardID = castingCard.name
