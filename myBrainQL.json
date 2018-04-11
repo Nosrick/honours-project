@@ -1,125 +1,125 @@
 REWARDS
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Beatnik Dog", "qWeight":14}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Beatnik Dog", "qWeight":96}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Beatnik Dog", "qWeight":53}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Beatnik Dog", "qWeight":18}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Beatnik Dog", "qWeight":31}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Beatnik Dog", "qWeight":1}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Beatnik Dog", "qWeight":35}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Beatnik Dog", "qWeight":18}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Beatnik Dog", "qWeight":26}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Beatnik Dog", "qWeight":1}
-{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Beatnik Dog", "qWeight":69}
-{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Bless", "qWeight":99}
-{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Bless", "qWeight":37}
-{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Bless", "qWeight":1}
-{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Bless", "qWeight":74}
-{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Bless", "qWeight":18}
-{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Bless", "qWeight":72}
-{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Bless", "qWeight":49}
-{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Bless", "qWeight":10}
-{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Bless", "qWeight":18}
-{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Bless", "qWeight":30}
-{"nextCardType":0, "targetMana":2.816015, "castingCardType":2, "nextCardID":"None", "castingCardID":"Bless", "qWeight":70}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Code Mouse", "qWeight":77}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Code Mouse", "qWeight":14}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Code Mouse", "qWeight":12}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Code Mouse", "qWeight":4}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Code Mouse", "qWeight":40}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Code Mouse", "qWeight":38}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Code Mouse", "qWeight":22}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Code Mouse", "qWeight":72}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Code Mouse", "qWeight":5}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Code Mouse", "qWeight":85}
-{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Code Mouse", "qWeight":17}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Compiler Bunny", "qWeight":99}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Compiler Bunny", "qWeight":91}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Compiler Bunny", "qWeight":73}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Compiler Bunny", "qWeight":23}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Compiler Bunny", "qWeight":73}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Compiler Bunny", "qWeight":76}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Compiler Bunny", "qWeight":85}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Compiler Bunny", "qWeight":33}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Compiler Bunny", "qWeight":16}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Compiler Bunny", "qWeight":53}
-{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Compiler Bunny", "qWeight":16}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Curse", "qWeight":70}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Curse", "qWeight":53}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Curse", "qWeight":63}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Curse", "qWeight":21}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Curse", "qWeight":42}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Curse", "qWeight":50}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Curse", "qWeight":91}
-{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Curse", "qWeight":36}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Curse", "qWeight":28}
-{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Curse", "qWeight":8}
-{"nextCardType":0, "targetMana":2.07309, "castingCardType":2, "nextCardID":"None", "castingCardID":"Curse", "qWeight":48}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Cursed Gull", "qWeight":39}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Cursed Gull", "qWeight":51}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Cursed Gull", "qWeight":53}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Cursed Gull", "qWeight":86}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Cursed Gull", "qWeight":81}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Cursed Gull", "qWeight":81}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Cursed Gull", "qWeight":16}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Cursed Gull", "qWeight":3}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Cursed Gull", "qWeight":46}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Cursed Gull", "qWeight":91}
-{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Cursed Gull", "qWeight":53}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Debug Cat", "qWeight":11}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Debug Cat", "qWeight":63}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Debug Cat", "qWeight":75}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Debug Cat", "qWeight":10}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Debug Cat", "qWeight":9}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Debug Cat", "qWeight":32}
-{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Debug Cat", "qWeight":22}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Debug Cat", "qWeight":95}
-{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Debug Cat", "qWeight":33}
-{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Debug Cat", "qWeight":81}
-{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Debug Cat", "qWeight":48}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Fireball", "qWeight":39}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Fireball", "qWeight":64}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Fireball", "qWeight":70}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Fireball", "qWeight":69}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Fireball", "qWeight":90}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Fireball", "qWeight":39}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Fireball", "qWeight":0}
-{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Fireball", "qWeight":44}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Fireball", "qWeight":43}
-{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Fireball", "qWeight":8}
-{"nextCardType":0, "targetMana":1.841339, "castingCardType":3, "nextCardID":"None", "castingCardID":"Fireball", "qWeight":57}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Lionheart", "qWeight":17}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Lionheart", "qWeight":74}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Lionheart", "qWeight":59}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Lionheart", "qWeight":6}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Lionheart", "qWeight":64}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Lionheart", "qWeight":7}
-{"nextCardType":1, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Lionheart", "qWeight":88}
-{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Lionheart", "qWeight":30}
-{"nextCardType":2, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Lionheart", "qWeight":26}
-{"nextCardType":3, "targetMana":2.07309, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Lionheart", "qWeight":29}
-{"nextCardType":0, "targetMana":2.07309, "castingCardType":2, "nextCardID":"None", "castingCardID":"Lionheart", "qWeight":50}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Wand of Rage", "qWeight":11}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Wand of Rage", "qWeight":19}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Wand of Rage", "qWeight":27}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Wand of Rage", "qWeight":98}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Wand of Rage", "qWeight":37}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Wand of Rage", "qWeight":91}
-{"nextCardType":1, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Wand of Rage", "qWeight":19}
-{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Wand of Rage", "qWeight":71}
-{"nextCardType":2, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Wand of Rage", "qWeight":17}
-{"nextCardType":3, "targetMana":1.841339, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Wand of Rage", "qWeight":94}
-{"nextCardType":0, "targetMana":1.841339, "castingCardType":3, "nextCardID":"None", "castingCardID":"Wand of Rage", "qWeight":16}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":55}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Beatnik Dog", "qWeight":22}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Beatnik Dog", "qWeight":30}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Beatnik Dog", "qWeight":84}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Beatnik Dog", "qWeight":39}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Beatnik Dog", "qWeight":98}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Beatnik Dog", "qWeight":68}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Beatnik Dog", "qWeight":62}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Beatnik Dog", "qWeight":62}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Beatnik Dog", "qWeight":30}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Beatnik Dog", "qWeight":63}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Beatnik Dog", "qWeight":75}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Bless", "qWeight":61}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Bless", "qWeight":76}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Bless", "qWeight":48}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Bless", "qWeight":69}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Bless", "qWeight":53}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Bless", "qWeight":81}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Bless", "qWeight":0}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Bless", "qWeight":22}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Bless", "qWeight":9}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Bless", "qWeight":69}
+{"nextCardType":0, "targetMana":2.816015, "castingCardType":2, "nextCardID":"None", "castingCardID":"Bless", "qWeight":92}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Code Mouse", "qWeight":99}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Code Mouse", "qWeight":82}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Code Mouse", "qWeight":43}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Code Mouse", "qWeight":84}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Code Mouse", "qWeight":30}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Code Mouse", "qWeight":32}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Code Mouse", "qWeight":28}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Code Mouse", "qWeight":61}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Code Mouse", "qWeight":77}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Code Mouse", "qWeight":14}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Code Mouse", "qWeight":85}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Compiler Bunny", "qWeight":90}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Compiler Bunny", "qWeight":5}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Compiler Bunny", "qWeight":0}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Compiler Bunny", "qWeight":87}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Compiler Bunny", "qWeight":77}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Compiler Bunny", "qWeight":9}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Compiler Bunny", "qWeight":78}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Compiler Bunny", "qWeight":39}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Compiler Bunny", "qWeight":18}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Compiler Bunny", "qWeight":94}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Compiler Bunny", "qWeight":5}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Curse", "qWeight":60}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Curse", "qWeight":94}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Curse", "qWeight":30}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Curse", "qWeight":14}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Curse", "qWeight":71}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Curse", "qWeight":71}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Curse", "qWeight":32}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Curse", "qWeight":32}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Curse", "qWeight":6}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Curse", "qWeight":59}
+{"nextCardType":0, "targetMana":2.816015, "castingCardType":2, "nextCardID":"None", "castingCardID":"Curse", "qWeight":61}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Cursed Gull", "qWeight":90}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Cursed Gull", "qWeight":29}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Cursed Gull", "qWeight":94}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Cursed Gull", "qWeight":2}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Cursed Gull", "qWeight":86}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Cursed Gull", "qWeight":4}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Cursed Gull", "qWeight":90}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Cursed Gull", "qWeight":56}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Cursed Gull", "qWeight":6}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Cursed Gull", "qWeight":35}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Cursed Gull", "qWeight":71}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Beatnik Dog", "castingCardID":"Debug Cat", "qWeight":35}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Bless", "castingCardID":"Debug Cat", "qWeight":69}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Code Mouse", "castingCardID":"Debug Cat", "qWeight":46}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Compiler Bunny", "castingCardID":"Debug Cat", "qWeight":47}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Curse", "castingCardID":"Debug Cat", "qWeight":40}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Cursed Gull", "castingCardID":"Debug Cat", "qWeight":40}
+{"nextCardType":1, "targetMana":1, "castingCardType":1, "nextCardID":"Debug Cat", "castingCardID":"Debug Cat", "qWeight":28}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Fireball", "castingCardID":"Debug Cat", "qWeight":4}
+{"nextCardType":2, "targetMana":1, "castingCardType":1, "nextCardID":"Lionheart", "castingCardID":"Debug Cat", "qWeight":89}
+{"nextCardType":3, "targetMana":1, "castingCardType":1, "nextCardID":"Wand of Rage", "castingCardID":"Debug Cat", "qWeight":98}
+{"nextCardType":0, "targetMana":1, "castingCardType":1, "nextCardID":"None", "castingCardID":"Debug Cat", "qWeight":77}
+{"nextCardType":1, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Fireball", "qWeight":84}
+{"nextCardType":2, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Fireball", "qWeight":58}
+{"nextCardType":1, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Fireball", "qWeight":74}
+{"nextCardType":1, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Fireball", "qWeight":73}
+{"nextCardType":2, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Fireball", "qWeight":69}
+{"nextCardType":1, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Fireball", "qWeight":23}
+{"nextCardType":1, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Fireball", "qWeight":44}
+{"nextCardType":3, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Fireball", "qWeight":4}
+{"nextCardType":2, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Fireball", "qWeight":64}
+{"nextCardType":3, "targetMana":2.39064, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Fireball", "qWeight":74}
+{"nextCardType":0, "targetMana":2.39064, "castingCardType":3, "nextCardID":"None", "castingCardID":"Fireball", "qWeight":1}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Beatnik Dog", "castingCardID":"Lionheart", "qWeight":24}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Bless", "castingCardID":"Lionheart", "qWeight":14}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Code Mouse", "castingCardID":"Lionheart", "qWeight":2}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Compiler Bunny", "castingCardID":"Lionheart", "qWeight":8}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Curse", "castingCardID":"Lionheart", "qWeight":50}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Cursed Gull", "castingCardID":"Lionheart", "qWeight":10}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Debug Cat", "castingCardID":"Lionheart", "qWeight":41}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Fireball", "castingCardID":"Lionheart", "qWeight":6}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Lionheart", "castingCardID":"Lionheart", "qWeight":11}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":2, "nextCardID":"Wand of Rage", "castingCardID":"Lionheart", "qWeight":65}
+{"nextCardType":0, "targetMana":2.816015, "castingCardType":2, "nextCardID":"None", "castingCardID":"Lionheart", "qWeight":30}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Beatnik Dog", "castingCardID":"Wand of Rage", "qWeight":34}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Bless", "castingCardID":"Wand of Rage", "qWeight":37}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Code Mouse", "castingCardID":"Wand of Rage", "qWeight":75}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Compiler Bunny", "castingCardID":"Wand of Rage", "qWeight":11}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Curse", "castingCardID":"Wand of Rage", "qWeight":48}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Cursed Gull", "castingCardID":"Wand of Rage", "qWeight":83}
+{"nextCardType":1, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Debug Cat", "castingCardID":"Wand of Rage", "qWeight":79}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Fireball", "castingCardID":"Wand of Rage", "qWeight":53}
+{"nextCardType":2, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Lionheart", "castingCardID":"Wand of Rage", "qWeight":20}
+{"nextCardType":3, "targetMana":2.816015, "castingCardType":3, "nextCardID":"Wand of Rage", "castingCardID":"Wand of Rage", "qWeight":25}
+{"nextCardType":0, "targetMana":2.816015, "castingCardType":3, "nextCardID":"None", "castingCardID":"Wand of Rage", "qWeight":96}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":23}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":6}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":23}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":68}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":89}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":40}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":35}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":24}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":64}
 {"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":28}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":65}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":97}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":54}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":60}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":10}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":67}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":87}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":47}
-{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":37}
+{"nextCardType":0, "targetMana":1, "castingCardType":0, "nextCardID":"None", "castingCardID":"None", "qWeight":85}
 QWEIGHTS
 0
 0
@@ -131,8 +131,18 @@ QWEIGHTS
 0
 0
 0
-111.400001
 0
+100
+99.199997
+100
+100
+100
+84.199997
+22.4
+66.800003
+13.8
+100
+100
 0
 0
 0
@@ -142,7 +152,6 @@ QWEIGHTS
 0
 0
 0
-110.000001
 0
 0
 0
@@ -164,7 +173,7 @@ QWEIGHTS
 0
 0
 0
-66.400001
+14.8
 0
 0
 0
@@ -175,7 +184,7 @@ QWEIGHTS
 0
 0
 0
-98.400001
+14.8
 0
 0
 0
@@ -186,7 +195,6 @@ QWEIGHTS
 0
 0
 0
-95.400001
 0
 0
 0
@@ -197,18 +205,26 @@ QWEIGHTS
 0
 0
 0
-60.8
 0
 0
 0
 0
+41.599998
+69.200005
+26
+16.799999
+100
+17.200001
+100
+54.799999
+19.799999
 0
+78.800003
 0
 0
 0
 0
 0
-69.8
 0
 0
 0
@@ -219,7 +235,25 @@ QWEIGHTS
 0
 0
 0
-100.400002
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
 0
 0
 0

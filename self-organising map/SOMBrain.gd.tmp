@@ -61,7 +61,7 @@ func Begin():
 	
 	if self.get_tree() != null:
 		manager = self.get_tree().get_root().get_node("Root/GameManager")
-		
+	
 	set_process(true)
 
 func _process(delta):

@@ -86,12 +86,20 @@ func AdjustQWeight(leftName, rightName, hand):
 	var maximum = MultiMax(handWeights)
 	var weight = rewards[index].qWeight + (discountFactor * maximum)
 	qMatrix[index] = weight
+	
+	if qMatrix[index] > 100:
+		qMatrix[index] = 100
+	elif qMatrix[index] < -100:
+		qMatrix[index] = -100
+	
+	print("NEW Q-WEIGHT: " + str(weight))
 
 func AdjustReward(leftName, rightName, newReward):
 	var index = GetRewardIndexByNames(leftName, rightName)
 	
 	rewards[index].qWeight += newReward
 	
+	#Bound the reward
 	if rewards[index].qWeight < -100:
 		rewards[index].qWeight = -100
 	elif rewards[index].qWeight > 100:

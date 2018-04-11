@@ -131,6 +131,14 @@ func GameOver():
 	brain1.free()
 	brain2.free()
 	
+	var brain1Node = get_tree().get_root().get_node("Root/Brain1")
+	for child in brain1Node.get_children():
+		child.remove_and_skip()
+	
+	var brain2Node = get_tree().get_root().get_node("Root/Brain2")
+	for child in brain2Node.get_children():
+		child.remove_and_skip()
+	
 	Serialise()
 	
 	GUID = randi()

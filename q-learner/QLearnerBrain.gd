@@ -13,6 +13,7 @@ var boardState = Vector2()
 var lastBoardState = Vector2()
 
 var lastActions = []
+var nextCard = null
 
 var actionsToProcess = []
 
@@ -22,6 +23,7 @@ var cardNode = load("res://q-learner/CardQLearnerNeuralNode.gd")
 var trainingCards = []
 
 var stuck = false
+const MAX_ATTEMPTS = 100
 
 #FIX THIS
 func InitialTraining(deck):
@@ -40,7 +42,7 @@ func InitialTraining(deck):
 		rewardNode.SetParametersByCard(card)
 
 func SortHand(left, right):
-	if left.activeNode.qWeight < right.activeNode.qWeight:
+	if left.node.qWeight < right.node.qWeight:
 		return true
 	
 	return false
@@ -76,146 +78,185 @@ func _process(delta):
 	
 	var nodesInHand = []
 	
-	if player.hand.size() == 1:
-		var card = player.hand[0]
-		var rewardNode = brain.GetRewardByNames(card.name, "None")
-		nodesInHand.push_back(rewardNode)
-	elif player.hand.size() >= 2:
-		#For each card in the player's hand:
-		#Get it and the next card's qWeight
-		#Put that node into a list
-		#Sort that list by qWeight
-		#Attempt the actions one by one
-		
-		#FIX THIS
-		for i in range(0, player.hand.size()):
-			var card = player.hand[i]
+	var attempts = 0
+	while attempts < MAX_ATTEMPTS:
+		if player.hand.size() == 1:
+			var card = player.hand[0]
 			var rewardNode = brain.GetRewardByNames(card.name, "None")
 			nodesInHand.push_back(rewardNode)
+		elif player.hand.size() >= 2:
+			#For each card in the player's hand:
+			#Get it and the next card's qWeight
+			#Put that node into a list
+			#Sort that list by qWeight
+			#Attempt the actions one by one
 			
-			for j in range(0, player.hand.size()):
-				if player.hand[i] == player.hand[j]:
-					continue
+			#FIX THIS
+			if nextCard == null:
+				print("BEGIN HAND")
+				for i in range(0, player.hand.size()):
+					var card = player.hand[i]
+					print(card.ToString())
+					var rewardNode = brain.GetRewardByNames(card.name, "None")
+					nodesInHand.push_back(rewardNode)
+					
+					for j in range(0, player.hand.size()):
+						if player.hand[i] == player.hand[j]:
+							continue
+						
+						var card = player.hand[i]
+						var next = player.hand[j]
+						
+						var rewardNode = brain.GetRewardByNames(card.name, next.name)
+						nodesInHand.push_back(rewardNode)
+				print("END HAND")
+			else:
+				if nextCard.cost > player.mana:
+					nextCard = null
+					print("INVALID SELECTION: TOO MUCH MANA, RESETTING")
+					return
 				
-				var card = player.hand[i]
-				var nextCard = player.hand[j]
-				
-				var rewardNode = brain.GetRewardByNames(card.name, nextCard.name)
+				var card = nextCard
+				print("USING LAST CARD")
+				print(card.ToString())
+				var rewardNode = brain.GetRewardByNames(card.name, "None")
 				nodesInHand.push_back(rewardNode)
-	else:
-		manager.EndTurn()
-	
-	for node in nodesInHand:
-		var push = true
+					
+				for j in range(0, player.hand.size()):
+					var next = player.hand[j]
+					
+					var rewardNode = brain.GetRewardByNames(card.name, next.name)
+					nodesInHand.push_back(rewardNode)
+		else:
+			manager.EndTurn()
+			return
 		
-		if node == null:
-			continue
-		
-		var action = {}
-		action.node = node
-		for card in player.hand:
-			if card.cost > player.mana:
-				push = false
+		for node in nodesInHand:
+			if node == null:
 				continue
 			
-			if node.castingCardID == card.name:
-				action.card = card
+			var action = {}
+			action.node = node
+			for card in player.hand:
+				if card.cost > player.mana:
+					continue
+				
+				if node.castingCardID == card.name:
+					action.card = card
+				
+				action.tried = false
 			
-			action.tried = false
+			if action.has("card"):
+				actionsToProcess.push_back(action)
+				print(str(action.card.ToString()))
 		
-		if push == true:
-			actionsToProcess.push_back(action)
-	
-	var attempts = 0
-	if actionsToProcess.size() != 0:
-		while actionsToProcess.size() > 0 and attempts < 10:
+		actionsToProcess.sort_custom(self, "SortHand")
+		
+		if actionsToProcess.size() == 0:
+			manager.EndTurn()
+			return
+		
 			#pop the front of the queue
-			var action = actionsToProcess[0]
-			actionsToProcess.pop_front()
-			var card = action.card
-			var node = action.node
-			var tried = action.tried
-			
-			if card != null:
-				#Is it a creature?
-				if card.type == card.CREATURE:
-					var playedCreature = false
+		var action = actionsToProcess[0]
+		actionsToProcess.pop_front()
+		var card = action.card
+		var node = action.node
+		var tried = action.tried
+		
+		print("ACTION SELECTED: " + node.ToString())
+		
+		if card != null:
+			#Is it a creature?
+			if card.type == card.CREATURE:
+				var playedCreature = false
+				
+				#look at enemy lanes
+				for i in range(otherPlayer.lanes.size()):
+					#if theirs are full, and ours are empty, play the creature
+					if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
+						playedCreature = player.Summon(card, i)
+						
+					if playedCreature == true:
+						lastActions.push_back(node)
+				
+				for i in range(player.lanes.size()):
+					#If ours are empty, play the creature
+					if player.lanes[i].myCard == null:
+						playedCreature = player.Summon(card, i)
+				
+			#Or is it a spell/instant?
+			if card.type == card.SPELL or card.type == card.INSTANT:
+				#Is it an enhancement or a hinderance?
+				if card.keywords.has("Enhancement"):
+					var playedSpell = false
 					
-					#look at enemy lanes
-					for i in range(otherPlayer.lanes.size()):
-						#if theirs are full, and ours are empty, play the creature
-						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
-							playedCreature = player.Summon(card, i)
-							
-						if playedCreature == true:
-							lastActions.push_back(node)
-					
+					#Look to see if we have something that matches the target mana cost
 					for i in range(player.lanes.size()):
-						#If ours are empty, play the creature
 						if player.lanes[i].myCard == null:
-							playedCreature = player.Summon(card, i)
+							continue
+						
+						#If it's within one mana of the target value, let's use it
+						if IsWithinOne(player.lanes[i].myCard.cost, node.targetMana):
+							playedSpell = player.Enhance(card, player.lanes[i].myCard)
+						#If it's not, adjust the mana towards the new value
+						else:
+							#FIX THIS
+							#activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
+							brain.AdjustRelatedMana(card.name, player.lanes[i].myCard.cost)
+							playedSpell = player.Enhance(card, player.lanes[i].myCard)
+							
+						if playedSpell == false:
+							#If the actions fails, push it back onto the stack to try again later in the turn
+							var action = {}
+							
+							#If this action has been attempted before, remove it
+							if tried == true:
+								attempts += 1
+							#Otherwise, push it to the back
+							else:
+								action.card = card
+								action.node = node
+								action.tried = true
+								actionsToProcess.push_back(action)
+								attempts += 1
+						else:
+							lastActions.push_back(node)
+							
 					
-				#Or is it a spell/instant?
-				if card.type == card.SPELL or card.type == card.INSTANT:
-					#Is it an enhancement or a hinderance?
-					if card.keywords.has("Enhancement"):
-						var playedSpell = false
-						
-						#Look to see if we have something that matches the target mana cost
-						for i in range(player.lanes.size()):
-							if player.lanes[i].myCard == null:
-								continue
+				elif card.keywords.has("Hinderance"):
+					var playedSpell = false
+					
+					#Look to see if we have something that matches the target mana cost
+					for i in range(otherPlayer.lanes.size()):
+						if otherPlayer.lanes[i].myCard == null:
+							continue
 							
-							#If it's within one mana of the target value, let's use it
-							if IsWithinOne(player.lanes[i].myCard.cost, node.targetMana):
-								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-							#If it's not, adjust the mana towards the new value
-							else:
-								#FIX THIS
-								#activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
-								brain.AdjustRelatedMana(card.name, player.lanes[i].myCard.cost)
-								playedSpell = player.Enhance(card, player.lanes[i].myCard)
-								
-							if playedSpell == false:
-								#If the actions fails, push it back onto the stack to try again later in the turn
-								var action = {}
-								
-								#If this action has been attempted before, remove it
-								if tried == true:
-									attempts += 1
-								#Otherwise, push it to the back
-								else:
-									action.card = card
-									action.node = node
-									action.tried = true
-									actionsToProcess.push_back(action)
-									attempts += 1
-							else:
-								lastActions.push_back(node)
-								
+						#If it's within one mana of the target value, let's use it
+						if IsWithinOne(otherPlayer.lanes[i].myCard.cost, node.targetMana):
+							playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
+						#If it's not, adjust the mana towards the new value
+						else:
+							#FIX THIS
+							#activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
+							brain.AdjustRelatedMana(card.name, otherPlayer.lanes[i].myCard.cost)
+							playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
 						
-					elif card.keywords.has("Hinderance"):
-						var playedSpell = false
-						
-						#Look to see if we have something that matches the target mana cost
-						for i in range(otherPlayer.lanes.size()):
-							if otherPlayer.lanes[i].myCard == null:
-								continue
-								
-							#If it's within one mana of the target value, let's use it
-							if IsWithinOne(otherPlayer.lanes[i].myCard.cost, node.targetMana):
-								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
-							#If it's not, adjust the mana towards the new value
-							else:
-								#FIX THIS
-								#activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
-								brain.AdjustRelatedMana(card.name, otherPlayer.lanes[i].myCard.cost)
-								playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
-							
-							if playedSpell == true:
-								lastActions.push_back(node)
-	
+						if playedSpell == true:
+							lastActions.push_back(node)
+		
+		var isNextCard = false
+		for card in player.hand:
+			if card.name == node.nextCardID:
+				nextCard = card
+				isNextCard = true
+				print("FOUND NEXT CARD")
+		
+		if isNextCard == false:
+			nextCard = null
+			print("NEXT CARD IS NULL")
+		
 	var actionsThisTry = lastActions.size()
+	
 	
 	#If we haven't been able to take any actions
 	if actionsSinceLastTry == actionsThisTry:
@@ -240,7 +281,6 @@ func _process(delta):
 		#Once per turn, tweak this turn's q-scores
 		for action in lastActions:
 			print("Assigning reward.")
-			#FIX THIS
 			boardState = CalculateBoardState()
 			var difference = boardState.x - boardState.y
 			

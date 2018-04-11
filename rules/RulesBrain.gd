@@ -15,6 +15,10 @@ const name = "RulesBrain"
 func Begin():
 	set_process(true)
 
+func _ready():
+	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	Begin()
+
 func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
@@ -77,9 +81,6 @@ func CalculateMana(card):
 		manaValue -= hinderance.cost
 	
 	return manaValue
-
-func _ready():
-	manager = self.get_tree().get_root().get_node("Root/GameManager")
 
 func EndGame():
 	set_process(false)

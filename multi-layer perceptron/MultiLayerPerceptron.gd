@@ -181,6 +181,9 @@ func SortOutput(left, right):
 	
 	return false
 
+func Approximate():
+	pass
+
 func LinearPrediction(sampleNumber, input, output, newWeight, newWeightIndex, oldWeight, oldWeightIndex):
 	var generalDifference = (oldWeight * (input * (sampleNumber - oldWeightIndex))) - (newWeight * (output * (sampleNumber - newWeightIndex)))
 	var linearPredictionEstimate = -(newWeight * (output * (sampleNumber - newWeightIndex)))
