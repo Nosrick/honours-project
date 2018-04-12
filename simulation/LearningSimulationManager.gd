@@ -24,6 +24,7 @@ func AttachBrains():
 	brain1 = buttonManager.players[0].new()
 	brain2 = buttonManager.players[1].new()
 	
+	cards = []
 	var cardLoader = load("res://CardLoader.gd").new()
 	cards = cardLoader.LoadCards()
 	
@@ -128,7 +129,12 @@ func GameOver():
 	brain1.EndGame()
 	brain2.EndGame()
 	
+	brain1.player.End()
+	brain1.player.free()
 	brain1.free()
+	
+	brain2.player.End()
+	brain2.player.free()
 	brain2.free()
 	
 	var brain1Node = get_tree().get_root().get_node("Root/Brain1")

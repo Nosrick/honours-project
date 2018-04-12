@@ -36,15 +36,15 @@ func SetParametersFromCard(cardRef):
 	cost = cardRef.cost
 	power = cardRef.power
 	toughness = cardRef.toughness
-	currentHP = cardRef.toughness
-	keywords = cardRef.keywords
+	currentHP = toughness
+	keywords = [] + cardRef.keywords
 	type = cardRef.type
 	if cardRef.associatedScript != null:
 		associatedScript = cardRef.associatedScript
 	else:
 		associatedScript = null
 	
-	inPlay = bool(cardRef.inPlay)
+	inPlay = cardRef.inPlay
 	zoomed = cardRef.zoomed
 	exhausted = cardRef.exhausted
 	player = cardRef.player

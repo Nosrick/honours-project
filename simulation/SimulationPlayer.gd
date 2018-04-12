@@ -17,17 +17,26 @@ var replacementsDone
 #Used for combat calculations
 var power = 0
 
+func End():
+	deck.Destroy()
+	deck.free()
+	
+	for card in hand:
+		card.free()
+	
+	for card in discardPile:
+		card.free()
+	
+	discardPile.clear()
+	hand.clear()
+	lanes.clear()
+
 func CloneCard(cardRef):
 	var newCard = cardNode.instance()
 	newCard.SetParametersFromCard(cardRef)
 	newCard.SetDisplay()
-	newCard.hinderances = []
-	for hinderance in cardRef.hinderances:
-		newCard.hinderances.push_back(CloneCard(hinderance))
-	
-	newCard.enhancements = []
-	for enhancement in cardRef.enhancements:
-		newCard.enhancements.push_back(CloneCard(enhancement))
+	newCard.hinderances = [] + cardRef.hinderances
+	newCard.enhancements = [] + cardRef.enhancements
 	
 	return newCard
 

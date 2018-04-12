@@ -4,7 +4,11 @@ var cards = []
 
 func _init(cardsRef):
 	cards = cardsRef
-	
+
+func Destroy():
+	for card in cards:
+		card.free()
+
 #Based on the Fisher-Yates shuffle
 func Shuffle():
 	var n = cards.size()

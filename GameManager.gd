@@ -133,9 +133,11 @@ func _process(delta):
 	if player1.currentHP <= 0:
 		AIBrain.EndGame()
 		gameOver = true
+		player1.End()
 	elif player2.currentHP <= 0:
 		AIBrain.EndGame()
 		gameOver = true
+		player2.End()
 
 func RunAttacks():
 	for i in range(player1.lanes.size()):

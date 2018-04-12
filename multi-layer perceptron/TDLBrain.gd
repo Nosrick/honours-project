@@ -25,6 +25,8 @@ var simulation
 var simMe
 var simThem
 
+var gameActions = []
+
 func _ready():
 	Begin()
 
@@ -130,7 +132,8 @@ func _process(delta):
 								#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING CREATURES
 								card.inPlay = false
 								playedCreature = player.Summon(card, i)
-								brain.Epoch(predictedBoardState, 0.3)
+								gameActions.push_back(predictedBoardState)
+								#brain.Epoch(predictedBoardState, 0.3)
 							
 						if playedCreature == true:
 							lastActions.push_back(node)
@@ -170,7 +173,8 @@ func _process(delta):
 								if highestScore < difference:
 									highestScore = difference
 									laneIndex = i
-									brain.Epoch(predictedBoardState, 0.3)
+									gameActions.push_back(predictedBoardState)
+									#brain.Epoch(predictedBoardState, 0.3)
 						
 						if laneIndex != -1:
 							#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING SPELLS
@@ -222,7 +226,8 @@ func _process(delta):
 								if difference > highestScore:
 									highestScore = difference
 									laneIndex = i
-									brain.Epoch(predictedBoardState, 0.3)
+									gameActions.push_back(predictedBoardState)
+									#brain.Epoch(predictedBoardState, 0.3)
 							
 							if laneIndex != -1:
 								#HACK TO ENSURE SIMULATION DOES NOT STOP US FROM PLAYING CREATURES
@@ -276,8 +281,12 @@ func SetUpSimulation():
 	simThem.manager = simulation
 
 func DestroySimulation():
+	#simMe.End()
 	simMe.free()
+	
+	#simThem.End()
 	simThem.free()
+	
 	simulation.free()
 
 func ValidateSimulation():
@@ -326,5 +335,10 @@ func CalculateMana(card):
 	return currentValue
 
 func EndGame():
+	for gameAction in gameActions:
+		brain.Epoch(gameAction, 0.3)
+	
+	gameActions.clear()
+	
 	set_process(false)
 	brain.Serialise()

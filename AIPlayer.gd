@@ -41,6 +41,20 @@ func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 		node.player = self
 		lanes.append(node)
 
+func End():
+	deck.Destroy()
+	deck.free()
+	
+	for card in hand:
+		card.free()
+	
+	for card in discardPile:
+		card.free()
+	
+	hand.clear()
+	for lane in lanes:
+		lane.free()
+
 func Summon(cardRef, laneRef):
 	if cardRef.type != cardRef.CREATURE:
 		return false
