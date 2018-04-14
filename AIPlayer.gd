@@ -42,7 +42,7 @@ func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 		lanes.append(node)
 
 func End():
-	deck.Destroy()
+	#deck.Destroy()
 	deck.free()
 	
 	for card in hand:

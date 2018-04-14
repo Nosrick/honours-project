@@ -3,6 +3,8 @@ extends Node
 var cards = []
 var CardNode = load("res://scenes/Card.tscn")
 
+var battleMarkers = []
+
 var player1
 var player2
 
@@ -21,11 +23,25 @@ var phase
 const MAX_MANA = 6
 var turn = 1
 
+var gameState = STATE_SETUP
+
+const STATE_SETUP = "SETUP"
+const STATE_PLAY = "PLAY"
+const STATE_ATTACK = "ATTACK"
+const STATE_END = "END"
+var attackLane = 0
+
 var gameOver = false
+
+var timer = 0
+const TIME_BETWEEN_ACTIONS = 0.15
 
 func _ready():
 	randomize()
 	set_process(true)
+	for i in range(4):
+		battleMarkers.push_back(get_tree().get_root().get_node("Root/BattleMarker" + str(i + 1) + "/BattleSprite"))
+	
 	var cardLoader = load("CardLoader.gd").new()
 	cards = cardLoader.LoadCards()
 	
@@ -85,6 +101,7 @@ func IsMyTurn(player):
 func StartTurn():
 	player1.SetDisplay()
 	player2.SetDisplay()
+	AIBrain.StartTurn()
 	phase = DRAW_PHASE
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn")
 	turnPlayer.mana = min(MAX_MANA, turn)
@@ -96,65 +113,87 @@ func StartTurn():
 			lane.myCard.exhausted = false
 
 func EndTurn():
-	if turnPlayer == player1:
-		turnPlayer = player2
-	else:
-		turnPlayer = player1
-		turn += 1
-	
-	RunAttacks()
-	
-	StartTurn()
+	gameState = STATE_ATTACK
 
 func _process(delta):
-	if gameOver == true:
-		if player1.currentHP <= 0 and player2.currentHP <= 0:
-			GlobalVariables.message = "YOU DREW!"
-		elif player1.currentHP <= 0:
-			GlobalVariables.message = "YOU LOSE!"
-		elif player2.currentHP <= 0:
-			GlobalVariables.message = "YOU WIN!"
+	timer += delta
+	if timer < TIME_BETWEEN_ACTIONS:
+		return
+	else:
+		timer = 0
+	
+	if gameState == STATE_SETUP:
+		gameState = STATE_PLAY
+	elif gameState == STATE_PLAY:
+		if gameOver == true:
+			if player1.currentHP <= 0 and player2.currentHP <= 0:
+				GlobalVariables.message = "YOU DREW!"
+			elif player1.currentHP <= 0:
+				GlobalVariables.message = "YOU LOSE!"
+			elif player2.currentHP <= 0:
+				GlobalVariables.message = "YOU WIN!"
+			
+			get_tree().change_scene("res://scenes/EndGame.tscn")
 		
-		get_tree().change_scene("res://scenes/EndGame.tscn")
-	
-	var phaseString = ""
-	
-	if phase == DRAW_PHASE:
-		phaseString = "DRAW"
-	elif phase == PLAY_PHASE:
-		phaseString = "PLAY"
-	elif phase == ATTACK_PHASE:
-		phaseString = "ATTACK"
-	
-	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
-	get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")
-	
-	#End game state
-	if player1.currentHP <= 0:
-		AIBrain.EndGame()
-		gameOver = true
-		player1.End()
-	elif player2.currentHP <= 0:
-		AIBrain.EndGame()
-		gameOver = true
-		player2.End()
-
-func RunAttacks():
-	for i in range(player1.lanes.size()):
-		var player1Card = player1.lanes[i].myCard
-		var player2Card = player2.lanes[i].myCard
+		var phaseString = ""
 		
-		if player1Card != null and player2Card != null:
-			if turnPlayer == player1 and player1Card.exhausted == false:
-				player1Card.DoCombat(player2Card)
-			elif turnPlayer == player2 and player2Card.exhausted == false:
-				player2Card.DoCombat(player1Card)
+		if phase == DRAW_PHASE:
+			phaseString = "DRAW"
+		elif phase == PLAY_PHASE:
+			phaseString = "PLAY"
+		elif phase == ATTACK_PHASE:
+			phaseString = "ATTACK"
 		
+		get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
+		get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")
+		
+		#End game state
+		if player1.currentHP <= 0 and gameOver == false:
+			AIBrain.EndGame()
+			gameOver = true
+			player1.End()
+			player2.End()
+		elif player2.currentHP <= 0 and gameOver == false:
+			AIBrain.EndGame()
+			gameOver = true
+			player1.End()
+			player2.End()
+	elif gameState == STATE_ATTACK:
+		RunAttacks(attackLane)
+		attackLane += 1
+		
+		if attackLane == 4:
+			gameState = STATE_END
+			attackLane = 0
+	elif gameState == STATE_END:
+		if turnPlayer == player1:
+			turnPlayer = player2
 		else:
-			if turnPlayer == player1 and player1Card != null and player1Card.exhausted == false:
-				player1Card.DoCombat(player2)
-			elif turnPlayer == player2 and player2Card != null and player2Card.exhausted == false:
-				player2Card.DoCombat(player1)
+			turnPlayer = player1
+			turn += 1
+		
+		gameState = STATE_PLAY
+		StartTurn()
+
+func RunAttacks(index):
+	var player1Card = player1.lanes[index].myCard
+	var player2Card = player2.lanes[index].myCard
+	
+	if player1Card != null and player2Card != null:
+		if turnPlayer == player1 and player1Card.exhausted == false:
+			battleMarkers[index].Begin()
+			player1Card.DoCombat(player2Card)
+		elif turnPlayer == player2 and player2Card.exhausted == false:
+			battleMarkers[index].Begin()
+			player2Card.DoCombat(player1Card)
+	
+	else:
+		if turnPlayer == player1 and player1Card != null and player1Card.exhausted == false:
+			battleMarkers[index].Begin()
+			player1Card.DoCombat(player2)
+		elif turnPlayer == player2 and player2Card != null and player2Card.exhausted == false:
+			battleMarkers[index].Begin()
+			player2Card.DoCombat(player1)
 
 func GetCard(name):
 	for card in cards:

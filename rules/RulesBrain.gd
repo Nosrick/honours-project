@@ -10,6 +10,8 @@ var trainingCards
 
 var brain
 
+var hasActed = false
+
 const name = "RulesBrain"
 
 func Begin():
@@ -19,13 +21,16 @@ func _ready():
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	Begin()
 
+func StartTurn():
+	hasActed = false
+
 func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
-		
-	if manager.phase == manager.DRAW_PHASE:
-		player.Draw()
-		
+	
+	if hasActed == true:
+		return
+	
 	var lanesEmpty = []
 	for i in range(player.lanes.size()):
 		if player.lanes[i].myCard == null:
@@ -70,6 +75,7 @@ func _process(delta):
 					player.Hinder(card, highestLane.myCard)
 	
 	manager.EndTurn()
+	hasActed = true
 
 func CalculateMana(card):
 	var manaValue = 0

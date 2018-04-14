@@ -27,6 +27,8 @@ var simThem
 
 var gameActions = []
 
+var hasActed = false
+
 func _ready():
 	Begin()
 
@@ -52,13 +54,16 @@ func IsWithinOne(number, target):
 	
 	return false
 
+func StartTurn():
+	hasActed = false
+	stuck = false
+
 func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
 	
-	if manager.phase == manager.DRAW_PHASE:
-		player.Draw()
-		stuck = false
+	if hasActed == true:
+		return
 	
 	actionsSinceLastTry = lastActions.size()
 	
@@ -259,6 +264,7 @@ func _process(delta):
 	
 	if stuck == true:
 		manager.EndTurn()
+		hasActed = true
 
 func SetUpSimulation():
 	simMe = load("res://simulation/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP, player.discardPile)

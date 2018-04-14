@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Images/Battle.png" type="Texture" id=1]
+[ext_resource path="res://CombatFade.gd" type="Script" id=2]
+
+[node name="Root" type="Node"]
+
+[node name="BattleSprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+script/script = ExtResource( 2 )
+
+

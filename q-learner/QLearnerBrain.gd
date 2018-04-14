@@ -26,6 +26,8 @@ var stuck = false
 var attempts = 0
 const MAX_ATTEMPTS = 50
 
+var hasActed = false
+
 #FIX THIS
 func InitialTraining(deck):
 	for i in range(0, deck.size()):
@@ -63,15 +65,18 @@ func Begin():
 	
 	set_process(true)
 
+func StartTurn():
+	hasActed = false
+	attempts = 0
+	stuck = false
+
 func _process(delta):
 	actionsToProcess.clear()
 	if not manager.IsMyTurn(player):
 		return
 	
-	if manager.phase == manager.DRAW_PHASE:
-		player.Draw()
-		stuck = false
-		attempts = 0
+	if hasActed == true:
+		return
 	
 	if attempts >= MAX_ATTEMPTS:
 		print("STUCK, ENDING TURN")
@@ -304,6 +309,7 @@ func EndTurn():
 		lastActions.clear()
 		actionsToProcess.clear()
 		manager.EndTurn()
+		hasActed = true
 
 func IsWithinOne(number, target):
 	if number - 1.0 < target and number + 1.0 > target:

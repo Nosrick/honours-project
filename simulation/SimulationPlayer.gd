@@ -18,7 +18,9 @@ var replacementsDone
 var power = 0
 
 func End():
-	deck.Destroy()
+	pass
+	"""
+	#deck.Destroy()
 	deck.free()
 	
 	for card in hand:
@@ -30,7 +32,7 @@ func End():
 	discardPile.clear()
 	hand.clear()
 	lanes.clear()
-
+"""
 func CloneCard(cardRef):
 	var newCard = cardNode.instance()
 	newCard.SetParametersFromCard(cardRef)

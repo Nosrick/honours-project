@@ -1,6 +1,6 @@
 extends Node
 
-var name = "Debug Cat"
+var name = "UNINITIALISED"
 var image
 var cost = 1
 var power = 0
