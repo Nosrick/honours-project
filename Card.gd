@@ -1,6 +1,6 @@
 extends Node
 
-var name = "Debug Cat"
+var name = "UNINITIALISED"
 var image
 var cost = 1
 var power = 0
@@ -36,8 +36,8 @@ func SetParametersFromCard(cardRef):
 	cost = cardRef.cost
 	power = cardRef.power
 	toughness = cardRef.toughness
-	currentHP = cardRef.toughness
-	keywords = cardRef.keywords
+	currentHP = toughness
+	keywords = [] + cardRef.keywords
 	type = cardRef.type
 	if cardRef.associatedScript != null:
 		associatedScript = cardRef.associatedScript
@@ -47,6 +47,7 @@ func SetParametersFromCard(cardRef):
 	inPlay = cardRef.inPlay
 	zoomed = cardRef.zoomed
 	exhausted = cardRef.exhausted
+	player = cardRef.player
 
 func SetParameters(cardRef):
 	name = cardRef.name
@@ -185,12 +186,8 @@ func ScaleDown():
 	self.set_pos(Vector2(position.x, position.y + (size.y / 2)))
 	self.set_scale(Vector2(0.5, 0.5))
 	
-func OnMouseEnter():
-	pass
-	#self.get_parent().move_child(self, self.get_parent().get_children().size() - 1)
-
-func OnMouseExit():
-	pass
+func ToString():
+	return "[ " + name + " : " + player.get_name() + " ]"
 	
 func DamageMe(value):
 	self.currentHP -= value

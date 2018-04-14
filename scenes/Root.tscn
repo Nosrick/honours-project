@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/SmallFont.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://Fonts/DefaultFont.fnt" type="BitmapFont" id=3]
 [ext_resource path="res://CardBack.png" type="Texture" id=4]
 [ext_resource path="res://CardBack.gd" type="Script" id=5]
+[ext_resource path="res://Images/Battle.png" type="Texture" id=6]
+[ext_resource path="res://CombatFade.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -50,9 +52,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 150.0
-margin/top = 50.0
+margin/top = 20.0
 margin/right = 304.0
-margin/bottom = 254.0
+margin/bottom = 224.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -64,9 +66,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 350.0
-margin/top = 50.0
+margin/top = 20.0
 margin/right = 504.0
-margin/bottom = 254.0
+margin/bottom = 224.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -78,9 +80,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 550.0
-margin/top = 50.0
+margin/top = 20.0
 margin/right = 704.0
-margin/bottom = 254.0
+margin/bottom = 224.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -92,9 +94,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 750.0
-margin/top = 50.0
+margin/top = 20.0
 margin/right = 904.0
-margin/bottom = 254.0
+margin/bottom = 224.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -140,9 +142,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 150.0
-margin/top = 50.0
+margin/top = 0.0
 margin/right = 304.0
-margin/bottom = 254.0
+margin/bottom = 204.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -154,9 +156,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 350.0
-margin/top = 50.0
+margin/top = 0.0
 margin/right = 504.0
-margin/bottom = 254.0
+margin/bottom = 204.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -168,9 +170,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 550.0
-margin/top = 50.0
+margin/top = 0.0
 margin/right = 704.0
-margin/bottom = 254.0
+margin/bottom = 204.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -182,9 +184,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 750.0
-margin/top = 50.0
+margin/top = 0.0
 margin/right = 904.0
-margin/bottom = 254.0
+margin/bottom = 204.0
 __meta__ = {
 "_edit_lock_": true
 }
@@ -248,10 +250,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 5.64525
-margin/top = 590.53
+margin/left = 6.0
+margin/top = 491.0
 margin/right = 159.0
-margin/bottom = 794.0
+margin/bottom = 694.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Image" type="TextureFrame" parent="CardBack"]
@@ -265,6 +267,7 @@ margin/top = 2.0
 margin/right = 152.0
 margin/bottom = 202.0
 texture = ExtResource( 4 )
+stretch_mode = 0
 
 [node name="MouseDetection" type="Container" parent="CardBack"]
 
@@ -277,5 +280,45 @@ margin/top = 0.0
 margin/right = 154.0
 margin/bottom = 204.0
 script/script = ExtResource( 5 )
+
+[node name="BattleMarker1" type="Node" parent="."]
+
+[node name="BattleSprite" type="Sprite" parent="BattleMarker1"]
+
+transform/pos = Vector2( 176.177, 183.934 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+centered = false
+script/script = ExtResource( 7 )
+
+[node name="BattleMarker2" type="Node" parent="."]
+
+[node name="BattleSprite" type="Sprite" parent="BattleMarker2"]
+
+transform/pos = Vector2( 382.271, 183.934 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+centered = false
+script/script = ExtResource( 7 )
+
+[node name="BattleMarker3" type="Node" parent="."]
+
+[node name="BattleSprite" type="Sprite" parent="BattleMarker3"]
+
+transform/pos = Vector2( 580.609, 185.042 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+centered = false
+script/script = ExtResource( 7 )
+
+[node name="BattleMarker4" type="Node" parent="."]
+
+[node name="BattleSprite" type="Sprite" parent="BattleMarker4"]
+
+transform/pos = Vector2( 783.38, 186.15 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+centered = false
+script/script = ExtResource( 7 )
 
 

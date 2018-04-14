@@ -22,7 +22,7 @@ func _init(widthRef, heightRef):
 		for y in range(height):
 			nodes.append(node.new(Vector2(x, y)))
 
-func Epoch(newNode):	
+func Epoch(newNode):
 	var neighbourhood = sqrt(width * height) * clusterMod
 	var hoodSquared = neighbourhood * neighbourhood
 	

@@ -6,28 +6,48 @@ var manager
 
 var tools = load("Tools.gd").new()
 
+var trainingCards
+
+var brain
+
+var hasActed = false
+
+const name = "RulesBrain"
+
+func Begin():
+	set_process(true)
+
+func _ready():
+	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	Begin()
+
+func StartTurn():
+	hasActed = false
+
 func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
-		
-	if manager.phase == manager.DRAW_PHASE:
-		player.Draw()
-		
+	
+	if hasActed == true:
+		return
+	
 	var lanesEmpty = []
 	for i in range(player.lanes.size()):
 		if player.lanes[i].myCard == null:
 			lanesEmpty.push_back(i)
 			break
 	
-	#Try to fill the lanes
-	if not lanesEmpty.empty():
-		for lane in lanesEmpty:
-			for card in player.hand:
-				if card.type == card.CREATURE:
-					player.Summon(card, lane)
-	
 	#Lanes are full, or no actions possible, so do some other actions
 	for card in player.hand:
+		if card.type == card.CREATURE:
+			for i in range(0, player.lanes.size()):
+				if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
+					player.Summon(card, i)
+			
+			for i in range(0, player.lanes.size()):
+				if player.lanes[i].myCard == null:
+					player.Summon(card, i)
+		
 		if card.type == card.SPELL or card.type == card.INSTANT:
 			if card.keywords.has("Enhancement"):
 				var lowestMana = 999
@@ -55,6 +75,7 @@ func _process(delta):
 					player.Hinder(card, highestLane.myCard)
 	
 	manager.EndTurn()
+	hasActed = true
 
 func CalculateMana(card):
 	var manaValue = 0
@@ -67,9 +88,5 @@ func CalculateMana(card):
 	
 	return manaValue
 
-func _ready():
-	manager = self.get_tree().get_root().get_node("Root/GameManager")
-	set_process(true)
-
 func EndGame():
-	pass
+	set_process(false)

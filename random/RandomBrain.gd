@@ -9,6 +9,12 @@ const MAX_ATTEMPTS = 50
 
 var tools = load("Tools.gd").new()
 
+var hasActed = false
+
+func StartTurn():
+	hasActed = false
+	attempts = 0
+
 func _ready():
 	manager = self.get_tree().get_root().get_node("Root/GameManager")
 	set_process(true)
@@ -17,11 +23,11 @@ func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
 	
-	if manager.phase == manager.DRAW_PHASE:
-		player.Draw()
-		attempts = 0
+	if hasActed == true:
+		return
 	
 	if attempts >= MAX_ATTEMPTS:
+		hasActed = true
 		manager.EndTurn()
 	
 	var handChoice = tools.Roll(0, player.hand.size())

@@ -49,15 +49,11 @@ func EndTurn():
 	StartTurn()
 
 func _process(delta):
-	pass
-	
-	if gameOver == true:
-		if player1.currentHP <= 0 and player2.currentHP <= 0:
-			GlobalVariables.message = "YOU DREW!"
-		elif player1.currentHP <= 0:
-			GlobalVariables.message = "YOU LOSE!"
-		elif player2.currentHP <= 0:
-			GlobalVariables.message = "YOU WIN!"
+	Run()
+
+func Run():
+	if player1 == null or player2 == null:
+		return
 	
 	#End game state
 	if player1.currentHP <= 0:
@@ -81,6 +77,9 @@ func RunAttacks():
 				player1Card.DoCombat(player2)
 			elif turnPlayer == player2 and player2Card != null and player2Card.exhausted == false:
 				player2Card.DoCombat(player1)
+	
+	player1.CleanUpLanes()
+	player2.CleanUpLanes()
 
 func GetCard(name):
 	for card in cards:

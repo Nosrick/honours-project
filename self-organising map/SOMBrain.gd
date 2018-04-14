@@ -1,5 +1,7 @@
 extends Node
 
+const name = "SOMBrain"
+
 var score
 var brain
 
@@ -49,12 +51,17 @@ func SortHand(left, right):
 	return false
 
 func _ready():
-	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(100, 100)
+	Begin()
+
+func Begin():
+	brain = load("res://self-organising map/CardSelfOrganisingMap.gd").new(20, 20)
 	
 	if brain.Deserialise() == false:
 		InitialTraining(trainingCards)
 	
-	manager = self.get_tree().get_root().get_node("Root/GameManager")
+	if self.get_tree() != null:
+		manager = self.get_tree().get_root().get_node("Root/GameManager")
+		
 	set_process(true)
 
 func _process(delta):
@@ -266,4 +273,5 @@ func CalculateManaDifference(then, now):
 	return difference
 
 func EndGame():
+	set_process(false)
 	brain.Serialise()

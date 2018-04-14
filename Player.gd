@@ -22,6 +22,8 @@ var power = 0
 
 var name
 
+const HAND_Y = 491
+
 func SetDisplay():
 	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
 
@@ -66,6 +68,20 @@ func Begin(deckRef, lifeRef, manaRef, otherPlayerRef):
 		node.set_script(load("Lane.gd"))
 		node.player = self
 		lanes.append(node)
+
+func End():
+	#deck.Destroy()
+	deck.free()
+	
+	for card in hand:
+		card.free()
+	
+	for card in discardPile:
+		card.free()
+	
+	hand.clear()
+	for lane in lanes:
+		lane.free()
 
 func Summon(cardRef, laneRef):
 	if cardRef.type != cardRef.CREATURE:
@@ -173,7 +189,7 @@ func Hinder(spellRef, receiver):
 
 func RedrawHand():
 	for i in range(hand.size()):
-		hand[i].set_pos(Vector2((i + 1) * hand[i].WIDTH / 2 + ((i + 1) * 10), 800 - hand[i].HEIGHT / 2))
+		hand[i].set_pos(Vector2((i + 1) * hand[i].WIDTH / 2 + ((i + 1) * 10), HAND_Y))
 
 func Draw():
 	if manager.phase != manager.DRAW_PHASE:
@@ -202,7 +218,7 @@ func FreeDraw():
 	self.add_child(node)
 	node.set_scale(Vector2(0.5, 0.5))
 	node.set_pos(Vector2(hand.size() * node.WIDTH / 2 + (10 * hand.size()), 800 - node.HEIGHT / 2))
-	
+	RedrawHand()
 	return true
 
 func ReplaceDraw(cardToReplace):
