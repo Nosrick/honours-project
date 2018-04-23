@@ -11,6 +11,8 @@ var tools = load("Tools.gd").new()
 
 var hasActed = false
 
+var turnTime = 0
+
 func StartTurn():
 	hasActed = false
 	attempts = 0
@@ -26,9 +28,16 @@ func _process(delta):
 	if hasActed == true:
 		return
 	
+	turnTime += delta
+	
 	if attempts >= MAX_ATTEMPTS:
 		hasActed = true
 		manager.EndTurn()
+	
+	if player.hand.size() == 0:
+		manager.EndTurn()
+		hasActed = true
+		return
 	
 	var handChoice = tools.Roll(0, player.hand.size())
 	

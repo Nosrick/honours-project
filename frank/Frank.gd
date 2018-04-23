@@ -24,6 +24,15 @@ func Epoch(newNode):
   node.AdjustMana(newNode.targetMana, learningRate, influence)
   node.AdjustQWeight(newNode.qWeight, learningRate, influence)
  
+func RandomUnassignedNode():
+	var unassigned = []
+	for node in nodes:
+		if node.castingCardID == "None":
+			unassigned.push_back(node)
+	
+	var result = randi() % unassigned.size()
+	return unassigned[result]
+
 func GetBestMatch(input):
   var lowestDistance = 9999999
   var winner = null
@@ -38,19 +47,28 @@ func GetBestMatch(input):
   return winner
  
 func GetBestQScore(input):
-  var highestQScore = 0
-  var winner = null
+	var highestQScore = -999
+	var winner = null
   
-  for node in nodes:
-    if input.castingCardID == node.castingCardID:
-      if node.qWeight > highestQScore:
-        highestQScore = node.qWeight
-  for node in nodes:
-    var nodeData = node.Save()
-    brain.store_line(nodeData.to_json())
+	for node in nodes:
+		if input.castingCardID == node.castingCardID:
+			if node.qWeight > highestQScore:
+				highestQScore = node.qWeight
+				winner = node
+	
+	return winner
+
+func Serialise():
+	print("START SERIALISING")
+	var brain = File.new()
+	brain.open(filePath, File.WRITE)
+
+	for node in nodes:
+		var nodeData = node.Save()
+		brain.store_line(nodeData.to_json())
   
-  brain.close()
-  print("DONE SERIALISING")
+	brain.close()
+	print("DONE SERIALISING")
   
 func Deserialise():
   var brain = File.new()

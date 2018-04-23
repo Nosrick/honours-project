@@ -28,6 +28,8 @@ const MAX_ATTEMPTS = 50
 
 var hasActed = false
 
+var turnTime = 0
+
 #FIX THIS
 func InitialTraining(deck):
 	for i in range(0, deck.size()):
@@ -82,6 +84,8 @@ func _process(delta):
 		print("STUCK, ENDING TURN")
 		EndTurn()
 		return
+	
+	turnTime += delta
 	
 	var actionsSinceLastTry = lastActions.size()
 	
@@ -195,11 +199,13 @@ func _process(delta):
 						
 					if playedCreature == true:
 						lastActions.push_back(node)
+						brain.AdjustQWeight(node.castingCardID, node.nextCardID, player.hand)
 				
 				for i in range(player.lanes.size()):
 					#If ours are empty, play the creature
 					if player.lanes[i].myCard == null:
 						playedCreature = player.Summon(card, i)
+						brain.AdjustQWeight(node.castingCardID, node.nextCardID, player.hand)
 				
 			#Or is it a spell/instant?
 			if card.type == card.SPELL or card.type == card.INSTANT:
@@ -220,7 +226,7 @@ func _process(delta):
 							#FIX THIS
 							#activeNode.AdjustMana(player.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
 							brain.AdjustRelatedMana(card.name, player.lanes[i].myCard.cost)
-							playedSpell = player.Enhance(card, player.lanes[i].myCard)
+							#playedSpell = player.Enhance(card, player.lanes[i].myCard)
 							
 						if playedSpell == false:
 							#If the actions fails, push it back onto the stack to try again later in the turn
@@ -238,6 +244,7 @@ func _process(delta):
 								attempts += 1
 						else:
 							lastActions.push_back(node)
+							brain.AdjustQWeight(node.castingCardID, node.nextCardID, player.hand)
 							
 					
 				elif card.keywords.has("Hinderance"):
@@ -256,10 +263,11 @@ func _process(delta):
 							#FIX THIS
 							#activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
 							brain.AdjustRelatedMana(card.name, otherPlayer.lanes[i].myCard.cost)
-							playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
+							#playedSpell = player.Hinder(card, otherPlayer.lanes[i].myCard)
 						
 						if playedSpell == true:
 							lastActions.push_back(node)
+							brain.AdjustQWeight(node.castingCardID, node.nextCardID, player.hand)
 		
 		var isNextCard = false
 		for card in player.hand:
@@ -296,14 +304,13 @@ func _process(delta):
 				player.Replace(lowestCard)
 
 func EndTurn():
-		#Once per turn, tweak this turn's q-scores
+		#Once per turn, tweak this turn's rewards
 		for action in lastActions:
 			print("Assigning reward.")
 			boardState = CalculateBoardState()
 			var difference = boardState.x - boardState.y
 			
 			brain.AdjustReward(action.castingCardID, action.nextCardID, difference)
-			brain.AdjustQWeight(action.castingCardID, action.nextCardID, player.hand)
 			print(str(action.ToString()))
 		#Clear the action list
 		lastActions.clear()

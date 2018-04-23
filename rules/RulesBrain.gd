@@ -14,6 +14,8 @@ var hasActed = false
 
 const name = "RulesBrain"
 
+var turnTime = 0
+
 func Begin():
 	set_process(true)
 
@@ -30,6 +32,8 @@ func _process(delta):
 	
 	if hasActed == true:
 		return
+	
+	turnTime += delta
 	
 	var lanesEmpty = []
 	for i in range(player.lanes.size()):

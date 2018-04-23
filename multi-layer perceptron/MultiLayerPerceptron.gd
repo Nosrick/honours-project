@@ -181,7 +181,7 @@ func SortOutput(left, right):
 	
 	return false
 
-func Approximate(difference, newWeight, currentWeight):
+func GetError(difference, newWeight, currentWeight):
 	return difference + (learningRate * (newWeight)) - currentWeight
 
 #Very simple linear prediction
@@ -201,6 +201,7 @@ func Epoch(predictedBoardState, teachingStep):
 	
 	var tempWeights = weights
 	
+	#FUNCTION APPROXIMATION
 	#Pt = Current prediction = previousBoardState
 	#yt + 1 = Prediction target = predictedBoardState
 	#Ot + 1 = TD error = function approximation
@@ -210,9 +211,6 @@ func Epoch(predictedBoardState, teachingStep):
 	
 	#vit + a (Ot + 1 * xit)
 	
-	#LINEAR PREDICTION
-	#difference + (a * ((weight for next action) - (weight for current action)))
-	
 	CalculateNetwork()
 	
 	var handToCardDeltas = []
@@ -220,44 +218,41 @@ func Epoch(predictedBoardState, teachingStep):
 	var theirLaneToCardDeltas = []
 	var cardToOutputDeltas = []
 	
-	#CHANGE LINEAR PREDICTION TO APPROXIMATE
-	
 	#Going forward
 	#Hand -> Card
 	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
 			var index = i + j
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
-			var prediction = LinearPrediction(handInputs[i].weight, previousWeights[index], weights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = handInputs[i].weight * previousWeights[index]
-			var handDelta = dotProduct + (learningRate * approximation * weights[index])
+			var handDelta = dotProduct + (learningRate * error * weights[index])
 			handToCardDeltas.push_back(handDelta)
 	
 	#My lane -> Card
 	for i in range(0, myLaneNumber):
 		for j in range(0, cardNumber):
 			var index = (handNumber + (i + j))
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = myLaneInputs[i].weight * previousWeights[index]
-			var myLaneDelta = dotProduct + (learningRate * approximation * weights[index])
+			var myLaneDelta = dotProduct + (learningRate * error * weights[index])
 			myLaneToCardDeltas.push_back(myLaneDelta)
 	
 	#Their lane -> Card
 	for i in range(0, theirLaneNumber):
 		for j in range(0, cardNumber):
 			var index = (handNumber * myLaneNumber) + (i + j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = theirLaneInputs[i].weight * previousWeights[index]
-			var theirLaneDelta = dotProduct + (learningRate * approximation * weights[index])
+			var theirLaneDelta = dotProduct + (learningRate * error * weights[index])
 			theirLaneToCardDeltas.push_back(theirLaneDelta)
 	
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
 			var index = (handNumber * myLaneNumber * theirLaneNumber) + i + (outputNumber * j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = cardHidden[i].weight * previousWeights[index]
-			var cardDelta = dotProduct + (learningRate * approximation * weights[index])
+			var cardDelta = dotProduct + (learningRate * error * weights[index])
 			cardToOutputDeltas.push_back(cardDelta)
 	
 	#Changing the weights
@@ -265,40 +260,40 @@ func Epoch(predictedBoardState, teachingStep):
 	for i in range(0, handNumber):
 		for j in range(0, cardNumber):
 			var index = (i + j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = handInputs[i].weight * previousWeights[index]
-			var weight = dotProduct + (learningRate * approximation * handToCardDeltas[i])
-			weights[index] += weight
+			var weight = dotProduct + (learningRate * error * handToCardDeltas[i])
+			weights[index] = weight
 			weights[index] = Sigmoid(weights[index])
 	
 	#My lanes -> Card
 	for i in range(0, myLaneNumber):
 		for j in range(0, cardNumber):
 			var index = (handNumber) + (i + j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = myLaneInputs[i].weight * previousWeights[index]
-			var weight = dotProduct + (learningRate * approximation * myLaneToCardDeltas[i])
-			weights[index] += weight
+			var weight = dotProduct + (learningRate * error * myLaneToCardDeltas[i])
+			weights[index] = weight
 			weights[index] = Sigmoid(weights[index])
 	
 	#Their lanes -> Card
 	for i in range(0, theirLaneNumber):
 		for j in range(0, cardNumber):
 			var index = (handNumber * myLaneNumber) + (i + j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = theirLaneInputs[i].weight * previousWeights[index]
-			var weight = dotProduct + (learningRate * approximation * theirLaneToCardDeltas[i])
-			weights[index] += weight
+			var weight = dotProduct + (learningRate * error * theirLaneToCardDeltas[i])
+			weights[index] = weight
 			weights[index] = Sigmoid(weights[index])
 	
 	#Card -> Output
 	for i in range(0, cardNumber):
 		for j in range(0, outputNumber):
 			var index = (handNumber * myLaneNumber * theirLaneNumber) + i + (outputNumber * j)
-			var approximation = Approximate(normalisedManaState, weights[index], previousWeights[index])
+			var error = GetError(normalisedManaState, weights[index], previousWeights[index])
 			var dotProduct = cardHidden[i].weight * previousWeights[index]
-			var weight = dotProduct + (learningRate * approximation * cardToOutputDeltas[i])
-			weights[index] += weight
+			var weight = dotProduct + (learningRate * error * cardToOutputDeltas[i])
+			weights[index] = weight
 			weights[index] = Sigmoid(weights[index])
 	
 	previousBoardState = predictedBoardState
@@ -313,12 +308,6 @@ func GetCardNode(card):
 
 func Sigmoid(value):
 	return float(1 / (1 + exp(-value)))
-
-func Sigmoid100(value):
-	return Sigmoid(value) * 100
-
-func DerSigmoid(value):
-	return float(value * (1 - value))
 
 func Serialise():
 	print("SERIALISING")

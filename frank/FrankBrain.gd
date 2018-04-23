@@ -1,6 +1,6 @@
 extends Node
 
-const name = "QLearnerBrain"
+const name = "FrankBrain"
 
 var score
 var brain
@@ -25,6 +25,60 @@ var stuck = false
 var actionTaken = false
 
 const INFLUENCE = 0.5
+
+var simMe
+var simThem
+var simulation
+
+var turnTime = 0
+
+var previousBoardState = Vector2()
+var currentBoardState = Vector2()
+
+func SetUpSimulation():
+	simMe = load("res://simulation/SimulationPlayer.gd").new(player.hand, player.deck, player.mana, player.currentHP, player.discardPile)
+	simMe.FillLanes(player.lanes)
+	
+	simThem = load("res://simulation/SimulationPlayer.gd").new(otherPlayer.hand, otherPlayer.deck, otherPlayer.mana, otherPlayer.currentHP, player.discardPile)
+	simThem.FillLanes(otherPlayer.lanes)
+	
+	simMe.otherPlayer = simThem
+	simThem.otherPlayer = simMe
+	
+	simulation = load("res://simulation/SimulationManager.gd").new()
+	simulation.phase = simulation.PLAY_PHASE
+	simulation.player1 = simThem
+	simulation.player2 = simMe
+	simulation.turnPlayer = simMe
+	simulation.cards = manager.cards
+	
+	simMe.manager = simulation
+	simThem.manager = simulation
+
+func DestroySimulation():
+	#simMe.End()
+	simMe.free()
+	
+	#simThem.End()
+	simThem.free()
+	
+	simulation.free()
+
+func ValidateSimulation():
+	for i in range(0, player.lanes.size()):
+		if player.lanes[i].myCard != null and simMe.lanes[i].myCard == null:
+			return false
+		
+		if otherPlayer.lanes[i].myCard != null and simThem.lanes[i].myCard == null:
+			return false
+		
+	if simMe.hand.size() != player.hand.size():
+		return false
+	
+	if simThem.hand.size() != otherPlayer.hand.size():
+		return false
+		
+		return true
 
 func StartTurn():
 	stuck = false
@@ -61,7 +115,7 @@ func _ready():
 	Begin()
 
 func Begin():
-	brain = load("res://q-learner/CardQLearner.gd").new(trainingCards.size() * 2)
+	brain = load("res://frank/Frank.gd").new(trainingCards.size() * 2)
 	
 	if brain.Deserialise() == false:
 		InitialTraining(trainingCards)
@@ -75,10 +129,15 @@ func _process(delta):
 	if not manager.IsMyTurn(player):
 		return
 	
+	if actionTaken == true:
+		return
+	
+	turnTime += delta
+	
 	var actionsSinceLastTry = lastActions.size()
 	
 	#Find approximate Q-score for each card
-	var highestQScore = 0
+	var highestQScore = -999
 	var highestCard = null
 	var activeNode = null
 	
@@ -123,14 +182,36 @@ func _process(delta):
 				if highestCard.type == highestCard.CREATURE:
 					var playedCreature = false
 					
+					var greatestChangeIndex = -1
+					var greatestChange = -999
 					#look at enemy lanes
 					for i in range(otherPlayer.lanes.size()):
+						SetUpSimulation()
+						
 						#if theirs are full, and ours are empty, play the creature
 						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
-							playedCreature = player.Summon(highestCard, i)
+							var simSummon = simMe.Summon(highestCard, i)
+							if simSummon == false:
+								continue
 							
-						if playedCreature == true:
-							lastActions.push_back(activeNode)
+							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							DestroySimulation()
+							var currentBoardState = CalculateBoardState(player, otherPlayer)
+							var differenceVector = predictedBoardState - currentBoardState
+							var difference = differenceVector.x - differenceVector.y
+							
+							if difference > greatestChange:
+								greatestChange = difference
+								greatestChangeIndex = i
+							
+							highestCard.inPlay = false
+							#playedCreature = player.Summon(highestCard, i)
+					
+					if greatestChangeIndex != -1:
+						playedCreature = player.Summon(highestCard, greatestChangeIndex)
+						
+					if playedCreature == true:
+						lastActions.push_back(activeNode)
 					
 					for i in range(player.lanes.size()):
 						#If ours are empty, play the creature
@@ -177,11 +258,30 @@ func _process(delta):
 					elif highestCard.keywords.has("Hinderance"):
 						var playedSpell = false
 						
+						var greatestChange = -999
+						var greatestChangeIndex = -1
 						#Look to see if we have something that matches the target mana cost
 						for i in range(otherPlayer.lanes.size()):
 							if otherPlayer.lanes[i].myCard == null:
 								continue
 								
+							SetUpSimulation()
+							
+							var simHinder = simMe.Hinder(highestCard, simThem.lanes[i].myCard)
+							if simHinder == false:
+								continue
+							
+							var predictedBoardState = CalculateBoardState(simMe, simThem)
+							DestroySimulation()
+							var currentBoardState = CalculateBoardState(player, otherPlayer)
+							var differenceVector = predictedBoardState - currentBoardState
+							var difference = differenceVector.x - differenceVector.y
+							
+							if difference > greatestChange:
+								greatestChange = difference
+								greatestChangeIndex = i
+							
+							"""
 							#If it's within one mana of the target value, let's use it
 							if IsWithinOne(otherPlayer.lanes[i].myCard.cost, activeNode.targetMana):
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
@@ -189,9 +289,12 @@ func _process(delta):
 							else:
 								activeNode.AdjustMana(otherPlayer.lanes[i].myCard.cost, brain.learningRate, INFLUENCE)
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
-							
-							if playedSpell == true:
-								lastActions.push_back(activeNode)
+							"""
+						if greatestChangeIndex != -1:
+							playedSpell = player.Hinder(highestCard, otherPlayer.lanes[greatestChangeIndex].myCard)
+						
+						if playedSpell == true:
+							lastActions.push_back(activeNode)
 	
 	var actionsThisTry = lastActions.size()
 	
@@ -218,7 +321,17 @@ func _process(delta):
 		
 		#Once per turn, tweak this turn's q-scores
 		for action in lastActions:
+			print(str(action.ToString()))
 			print("Assigning reward.")
+			
+			currentBoardState = CalculateBoardState(player, otherPlayer)
+			var differenceVector = previousBoardState - currentBoardState
+			var difference = differenceVector.x - differenceVector.y
+			var normalisedDifference = tools.NormaliseOneToTen(difference)
+			action.qWeight = normalisedDifference
+			
+			previousBoardState = currentBoardState
+			
 			brain.Epoch(action)
 			print(str(action.ToString()))
 		#Clear the action list
@@ -227,6 +340,7 @@ func _process(delta):
 	
 	if stuck == true:
 		manager.EndTurn()
+		actionTaken = true
 
 func IsWithinOne(number, target):
 	if number - 1.0 < target and number + 1.0 > target:
@@ -234,15 +348,15 @@ func IsWithinOne(number, target):
 	
 	return false
 
-func CalculateBoardState():
+func CalculateBoardState(left, right):
 	#Do our side first
 	var ourSide = 0
-	for lane in player.lanes:
+	for lane in left.lanes:
 		if lane.myCard != null:
 			ourSide += CalculateMana(lane.myCard)
 	
 	var theirSide = 0
-	for lane in otherPlayer.lanes:
+	for lane in right.lanes:
 		if lane.myCard != null:
 			theirSide += CalculateMana(lane.myCard)
 	
@@ -250,7 +364,7 @@ func CalculateBoardState():
 
 func CalculateMana(card):
 	var manaValue = 0
-	manaValue += card.cost
+	manaValue += card.cost + card.currentHP
 	for enhancement in card.enhancements:
 		manaValue += enhancement.cost
 	

@@ -24,8 +24,29 @@ var name
 
 const HAND_Y = 491
 
+const MAX_TIMER = 0.15
+var timer = 0
+var useTimer = false
+
+func SetTimer():
+	timer = 0
+	useTimer = true
+
+func ResetTimer():
+	timer = 0
+	useTimer = false
+
 func SetDisplay():
 	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
+
+func ClearLanes():
+	if timer >= MAX_TIMER:
+		for lane in lanes:
+			if lane.myCard != null and lane.myCard.currentHP <= 0:
+				remove_child(lane.myCard)
+				discardPile.push_back(lane.myCard)
+				lane.myCard = null
+		ResetTimer()
 
 func _ready():
 	set_process_input(true)
@@ -33,7 +54,12 @@ func _ready():
 	name = self.get_name()
 
 func _process(delta):
-	pass
+	if useTimer == true:
+		timer += delta
+	
+	if useTimer == true and timer >= MAX_TIMER:
+		ClearLanes()
+		otherPlayer.ClearLanes()
 
 func _input(event):
 	if event.is_action_released("ui_cancel"):
@@ -110,6 +136,7 @@ func Summon(cardRef, laneRef):
 		cardRef.associatedScript.Do(cardRef)
 	
 	RedrawHand()
+	SetTimer()
 	return true
 
 func Enhance(spellRef, receiver):
@@ -147,6 +174,7 @@ func Enhance(spellRef, receiver):
 	if spellRef.associatedScript != null:
 		spellRef.associatedScript.Do(receiver)
 	RedrawHand()
+	SetTimer()
 	return true
 
 func Hinder(spellRef, receiver):
@@ -185,6 +213,7 @@ func Hinder(spellRef, receiver):
 	if spellRef.associatedScript != null:
 		spellRef.associatedScript.Do(receiver)
 	RedrawHand()
+	SetTimer()
 	return true
 
 func RedrawHand():

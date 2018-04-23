@@ -21,6 +21,8 @@ var turn = 1
 
 var gameOver = false
 
+var parent = null
+
 func _ready():
 	pass
 
@@ -36,6 +38,9 @@ func StartTurn():
 	for lane in turnPlayer.lanes:
 		if lane.myCard != null:
 			lane.myCard.exhausted = false
+	
+	if parent != null:
+		parent.StartTurn()
 
 func EndTurn():
 	if turnPlayer == player1:

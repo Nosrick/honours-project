@@ -102,6 +102,11 @@ func AttachBrains():
 	player1Name = brain1.name
 	player2Name = brain2.name
 	
+	for i in range(4):
+		brain1Node.player.FreeDraw()
+		brain2Node.player.FreeDraw()
+	
+	simulationManager.parent = self
 	simulationManager.StartTurn()
 
 func _ready():
@@ -113,6 +118,10 @@ func _process(delta):
 	
 	if simulationManager.gameOver == true:
 		GameOver()
+
+func StartTurn():
+	self.get_tree().get_root().get_node("Root/Brain1").StartTurn()
+	self.get_tree().get_root().get_node("Root/Brain2").StartTurn()
 
 func GameOver():
 	gamesTotal = 1

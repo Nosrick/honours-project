@@ -150,6 +150,8 @@ func _input(event):
 				ScaleUp()
 			else:
 				ScaleDown()
+			
+			self.raise()
 
 func _process(delta):
 	pass

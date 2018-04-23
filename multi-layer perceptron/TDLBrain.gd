@@ -29,6 +29,8 @@ var gameActions = []
 
 var hasActed = false
 
+var turnTime = 0
+
 func _ready():
 	Begin()
 
@@ -64,6 +66,8 @@ func _process(delta):
 	
 	if hasActed == true:
 		return
+	
+	turnTime += delta
 	
 	actionsSinceLastTry = lastActions.size()
 	
@@ -119,11 +123,12 @@ func _process(delta):
 					
 					#look at enemy lanes
 					for i in range(otherPlayer.lanes.size()):
-						SetUpSimulation()
 						#if theirs are full, and ours are empty, play the creature
 						if otherPlayer.lanes[i].myCard != null and player.lanes[i].myCard == null:
+							SetUpSimulation()
 							var simSummon = simMe.Summon(card, i)
 							if simSummon == false:
+								DestroySimulation()
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
@@ -158,12 +163,13 @@ func _process(delta):
 						var highestScore = -1
 						
 						for i in range(player.lanes.size()):
-							SetUpSimulation()
 							if player.lanes[i].myCard == null:
 								continue
 							
+							SetUpSimulation()
 							var simEnhance = simMe.Enhance(card, simMe.lanes[i].myCard)
 							if simEnhance == false:
+								DestroySimulation()
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)
@@ -204,13 +210,13 @@ func _process(delta):
 							
 					elif card.keywords.has("Hinderance"):
 						for i in range(otherPlayer.lanes.size()):
-							SetUpSimulation()
 							var laneIndex = -1
 							var highestScore = -1
 						
 							if otherPlayer.lanes[i].myCard == null:
 								continue
 							
+							SetUpSimulation()
 							if ValidateSimulation() == false:
 								print("INVALID SIMULATION")
 								print(card.ToString())
@@ -218,6 +224,7 @@ func _process(delta):
 							
 							var simHinder = simMe.Hinder(card, simThem.lanes[i].myCard)
 							if simHinder == false:
+								DestroySimulation()
 								continue
 							
 							var predictedBoardState = CalculateBoardState(simMe, simThem)

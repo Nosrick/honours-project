@@ -77,22 +77,22 @@ func GetQWeightIndexByNames(leftName, rightName):
 func AdjustQWeight(leftName, rightName, hand):
 	var index = GetQWeightIndexByNames(leftName, rightName)
 	
-	var handWeights = []
+	var handRewards = []
 	for card in hand:
-		var qWeight = GetRewardByNames(card.name, rightName)
-		if qWeight != null:
-			handWeights.push_back(qWeight.qWeight)
+		var reward = GetRewardByNames(card.name, rightName)
+		if reward != null:
+			handRewards.push_back(reward.qWeight)
 	
-	var maximum = MultiMax(handWeights)
-	var weight = rewards[index].qWeight + (discountFactor * maximum)
-	qMatrix[index] = weight
+	var maximum = MultiMax(handRewards)
+	var newReward = rewards[index].qWeight + (discountFactor * maximum)
+	qMatrix[index] = newReward
 	
 	if qMatrix[index] > 100:
 		qMatrix[index] = 100
 	elif qMatrix[index] < -100:
 		qMatrix[index] = -100
 	
-	print("NEW Q-WEIGHT: " + str(weight))
+	print("NEW Q-WEIGHT: " + str(newReward))
 
 func AdjustReward(leftName, rightName, newReward):
 	var index = GetRewardIndexByNames(leftName, rightName)

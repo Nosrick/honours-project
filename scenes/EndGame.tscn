@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Fonts/DefaultFont.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://EndGameLabelManager.gd" type="Script" id=2]
 [ext_resource path="res://ResetButton.gd" type="Script" id=3]
+[ext_resource path="res://EndTestButton.gd" type="Script" id=4]
 
 [node name="Root" type="Node"]
 
@@ -23,24 +24,60 @@ lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 2 )
 
-[node name="AgainButton" type="Button" parent="."]
+[node name="NextButton" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 454.0
-margin/top = 624.0
+margin/top = 544.0
 margin/right = 637.0
-margin/bottom = 681.0
+margin/bottom = 601.0
 custom_fonts/font = ExtResource( 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "Again!"
+text = "Next"
 flat = false
 script/script = ExtResource( 3 )
 
-[connection signal="button_up" from="AgainButton" to="AgainButton" method="Pressed"]
+[node name="EndButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 453.0
+margin/top = 610.0
+margin/right = 638.0
+margin/bottom = 672.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "End Test"
+flat = false
+script/script = ExtResource( 4 )
+
+[node name="MatchIDLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 1030.0
+margin/top = 0.0
+margin/right = 1356.0
+margin/bottom = 108.0
+custom_fonts/font = ExtResource( 1 )
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="button_up" from="NextButton" to="NextButton" method="Pressed"]
+
+[connection signal="button_up" from="EndButton" to="EndButton" method="Pressed"]
 
 

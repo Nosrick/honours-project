@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Fonts/DefaultFont.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://random/LoadRandom.gd" type="Script" id=2]
 [ext_resource path="res://rules/LoadRules.gd" type="Script" id=3]
-[ext_resource path="res://self-organising map/LoadSelfOrganisingMap.gd" type="Script" id=4]
+[ext_resource path="res://q-learner/LoadQLearner.gd" type="Script" id=4]
 [ext_resource path="res://multi-layer perceptron/LoadMLP.gd" type="Script" id=5]
-[ext_resource path="res://LoadSimulation.gd" type="Script" id=6]
+[ext_resource path="res://frank/LoadFrank.gd" type="Script" id=6]
+[ext_resource path="res://LoadSimulation.gd" type="Script" id=7]
+[ext_resource path="res://BrainOrder.gd" type="Script" id=8]
+[ext_resource path="res://DataViewButton.gd" type="Script" id=9]
 
 [node name="Root" type="Node"]
 
@@ -81,6 +84,25 @@ text = "Multi-Layer Perceptron"
 flat = false
 script/script = ExtResource( 5 )
 
+[node name="FrankButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -1.0
+margin/top = 210.0
+margin/right = 91.0
+margin/bottom = 250.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0.539063, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Frank"
+flat = false
+script/script = ExtResource( 6 )
+
 [node name="SimulationButton" type="Button" parent="."]
 
 focus/ignore_mouse = false
@@ -97,7 +119,43 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Simulation"
 flat = false
-script/script = ExtResource( 6 )
+script/script = ExtResource( 7 )
+
+[node name="GoButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 665.0
+margin/top = 589.0
+margin/right = 725.0
+margin/bottom = 629.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "GO!"
+flat = false
+script/script = ExtResource( 8 )
+
+[node name="DataButton" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1271.0
+margin/top = 51.0
+margin/right = 1360.0
+margin/bottom = 91.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Data"
+flat = false
+script/script = ExtResource( 9 )
 
 [connection signal="button_up" from="RandomButton" to="RandomButton" method="Pressed"]
 
@@ -107,6 +165,12 @@ script/script = ExtResource( 6 )
 
 [connection signal="button_up" from="MLPButton" to="MLPButton" method="Pressed"]
 
+[connection signal="button_up" from="FrankButton" to="FrankButton" method="Pressed"]
+
 [connection signal="button_up" from="SimulationButton" to="SimulationButton" method="Pressed"]
+
+[connection signal="button_up" from="GoButton" to="GoButton" method="Pressed"]
+
+[connection signal="button_up" from="DataButton" to="DataButton" method="Pressed"]
 
 

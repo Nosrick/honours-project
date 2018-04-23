@@ -321,4 +321,21 @@ texture = ExtResource( 6 )
 centered = false
 script/script = ExtResource( 7 )
 
+[node name="MatchLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 1298.0
+margin/top = 17.0
+margin/right = 1346.0
+margin/bottom = 51.0
+custom_fonts/font = ExtResource( 3 )
+text = "XYZ"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 

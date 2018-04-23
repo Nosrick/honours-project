@@ -21,6 +21,32 @@ var name
 
 var draggingCard = null
 
+const MAX_TIMER = 0.8
+var timer = 0
+var useTimer = false
+
+func SetTimer():
+	useTimer = true
+	timer = 0
+
+func ReserTimer():
+	useTimer = false
+	timer = 0
+
+func ClearLanes():
+	if timer >= MAX_TIMER:
+		for lane in lanes:
+			if lane.myCard != null and lane.myCard.currentHP <= 0:
+				remove_child(lane.myCard)
+				discardPile.push_back(lane.myCard)
+				lane.myCard = null
+			
+			if lane.myCard != null:
+				for hinderance in lane.myCard.hinderances:
+					if hinderance.type == hinderance.INSTANT:
+						hinderance.remove_and_skip()
+		ReserTimer()
+
 func SetDisplay():
 	self.get_node("LifeLabel").set_text(get_name() + "'s life: " + str(currentHP))
 
@@ -89,6 +115,8 @@ func Summon(cardRef, laneRef):
 	if cardRef.associatedScript != null:
 		cardRef.associatedScript.Do(cardRef)
 	
+	SetTimer()
+	
 	return true
 
 func Enhance(spellRef, receiver):
@@ -127,6 +155,7 @@ func Enhance(spellRef, receiver):
 	if spellRef.associatedScript != null:
 		spellRef.associatedScript.Do(receiver)
 	#spellRef.ScaleDown()
+	SetTimer()
 	return true
 
 func Hinder(spellRef, receiver):
@@ -157,7 +186,11 @@ func Hinder(spellRef, receiver):
 	if spellRef.type == spellRef.SPELL:
 		receiver.add_child(spellRef)
 		receiver.AddHinderance(spellRef)
-		spellRef.inPlay = true
+	elif spellRef.type == spellRef.INSTANT:
+		receiver.add_child(spellRef)
+		spellRef.ScaleDown()
+		spellRef.set_global_pos(receiver.get_global_pos())
+		spellRef.raise()
 	
 	hand.erase(spellRef)
 	spellRef.inPlay = true
@@ -166,6 +199,7 @@ func Hinder(spellRef, receiver):
 	if spellRef.associatedScript != null:
 		spellRef.associatedScript.Do(receiver)
 	#spellRef.ScaleDown()
+	SetTimer()
 	return true
 
 func Draw():
@@ -209,4 +243,9 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
-	pass
+	if useTimer == true:
+		timer += delta
+	
+	if useTimer == true and timer >= MAX_TIMER:
+		ClearLanes()
+		otherPlayer.ClearLanes()

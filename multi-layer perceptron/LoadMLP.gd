@@ -1,5 +1,5 @@
 extends BaseButton
 
 func Pressed():
-	GlobalVariables.brainType = 3
+	GlobalVariables.brainOrder.push_back(3)
 	get_tree().change_scene("res://scenes/Root.tscn")

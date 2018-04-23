@@ -36,8 +36,15 @@ var gameOver = false
 var timer = 0
 const TIME_BETWEEN_ACTIONS = 0.15
 
+const fileName = "res://PlayStats.json"
+var brainType = -1
+var matchID = -1
+
 func _ready():
 	randomize()
+	
+	matchID = GetMatchID()
+	
 	set_process(true)
 	for i in range(4):
 		battleMarkers.push_back(get_tree().get_root().get_node("Root/BattleMarker" + str(i + 1) + "/BattleSprite"))
@@ -73,16 +80,24 @@ func _ready():
 	
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
 	
-	if GlobalVariables.brainType == 0:
+	brainType = GlobalVariables.brainOrder[0]
+	GlobalVariables.brainOrder.pop_front()
+	if brainType == 0:
 		AIBrain.set_script(load("res://random/RandomBrain.gd"))
-	elif GlobalVariables.brainType == 1:
+	elif brainType == 1:
 		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
-	elif GlobalVariables.brainType == 2:
+	elif brainType == 2:
 		AIBrain.set_script(load("res://q-learner/QLearnerBrain.gd"))
 		AIBrain.trainingCards = cards
-	elif GlobalVariables.brainType == 3:
+	elif brainType == 3:
 		AIBrain.set_script(load("res://multi-layer perceptron/TDLBrain.gd"))
 		AIBrain.trainingCards = cards
+	elif brainType == 4:
+		AIBrain.set_script(load("res://frank/FrankBrain.gd"))
+		AIBrain.trainingCards = cards
+	
+	matchID = str(brainType) + str(matchID)
+	get_tree().get_root().get_node("Root/MatchLabel").set_text(matchID)
 	
 	AIBrain.player = player2
 	AIBrain.otherPlayer = player1
@@ -153,11 +168,21 @@ func _process(delta):
 			gameOver = true
 			player1.End()
 			player2.End()
+			Serialise(2, float(AIBrain.turnTime / turn))
+			return
 		elif player2.currentHP <= 0 and gameOver == false:
 			AIBrain.EndGame()
 			gameOver = true
 			player1.End()
 			player2.End()
+			Serialise(1, float(AIBrain.turnTime / turn))
+			return
+		elif player1.currentHP <= 0 and player2.currentHP <= 0 and gameOver == false:
+			AIBrain.EndGame()
+			gameOver = true
+			player1.End()
+			player2.End()
+			return
 	elif gameState == STATE_ATTACK:
 		RunAttacks(attackLane)
 		attackLane += 1
@@ -183,10 +208,13 @@ func RunAttacks(index):
 		if turnPlayer == player1 and player1Card.exhausted == false:
 			battleMarkers[index].Begin()
 			player1Card.DoCombat(player2Card)
+			player1.ClearLanes()
+			player2.ClearLanes()
 		elif turnPlayer == player2 and player2Card.exhausted == false:
 			battleMarkers[index].Begin()
 			player2Card.DoCombat(player1Card)
-	
+			player1.ClearLanes()
+			player2.ClearLanes()
 	else:
 		if turnPlayer == player1 and player1Card != null and player1Card.exhausted == false:
 			battleMarkers[index].Begin()
@@ -204,3 +232,123 @@ func GetCard(name):
 			return newCard
 	
 	return null
+
+func Serialise(whichPlayerWon, averageTurnTime):
+	var file = File.new()
+	
+	GlobalVariables.lastMatchID = matchID
+	
+	if file.file_exists(fileName):
+		file.open(fileName, File.READ_WRITE)
+		var string = file.get_as_text()
+		var previousData = {}
+		previousData.parse_json(string)
+		var data = {}
+		data[matchID] = {}
+		data[matchID]["brainType"] = brainType
+		data[matchID]["whichPlayerWon"] = whichPlayerWon
+		data[matchID]["averageTurnTime"] = averageTurnTime
+		
+		JoinDictionaries(data, previousData)
+		string = data.to_json()
+		
+		file.store_line(string)
+	else:
+		file.open(fileName, File.WRITE)
+		var data = {}
+		data[matchID] = {}
+		data[matchID]["brainType"] = brainType
+		data[matchID]["whichPlayerWon"] = whichPlayerWon
+		data[matchID]["averageTurnTime"] = averageTurnTime
+		var string = data.to_json()
+		file.store_line(string)
+	
+	file.close()
+
+func GetMatchID():
+	var file = File.new()
+	
+	if file.file_exists(fileName):
+		file.open(fileName, File.READ)
+	else:
+		return 0
+	
+	var string = file.get_as_text()
+	var data = {}
+	data.parse_json(string)
+	
+	file.close()
+	
+	var highestID = 0
+	for item in data.keys():
+		var subStr = item.substr(1, item.length())
+		var matchID = int(subStr)
+		if matchID > highestID:
+			highestID = matchID
+	
+	highestID += 1
+	return highestID
+
+func GetStats(brainType):
+	var file = File.new()
+	
+	file.open(fileName, File.READ)
+	
+	var string = file.get_as_text()
+	var data = {}
+	data.parse_json(string)
+	
+	file.close()
+	
+	var stats = {}
+	stats.random = {}
+	stats.random.AIWins = 0
+	stats.random.totalGames = 0
+	
+	stats.rulesBased = {}
+	stats.rulesBased.AIWins = 0
+	stats.rulesBased.totalGames = 0
+	
+	stats.qLearner = {}
+	stats.qLearner.AIWins = 0
+	stats.qLearner.totalGames = 0
+	
+	stats.TDL = {}
+	stats.TDL.AIWins = 0
+	stats.TDL.totalGames = 0
+	
+	stats.frank = {}
+	stats.frank.AIWins = 0
+	stats.frank.totalGames = 0
+	
+	for item in data:
+		if item.brainType == 0:
+			if item.whichPlayerWon == 2:
+				stats.random.AIWins += 1
+			stats.random.totalGames += 1
+		
+		elif item.brainType == 1:
+			if item.whichPlayerWon == 2:
+				stats.rulesBased.AIWins += 1
+			stats.rulesBased.totalGames += 1
+		
+		elif item.brainType == 2:
+			if item.whichPlayerWon == 2:
+				stats.qLearner.AIWins += 1
+			stats.qLearner.totalGames += 1
+		
+		elif item.brainType == 3:
+			if item.whichPlayerWon == 2:
+				stats.TDL.AIWins += 1
+			stats.TDL.totalGames += 1
+		
+		elif item.brainType == 4:
+			if item.whichPlayerWon == 2:
+				stats.frank.AIWins += 1
+			stats.frank.totalGames += 1
+	
+	return stats
+	
+func JoinDictionaries(left, right):
+		for key in right:
+			left[key] = right[key]
