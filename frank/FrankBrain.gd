@@ -291,6 +291,7 @@ func _process(delta):
 								playedSpell = player.Hinder(highestCard, otherPlayer.lanes[i].myCard)
 							"""
 						if greatestChangeIndex != -1:
+							highestCard.inPlay = false
 							playedSpell = player.Hinder(highestCard, otherPlayer.lanes[greatestChangeIndex].myCard)
 						
 						if playedSpell == true:
