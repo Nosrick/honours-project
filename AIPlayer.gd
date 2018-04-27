@@ -48,8 +48,8 @@ func ResetTimer():
 	timer = 0
 
 #Clear dead creatures from the lanes
-func ClearLanes():
-	if timer >= MAX_TIMER:
+func ClearLanes(force = false):
+	if timer >= MAX_TIMER or force == true:
 		for lane in lanes:
 			#If we have a card and it has 0 or less HP
 			if lane.myCard != null and lane.myCard.currentHP <= 0:

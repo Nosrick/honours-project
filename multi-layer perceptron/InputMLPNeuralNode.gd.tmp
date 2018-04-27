@@ -1,17 +1,15 @@
 extends Node
 
-#Identifying stuff for the cards
+#Identifiers for the cards
 var castingCardID
 var castingCardType
-
-#Cost for the cards
-var cost
 
 #Weight used for decision making
 var weight
 
 var tools = load("res://Tools.gd").new()
 
+#Initialise the node
 func _init():
 	weight = (randf() / 2) - randf()
 	castingCardID = "None"
@@ -20,20 +18,17 @@ func _init():
 func SetParameters(node):
 	castingCardID = node.castingCardID
 	castingCardType = node.castingCardType
-	cost = node.cost
 	weight = 1.0
 
 func SetParametersCard(card):
 	castingCardID = card.name
 	castingCardType = card.type
-	cost = card.cost
 	weight = 1.0
 
 func SetParametersToNone():
 	castingCardID = "None"
 	castingCardType = 0
 	weight = 0.0
-	cost = 0
 
 func ToString():
 	return "[" + castingCardID + " : " + castingCardType + " : " + weight + "]"
@@ -42,6 +37,6 @@ func Save():
 	var data = {}
 	data.castingCardID = castingCardID
 	data.castingCardType = castingCardType
-	data.cost = cost
+	
 	data.weight = weight
 	return data

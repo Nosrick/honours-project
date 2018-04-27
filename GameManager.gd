@@ -1,93 +1,130 @@
 extends Node
 
+#Cards used in the game, and the node template for instantiating new cards
 var cards = []
 var CardNode = load("res://scenes/Card.tscn")
 
+#For accessing the fading battle markers
 var battleMarkers = []
+#Used for the battle markers
+var attackLane = 0
 
+#The players!
 var player1
 var player2
 
+#The AI brain, used for the AI player
 var AIBrain
 
+#Whose turn it is
 var turnPlayer
+
+#Whether the current player has drawn or not
 var haveDrawn
+
+#Whether the current player has attacked or not
 var haveAttacked
 
+#Ints for the various phases of the game
 const DRAW_PHASE = 0
 const PLAY_PHASE = 1
 const ATTACK_PHASE = 2
 
+#The phase of the game
 var phase
 
+#The maximum mana a player can have
 const MAX_MANA = 6
+
+#The current turn number
 var turn = 1
 
+#The state of the game
 var gameState = STATE_SETUP
 
+#The game state strings, could have been integers
 const STATE_SETUP = "SETUP"
 const STATE_PLAY = "PLAY"
 const STATE_ATTACK = "ATTACK"
 const STATE_END = "END"
-var attackLane = 0
 
+#If the game is over
 var gameOver = false
 
-var timer = 0
-const TIME_BETWEEN_ACTIONS = 0.15
-
+#File name for the play statistics
 const fileName = "res://PlayStats.json"
+
+#Used for recording the brain type in the stats
 var brainType = -1
+
+#Match ID, used for recording purposes
 var matchID = -1
 
 func _ready():
+	#Randomize the seed
 	randomize()
 	
 	matchID = GetMatchID()
 	
 	set_process(true)
+	#Get the battle markers
 	for i in range(4):
+		#By finding them in the scene graph
 		battleMarkers.push_back(get_tree().get_root().get_node("Root/BattleMarker" + str(i + 1) + "/BattleSprite"))
 	
+	#Load in the cards
 	var cardLoader = load("CardLoader.gd").new()
 	cards = cardLoader.LoadCards()
 	
+	#Prepare the first player's deck of cards
 	var deckCards1 = []
 	for i in range(4):
 		for card in cards:
 			deckCards1.append(card)
 	
+	#Prepare the second player's deck of cards
 	var deckCards2 = []
 	for i in range(4):
 		for card in cards:
 			deckCards2.append(card)
 	
+	#Get the nodes for players one and two
 	player1 = get_tree().get_root().get_node("Root/Player1")
 	player2 = get_tree().get_root().get_node("Root/Player2")
 	
+	#This is the actual deck
 	var deck1 = load("Deck.gd").new(deckCards1)
 	for i in range(0, 10):
 		deck1.Shuffle()
+	
+	#Player 1 setup
 	player1.set_script(load("Player.gd"))
 	#Deck, life, mana
 	player1.Begin(deck1, 20, 1, player2)
 	
-	player2.set_script(load("AIPlayer.gd"))
 	var deck2 = load("Deck.gd").new(deckCards2)
 	for i in range(0, 10):
 		deck2.Shuffle()
+	
+	player2.set_script(load("AIPlayer.gd"))
 	player2.Begin(deck2, 20, 1, player1)
 	
 	AIBrain = get_tree().get_root().get_node("Root/AIBrain")
 	
+	#Get the first brain type from the brainOrder array, set up elsewhere
 	brainType = GlobalVariables.brainOrder[0]
+	
+	#Remove the first brain type
 	GlobalVariables.brainOrder.pop_front()
+	
+	#Load the relevant brain type
 	if brainType == 0:
 		AIBrain.set_script(load("res://random/RandomBrain.gd"))
 	elif brainType == 1:
 		AIBrain.set_script(load("res://rules/RulesBrain.gd"))
 	elif brainType == 2:
 		AIBrain.set_script(load("res://q-learner/QLearnerBrain.gd"))
+		#Set up the training cards
 		AIBrain.trainingCards = cards
 	elif brainType == 3:
 		AIBrain.set_script(load("res://multi-layer perceptron/TDLBrain.gd"))
@@ -96,33 +133,52 @@ func _ready():
 		AIBrain.set_script(load("res://frank/FrankBrain.gd"))
 		AIBrain.trainingCards = cards
 	
+	#Set up the match ID
 	matchID = str(brainType) + str(matchID)
 	get_tree().get_root().get_node("Root/MatchLabel").set_text(matchID)
 	
+	#Setting up the AI brain
 	AIBrain.player = player2
 	AIBrain.otherPlayer = player1
 	
+	#Set up the turn player
 	turnPlayer = player1
 	
+	#Draw the first four cards of the opening hand
 	for i in range(4):
 		player1.FreeDraw()
 		player2.FreeDraw()
 	
+	#Start the turn!
 	StartTurn()
 
 func IsMyTurn(player):
 	return turnPlayer == player
 
+#Start the new turn
 func StartTurn():
+	#Set the players to display their cards correctly
+	#Make sure their parameters are displaying correctly, basically
 	player1.SetDisplay()
 	player2.SetDisplay()
+	
+	#Run the start turn function of the AI brain
 	AIBrain.StartTurn()
 	phase = DRAW_PHASE
+	
+	#Set the turn label to the current player's name
 	get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn")
+	
+	#Set the player's mana
 	turnPlayer.mana = min(MAX_MANA, turn)
+	
+	#Reset replacements
 	turnPlayer.replacementsDone = 0
+	
+	#Have the current player draw a card
 	turnPlayer.Draw()
 	
+	#Set all of the player's creatures to be ready for combat
 	for lane in turnPlayer.lanes:
 		if lane.myCard != null:
 			lane.myCard.exhausted = false
@@ -131,23 +187,26 @@ func EndTurn():
 	gameState = STATE_ATTACK
 
 func _process(delta):
-	timer += delta
-	if timer < TIME_BETWEEN_ACTIONS:
-		return
-	else:
-		timer = 0
-	
 	if gameState == STATE_SETUP:
 		gameState = STATE_PLAY
+	#If we're in the play state
 	elif gameState == STATE_PLAY:
+		#and it's game over
 		if gameOver == true:
+			#and both players have been defeated
 			if player1.currentHP <= 0 and player2.currentHP <= 0:
+				#We drew!
 				GlobalVariables.message = "YOU DREW!"
+			#If player 1 is defeated
 			elif player1.currentHP <= 0:
+				#We lost!
 				GlobalVariables.message = "YOU LOSE!"
+			#If player 2 is defeated
 			elif player2.currentHP <= 0:
+				#We won!
 				GlobalVariables.message = "YOU WIN!"
 			
+			#Change scene to the end game scene
 			get_tree().change_scene("res://scenes/EndGame.tscn")
 		
 		var phaseString = ""
@@ -159,17 +218,22 @@ func _process(delta):
 		elif phase == ATTACK_PHASE:
 			phaseString = "ATTACK"
 		
+		#Update the phase label and the mana counter label
 		get_tree().get_root().get_node("Root/TurnLabel").set_text(turnPlayer.get_name() + "'s turn: " + phaseString)
 		get_tree().get_root().get_node("Root/ManaLabel").set_text(str(turnPlayer.mana) + " Mana")
 		
 		#End game state
 		if player1.currentHP <= 0 and gameOver == false:
+			#Have the AI brain wrap up
 			AIBrain.EndGame()
 			gameOver = true
+			#Have the players free up their resources
 			player1.End()
 			player2.End()
+			#Serialise the results
 			Serialise(2, float(AIBrain.turnTime / turn))
 			return
+		#Same process here
 		elif player2.currentHP <= 0 and gameOver == false:
 			AIBrain.EndGame()
 			gameOver = true
@@ -177,29 +241,44 @@ func _process(delta):
 			player2.End()
 			Serialise(1, float(AIBrain.turnTime / turn))
 			return
+		#And again
 		elif player1.currentHP <= 0 and player2.currentHP <= 0 and gameOver == false:
 			AIBrain.EndGame()
 			gameOver = true
 			player1.End()
 			player2.End()
 			return
-	elif gameState == STATE_ATTACK:
+	#If we're in the attack state
+	elif gameState == STATE_ATTACK and gameOver == false:
+		#Run the attacks for the current lane
 		RunAttacks(attackLane)
+		player1.ClearLanes()
+		player2.ClearLanes()
+		
+		#Increment the lane
 		attackLane += 1
 		
+		#If we're done, change state
 		if attackLane == 4:
 			gameState = STATE_END
 			attackLane = 0
+	#If we're in the end state
 	elif gameState == STATE_END:
+		#Change the current player
 		if turnPlayer == player1:
 			turnPlayer = player2
 		else:
 			turnPlayer = player1
+			#Increment the turn
 			turn += 1
 		
 		gameState = STATE_PLAY
+		
+		player1.ClearLanes(true)
+		player2.ClearLanes(true)
 		StartTurn()
 
+#Time to run the attacks.
 func RunAttacks(index):
 	var player1Card = player1.lanes[index].myCard
 	var player2Card = player2.lanes[index].myCard

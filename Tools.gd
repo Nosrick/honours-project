@@ -1,5 +1,7 @@
 extends Node
 
+#A simple class for the odds and ends that don't fit anywhere else
+
 func Roll(minimum, maximum):
 	var result = randi() % maximum
 	if result < minimum:
@@ -29,3 +31,5 @@ func RecursiveDictionarySearch(dictionary, searchTerm):
 				return item
 			elif item == typeof(dictionary):
 				return RecursiveSearch(item, searchTerm)
+			else:
+				return false

@@ -38,8 +38,3 @@ func _process(delta):
 	
 	#Ensure the card is on top of the draw order
 	myCard.raise()
-	
-	if myCard.currentHP <= 0:
-		player.remove_child(myCard)
-		player.discardPile.push_back(myCard)
-		myCard = null

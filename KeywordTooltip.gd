@@ -3,12 +3,13 @@ extends Control
 var myCard
 
 var tooltips = {}
-var directory = "res://cards/tooltips"
+const directory = "res://cards/tooltips"
 
 func _ready():
 	myCard = self.get_parent()
 	LoadTooltips()
-	
+
+#Begin loading the tooltips for the card
 func LoadTooltips():
 	var files = []
 	

@@ -3,13 +3,19 @@ extends Node
 var node = preload("FrankNode.gd")
 var tools = load("res://Tools.gd").new()
  
+#The filepath for the brain
 const filePath = "res://myBrainFrank.json"
  
+#Array of nodes
 var nodes = []
+
+#Width of the array
 var width
  
+#How quickly Frank learns
 var learningRate = 0.3
- 
+
+#Initialise the interface
 func _init(widthRef):
   randomize()
   nodes = []
@@ -17,13 +23,18 @@ func _init(widthRef):
   
   for x in range(width):
     nodes.append(node.new())
- 
+
+#Do a simple epoch
 func Epoch(newNode):
-  var node = GetBestMatch(newNode)
-  var influence = 0.5
-  node.AdjustMana(newNode.targetMana, learningRate, influence)
-  node.AdjustQWeight(newNode.qWeight, learningRate, influence)
+	#Get the node
+	var node = GetBestMatch(newNode)
+	var influence = 0.5
+	
+	#Adjust the mana and the weight
+	node.AdjustMana(newNode.targetMana, learningRate, influence)
+	node.AdjustQWeight(newNode.qWeight, learningRate, influence)
  
+#Get a random, unassigned node
 func RandomUnassignedNode():
 	var unassigned = []
 	for node in nodes:

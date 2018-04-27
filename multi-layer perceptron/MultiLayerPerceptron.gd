@@ -2,6 +2,7 @@ extends Node
 
 const filePath = "res://myBrainMLP.json"
 
+#Node templates
 var inputNodeTemplate = load("res://multi-layer perceptron/InputMLPNeuralNode.gd")
 var cardNodeTemplate = load("res://multi-layer perceptron/CardMLPNeuralNode.gd")
 var outputNodeTemplate = load("res://multi-layer perceptron/OutputMLPNeuralNode.gd")
@@ -45,6 +46,7 @@ const learningRate = 0.3
 func _init():
 	randomize()
 	
+	#Settings up the inputs
 	handInputs = []
 	for i in range(0, handNumber):
 		handInputs.push_back(inputNodeTemplate.new())
@@ -62,7 +64,8 @@ func _init():
 	
 	weights = []
 
-func Initialisation(cards):	
+func Initialisation(cards):
+	#Set up the hidden card layer
 	for card in cards:
 		var cardNode = cardNodeTemplate.new()
 		cardNode.SetParametersCard(card)
@@ -70,6 +73,7 @@ func Initialisation(cards):
 	
 	cardNumber = cardHidden.size()
 	
+	#Set up the output layer
 	for card in cards:
 		var outputNode = outputNodeTemplate.new()
 		outputNode.SetParametersCard(card)
@@ -78,6 +82,7 @@ func Initialisation(cards):
 	
 	outputNumber = outputNodes.size()
 	
+	#Set up the weights between layers
 	#Hand -> Card hidden weights
 	for i in range(0, handNumber * cardNumber):
 		weights.push_back(Sigmoid(randf() / 2 - randf()))
@@ -163,15 +168,25 @@ func CalculateNetwork():
 		
 		outputNodes[i].weight = Sigmoid(outputNodes[i].weight)
 
+#The actual bit that does the reasoning
 func Reason(inputList):
+	#Fill the input list
+	#Just to recap what the input list is:
+	#0-5 is the AI hand
+	#6-9 are friendly lanes
+	#10-13 are enemy lanes
+	#14 is the mana
 	PopulateInput(inputList)
 	
+	#Calculate the network for this move
 	CalculateNetwork()
 	
+	#Copy the output nodes into a list to be sorted
 	var outputNodesCopy = []
 	for output in outputNodes:
 		outputNodesCopy.push_back(output)
 	
+	#Sort the list
 	outputNodesCopy.sort_custom(self, "SortOutput")
 	return outputNodesCopy
 	
@@ -181,6 +196,7 @@ func SortOutput(left, right):
 	
 	return false
 
+#Get the TD error
 func GetError(difference, newWeight, currentWeight):
 	return difference + (learningRate * (newWeight)) - currentWeight
 
