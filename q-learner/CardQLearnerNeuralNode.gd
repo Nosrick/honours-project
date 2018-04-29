@@ -1,16 +1,22 @@
 extends Node
 
+#First identifying card stuff
 var castingCardID
 var castingCardType
 
+#Second identifying card stuff
 var nextCardID
 var nextCardType
 
+#Target mana value
 var targetMana
+
+#Q-weight, used in decision making
 var qWeight
 
 var tools = load("res://Tools.gd").new()
 
+#Initialising the node
 func _init():
 	castingCardID = "None"
 	castingCardType = 0
@@ -21,6 +27,7 @@ func _init():
 	qWeight = randi() % 100
 	targetMana = 1
 
+#Setting the parameters of the node
 func SetParameters(castingNode, nextNode):
 	castingCardID = castingNode.castingCardID
 	castingCardType = castingNode.castingCardType
@@ -30,6 +37,7 @@ func SetParameters(castingNode, nextNode):
 	
 	targetMana = castingNode.targetMana
 
+#The same as above, but using cards rather than nodes
 func SetParametersByCards(castingCard, nextCard):
 	castingCardID = castingCard.name
 	castingCardType = castingCard.type
@@ -38,38 +46,11 @@ func SetParametersByCards(castingCard, nextCard):
 	nextCardType = nextCard.type
 	
 	if castingCard.cost + nextCard.cost > 6:
-		qWeight = 0
+		qWeight = -100
 
 func SetParametersByCard(castingCard):
 	castingCardID = castingCard.name
 	castingCardType = castingCard.type
-
-func GetDistanceMana(targetManaRef):
-	var distance = (targetManaRef - targetMana) * (targetManaRef - targetMana)
-	
-	distance = sqrt(distance)
-	return distance
-
-func AdjustManaOLD(targetManaRef, learningRate, influence):
-	#OJA-STYLE LEARNING
-	var normalisedMana = tools.NormaliseOneToTen(targetMana)
-	var normalisedTarget = tools.NormaliseOneToTen(targetManaRef)
-	
-	var mana = float(normalisedTarget * (normalisedMana * normalisedTarget)) - ((normalisedMana * normalisedTarget) * (normalisedMana * normalisedTarget) * normalisedMana)
-	if mana == 0:
-		mana = normalisedTarget
-	
-	var recombobulated = float(tools.RecombobulateOneToTen(mana))
-	
-	targetMana += float(float(influence) * float(learningRate) * recombobulated)
-	
-	#targetMana = float(influence) * float(learningRate) * (float(targetManaRef - targetMana) * float(targetManaRef - targetMana))
-
-func AdjustQWeightOLD(qWeightRef, learningRate, influence):
-	#OJA-STYLE LEARNING
-	var newWeight = float(influence * float(learningRate * float((qWeightRef * (qWeight * qWeightRef)) - ((qWeight * qWeightRef) * (qWeight * qWeightRef) * qWeight))))
-	
-	qWeight += newWeight
 
 func ToString():
 	return "[" + castingCardID + " : " + nextCardID + " : " + str(targetMana) + " : " + str(qWeight) + "]"

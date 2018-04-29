@@ -227,9 +227,10 @@ func Epoch(predictedBoardState, teachingStep):
 	
 	#vit + a (Ot + 1 * xit)
 	
-	
+	#Calculate the network for this Epoch
 	CalculateNetwork()
 	
+	#Get the deltas ready
 	var handToCardDeltas = []
 	var myLaneToCardDeltas = []
 	var theirLaneToCardDeltas = []

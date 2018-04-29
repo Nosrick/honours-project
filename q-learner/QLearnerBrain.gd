@@ -2,35 +2,48 @@ extends Node
 
 const name = "QLearnerBrain"
 
-var score
+#Should really be called 'interface'
 var brain
 
+#Player, opponent and game manager
 var player
 var otherPlayer
 var manager
 
+#Board states
 var boardState = Vector2()
 var lastBoardState = Vector2()
 
+#Last actions attempted
 var lastActions = []
+
+#The card card to be played
 var nextCard = null
 
+#Actions to be taken
 var actionsToProcess = []
 
 var tools = load("res://Tools.gd").new()
 var cardNode = load("res://q-learner/CardQLearnerNeuralNode.gd")
 
+#Cards to train the interface
 var trainingCards = []
 
+#If we're stuck
 var stuck = false
+
+#Keep track of how many attempts we take to do something
 var attempts = 0
 const MAX_ATTEMPTS = 50
 
+#Whether we've acted this turn or not
+#To stop us making the manager stuck
 var hasActed = false
 
+#Telemetry
 var turnTime = 0
 
-#FIX THIS
+#Training the interface
 func InitialTraining(deck):
 	for i in range(0, deck.size()):
 		for j in range(0, deck.size()):
@@ -56,10 +69,13 @@ func _ready():
 	Begin()
 
 func Begin():
+	#Initialise the interface
 	var arraySize = trainingCards.size()
 	brain = load("res://q-learner/CardQLearner.gd").new(arraySize)
 	
+	#Try to deserialise the interface
 	if brain.Deserialise() == false:
+		#Otherwise, train a new one
 		InitialTraining(trainingCards)
 	
 	if self.get_tree() != null:
@@ -89,13 +105,10 @@ func _process(delta):
 	
 	var actionsSinceLastTry = lastActions.size()
 	
-	#Find approximate Q-score for each card
-	var highestQScore = -999
-	var activeNode = null
-	
-	
 	attempts = 0
+	#While we've got attempts left, try to do stuff
 	while attempts < MAX_ATTEMPTS:
+		#Get the nodes in hand
 		var nodesInHand = []
 		if player.hand.size() == 1:
 			var card = player.hand[0]
@@ -150,26 +163,35 @@ func _process(delta):
 			EndTurn()
 			return
 		
+		#Time to sort the nodes into something we can use
 		for i in range(0, nodesInHand.size()):
 			var node = nodesInHand[i]
+			
+			#If the node is null, discard it
 			if node == null:
 				continue
 			
+			#Else, let's construct something useful
 			var action = {}
 			action.node = node
 			for card in player.hand:
+				#If the card costs more than we have, continue
 				if card.cost > player.mana:
 					continue
 				
+				#If we've found the right card...
 				if node.castingCardID == card.name:
+					#...set our action's card to this card
 					action.card = card
 					action.tried = false
 					break
 			
+			#If at the end of this loop our action has a card, push it onto the action queue
 			if action.has("card"):
 				actionsToProcess.push_back(action)
 				print(str("ADDING NODE: " + action.node.ToString()))
 		
+		#Sort the action queue to give us the best choice
 		actionsToProcess.sort_custom(self, "SortHand")
 		
 		if actionsToProcess.size() == 0:
@@ -282,7 +304,7 @@ func _process(delta):
 			
 		var actionsThisTry = lastActions.size()
 		
-		
+		#If we get stuck, end our turn
 		if stuck == true:
 			print("STUCK, ENDING TURN")
 			EndTurn()
@@ -294,6 +316,7 @@ func _process(delta):
 				stuck = true
 				var lowestQScore = 999
 				var lowestCard = null
+				#Find our least useful card
 				for card in player.hand:
 					var qScoreNode = brain.GetRewardByNames(card.name, "None")
 					
@@ -301,6 +324,7 @@ func _process(delta):
 						lowestQScore = qScoreNode.qWeight
 						lowestCard = card
 				
+				#And replace it
 				player.Replace(lowestCard)
 
 func EndTurn():

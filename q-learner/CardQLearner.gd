@@ -3,20 +3,26 @@ extends Node
 var node = preload("CardQLearnerNeuralNode.gd")
 var tools = load("res://Tools.gd").new()
 
-var filePath = "res://myBrainQL.json"
+const filePath = "res://myBrainQL.json"
 
+#Matrix for short-term q-weights
 var qMatrix = []
+
+#Matrix for rewards
 var rewards = []
 
+#How wide and tall the matrices are
 var width
 var height
 
+#How quickly the AI learns from new information
 const discountFactor = 0.8
 
 func _init(cardsRef):
 	randomize()
 	qMatrix = []
 	rewards = []
+	#We need a space for "None", too
 	width = cardsRef + 1
 	height = cardsRef + 1
 	
@@ -25,6 +31,7 @@ func _init(cardsRef):
 			qMatrix.append(0)
 			rewards.append(node.new())
 
+#Simple getter functions
 func GetQWeightByIndex(x, y):
 	if x * height + y < width * height:
 		return qMatrix[x * height + y]
@@ -73,27 +80,33 @@ func GetQWeightIndexByNames(leftName, rightName):
 		index += 1
 	
 	return -1
+#END GETTERS
 
+#Adjusts the q-weight for this card pair and hand
 func AdjustQWeight(leftName, rightName, hand):
-	var index = GetQWeightIndexByNames(leftName, rightName)
+	var index = GetRewardIndexByNames(leftName, rightName)
 	
-	var handRewards = []
+	var handWeights = []
+	#Get q-weights for this hand
 	for card in hand:
-		var reward = GetRewardByNames(card.name, rightName)
-		if reward != null:
-			handRewards.push_back(reward.qWeight)
+		var qWeight = GetQWeightByNames(card.name, rightName)
+		if qWeight != null:
+			handWeights.push_back(qWeight.qWeight)
 	
-	var maximum = MultiMax(handRewards)
-	var newReward = rewards[index].qWeight + (discountFactor * maximum)
-	qMatrix[index] = newReward
+	#Find the highest reward for this hand
+	var maximum = MultiMax(handWeights)
+	#Figure out the new q-weight according to the q-learning formula
+	var newWeight = rewards[index].qWeight + (discountFactor * maximum)
+	qMatrix[index] = newWeight
 	
 	if qMatrix[index] > 100:
 		qMatrix[index] = 100
 	elif qMatrix[index] < -100:
 		qMatrix[index] = -100
 	
-	print("NEW Q-WEIGHT: " + str(newReward))
+	print("NEW Q-WEIGHT: " + str(newWeight))
 
+#Adjusts the reward in a very simple way
 func AdjustReward(leftName, rightName, newReward):
 	var index = GetRewardIndexByNames(leftName, rightName)
 	
@@ -105,18 +118,22 @@ func AdjustReward(leftName, rightName, newReward):
 	elif rewards[index].qWeight > 100:
 		rewards[index].qWeight = 100
 
+#Adjusts the target mana
 func AdjustTargetMana(leftName, rightName, newMana):
 	var index = GetRewardIndexByNames(leftName, rightName)
 	
 	rewards[index].targetMana += newMana
 
+#Adjusts the mana of all nodes that share the same starting card as this node
 func AdjustRelatedMana(leftName, newMana):
 	#Get each related node
 	#Adjust the current mana towards the new mana using the discount factor
 	for node in rewards:
 		if node.castingCardID == leftName:
+			#Use the sum of two squares (rooted)
 			node.targetMana = float(discountFactor * sqrt((node.targetMana * node.targetMana) + (newMana * newMana)))
 
+#Just takes a list of numbers and finds the largest
 func MultiMax(list):
 	var currentMax = 0
 	var previousItem = -999
