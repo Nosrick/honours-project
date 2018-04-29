@@ -91,7 +91,7 @@ func AdjustQWeight(leftName, rightName, hand):
 	for card in hand:
 		var qWeight = GetQWeightByNames(card.name, rightName)
 		if qWeight != null:
-			handWeights.push_back(qWeight.qWeight)
+			handWeights.push_back(qWeight)
 	
 	#Find the highest reward for this hand
 	var maximum = MultiMax(handWeights)

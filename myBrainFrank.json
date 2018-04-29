@@ -1,21 +1,22 @@
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.961756}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.233856}
-{"targetMana":3.043126, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":-0.111314}
-{"targetMana":2.003668, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":-0.111314}
-{"targetMana":1.283667, "castingCardType":2, "castingCardID":"Bless", "qWeight":-0.111314}
+{"targetMana":3.089036, "castingCardType":1, "castingCardID":"Beatnik Dog", "qWeight":-0.573337}
+{"targetMana":2.009246, "castingCardType":1, "castingCardID":"Compiler Bunny", "qWeight":-0.111314}
+{"targetMana":1.285852, "castingCardType":2, "castingCardID":"Bless", "qWeight":-0.691358}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.076961}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.483144}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.198624}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.276159}
-{"targetMana":9.180995, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":-0.111314}
+{"targetMana":9.438396, "castingCardType":2, "castingCardID":"Lionheart", "qWeight":-0.338272}
 {"targetMana":3.058106, "castingCardType":1, "castingCardID":"Cursed Gull", "qWeight":-0.223787}
 {"targetMana":1, "castingCardType":2, "castingCardID":"Curse", "qWeight":-0.111314}
-{"targetMana":2.009245, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":-0.111314}
+{"targetMana":2.014916, "castingCardType":1, "castingCardID":"Debug Cat", "qWeight":-0.111314}
 {"targetMana":5.30302, "castingCardType":3, "castingCardID":"Wand of Rage", "qWeight":-0.455012}
 {"targetMana":1, "castingCardType":1, "castingCardID":"Code Mouse", "qWeight":-0.111314}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.562807}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.091818}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.187619}
 {"targetMana":1, "castingCardType":null, "castingCardID":"None", "qWeight":0.307435}
-{"targetMana":3.043126, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.573337}
+{"targetMana":3.073406, "castingCardType":3, "castingCardID":"Fireball", "qWeight":-0.111314}
+{"targetMana":3.058106, "castingCardType":3, "castingCardID":"Fireball", "qWeight":-0.111314}
 {"targetMana":3.043126, "castingCardType":3, "castingCardID":"Fireball", "qWeight":0.573337}

@@ -114,4 +114,5 @@ func _process(delta):
 			player.Hinder(card, otherPlayer.lanes[laneChoice].myCard)
 
 func EndGame():
-	pass
+	hasActed = true
+	set_process(false)

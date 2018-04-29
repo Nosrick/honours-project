@@ -418,11 +418,12 @@ func CalculateMana(card):
 	return currentValue
 
 func EndGame():
+	hasActed = true
+	set_process(false)
 	#Learning time!
 	for gameAction in gameActions:
 		brain.Epoch(gameAction, 0.3)
 	
 	gameActions.clear()
 	
-	set_process(false)
 	brain.Serialise()

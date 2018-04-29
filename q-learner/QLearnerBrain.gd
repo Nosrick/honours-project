@@ -339,6 +339,8 @@ func EndTurn():
 		#Clear the action list
 		lastActions.clear()
 		actionsToProcess.clear()
+		
+		#And end our turn
 		manager.EndTurn()
 		hasActed = true
 
@@ -378,5 +380,6 @@ func CalculateManaDifference(then, now):
 	return difference
 
 func EndGame():
+	hasActed = true
 	set_process(false)
 	brain.Serialise()

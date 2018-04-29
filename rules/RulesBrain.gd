@@ -97,4 +97,5 @@ func CalculateMana(card):
 	return manaValue
 
 func EndGame():
+	hasActed = true
 	set_process(false)
