@@ -17,22 +17,27 @@ func GetStats():
 	stats.random = {}
 	stats.random.AIWins = 0
 	stats.random.totalGames = 0
+	stats.random.averageTurnTime = 0
 	
 	stats.rulesBased = {}
 	stats.rulesBased.AIWins = 0
 	stats.rulesBased.totalGames = 0
+	stats.rulesBased.averageTurnTime = 0
 	
 	stats.qLearner = {}
 	stats.qLearner.AIWins = 0
 	stats.qLearner.totalGames = 0
+	stats.qLearner.averageTurnTime = 0
 	
 	stats.TDL = {}
 	stats.TDL.AIWins = 0
 	stats.TDL.totalGames = 0
+	stats.TDL.averageTurnTime = 0
 	
 	stats.frank = {}
 	stats.frank.AIWins = 0
 	stats.frank.totalGames = 0
+	stats.frank.averateTurnTime = 0
 	
 	for key in data.keys():
 		var item = data[key]
@@ -40,26 +45,31 @@ func GetStats():
 			if item.whichPlayerWon == 2:
 				stats.random.AIWins += 1
 			stats.random.totalGames += 1
+			stats.random.averageTurnTime = item.averageTurnTime
 		
 		elif item.brainType == 1:
 			if item.whichPlayerWon == 2:
 				stats.rulesBased.AIWins += 1
 			stats.rulesBased.totalGames += 1
+			stats.rulesBased.averageTurnTime = item.averageTurnTime
 		
 		elif item.brainType == 2:
 			if item.whichPlayerWon == 2:
 				stats.qLearner.AIWins += 1
 			stats.qLearner.totalGames += 1
+			stats.qLearner.averageTurnTime = item.averageTurnTime
 		
 		elif item.brainType == 3:
 			if item.whichPlayerWon == 2:
 				stats.TDL.AIWins += 1
 			stats.TDL.totalGames += 1
+			stats.TDL.averageTurnTime = item.averageTurnTime
 		
 		elif item.brainType == 4:
 			if item.whichPlayerWon == 2:
 				stats.frank.AIWins += 1
 			stats.frank.totalGames += 1
+			stats.frank.averageTurnTime = item.averageTurnTime
 	
 	return stats
 

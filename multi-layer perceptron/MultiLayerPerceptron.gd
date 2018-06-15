@@ -207,8 +207,6 @@ func LinearPrediction(input, oldWeight, newWeight):
 
 #Please forgive me if this is wrong
 func Epoch(predictedBoardState, teachingStep):
-	#var difference = previousBoardState - predictedBoardState
-	#var overallManaState = difference.x - difference.y
 	var overallManaState = predictedBoardState.x - predictedBoardState.y
 	
 	var normalisedManaState = tools.NormaliseOneToTen(overallManaState)
